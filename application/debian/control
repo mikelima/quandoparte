@@ -1,0 +1,14 @@
+Source: quandoparte
+Section: user/hidden
+Priority: optional
+Maintainer: Luciano Montanaro <mikelima@zaphod>
+Build-Depends: debhelper (>= 5), libqt4-dev
+Standards-Version: 3.7.3
+Homepage: www.cirulla.net/quandoparte
+
+Package: arriviepartenze
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Virtual Arrivals and Departures board for Italian trains
+ ArriviEPartenze uses the Trenitalia data to show arrivals and departures times
+ of the trains of a given station, with delay or suppression information.
