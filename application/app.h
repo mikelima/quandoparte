@@ -35,6 +35,7 @@ class App : public QObject
     Q_OBJECT
 public:
     explicit App(QObject *parent = 0);
+    ~App();
 
 signals:
 
@@ -44,6 +45,7 @@ public slots:
     void showAboutDialog(void);
     void showSettingsDialog(void);
     void showStationSelectView(void);
+    void setShowingArrivals(bool);
 public:
     void saveSettings(void);
     void readSettings(void);

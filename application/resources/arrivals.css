@@ -1,0 +1,9 @@
+@import url("./quandoparte.css");
+
+.arrivals {
+display: block
+}
+
+.departures {
+display: none
+}

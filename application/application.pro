@@ -43,7 +43,10 @@ OTHER_FILES += \
     debian/README \
     debian/rules \
     quandoparte.desktop \
-    icons/quandoparte.png
+    icons/quandoparte.png \
+    resources/quandoparte.css \
+    resources/arrivals.css \
+    resources/departures.css
 
 unix:!symbian {
     maemo5 {
@@ -61,14 +64,17 @@ unix:!symbian {
     } else {
         desktopfile.path = /usr/share/applications
     }
-    INSTALLS += desktopfile
+    INSTALLS += desktopfile cssfile
 }
 
 unix:!symbian {
+    css.files = resources/$${TARGET}.css resources/arrivals.css resources/departures.css
+    css.path = /usr/share/apps/$${TARGET}/css
     icon48.files = icons/48x48/$${TARGET}.png
     icon64.files = icons/64x64/$${TARGET}.png
     icon48.path = /usr/share/icons/hicolor/48x48/apps
     icon64.path = /usr/share/icons/hicolor/64x64/apps
     INSTALLS += icon48
     INSTALLS += icon64
+    INSTALLS += css
 }

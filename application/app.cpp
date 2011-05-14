@@ -46,6 +46,8 @@ App::App(QObject *parent) :
     connect(stationView, SIGNAL(stationListSelectTriggered()),
             SLOT(showStationSelectView()));
 
+    connect(stationView, SIGNAL(showingArrivalsChanged(bool)),
+            SLOT(setShowingArrivals(bool)));
     readSettings();
 
 #if defined(Q_WS_S60)
@@ -61,6 +63,11 @@ App::App(QObject *parent) :
         stationListView->show();
 #endif
     }
+}
+
+App::~App()
+{
+    saveSettings();
 }
 
 void App::downloadFinished(void)
@@ -124,4 +131,9 @@ void App::saveSettings(void)
     settings.value("CurrentStation", stationName);
     settings.value("ShowingArrivals", showingArrivals);
     settings.value("CheckInterval", checkingInterval);
+}
+
+void App::setShowingArrivals(bool showArrivals)
+{
+    showingArrivals = showArrivals;
 }

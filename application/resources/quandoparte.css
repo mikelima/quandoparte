@@ -1,0 +1,26 @@
+body {
+-webkit-user-select: none ! important;
+background-color: black ! important;
+color: white ! important;
+}
+
+.testata_red {
+display:none ! important;
+}
+
+.bloccotreno, .bloccorisultato {
+background-color: black ! important;
+color: white ! important;
+}
+
+h1, h2 {
+color: white ! important
+}
+
+#footer {
+display: none ! important;
+}
+
+div.bloccotreno br:first-of-type {
+display: none
+}

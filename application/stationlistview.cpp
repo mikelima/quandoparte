@@ -39,6 +39,7 @@ StationListView::StationListView(QWidget *parent) :
 {
 #ifdef Q_WS_MAEMO_5
     setAttribute(Qt::WA_Maemo5StackedWindow);
+    setAttribute(Qt::WA_Maemo5AutoOrientation);
 #endif
     ui->setupUi(this);
     viewSelectionGroup->addAction(ui->sortByNameAction);
