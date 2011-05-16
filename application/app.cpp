@@ -78,6 +78,7 @@ void App::downloadFinished(void)
     stationListView->hide();
     stationQueryReply->deleteLater();
     stationQueryReply = 0;
+    stationListView->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, false);
 }
 
 void App::queryStation(const QString &station)
@@ -89,6 +90,7 @@ void App::queryStation(const QString &station)
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),
             this, SLOT(downloadFinished()));
+    stationListView->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, true);
 }
 
 void App::showSettingsDialog()
