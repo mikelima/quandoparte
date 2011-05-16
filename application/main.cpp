@@ -22,6 +22,9 @@ Boston, MA 02110-1301, USA.
 #include "app.h"
 
 #include <QApplication>
+#include <QDebug>
+#include <QLocale>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
@@ -29,6 +32,15 @@ int main(int argc, char *argv[])
     a.setApplicationName("QuandoParte");
     a.setOrganizationDomain("cirulla.net");
 
+    QString locale = QLocale::system().name();
+    QTranslator translator;
+    if (translator.load(QString("quandoparte_") + locale,
+                        "/opt/usr/share/apps/quandoparte/i18n")) {
+        qDebug() << "Translation for locale" << locale << "loaded";
+        a.installTranslator(&translator);
+    } else {
+        qDebug() << "Translation for locale" << locale << "not found";
+    }
     App theApp;
 
     return a.exec();

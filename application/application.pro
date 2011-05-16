@@ -9,6 +9,8 @@ QT += webkit network xml maemo5
 TARGET = quandoparte
 TEMPLATE = app
 
+TRANSLATIONS = resources/i18n/quandoparte_it.ts
+
 SOURCES += main.cpp \
     settingsdialog.cpp \
     stationview.cpp \
@@ -26,7 +28,7 @@ FORMS += \
     stationlistview.ui
 
 CONFIG += webkit mobility
-MOBILITY = location bearer
+MOBILITY = location
 
 symbian {
     TARGET.UID3 = 0xe30fb688
@@ -46,8 +48,10 @@ OTHER_FILES += \
     icons/quandoparte.png \
     resources/quandoparte.css \
     resources/arrivals.css \
-    resources/departures.css
+    resources/departures.css \
+    $$replace(TRANSLATIONS, .ts, .qm)
 
+message($${OTHER_FILES})
 unix:!symbian {
     maemo5 {
         target.path = /opt/usr/bin
@@ -64,12 +68,19 @@ unix:!symbian {
     } else {
         desktopfile.path = /usr/share/applications
     }
-    INSTALLS += desktopfile cssfile
+    INSTALLS += desktopfile
 }
 
 unix:!symbian {
     css.files = resources/$${TARGET}.css resources/arrivals.css resources/departures.css
-    css.path = /usr/share/apps/$${TARGET}/css
+    i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
+    maemo5 {
+	i18n.path = /opt/usr/share/apps/$${TARGET}/i18n
+	css.path = /opt/usr/share/apps/$${TARGET}/css
+    } else {
+	i18n.path = /usr/share/apps/$${TARGET}/i18n
+	css.path = /usr/share/apps/$${TARGET}/css
+    }
     icon48.files = icons/48x48/$${TARGET}.png
     icon64.files = icons/64x64/$${TARGET}.png
     icon48.path = /usr/share/icons/hicolor/48x48/apps
@@ -77,4 +88,5 @@ unix:!symbian {
     INSTALLS += icon48
     INSTALLS += icon64
     INSTALLS += css
+    INSTALLS += i18n
 }

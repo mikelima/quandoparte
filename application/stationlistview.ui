@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>786</width>
-    <height>466</height>
+    <width>784</width>
+    <height>464</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string/>
+   <string>Station List</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -25,7 +25,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>786</width>
+     <width>784</width>
      <height>25</height>
     </rect>
    </property>

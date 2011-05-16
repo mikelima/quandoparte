@@ -153,10 +153,12 @@ void StationView::updateCss(void)
     qDebug() << styleSheet;
     //QUrl cssUrl = QUrl::fromEncoded(styleSheet);
     QUrl cssUrl;
+
+    // XXX Maemo5 specific
     if (showArrivalsAction->isChecked()) {
-        cssUrl.setEncodedUrl("file:///usr/share/apps/quandoparte/css/arrivals.css");
+        cssUrl.setEncodedUrl("file:///opt/usr/share/apps/quandoparte/css/arrivals.css");
     } else {
-        cssUrl.setEncodedUrl("file:///usr/share/apps/quandoparte/css/departures.css");
+        cssUrl.setEncodedUrl("file:///opt/usr/share/apps/quandoparte/css/departures.css");
     }
     QWebSettings::globalSettings()->setUserStyleSheetUrl(cssUrl);
 }
