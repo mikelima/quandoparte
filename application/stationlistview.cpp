@@ -27,13 +27,15 @@ Boston, MA 02110-1301, USA.
 
 #include <QActionGroup>
 #include <QDebug>
+#include <QSortFilterProxyModel>
 #include <QStringListModel>
 
 StationListView::StationListView(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::StationListView),
     viewSelectionGroup(new QActionGroup(0)),
-    stationListModel(new QStringListModel()),
+    stationListModel(new QStringListModel(this)),
+    filterModel(new QSortFilterProxyModel(this)),
     stationView(0)
 
 {
@@ -46,26 +48,49 @@ StationListView::StationListView(QWidget *parent) :
     viewSelectionGroup->addAction(ui->sortNearFirstAction);
     viewSelectionGroup->addAction(ui->sortRecentFirstAction);
     QStringList stationList;
-    stationList << "Genova Voltri"
+    stationList << "Savona"
+                << "Albisola"
+                << "Celle"
+                << "Varazze"
+                << "Cogoleto"
+                << "Arenzano"
+                << "Genova Voltri"
                 << "Genova Pra"
                 << "Genova Pegli"
                 << "Genova Sestri Ponente"
                 << "Genova Cornigliano"
                 << "Genova Sampierdarena"
+                << "Genova Rivarolo"
+                << "Genova Bolzaneto"
+                << "Genova San Biagio"
+                << "Genova Pontedecimo"
+                << "Piano Orzzontale dei Giovi"
+                << "Mignanego"
+                << "Busalla"
                 << "Genova Via di Francia"
                 << "Genova Piazza Principe"
                 << "Genova Brignole"
                 << "Genova Sturla"
                 << "Genova Quarto dei Mille"
                 << "Genova Quinto al Mare"
-                << "Genova Nervi";
+                << "Genova Nervi"
+                << "Bogliasco"
+                << "Pontetto"
+                << "Pieve Ligure"
+                << "Sori"
+                << "Mulinetti"
+                << "Recco"
+                << "Camogli";
     stationListModel->setStringList(stationList);
-    ui->listView->setModel(stationListModel);
+    filterModel->setSourceModel(stationListModel);
+    ui->listView->setModel(filterModel);
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->listView->setSelectionMode(QAbstractItemView::SingleSelection);
-
+    //ui->filterEdit->hide();
     connect(ui->listView,
             SIGNAL(activated(QModelIndex)), SLOT(showStation(QModelIndex)));
+    connect(ui->filterEdit, SIGNAL(textChanged(const QString &)),
+            filterModel, SLOT(setFilterFixedString(const QString &)));
 }
 
 StationListView::~StationListView()

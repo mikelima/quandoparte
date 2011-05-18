@@ -10,6 +10,7 @@ namespace Ui {
 
 class QActionGroup;
 class QStringListModel;
+class QSortFilterProxyModel;
 
 class StationView;
 
@@ -32,6 +33,7 @@ private:
     Ui::StationListView *ui;
     QActionGroup *viewSelectionGroup;
     QStringListModel *stationListModel;
+    QSortFilterProxyModel *filterModel;
     StationView *stationView;
 };
 
