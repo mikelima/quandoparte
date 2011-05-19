@@ -22,11 +22,12 @@ Boston, MA 02110-1301, USA.
 #include "stationlistview.h"
 #include "ui_stationlistview.h"
 
+#include "keypressforwarder.h"
 #include "settingsdialog.h"
-#include "stationview.h"
 
 #include <QActionGroup>
 #include <QDebug>
+#include <QKeyEvent>
 #include <QSortFilterProxyModel>
 #include <QStringListModel>
 
@@ -36,7 +37,7 @@ StationListView::StationListView(QWidget *parent) :
     viewSelectionGroup(new QActionGroup(0)),
     stationListModel(new QStringListModel(this)),
     filterModel(new QSortFilterProxyModel(this)),
-    stationView(0)
+    keyPressForwarder(new KeyPressForwarder(this))
 
 {
 #ifdef Q_WS_MAEMO_5
@@ -83,14 +84,19 @@ StationListView::StationListView(QWidget *parent) :
                 << "Camogli";
     stationListModel->setStringList(stationList);
     filterModel->setSourceModel(stationListModel);
+    filterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     ui->listView->setModel(filterModel);
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->listView->setSelectionMode(QAbstractItemView::SingleSelection);
-    //ui->filterEdit->hide();
+    ui->filterEdit->hide();
+
+    keyPressForwarder->setTarget(ui->filterEdit);
+    ui->listView->installEventFilter(keyPressForwarder);
+
     connect(ui->listView,
             SIGNAL(activated(QModelIndex)), SLOT(showStation(QModelIndex)));
     connect(ui->filterEdit, SIGNAL(textChanged(const QString &)),
-            filterModel, SLOT(setFilterFixedString(const QString &)));
+            SLOT(handleFilterChanges(const QString &)));
 }
 
 StationListView::~StationListView()
@@ -113,4 +119,13 @@ void StationListView::showStation(const QModelIndex &index)
 {
     qDebug() << "Show Station" << index.data();
     emit stationSelected(index.data().toString());
+}
+
+void StationListView::handleFilterChanges(const QString &filter)
+{
+    if (!filter.isEmpty())
+        ui->filterEdit->show();
+    else
+        ui->filterEdit->hide();
+    filterModel->setFilterFixedString(filter);
 }

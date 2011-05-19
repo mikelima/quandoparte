@@ -11,6 +11,7 @@ namespace Ui {
 class QActionGroup;
 class QStringListModel;
 class QSortFilterProxyModel;
+class KeyPressForwarder;
 
 class StationView;
 
@@ -28,13 +29,14 @@ signals:
 private slots:
     void showSettings(void);
     void showStation(const QModelIndex &index);
+    void handleFilterChanges(const QString &filter);
 
 private:
     Ui::StationListView *ui;
     QActionGroup *viewSelectionGroup;
     QStringListModel *stationListModel;
     QSortFilterProxyModel *filterModel;
-    StationView *stationView;
+    KeyPressForwarder *keyPressForwarder;
 };
 
 #endif // STATIONLISTVIEW_H

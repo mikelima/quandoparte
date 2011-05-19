@@ -15,13 +15,15 @@ SOURCES += main.cpp \
     settingsdialog.cpp \
     stationview.cpp \
     app.cpp \
-    stationlistview.cpp
+    stationlistview.cpp \
+    keypressforwarder.cpp
 
 HEADERS += \
     settingsdialog.h \
     stationview.h \
     app.h \
-    stationlistview.h
+    stationlistview.h \
+    keypressforwarder.h
 
 FORMS += \
     settingsdialog.ui \
