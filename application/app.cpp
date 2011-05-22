@@ -41,6 +41,8 @@ App::App(QObject *parent) :
 {
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
+    connect(stationListView, SIGNAL(aboutTriggered()),
+            SLOT(showAboutDialog()));
     connect(stationView, SIGNAL(aboutTriggered()),
             SLOT(showAboutDialog()));
     connect(stationView, SIGNAL(stationListSelectTriggered()),
@@ -101,11 +103,12 @@ void App::showAboutDialog()
 {
     qDebug() << "About Dialog called";
     QString name = QApplication::instance()->applicationName();
+    QString version = QApplication::instance()->applicationVersion();
     QString aboutText = QString(
-                tr("<p>%1</p>"
+                tr("<p>%1 version %2</p>"
                    "<p>Copyright (c) 2010</p>"
                    "<p>Luciano Montanaro (mikelima@cirulla.net)</p>"
-                   "<p>Licensed under the GNU Public License v2 or above</p>")).arg(name);
+                   "<p>Licensed under the GNU Public License v2 or above</p>")).arg(name).arg(version);
     QMessageBox::about(stationView, name, aboutText);
 }
 

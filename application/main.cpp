@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setApplicationName("QuandoParte");
     a.setOrganizationDomain("cirulla.net");
+    a.setApplicationVersion("0.0.2");
 
     QString locale = QLocale::system().name();
     QTranslator translator;
