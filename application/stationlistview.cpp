@@ -119,6 +119,8 @@ StationListView::StationListView(QWidget *parent) :
     keyPressForwarder->setTarget(ui->filterEdit);
     ui->listView->installEventFilter(keyPressForwarder);
 
+    connect(ui->showAboutAction, SIGNAL(triggered()),
+            this, SIGNAL(aboutTriggered()));
     connect(ui->listView,
             SIGNAL(activated(QModelIndex)), SLOT(showStation(QModelIndex)));
     connect(ui->filterEdit, SIGNAL(textChanged(const QString &)),

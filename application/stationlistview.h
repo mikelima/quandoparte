@@ -25,6 +25,7 @@ public:
 
 signals:
     void stationSelected(const QString &);
+    void aboutTriggered(void);
 
 private slots:
     void showSettings(void);
