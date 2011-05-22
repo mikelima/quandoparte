@@ -12,3 +12,57 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Virtual Arrivals and Departures board for Italian trains
  quandoparte uses the Trenitalia data to show arrivals and departures times
  of trains of a given station, with delay or suppression information.
+XSBC-Maemo-Display-Name: Quando Parte?
+XSBC-Maemo-Upgrade-Description: Updated functionality:
+ - The station list can be filtered by typing characters with the keyboard
+ - Internationalization
+ - About dialog works in the Station List View
+XB-Maemo-Icon-26:
+ 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
+ BwzNpCuRCYyLAAAAAElFTkSuQmCC

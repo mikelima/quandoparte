@@ -1,5 +1,10 @@
-quandoparte (0.0.1) unstable; urgency=low
+quandoparte (0.0.2) unstable; urgency=low
 
-  * Initial Release.
+  * Autohiding for Station List filter 2011-05-20 00:53:00 +0200
+  * Implemented Station List filtering 2011-05-19 01:49:13 +0200
+  * Added localization 2011-05-17 01:13:35 +0200
+  * Added download throbber to station list view 2011-05-16 22:55:37 +0200
+  * Implemented Arrival/Departures selection 2011-05-14 18:46:01 +0200
+  * Initial version 2011-05-08 23:04:26 +0200.
 
  -- Luciano Montanaro <mikelima@zaphod>  Sat, 20 Nov 2010 18:46:46 +0100
