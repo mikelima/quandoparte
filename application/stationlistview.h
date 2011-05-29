@@ -36,7 +36,7 @@ private slots:
 private:
     Ui::StationListView *ui;
     QActionGroup *viewSelectionGroup;
-    QStringListModel *stationListModel;
+    StationListModel *stationListModel;
     QSortFilterProxyModel *filterModel;
     KeyPressForwarder *keyPressForwarder;
 };

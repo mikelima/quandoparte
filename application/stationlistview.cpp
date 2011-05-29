@@ -35,7 +35,7 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::StationListView),
     viewSelectionGroup(new QActionGroup(0)),
-    stationListModel(new QStringListModel(this)),
+    stationListModel(model),
     filterModel(new QSortFilterProxyModel(this)),
     keyPressForwarder(new KeyPressForwarder(this))
 

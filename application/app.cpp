@@ -41,6 +41,8 @@ App::App(QObject *parent) :
     stationListModel(new StationListModel(this)),
     stationListView(new StationListView(stationListModel, stationView))
 {
+    stationListModel->load("/opt/usr/share/apps/quandoparte/stations/stations.qpl");
+
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
     connect(stationListView, SIGNAL(aboutTriggered()),
@@ -54,6 +56,7 @@ App::App(QObject *parent) :
             SLOT(setShowingArrivals(bool)));
     readSettings();
 
+    qDebug() << "found" << stationListModel->rowCount() << "stations";
 #if defined(Q_WS_S60)
     stationView->showMaximized();
 #else

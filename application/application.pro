@@ -57,6 +57,7 @@ OTHER_FILES += \
     resources/stations/stations.qpl
 
 message($${OTHER_FILES})
+
 unix:!symbian {
     maemo5 {
         target.path = /opt/usr/bin
@@ -97,4 +98,5 @@ unix:!symbian {
     INSTALLS += icon64
     INSTALLS += css
     INSTALLS += i18n
+    INSTALLS += stations
 }
