@@ -16,14 +16,16 @@ SOURCES += main.cpp \
     stationview.cpp \
     app.cpp \
     stationlistview.cpp \
-    keypressforwarder.cpp
+    keypressforwarder.cpp \
+    stationlistmodel.cpp
 
 HEADERS += \
     settingsdialog.h \
     stationview.h \
     app.h \
     stationlistview.h \
-    keypressforwarder.h
+    keypressforwarder.h \
+    stationlistmodel.h
 
 FORMS += \
     settingsdialog.ui \
@@ -51,7 +53,8 @@ OTHER_FILES += \
     resources/quandoparte.css \
     resources/arrivals.css \
     resources/departures.css \
-    $$replace(TRANSLATIONS, .ts, .qm)
+    $$replace(TRANSLATIONS, .ts, .qm) \
+    resources/stations/stations.qpl
 
 message($${OTHER_FILES})
 unix:!symbian {
@@ -76,12 +79,15 @@ unix:!symbian {
 unix:!symbian {
     css.files = resources/$${TARGET}.css resources/arrivals.css resources/departures.css
     i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
+    stations.files = resources/stations/stations.qpl
     maemo5 {
 	i18n.path = /opt/usr/share/apps/$${TARGET}/i18n
 	css.path = /opt/usr/share/apps/$${TARGET}/css
+        stations.path = /opt/usr/share/apps/$${TARGET}/stations
     } else {
 	i18n.path = /usr/share/apps/$${TARGET}/i18n
 	css.path = /usr/share/apps/$${TARGET}/css
+        stations.path = /usr/share/apps/$${TARGET}/stations
     }
     icon48.files = icons/48x48/$${TARGET}.png
     icon64.files = icons/64x64/$${TARGET}.png

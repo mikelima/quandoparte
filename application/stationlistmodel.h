@@ -5,6 +5,7 @@
 #include <QXmlStreamReader>
 
 class QStandardItem;
+class StationListModel;
 
 class StationListModel : public QStandardItemModel
 {

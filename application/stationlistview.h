@@ -14,13 +14,14 @@ class QSortFilterProxyModel;
 class KeyPressForwarder;
 
 class StationView;
+class StationListModel;
 
 class StationListView : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit StationListView(QWidget *parent = 0);
+    explicit StationListView(StationListModel *model, QWidget *parent = 0);
     ~StationListView();
 
 signals:

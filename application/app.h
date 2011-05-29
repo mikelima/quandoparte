@@ -29,6 +29,7 @@ class QNetworkReply;
 
 class StationView;
 class StationListView;
+class StationListModel;
 
 class App : public QObject
 {
@@ -53,6 +54,7 @@ private:
     QNetworkAccessManager *accessManager;
     QNetworkReply *stationQueryReply;
     StationView *stationView;
+    StationListModel *stationListModel;
     StationListView *stationListView;
     QString queryBaseUrl;
     QString stationName;

@@ -21,7 +21,7 @@ Boston, MA 02110-1301, USA.
 
 #include "stationlistview.h"
 #include "ui_stationlistview.h"
-
+#include "stationlistmodel.h"
 #include "keypressforwarder.h"
 #include "settingsdialog.h"
 
@@ -31,7 +31,7 @@ Boston, MA 02110-1301, USA.
 #include <QSortFilterProxyModel>
 #include <QStringListModel>
 
-StationListView::StationListView(QWidget *parent) :
+StationListView::StationListView(StationListModel *model, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::StationListView),
     viewSelectionGroup(new QActionGroup(0)),
@@ -48,6 +48,7 @@ StationListView::StationListView(QWidget *parent) :
     viewSelectionGroup->addAction(ui->sortByNameAction);
     viewSelectionGroup->addAction(ui->sortNearFirstAction);
     viewSelectionGroup->addAction(ui->sortRecentFirstAction);
+#if 0
     QStringList stationList;
     stationList << "Savona"
                 << "Albisola"
@@ -109,6 +110,7 @@ StationListView::StationListView(QWidget *parent) :
                 << "Recco"
                 << "Camogli";
     stationListModel->setStringList(stationList);
+#endif
     filterModel->setSourceModel(stationListModel);
     filterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     ui->listView->setModel(filterModel);

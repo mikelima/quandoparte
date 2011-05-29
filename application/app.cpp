@@ -21,6 +21,7 @@ Boston, MA 02110-1301, USA.
 
 #include "app.h"
 #include "stationview.h"
+#include "stationlistmodel.h"
 #include "stationlistview.h"
 #include "settingsdialog.h"
 
@@ -36,8 +37,9 @@ Boston, MA 02110-1301, USA.
 App::App(QObject *parent) :
     QObject(parent),
     accessManager(new QNetworkAccessManager(this)),
-    stationView(new StationView(NULL)),
-    stationListView(new StationListView(stationView))
+    stationView(new StationView()),
+    stationListModel(new StationListModel(this)),
+    stationListView(new StationListView(stationListModel, stationView))
 {
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
@@ -69,6 +71,7 @@ App::App(QObject *parent) :
 
 App::~App()
 {
+    delete stationView;
     saveSettings();
 }
 
