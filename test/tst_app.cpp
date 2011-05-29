@@ -23,6 +23,8 @@ Boston, MA 02110-1301, USA.
 #include <QtTest/QtTest>
 #include <QtCore/QCoreApplication>
 
+#include "../application/stationlistmodel.h"
+
 class AppTest : public QObject
 {
     Q_OBJECT
@@ -34,11 +36,20 @@ private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
     void testCase1();
-    void testCase1_data();
+    void testCase2();
+    void testCase3();
+    void testCase4();
+    void testCase5();
+
+private:
+    StationListModel *model;
+    QString path;
 };
 
 AppTest::AppTest()
 {
+        model = new StationListModel(this);
+        path = QCoreApplication::applicationDirPath();
 }
 
 void AppTest::initTestCase()
@@ -51,14 +62,32 @@ void AppTest::cleanupTestCase()
 
 void AppTest::testCase1()
 {
-    QFETCH(QString, data);
-    QVERIFY2(true, "Failure");
+    QVERIFY2(false == model->load(path + "/testfiles/missing.qpl"), "File does not exist, should not return ok");
 }
 
-void AppTest::testCase1_data()
+void AppTest::testCase2()
 {
-    QTest::addColumn<QString>("data");
-    QTest::newRow("0") << QString();
+    QVERIFY2(true == model->load(path + "/testfiles/empty.qpl"), "File cannot be loaeded");
+    QVERIFY2(0 == model->rowCount(), "Should be empty");
+}
+
+void AppTest::testCase3()
+{
+    QVERIFY2(false == model->load(path + "/testfiles/malformed1.qpl"), "Tags are wrong, should not return ok");
+}
+
+void AppTest::testCase4()
+{
+    QVERIFY2(true == model->load(path + "/testfiles/emptystation.qpl"), "cannot open file");
+}
+
+void AppTest::testCase5()
+{
+    qDebug() << model->rowCount();
+    QVERIFY2(true == model->load(path + "/testfiles/teststation.qpl"), "cannot open file");
+    qDebug() << model->rowCount();
+    QVERIFY(model->rowCount() == 1);
+    QVERIFY(model->item(0)->text() == "Topolinia");
 }
 
 QTEST_MAIN(AppTest);

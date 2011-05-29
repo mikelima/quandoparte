@@ -14,7 +14,10 @@ TEMPLATE = app
 
 
 SOURCES += \
-    tst_app.cpp
+    tst_app.cpp ../application/stationlistmodel.cpp
+
+HEADERS += ../application/stationlistmodel.h
+
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 unix:!symbian {
@@ -25,3 +28,9 @@ unix:!symbian {
     }
     INSTALLS += target
 }
+
+OTHER_FILES += \
+    testfiles/empty.qpl \
+    testfiles/malformed1.qpl \
+    testfiles/emptystation.qpl \
+    testfiles/teststation.qpl
