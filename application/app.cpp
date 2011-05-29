@@ -41,7 +41,7 @@ App::App(QObject *parent) :
     stationListModel(new StationListModel(this)),
     stationListView(new StationListView(stationListModel, stationView))
 {
-    stationListModel->load("/opt/usr/share/apps/quandoparte/stations/stations.qpl");
+    stationListModel->load(dataDir() + "stations/stations.qpl");
 
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
@@ -116,7 +116,7 @@ void App::showAboutDialog()
     QString version = QApplication::instance()->applicationVersion();
     QString aboutText = QString(
                 tr("<p>%1 version %2</p>"
-                   "<p>Copyright (c) 2010</p>"
+                   "<p>Copyright (c) 2010, 2011</p>"
                    "<p>Luciano Montanaro (mikelima@cirulla.net)</p>"
                    "<p>Licensed under the GNU Public License v2 or above</p>")).arg(name).arg(version);
     QMessageBox::about(stationView, name, aboutText);
@@ -151,4 +151,13 @@ void App::saveSettings(void)
 void App::setShowingArrivals(bool showArrivals)
 {
     showingArrivals = showArrivals;
+}
+
+QString App::dataDir(void)
+{
+#ifdef Q_WS_MAEMO_5
+    return QString("/opt/usr/share/apps/quandoparte/");
+#else
+    return QString("/usr/share/apps/quandoparte/");
+#endif
 }

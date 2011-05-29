@@ -140,18 +140,6 @@ void StationView::viewSelectionGroupTriggered(QAction *action)
 
 void StationView::updateCss(void)
 {
-    QByteArray styleSheet("data:text/css;charset=utf-8,base64,");
-    QByteArray styleSheetText = QByteArray(
-                "body {\n"
-                "-webkit-user-select: none ! important;\n"
-                "background-color: black ! important;\n"
-                "color: white ! important;}\n"
-                ".testata_red {visibility: hidden ! important;}\n"
-                "#footer {\n"
-                "visibility: hidden ! important;}\n");
-    styleSheet += styleSheetText.toBase64();
-    qDebug() << styleSheet;
-    //QUrl cssUrl = QUrl::fromEncoded(styleSheet);
     QUrl cssUrl;
 
     // XXX Maemo5 specific

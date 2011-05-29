@@ -38,6 +38,8 @@ public:
     explicit App(QObject *parent = 0);
     ~App();
 
+    static QString dataDir(void);
+
 signals:
 
 public slots:

@@ -1,4 +1,3 @@
 TEMPLATE = subdirs
 
-SUBDIRS = application \
-    test
+SUBDIRS = application

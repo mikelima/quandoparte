@@ -26,17 +26,21 @@ Boston, MA 02110-1301, USA.
 #include <QLocale>
 #include <QTranslator>
 
+#ifndef QP_VERSION
+#define QP_VERSION "0.0.2"
+#endif
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setApplicationName("QuandoParte");
     a.setOrganizationDomain("cirulla.net");
-    a.setApplicationVersion("0.0.2");
+    a.setApplicationVersion(QP_VERSION);
 
     QString locale = QLocale::system().name();
     QTranslator translator;
     if (translator.load(QString("quandoparte_") + locale,
-                        "/opt/usr/share/apps/quandoparte/i18n")) {
+                        App::dataDir() + "i18n")) {
         qDebug() << "Translation for locale" << locale << "loaded";
         a.installTranslator(&translator);
     } else {

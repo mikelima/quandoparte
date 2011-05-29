@@ -4,10 +4,14 @@
 #
 #-------------------------------------------------
 
-QT += webkit network xml maemo5
+QT += webkit network maemo5
 
 TARGET = quandoparte
 TEMPLATE = app
+VERSION = 0.1.0
+
+VERSION_STRING = '\\"$${VERSION}\\"'
+DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
 
 TRANSLATIONS = resources/i18n/quandoparte_it.ts
 
@@ -99,4 +103,10 @@ unix:!symbian {
     INSTALLS += css
     INSTALLS += i18n
     INSTALLS += stations
+}
+
+maemo5 {
+    desktopfile.files = $${TARGET}.desktop
+    desktopfile.path = /usr/share/applications/hildon
+    INSTALLS += desktopfile
 }
