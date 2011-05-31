@@ -20,7 +20,7 @@
         <name>Milano Greco Pirelli</name>
     </station>
     <station>
-        <pos>9.2389421,45.4339168</pos>
+        <pos>9.2391717,45.4336385</pos>
         <name>Milano Rogoredo</name>
     </station>
     <station>
@@ -110,6 +110,10 @@
     <station>
         <pos>8.7732479,44.4587557</pos>
         <name>Genova Acquasanta</name>
+    </station>
+    <station>
+        <pos>8.7339696,44.4727732</pos>
+        <name>Mele</name>
     </station>
     <station>
         <pos>9.237351,45.4849299</pos>
@@ -288,6 +292,10 @@
         <name>Carrara Avenza</name>
     </station>
     <station>
+        <pos>8.0675506,45.5572614</pos>
+        <name>Biella San Paolo</name>
+    </station>
+    <station>
         <pos>9.3708276,44.2946219</pos>
         <name>Cavi di Lavagna</name>
     </station>
@@ -464,6 +472,10 @@
         <name>Vernazza</name>
     </station>
     <station>
+        <pos>7.8763929,45.461516</pos>
+        <name>Ivrea</name>
+    </station>
+    <station>
         <pos>8.4952363,44.8597132</pos>
         <name>Oviglio</name>
     </station>
@@ -548,6 +560,10 @@
         <name>Certosa di Pavia</name>
     </station>
     <station>
+        <pos>8.100192,45.5473449</pos>
+        <name>Candelo</name>
+    </station>
+    <station>
         <pos>8.9189332,44.5307872</pos>
         <name>Piano orizzontale dei Giovi</name>
     </station>
@@ -584,6 +600,10 @@
         <name>Arquata Scrivia</name>
     </station>
     <station>
+        <pos>8.4205014,45.2662336</pos>
+        <name>Asigliano Vercellese</name>
+    </station>
+    <station>
         <pos>8.3661857,45.1707302</pos>
         <name>Morano sul Po</name>
     </station>
@@ -618,6 +638,10 @@
     <station>
         <pos>8.5970873,45.2935116</pos>
         <name>Robbio</name>
+    </station>
+    <station>
+        <pos>7.7949642,45.5898436</pos>
+        <name>Pont-Saint-Martin</name>
     </station>
     <station>
         <pos>9.3603804,45.0819392</pos>
@@ -660,6 +684,18 @@
         <name>Rho</name>
     </station>
     <station>
+        <pos>8.0914552,45.490522</pos>
+        <name>Vergnasco</name>
+    </station>
+    <station>
+        <pos>8.1148757,45.4451708</pos>
+        <name>Salussola</name>
+    </station>
+    <station>
+        <pos>8.0813321,45.5194144</pos>
+        <name>Sandigliano</name>
+    </station>
+    <station>
         <pos>8.2788885,44.3940298</pos>
         <name>Cairo Montenotte</name>
     </station>
@@ -690,6 +726,10 @@
     <station>
         <pos>8.6439274,44.3897664</pos>
         <name>Cogoleto</name>
+    </station>
+    <station>
+        <pos>8.8480481,44.4223514</pos>
+        <name>Genova Sestri Ponente</name>
     </station>
     <station>
         <pos>8.8169446,44.4262225</pos>
@@ -728,6 +768,10 @@
         <name>Santo Stefano di Magra</name>
     </station>
     <station>
+        <pos>9.2137424,45.4458263</pos>
+        <name>Milano Porta Romana</name>
+    </station>
+    <station>
         <pos>8.4400751,44.7226487</pos>
         <name>Alice Bel Colle</name>
     </station>
@@ -758,6 +802,30 @@
     <station>
         <pos>11.2744864,45.4027957</pos>
         <name>San Bonifacio</name>
+    </station>
+    <station>
+        <pos>11.2832303,42.9402705</pos>
+        <name>Civitella Paganico</name>
+    </station>
+    <station>
+        <pos>11.4837441,43.1354974</pos>
+        <name>Buonconvento</name>
+    </station>
+    <station>
+        <pos>11.008423,42.9154709</pos>
+        <name>Giuncarico</name>
+    </station>
+    <station>
+        <pos>10.5864711,43.017181</pos>
+        <name>Campiglia Marittima</name>
+    </station>
+    <station>
+        <pos>10.3877235,43.7222524</pos>
+        <name>Pisa San Rossore</name>
+    </station>
+    <station>
+        <pos>10.3981758,43.7079646</pos>
+        <name>Pisa Centrale</name>
     </station>
     <station>
         <pos>14.2189848,42.4495951</pos>
@@ -804,16 +872,44 @@
         <name>Firenze S.M.N.</name>
     </station>
     <station>
+        <pos>10.7557492,42.9266731</pos>
+        <name>Follonica</name>
+    </station>
+    <station>
+        <pos>10.3425463,43.7640035</pos>
+        <name>Migliarino Pisano</name>
+    </station>
+    <station>
         <pos>13.3849121,42.3510045</pos>
         <name>L'Aquila</name>
+    </station>
+    <station>
+        <pos>11.1065103,42.7672917</pos>
+        <name>Grosseto</name>
+    </station>
+    <station>
+        <pos>11.1344053,42.6392689</pos>
+        <name>Albarese</name>
     </station>
     <station>
         <pos>12.5023317,41.9008151</pos>
         <name>Roma Termini</name>
     </station>
     <station>
+        <pos>16.995766,41.0826222</pos>
+        <name>Bari Torre a Mare</name>
+    </station>
+    <station>
+        <pos>16.89937,41.1148289</pos>
+        <name>Bari Parco Sud</name>
+    </station>
+    <station>
         <pos>16.8701566,41.1177331</pos>
         <name>Bari Centrale</name>
+    </station>
+    <station>
+        <pos>16.8875018,41.11719</pos>
+        <name>Bari Marconi</name>
     </station>
     <station>
         <pos>14.2729455,40.8529478</pos>
@@ -882,6 +978,22 @@
     <station>
         <pos>18.0766241,40.4099167</pos>
         <name>Trepuzzi</name>
+    </station>
+    <station>
+        <pos>17.6835181,40.737358</pos>
+        <name>Carovigno</name>
+    </station>
+    <station>
+        <pos>17.5804399,40.7523958</pos>
+        <name>Ostuni</name>
+    </station>
+    <station>
+        <pos>17.4568514,40.8165314</pos>
+        <name>Cisternino</name>
+    </station>
+    <station>
+        <pos>17.3857959,40.8517215</pos>
+        <name>Fasano</name>
     </station>
     <station>
         <pos>9.4990819,40.9251223</pos>
