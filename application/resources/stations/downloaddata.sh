@@ -1,5 +1,4 @@
-
-#curl --location --globoff "http://open.mapquestapi.com/xapi/api/0.6/node[railway=station][bbox=7.6,44,12.6,46]" -o nord.xml
+#! /bin/sh
 curl --location --globoff "http://jxapi.openstreetmap.org/xapi/api/0.6/node[railway=station][bbox=7.6,44,12.6,46]" -o nord.osm &
 curl --location --globoff "http://jxapi.openstreetmap.org/xapi/api/0.6/node[railway=station][bbox=10,42,15,44]" -o centronord.osm &
 curl --location --globoff "http://jxapi.openstreetmap.org/xapi/api/0.6/node[railway=station][bbox=12,40,17,42]" -o centrosud.osm &

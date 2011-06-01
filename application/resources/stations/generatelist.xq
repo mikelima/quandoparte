@@ -16,9 +16,9 @@ fn:contains($node//tag[@k='operator']/@v, 'Grandi Stazioni')))
 return 
 <station>
 <pos>{
-data($node/@lon)
-},{
 data($node/@lat)
+},{
+data($node/@lon)
 }
 </pos>
 <name>
