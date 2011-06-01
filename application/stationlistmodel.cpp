@@ -3,6 +3,10 @@
 #include <QFile>
 #include <QDebug>
 #include <QStandardItem>
+#include <QGeoCoordinate>
+
+QTM_USE_NAMESPACE
+Q_DECLARE_METATYPE(QGeoCoordinate)
 
 StationListModel::StationListModel(QObject *parent) :
     QStandardItemModel(parent)
@@ -95,6 +99,10 @@ void StationListModel::readPosElement(QStandardItem *item)
 {
     qDebug() << "reading pos element";
 
+    QStringList coordinates = reader.readElementText().split(",");
+    QGeoCoordinate pos = QGeoCoordinate(coordinates[0].toDouble(), coordinates[1].toDouble());
+    item->setData(QVariant::fromValue(pos));
+    qDebug() << "pos:" << pos;
     reader.readElementText();
     if (reader.isEndElement()) {
         reader.readNext();
