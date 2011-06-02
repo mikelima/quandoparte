@@ -37,6 +37,10 @@ int main(int argc, char *argv[])
     a.setOrganizationDomain("cirulla.net");
     a.setApplicationVersion(QP_VERSION);
 
+#ifdef QT_KEYPAD_NAVIGATION
+    QApplication::setNavigationMode(Qt::NavigationModeKeypadTabOrder);
+#endif
+
     QString locale = QLocale::system().name();
     QTranslator translator;
     if (translator.load(QString("quandoparte_") + locale,
