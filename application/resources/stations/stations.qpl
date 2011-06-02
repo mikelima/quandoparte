@@ -272,6 +272,10 @@
         <name>Bologna Centrale</name>
     </station>
     <station>
+        <pos>45.1874119,10.7857876</pos>
+        <name>Sant'Antonio Mantovano</name>
+    </station>
+    <station>
         <pos>45.5410589,9.2390969</pos>
         <name>Sesto San Giovanni</name>
     </station>
@@ -356,6 +360,10 @@
         <name>Borgio</name>
     </station>
     <station>
+        <pos>45.392147,10.9145845</pos>
+        <name>Dossobuono</name>
+    </station>
+    <station>
         <pos>44.4828071,8.8997745</pos>
         <name>Genova San Biagio</name>
     </station>
@@ -390,6 +398,10 @@
     <station>
         <pos>44.4420486,8.8234976</pos>
         <name>Genova Granara</name>
+    </station>
+    <station>
+        <pos>45.3498161,10.8491525</pos>
+        <name>Villafranca di Verona</name>
     </station>
     <station>
         <pos>44.1046328,9.7293535</pos>
@@ -464,12 +476,40 @@
         <name>Alba</name>
     </station>
     <station>
+        <pos>45.4176683,11.8804405</pos>
+        <name>Padova</name>
+    </station>
+    <station>
+        <pos>45.4094144,10.2805876</pos>
+        <name>Ghedi</name>
+    </station>
+    <station>
         <pos>45.4530712,9.1691792</pos>
         <name>Milano Porta Genova</name>
     </station>
     <station>
         <pos>45.6991734,9.5843503</pos>
         <name>Ponte San Pietro</name>
+    </station>
+    <station>
+        <pos>45.306684,10.8236259</pos>
+        <name>Mozzecane</name>
+    </station>
+    <station>
+        <pos>45.2526216,10.7968224</pos>
+        <name>Roverbella</name>
+    </station>
+    <station>
+        <pos>45.127599,10.3700116</pos>
+        <name>Piadena</name>
+    </station>
+    <station>
+        <pos>45.3736315,10.3318036</pos>
+        <name>Viadana Bresciana</name>
+    </station>
+    <station>
+        <pos>45.3465781,10.349437</pos>
+        <name>Calvisano</name>
     </station>
     <station>
         <pos>45.4087981,9.0310515</pos>
@@ -580,6 +620,10 @@
         <name>Piacenza</name>
     </station>
     <station>
+        <pos>45.15874,10.7832647</pos>
+        <name>Mantova</name>
+    </station>
+    <station>
         <pos>44.8364752,10.1767851</pos>
         <name>Castelguelfo</name>
     </station>
@@ -594,6 +638,10 @@
     <station>
         <pos>44.5307872,8.9189332</pos>
         <name>Piano orizzontale dei Giovi</name>
+    </station>
+    <station>
+        <pos>45.1442129,10.6475418</pos>
+        <name>Castellucchio</name>
     </station>
     <station>
         <pos>44.409468,8.9011893</pos>
@@ -660,6 +708,22 @@
         <name>Stradella</name>
     </station>
     <station>
+        <pos>45.2784846,10.3792031</pos>
+        <name>Remedello Sopra</name>
+    </station>
+    <station>
+        <pos>45.1501546,10.3715019</pos>
+        <name>Canneto sull'Oglio</name>
+    </station>
+    <station>
+        <pos>45.2204442,10.4023443</pos>
+        <name>Asola</name>
+    </station>
+    <station>
+        <pos>45.4915713,10.2117125</pos>
+        <name>San Zeno-Folzano</name>
+    </station>
+    <station>
         <pos>45.451215,8.6251052</pos>
         <name>Novara FS</name>
     </station>
@@ -688,8 +752,20 @@
         <name>Olcenengo</name>
     </station>
     <station>
+        <pos>45.451323,10.2394895</pos>
+        <name>Montirone</name>
+    </station>
+    <station>
+        <pos>45.3152826,10.363208</pos>
+        <name>Visano</name>
+    </station>
+    <station>
         <pos>44.6545556,10.9296742</pos>
         <name>Modena</name>
+    </station>
+    <station>
+        <pos>45.5323057,10.2128012</pos>
+        <name>Brescia</name>
     </station>
     <station>
         <pos>44.5889773,8.9381812</pos>
@@ -1028,8 +1104,28 @@
         <name>Lentini</name>
     </station>
     <station>
+        <pos>37.460935,15.04493</pos>
+        <name>Catania Bicocca</name>
+    </station>
+    <station>
+        <pos>37.7951939,15.2056243</pos>
+        <name>Fiumedfreddo</name>
+    </station>
+    <station>
+        <pos>37.8454505,15.2826328</pos>
+        <name>Taormina-Giardini</name>
+    </station>
+    <station>
+        <pos>37.9462799,15.3676448</pos>
+        <name>Teresa</name>
+    </station>
+    <station>
         <pos>37.5065735,15.1000659</pos>
         <name>Catania Centrale</name>
+    </station>
+    <station>
+        <pos>37.7302045,15.1935589</pos>
+        <name>Giarre-Riposto</name>
     </station>
     <station>
         <pos>37.1449872,14.4035066</pos>
@@ -1038,6 +1134,10 @@
     <station>
         <pos>37.0730063,14.2592314</pos>
         <name>Gela</name>
+    </station>
+    <station>
+        <pos>37.5957859,15.1617307</pos>
+        <name>Acireale</name>
     </station>
     <station>
         <pos>40.345699,18.1657097</pos>
