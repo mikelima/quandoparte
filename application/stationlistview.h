@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QModelIndex>
+#include <QGeoPositionInfoSource>
 
 namespace Ui {
     class StationListView;
@@ -16,6 +17,8 @@ class KeyPressForwarder;
 class StationView;
 class StationListModel;
 
+QTM_USE_NAMESPACE
+
 class StationListView : public QMainWindow
 {
     Q_OBJECT
@@ -27,6 +30,9 @@ public:
 signals:
     void stationSelected(const QString &);
     void aboutTriggered(void);
+
+public slots:
+    void updatePosition(const QGeoPositionInfo &update);
 
 private slots:
     void showSettings(void);

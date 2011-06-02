@@ -159,3 +159,8 @@ void StationListView::handleFilterChanges(const QString &filter)
         ui->filterEdit->hide();
     filterModel->setFilterFixedString(filter);
 }
+
+void StationListView::updatePosition(const QtMobility::QGeoPositionInfo &update)
+{
+    qDebug() << "Position update received" << update;
+}

@@ -34,15 +34,22 @@ Boston, MA 02110-1301, USA.
 #include <QSettings>
 #include <QUrl>
 
+#include <QGeoPositionInfoSource>
+
+QTM_USE_NAMESPACE
+
 App::App(QObject *parent) :
     QObject(parent),
     accessManager(new QNetworkAccessManager(this)),
+    positionInfoSource(QGeoPositionInfoSource::createDefaultSource(this)),
     stationView(new StationView()),
     stationListModel(new StationListModel(this)),
     stationListView(new StationListView(stationListModel, stationView))
 {
     stationListModel->load(dataDir() + "stations/stations.qpl");
 
+    connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+            stationListView, SLOT(updatePosition(QGeoPositionInfo)));
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
     connect(stationListView, SIGNAL(aboutTriggered()),
@@ -70,6 +77,9 @@ App::App(QObject *parent) :
         stationListView->show();
 #endif
     }
+
+    // Testing only: start updates rigt away.
+    positionInfoSource->startUpdates();
 }
 
 App::~App()
