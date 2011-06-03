@@ -11,7 +11,7 @@ class StationListModel : public QStandardItemModel
 {
     Q_OBJECT
 
-    enum StationListRoles {
+    enum StationListRole {
         PositionRole = Qt::UserRole
     };
 public:
@@ -30,7 +30,7 @@ private:
     void readNameElement(QStandardItem *item);
     void skipUnknownElement();
 
-    QXmlStreamReader reader;
+    QXmlStreamReader m_reader;
 };
 
 #endif // STATIONLISTMODEL_H

@@ -25,21 +25,21 @@ bool StationListModel::load(const QString &filename)
         qDebug() << "cannot open file:" << filename;
         return false;
     }
-    reader.setDevice(&file);
-    reader.readNext();
-    while (!reader.atEnd()) {
-        if (reader.isStartElement()) {
-            if(reader.name() == "stations") {
+    m_reader.setDevice(&file);
+    m_reader.readNext();
+    while (!m_reader.atEnd()) {
+        if (m_reader.isStartElement()) {
+            if(m_reader.name() == "stations") {
                 readStationsElement();
             } else {
-                reader.raiseError(tr("Not a qpl file"));
+                m_reader.raiseError(tr("Not a qpl file"));
             }
         } else {
-            reader.readNext();
+            m_reader.readNext();
         }
     }
     file.close();
-    if (reader.hasError()) {
+    if (m_reader.hasError()) {
         qDebug() << "parser error for:" << filename;
         return false;
     } else if (file.error() != QFile::NoError) {
@@ -53,19 +53,19 @@ void StationListModel::readStationsElement()
 {
     qDebug() << "reading stations element";
 
-    reader.readNext();
-    while (!reader.atEnd()) {
-        if (reader.isEndElement()) {
-            reader.readNext();
+    m_reader.readNext();
+    while (!m_reader.atEnd()) {
+        if (m_reader.isEndElement()) {
+            m_reader.readNext();
             break;
-        } else if (reader.isStartElement()) {
-            if (reader.name() == "station") {
+        } else if (m_reader.isStartElement()) {
+            if (m_reader.name() == "station") {
                 readStationElement();
             } else {
                 skipUnknownElement();
             }
         } else {
-            reader.readNext();
+            m_reader.readNext();
         }
     }
 }
@@ -75,22 +75,22 @@ void StationListModel::readStationElement()
     qDebug() << "reading station element";
 
     QStandardItem *item = new QStandardItem;
-    reader.readNext();
-    while (!reader.atEnd()) {
-        if (reader.isEndElement()) {
+    m_reader.readNext();
+    while (!m_reader.atEnd()) {
+        if (m_reader.isEndElement()) {
             this->appendRow(item);
-            reader.readNext();
+            m_reader.readNext();
             break;
-        } else if (reader.isStartElement()) {
-            if (reader.name() == "pos") {
+        } else if (m_reader.isStartElement()) {
+            if (m_reader.name() == "pos") {
                 readPosElement(item);
-            } else  if (reader.name() == "name") {
+            } else  if (m_reader.name() == "name") {
                 readNameElement(item);
             } else {
                 skipUnknownElement();
             }
         } else {
-            reader.readNext();
+            m_reader.readNext();
         }
     }
 }
@@ -99,13 +99,13 @@ void StationListModel::readPosElement(QStandardItem *item)
 {
     qDebug() << "reading pos element";
 
-    QStringList coordinates = reader.readElementText().split(",");
+    QStringList coordinates = m_reader.readElementText().split(",");
     QGeoCoordinate pos = QGeoCoordinate(coordinates[0].toDouble(), coordinates[1].toDouble());
     item->setData(QVariant::fromValue(pos));
     qDebug() << "pos:" << pos;
-    reader.readElementText();
-    if (reader.isEndElement()) {
-        reader.readNext();
+    m_reader.readElementText();
+    if (m_reader.isEndElement()) {
+        m_reader.readNext();
     }
 }
 
@@ -113,10 +113,10 @@ void StationListModel::readNameElement(QStandardItem *item)
 {
     qDebug() << "reading name element";
 
-    item->setText(reader.readElementText());
+    item->setText(m_reader.readElementText());
     qDebug() << "name:" << item->text();
-    if (reader.isEndElement()) {
-        reader.readNext();
+    if (m_reader.isEndElement()) {
+        m_reader.readNext();
     }
 }
 
@@ -124,15 +124,15 @@ void StationListModel::skipUnknownElement()
 {
     qDebug() << "skipping unknown element";
 
-    reader.readNext();
-    while (!reader.atEnd()) {
-        if (reader.isEndElement()) {
-            reader.readNext();
+    m_reader.readNext();
+    while (!m_reader.atEnd()) {
+        if (m_reader.isEndElement()) {
+            m_reader.readNext();
             break;
-        } else if (!reader.isStartElement()) {
+        } else if (!m_reader.isStartElement()) {
             skipUnknownElement();
         } else {
-            reader.readNext();
+            m_reader.readNext();
         }
     }
 }
