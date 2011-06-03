@@ -8,7 +8,7 @@ QT += webkit network maemo5
 
 TARGET = quandoparte
 TEMPLATE = app
-VERSION = 0.1.0
+VERSION = 0.1.90
 
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
