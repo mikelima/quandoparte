@@ -18,15 +18,13 @@ bool StationListProxyModel::lessThan(const QModelIndex &left, const QModelIndex 
 {
     int role = sortRole();
 
-    qDebug() << "lessThan called";
-
     if (role == StationListModel::PositionRole) {
         QGeoCoordinate first = left.data(role).value<QGeoCoordinate>();
         QGeoCoordinate second = right.data(role).value<QGeoCoordinate>();
-        qDebug() << "PositionRole" << left.data(Qt::DisplayRole) << first << right.data(Qt::DisplayRole) << second << "Here" << m_here;
+        //qDebug() << "PositionRole" << left.data(Qt::DisplayRole) << first << right.data(Qt::DisplayRole) << second << "Here" << m_here;
        return first.distanceTo(m_here) < second.distanceTo(m_here);
     } else {
-        qDebug() << "OtherRole";
+        //qDebug() << "OtherRole";
         return QString::compare(left.data(role).toString(),
                                 right.data(role).toString(),
                                 sortCaseSensitivity()) < 0;
