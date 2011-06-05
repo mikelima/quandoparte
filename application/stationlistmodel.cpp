@@ -51,8 +51,6 @@ bool StationListModel::load(const QString &filename)
 
 void StationListModel::readStationsElement()
 {
-    qDebug() << "reading stations element";
-
     m_reader.readNext();
     while (!m_reader.atEnd()) {
         if (m_reader.isEndElement()) {
@@ -72,8 +70,6 @@ void StationListModel::readStationsElement()
 
 void StationListModel::readStationElement()
 {
-    qDebug() << "reading station element";
-
     QStandardItem *item = new QStandardItem;
     m_reader.readNext();
     while (!m_reader.atEnd()) {
@@ -97,8 +93,6 @@ void StationListModel::readStationElement()
 
 void StationListModel::readPosElement(QStandardItem *item)
 {
-    qDebug() << "reading pos element";
-
     QStringList coordinates = m_reader.readElementText().split(",");
     QGeoCoordinate pos = QGeoCoordinate(coordinates[0].toDouble(), coordinates[1].toDouble());
     item->setData(QVariant::fromValue(pos), PositionRole);
@@ -111,8 +105,6 @@ void StationListModel::readPosElement(QStandardItem *item)
 
 void StationListModel::readNameElement(QStandardItem *item)
 {
-    qDebug() << "reading name element";
-
     item->setText(m_reader.readElementText());
     qDebug() << "name:" << item->text();
     if (m_reader.isEndElement()) {
