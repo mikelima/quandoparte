@@ -48,7 +48,7 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
 #endif
     ui->setupUi(this);
     viewSelectionGroup->addAction(ui->sortByNameAction);
-    viewSelectionGroup->addAction(ui->sortNearFirstAction);
+    viewSelectionGroup->addAction(ui->sortByDistanceAction);
     viewSelectionGroup->addAction(ui->sortRecentFirstAction);
     filterModel->setSourceModel(stationListModel);
     filterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
@@ -118,7 +118,7 @@ void StationListView::handleSortingChange(QAction *action)
     if (action == ui->sortByNameAction) {
         mode = AlphaSorting;
         qDebug() << "sort by name";
-    } else if (action == ui->sortNearFirstAction) {
+    } else if (action == ui->sortByDistanceAction) {
         mode = DistanceSorting;
         qDebug() << "sort by distance";
     } else if (action == ui->sortRecentFirstAction) {
@@ -139,7 +139,7 @@ void StationListView::setSortingMode(StationListView::SortingMode mode)
             break;
         case DistanceSorting:
             filterModel->setSortRole(StationListModel::PositionRole);
-            ui->sortNearFirstAction->setChecked(true);
+            ui->sortByDistanceAction->setChecked(true);
             break;
         case RecentUsageSorting:
             ui->sortRecentFirstAction->setChecked(true);

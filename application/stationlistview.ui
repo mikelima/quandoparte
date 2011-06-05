@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>782</width>
-    <height>462</height>
+    <width>780</width>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>782</width>
+     <width>780</width>
      <height>25</height>
     </rect>
    </property>
@@ -37,7 +37,7 @@
      <string>View</string>
     </property>
     <addaction name="sortByNameAction"/>
-    <addaction name="sortNearFirstAction"/>
+    <addaction name="sortByDistanceAction"/>
     <addaction name="sortRecentFirstAction"/>
     <addaction name="separator"/>
     <addaction name="showSettingsAction"/>
@@ -45,7 +45,7 @@
    </widget>
    <addaction name="menuView"/>
   </widget>
-  <action name="sortNearFirstAction">
+  <action name="sortByDistanceAction">
    <property name="checkable">
     <bool>true</bool>
    </property>
