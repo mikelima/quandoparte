@@ -135,11 +135,14 @@ void StationListView::setSortingMode(StationListView::SortingMode mode)
         switch (mode) {
         case AlphaSorting:
             filterModel->setSortRole(Qt::DisplayRole);
+            ui->sortByNameAction->setChecked(true);
             break;
         case DistanceSorting:
             filterModel->setSortRole(StationListModel::PositionRole);
+            ui->sortNearFirstAction->setChecked(true);
             break;
         case RecentUsageSorting:
+            ui->sortRecentFirstAction->setChecked(true);
             break;
         case NoSorting:
         default:
