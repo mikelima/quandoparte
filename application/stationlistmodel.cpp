@@ -101,7 +101,7 @@ void StationListModel::readPosElement(QStandardItem *item)
 
     QStringList coordinates = m_reader.readElementText().split(",");
     QGeoCoordinate pos = QGeoCoordinate(coordinates[0].toDouble(), coordinates[1].toDouble());
-    item->setData(QVariant::fromValue(pos));
+    item->setData(QVariant::fromValue(pos), PositionRole);
     qDebug() << "pos:" << pos;
     m_reader.readElementText();
     if (m_reader.isEndElement()) {

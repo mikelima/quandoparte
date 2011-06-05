@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     app.cpp \
     stationlistview.cpp \
     keypressforwarder.cpp \
-    stationlistmodel.cpp
+    stationlistmodel.cpp \
+    stationlistproxymodel.cpp
 
 HEADERS += \
     settingsdialog.h \
@@ -29,7 +30,8 @@ HEADERS += \
     app.h \
     stationlistview.h \
     keypressforwarder.h \
-    stationlistmodel.h
+    stationlistmodel.h \
+    stationlistproxymodel.h
 
 FORMS += \
     settingsdialog.ui \

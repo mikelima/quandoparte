@@ -11,10 +11,13 @@ class StationListModel : public QStandardItemModel
 {
     Q_OBJECT
 
-    enum StationListRole {
-        PositionRole = Qt::UserRole
-    };
 public:
+    enum StationListRole {
+        PositionRole = Qt::UserRole + 1, //< QGeoCoordinate - Station coordinate
+        StationIdRole, //< QString - Station Id (Precise name if the Display name is known to fail)
+        RecentIndicatorRole //<bool - If the station has been recently looked up
+    };
+
     explicit StationListModel(QObject *parent = 0);
 
     bool load(const QString &filename);

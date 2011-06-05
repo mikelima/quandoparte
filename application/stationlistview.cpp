@@ -22,6 +22,7 @@ Boston, MA 02110-1301, USA.
 #include "stationlistview.h"
 #include "ui_stationlistview.h"
 #include "stationlistmodel.h"
+#include "stationlistproxymodel.h"
 #include "keypressforwarder.h"
 #include "settingsdialog.h"
 
@@ -36,7 +37,7 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     ui(new Ui::StationListView),
     viewSelectionGroup(new QActionGroup(0)),
     stationListModel(model),
-    filterModel(new QSortFilterProxyModel(this)),
+    filterModel(new StationListProxyModel(this)),
     keyPressForwarder(new KeyPressForwarder(this))
 
 {
@@ -64,7 +65,11 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
             SIGNAL(activated(QModelIndex)), SLOT(showStation(QModelIndex)));
     connect(ui->filterEdit, SIGNAL(textChanged(const QString &)),
             SLOT(handleFilterChanges(const QString &)));
+    filterModel->setSortRole(StationListModel::PositionRole);
+    //filterModel->setSortRole(Qt::DisplayRole);
+    filterModel->sort(0);
 }
+
 
 StationListView::~StationListView()
 {
@@ -100,4 +105,7 @@ void StationListView::handleFilterChanges(const QString &filter)
 void StationListView::updatePosition(const QtMobility::QGeoPositionInfo &update)
 {
     qDebug() << "Position update received" << update;
+    filterModel->setUserPosition(update.coordinate());
+    filterModel->invalidate();
+    filterModel->sort(0);
 }

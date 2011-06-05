@@ -16,6 +16,7 @@ class KeyPressForwarder;
 
 class StationView;
 class StationListModel;
+class StationListProxyModel;
 
 QTM_USE_NAMESPACE
 
@@ -43,7 +44,7 @@ private:
     Ui::StationListView *ui;
     QActionGroup *viewSelectionGroup;
     StationListModel *stationListModel;
-    QSortFilterProxyModel *filterModel;
+    StationListProxyModel *filterModel;
     KeyPressForwarder *keyPressForwarder;
 };
 
