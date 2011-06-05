@@ -39,6 +39,7 @@ private slots:
     void showSettings(void);
     void showStation(const QModelIndex &index);
     void handleFilterChanges(const QString &filter);
+    void handleSortingChange(const QAction *action);
 
 private:
     Ui::StationListView *ui;

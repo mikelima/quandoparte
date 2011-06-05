@@ -109,3 +109,14 @@ void StationListView::updatePosition(const QtMobility::QGeoPositionInfo &update)
     filterModel->invalidate();
     filterModel->sort(0);
 }
+
+void StationListView::handleSortingChange(const QAction *action)
+{
+    if (action == ui->sortByNameAction) {
+        qDebug() << "sort by name";
+    } else if (action == ui->sortNearFirstAction) {
+        qDebug() << "sort by distance";
+    } else if (action == ui->sortRecentFirstAction) {
+        qDebug() << "sort by recent use";
+    }
+}
