@@ -25,6 +25,7 @@ class StationListView : public QMainWindow
     Q_OBJECT
 
     enum SortingMode {
+        NoSorting,
         AlphaSorting,
         DistanceSorting,
         RecentUsageSorting
@@ -40,6 +41,7 @@ public:
 signals:
     void stationSelected(const QString &);
     void aboutTriggered(void);
+    void sortingModeChanged(SortingMode mode);
 
 public slots:
     void updatePosition(const QGeoPositionInfo &update);
@@ -48,7 +50,7 @@ private slots:
     void showSettings(void);
     void showStation(const QModelIndex &index);
     void handleFilterChanges(const QString &filter);
-    void handleSortingChange(const QAction *action);
+    void handleSortingChange(QAction *action);
 
 private:
     Ui::StationListView *ui;

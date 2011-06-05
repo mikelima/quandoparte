@@ -38,7 +38,8 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     viewSelectionGroup(new QActionGroup(0)),
     stationListModel(model),
     filterModel(new StationListProxyModel(this)),
-    keyPressForwarder(new KeyPressForwarder(this))
+    keyPressForwarder(new KeyPressForwarder(this)),
+    m_sortingMode(NoSorting)
 
 {
 #ifdef Q_WS_MAEMO_5
@@ -65,9 +66,10 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
             SIGNAL(activated(QModelIndex)), SLOT(showStation(QModelIndex)));
     connect(ui->filterEdit, SIGNAL(textChanged(const QString &)),
             SLOT(handleFilterChanges(const QString &)));
-    //filterModel->setSortRole(StationListModel::PositionRole);
-    filterModel->setSortRole(Qt::DisplayRole);
-    filterModel->sort(0);
+    connect(viewSelectionGroup, SIGNAL(triggered(QAction*)),
+            SLOT(handleSortingChange(QAction*)));
+
+    setSortingMode(AlphaSorting);
 }
 
 
@@ -110,9 +112,9 @@ void StationListView::updatePosition(const QtMobility::QGeoPositionInfo &update)
     filterModel->sort(0);
 }
 
-void StationListView::handleSortingChange(const QAction *action)
+void StationListView::handleSortingChange(QAction *action)
 {
-    SortingMode mode;
+    SortingMode mode = NoSorting;
     if (action == ui->sortByNameAction) {
         mode = AlphaSorting;
         qDebug() << "sort by name";
@@ -128,7 +130,25 @@ void StationListView::handleSortingChange(const QAction *action)
 
 void StationListView::setSortingMode(StationListView::SortingMode mode)
 {
-    m_sortingMode = mode;
+    if (mode != m_sortingMode) {
+        m_sortingMode = mode;
+        switch (mode) {
+        case AlphaSorting:
+            filterModel->setSortRole(Qt::DisplayRole);
+            break;
+        case DistanceSorting:
+            filterModel->setSortRole(StationListModel::PositionRole);
+            break;
+        case RecentUsageSorting:
+            break;
+        case NoSorting:
+        default:
+            break;
+        }
+        filterModel->invalidate();
+        filterModel->sort(0);
+        emit sortingModeChanged(mode);
+    }
 }
 
 StationListView::SortingMode StationListView::sortingMode()
