@@ -24,9 +24,18 @@ class StationListView : public QMainWindow
 {
     Q_OBJECT
 
+    enum SortingMode {
+        AlphaSorting,
+        DistanceSorting,
+        RecentUsageSorting
+    };
+
 public:
     explicit StationListView(StationListModel *model, QWidget *parent = 0);
     ~StationListView();
+
+   void setSortingMode(SortingMode mode);
+   SortingMode sortingMode(void);
 
 signals:
     void stationSelected(const QString &);
@@ -47,6 +56,7 @@ private:
     StationListModel *stationListModel;
     StationListProxyModel *filterModel;
     KeyPressForwarder *keyPressForwarder;
+    SortingMode m_sortingMode;
 };
 
 #endif // STATIONLISTVIEW_H

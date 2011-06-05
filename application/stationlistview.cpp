@@ -65,8 +65,8 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
             SIGNAL(activated(QModelIndex)), SLOT(showStation(QModelIndex)));
     connect(ui->filterEdit, SIGNAL(textChanged(const QString &)),
             SLOT(handleFilterChanges(const QString &)));
-    filterModel->setSortRole(StationListModel::PositionRole);
-    //filterModel->setSortRole(Qt::DisplayRole);
+    //filterModel->setSortRole(StationListModel::PositionRole);
+    filterModel->setSortRole(Qt::DisplayRole);
     filterModel->sort(0);
 }
 
@@ -112,11 +112,26 @@ void StationListView::updatePosition(const QtMobility::QGeoPositionInfo &update)
 
 void StationListView::handleSortingChange(const QAction *action)
 {
+    SortingMode mode;
     if (action == ui->sortByNameAction) {
+        mode = AlphaSorting;
         qDebug() << "sort by name";
     } else if (action == ui->sortNearFirstAction) {
+        mode = DistanceSorting;
         qDebug() << "sort by distance";
     } else if (action == ui->sortRecentFirstAction) {
+        mode = RecentUsageSorting;
         qDebug() << "sort by recent use";
     }
+    setSortingMode(mode);
+}
+
+void StationListView::setSortingMode(StationListView::SortingMode mode)
+{
+    m_sortingMode = mode;
+}
+
+StationListView::SortingMode StationListView::sortingMode()
+{
+    return m_sortingMode;
 }
