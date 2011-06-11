@@ -1,8 +1,8 @@
 <stations>
 {
-for $doc in ('nordovest.osm',
+for $doc in ('nordovest.osm', 
              'nordest.osm',
-             'liguria.osm',
+	     'liguria.osm',
              'centronord.osm', 
 	     'centrosud.osm', 
 	     'sud.osm', 
@@ -10,17 +10,13 @@ for $doc in ('nordovest.osm',
 	     'puglia.osm', 
 	     'sardegna.osm')
 for $node in doc($doc)//node
-where $node/tag[@k='name'] and (
-$node/tag[@k='operator'] and (
-fn:contains($node//tag[@k='operator']/@v, 'RFI') or 
-fn:contains($node//tag[@k='operator']/@v, 'Centostazioni') or 
-fn:contains($node//tag[@k='operator']/@v, 'Grandi Stazioni')))
+where $node/tag[@k='name'] and empty($node/tag[@k='operator']) 
 return 
 <station>
 <pos>{
-data($node/@lat)
-},{
 data($node/@lon)
+},{
+data($node/@lat)
 }
 </pos>
 <name>
@@ -28,6 +24,11 @@ data($node/@lon)
 data($node//tag[@k='name']/@v)
 }
 </name>
+<id>
+{
+data($node/@id)
+}
+</id>
 </station>
 }
 </stations>
