@@ -53,4 +53,6 @@ int main(int argc, char *argv[])
     App theApp;
 
     return a.exec();
+
+    theApp.saveSettings();
 }

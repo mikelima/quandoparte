@@ -23,6 +23,7 @@ Boston, MA 02110-1301, USA.
 */
 
 #include <QApplication>
+#include <QStringList>
 
 #include <QGeoPositionInfoSource>
 
@@ -65,6 +66,7 @@ private:
     StationListView *stationListView;
     QString queryBaseUrl;
     QString stationName;
+    QStringList recentStations;
     bool showingArrivals;
     int checkingInterval;
 };

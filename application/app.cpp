@@ -36,6 +36,9 @@ Boston, MA 02110-1301, USA.
 
 #include <QGeoPositionInfoSource>
 
+// Constants
+static const int RECENT_STATIONS_MAX_COUNT = 10;
+
 QTM_USE_NAMESPACE
 
 App::App(QObject *parent) :
@@ -70,12 +73,14 @@ App::App(QObject *parent) :
     stationView->show();
 #endif
 
-    if (stationName.isEmpty()) {
+    if (recentStations.isEmpty()) {
 #if defined(Q_WS_S60)
         stationListView->showMaximized();
 #else
         stationListView->show();
 #endif
+    } else {
+        queryStation(recentStations.front());
     }
 
     // Testing only: start updates rigt away.
@@ -110,6 +115,11 @@ void App::queryStation(const QString &station)
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),
             this, SLOT(downloadFinished()));
+    recentStations.push_front(station);
+    recentStations.removeDuplicates();
+    if (recentStations.count() > RECENT_STATIONS_MAX_COUNT) {
+        recentStations.pop_back();
+    }
 #ifdef Q_WS_MAEMO_5
     stationListView->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, true);
 #endif
@@ -144,7 +154,7 @@ void App::readSettings(void)
                                   "http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione").toString();
     stationView->setBaseUrl(queryBaseUrl);
 
-    stationName = settings.value("CurrentStation").toString();
+    recentStations = settings.value("RecentStations").toString().split(",");
     showingArrivals = settings.value("ShowingArrivals", false).toBool();
     checkingInterval = settings.value("CheckInterval", 2000).toInt();
 }
@@ -152,10 +162,13 @@ void App::readSettings(void)
 void App::saveSettings(void)
 {
     QSettings settings;
+
+    qDebug() << "Saving Settings to" << settings.fileName();
+
     settings.setValue("QueryURL", queryBaseUrl);
-    settings.value("CurrentStation", stationName);
-    settings.value("ShowingArrivals", showingArrivals);
-    settings.value("CheckInterval", checkingInterval);
+    settings.setValue("RecentStations", recentStations.join(","));
+    settings.setValue("ShowingArrivals", showingArrivals);
+    settings.setValue("CheckInterval", checkingInterval);
 }
 
 void App::setShowingArrivals(bool showArrivals)
