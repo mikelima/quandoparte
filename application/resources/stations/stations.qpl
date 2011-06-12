@@ -1488,6 +1488,14 @@
         <name>Ottaviano</name>
     </station>
     <station>
+        <pos>41.3156314,15.8973468</pos>
+        <name>Cerignola Campagna</name>
+    </station>
+    <station>
+        <pos>41.4658938,15.5558481</pos>
+        <name>Foggia</name>
+    </station>
+    <station>
         <pos>41.1809648,16.6692943</pos>
         <name>Giovinazzo</name>
     </station>
@@ -1508,12 +1516,40 @@
         <name>Bari Parco Sud</name>
     </station>
     <station>
+        <pos>41.7764601,15.3849971</pos>
+        <name>Apricena</name>
+    </station>
+    <station>
+        <pos>41.3147036,16.2785554</pos>
+        <name>Barletta Centrale</name>
+    </station>
+    <station>
         <pos>41.1177331,16.8701566</pos>
         <name>Bari Centrale</name>
     </station>
     <station>
-        <pos>41.11719,16.8875018</pos>
+        <pos>41.3466115,15.9959686</pos>
+        <name>Candida</name>
+    </station>
+    <station>
+        <pos>41.117189,16.8875031</pos>
         <name>Bari Marconi</name>
+    </station>
+    <station>
+        <pos>41.3497243,16.0903781</pos>
+        <name>Trinitapoli San Fernando di Puglia</name>
+    </station>
+    <station>
+        <pos>41.3504926,15.7319022</pos>
+        <name>Orta Nova</name>
+    </station>
+    <station>
+        <pos>41.68449,15.3927768</pos>
+        <name>San Severo</name>
+    </station>
+    <station>
+        <pos>41.807454,15.3509201</pos>
+        <name>Poggio Imperiale</name>
     </station>
     <station>
         <pos>40.8529478,14.2729455</pos>
