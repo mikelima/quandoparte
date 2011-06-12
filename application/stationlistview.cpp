@@ -29,6 +29,7 @@ Boston, MA 02110-1301, USA.
 #include <QActionGroup>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QSettings>
 #include <QSortFilterProxyModel>
 #include <QStringListModel>
 
@@ -69,7 +70,11 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     connect(viewSelectionGroup, SIGNAL(triggered(QAction*)),
             SLOT(handleSortingChange(QAction*)));
 
-    setSortingMode(AlphaSorting);
+    QSettings settings;
+    SortingMode mode = static_cast<SortingMode>(
+                settings.value("StationListView/SortingMode",
+                               AlphaSorting).toInt());
+    setSortingMode(mode);
 }
 
 
@@ -125,6 +130,10 @@ void StationListView::handleSortingChange(QAction *action)
         mode = RecentUsageSorting;
         qDebug() << "sort by recent use";
     }
+
+    QSettings settings;
+    settings.setValue("StationListView/SortingMode", mode);
+
     setSortingMode(mode);
 }
 
