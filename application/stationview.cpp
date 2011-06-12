@@ -26,6 +26,7 @@ Boston, MA 02110-1301, USA.
 #include <QDebug>
 #include <QMenu>
 #include <QMenuBar>
+#include <QSettings>
 #include <QWebElement>
 #include <QWebFrame>
 #include <QWebView>
@@ -46,6 +47,14 @@ StationView::StationView(QWidget *parent) :
     showArrivalsAction->setCheckable(true);
     showDeparturesAction->setCheckable(true);
     showDeparturesAction->setChecked(true);
+
+    QSettings settings;
+    if (settings.value("StationView/ShowArrivals", false).toBool() == true) {
+        showArrivalsAction->setChecked(true);
+    } else {
+        showDeparturesAction->setChecked(true);
+    }
+
     viewSelectionGroup->addAction(showArrivalsAction);
     viewSelectionGroup->addAction(showDeparturesAction);
     menu->addAction(showDeparturesAction);
@@ -130,10 +139,11 @@ void StationView::updateView(const QByteArray &page)
 
 void StationView::viewSelectionGroupTriggered(QAction *action)
 {
+    QSettings settings;
     if (action == showArrivalsAction) {
-        emit showingArrivalsChanged(true);
+        settings.setValue("StationView/ShowArrivals", true);
     } else {
-        emit showingArrivalsChanged(false);
+        settings.setValue("StationView/ShowArrivals", false);
     }
     updateCss();
 }
@@ -141,9 +151,8 @@ void StationView::viewSelectionGroupTriggered(QAction *action)
 void StationView::updateCss(void)
 {
     QUrl cssUrl;
-
-    // XXX Maemo5 specific
-    if (showArrivalsAction->isChecked()) {
+    QSettings settings;
+    if (settings.value("StationView/ShowArrivals", true).toBool()) {
         cssUrl.setEncodedUrl("file:///opt/usr/share/apps/quandoparte/css/arrivals.css");
     } else {
         cssUrl.setEncodedUrl("file:///opt/usr/share/apps/quandoparte/css/departures.css");

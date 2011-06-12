@@ -21,7 +21,6 @@ signals:
     void aboutTriggered(void);
     void settingsTriggered(void);
     void stationListSelectTriggered(void);
-    void showingArrivalsChanged(bool);
 
 public slots:
     void updateView(const QByteArray &page);

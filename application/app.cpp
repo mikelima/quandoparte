@@ -62,8 +62,6 @@ App::App(QObject *parent) :
     connect(stationView, SIGNAL(stationListSelectTriggered()),
             SLOT(showStationSelectView()));
 
-    connect(stationView, SIGNAL(showingArrivalsChanged(bool)),
-            SLOT(setShowingArrivals(bool)));
     readSettings();
 
     qDebug() << "found" << stationListModel->rowCount() << "stations";
@@ -155,7 +153,6 @@ void App::readSettings(void)
     stationView->setBaseUrl(queryBaseUrl);
 
     recentStations = settings.value("RecentStations").toString().split(",");
-    showingArrivals = settings.value("ShowingArrivals", false).toBool();
     checkingInterval = settings.value("CheckInterval", 2000).toInt();
 }
 
@@ -167,13 +164,7 @@ void App::saveSettings(void)
 
     settings.setValue("QueryURL", queryBaseUrl);
     settings.setValue("RecentStations", recentStations.join(","));
-    settings.setValue("ShowingArrivals", showingArrivals);
     settings.setValue("CheckInterval", checkingInterval);
-}
-
-void App::setShowingArrivals(bool showArrivals)
-{
-    showingArrivals = showArrivals;
 }
 
 QString App::dataDir(void)

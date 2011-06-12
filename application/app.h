@@ -53,7 +53,6 @@ public slots:
     void showAboutDialog(void);
     void showSettingsDialog(void);
     void showStationSelectView(void);
-    void setShowingArrivals(bool);
 public:
     void saveSettings(void);
     void readSettings(void);
