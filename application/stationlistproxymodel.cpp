@@ -10,11 +10,13 @@ Q_DECLARE_METATYPE(QGeoCoordinate)
 
 StationListProxyModel::StationListProxyModel(QObject *parent) :
     QSortFilterProxyModel(parent),
-    m_here(44.5, 9.0)
+    m_here(44.5, 9.0),
+    m_filterRecentOnly(false)
 {
 }
 
-bool StationListProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+bool StationListProxyModel::lessThan(const QModelIndex &left,
+                                     const QModelIndex &right) const
 {
     int role = sortRole();
 
@@ -32,4 +34,24 @@ bool StationListProxyModel::lessThan(const QModelIndex &left, const QModelIndex 
 void StationListProxyModel::setUserPosition(const QtMobility::QGeoCoordinate &pos)
 {
     m_here = pos;
+}
+
+void StationListProxyModel::setRecentStations(const QStringList &stations)
+{
+    m_stations = stations;
+}
+
+bool StationListProxyModel::filterAcceptsRow(int sourceRow,
+                                             const QModelIndex &sourceParent) const
+{
+    if (m_filterRecentOnly) {
+        QModelIndex i = sourceModel()->index(sourceRow, 0, sourceParent);
+        return m_stations.contains(sourceModel()->data(i).toString());
+    }
+    return true;
+}
+
+void StationListProxyModel::setRecentOnlyFilter(bool)
+{
+    m_filterRecentOnly = true;
 }

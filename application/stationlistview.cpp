@@ -141,6 +141,8 @@ void StationListView::setSortingMode(StationListView::SortingMode mode)
 {
     if (mode != m_sortingMode) {
         m_sortingMode = mode;
+        filterModel->setRecentOnlyFilter(false);
+
         switch (mode) {
         case AlphaSorting:
             filterModel->setSortRole(Qt::DisplayRole);
@@ -152,6 +154,7 @@ void StationListView::setSortingMode(StationListView::SortingMode mode)
             break;
         case RecentUsageSorting:
             ui->sortRecentFirstAction->setChecked(true);
+            filterModel->setRecentOnlyFilter(true);
             break;
         case NoSorting:
         default:
