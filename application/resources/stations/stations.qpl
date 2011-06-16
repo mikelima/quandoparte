@@ -1,5 +1,45 @@
 <stations>
     <station>
+        <pos>46.0150464,9.2863808</pos>
+        <name>Varenna Esino</name>
+    </station>
+    <station>
+        <pos>46.1670575,9.872934</pos>
+        <name>Sondrio</name>
+    </station>
+    <station>
+        <pos>46.0394838,9.3027464</pos>
+        <name>Bellano-Tartavalle Terme</name>
+    </station>
+    <station>
+        <pos>46.0776922,9.3060296</pos>
+        <name>Dervio</name>
+    </station>
+    <station>
+        <pos>46.1027069,9.3191032</pos>
+        <name>Dorio</name>
+    </station>
+    <station>
+        <pos>46.1247216,9.3507195</pos>
+        <name>Piona</name>
+    </station>
+    <station>
+        <pos>46.1380192,9.3752244</pos>
+        <name>Colico</name>
+    </station>
+    <station>
+        <pos>46.0128268,13.1097586</pos>
+        <name>Basiliano</name>
+    </station>
+    <station>
+        <pos>46.0558379,13.241962</pos>
+        <name>Udine</name>
+    </station>
+    <station>
+        <pos>46.1591846,13.2349088</pos>
+        <name>Tricesimo-San Pelagio</name>
+    </station>
+    <station>
         <pos>45.4844717,9.1875734</pos>
         <name>Milano Porta Garibaldi</name>
     </station>
@@ -1396,12 +1436,40 @@
         <name>Pistoia</name>
     </station>
     <station>
+        <pos>42.1025372,13.8763035</pos>
+        <name>Pratola Peligna</name>
+    </station>
+    <station>
+        <pos>42.1724083,13.8260984</pos>
+        <name>Popoli-Vittorito</name>
+    </station>
+    <station>
+        <pos>42.2543472,13.9515503</pos>
+        <name>Piano d'Orta-Bolognano</name>
+    </station>
+    <station>
+        <pos>42.2673191,13.9985009</pos>
+        <name>Scafa-San Valentino-Caramanico</name>
+    </station>
+    <station>
+        <pos>42.2869596,14.0194697</pos>
+        <name>Alanno</name>
+    </station>
+    <station>
+        <pos>42.3056658,14.0608579</pos>
+        <name>Manoppello</name>
+    </station>
+    <station>
         <pos>42.3568765,14.138094</pos>
         <name>Chieti</name>
     </station>
     <station>
         <pos>43.9993184,12.6583945</pos>
         <name>Riccione</name>
+    </station>
+    <station>
+        <pos>42.0608113,13.9072084</pos>
+        <name>Sulmona</name>
     </station>
     <station>
         <pos>43.8811902,10.7713842</pos>
@@ -1414,6 +1482,14 @@
     <station>
         <pos>43.9128465,11.0084008</pos>
         <name>Montale Agliana</name>
+    </station>
+    <station>
+        <pos>42.3049207,14.4404745</pos>
+        <name>San Vito-Lanciano</name>
+    </station>
+    <station>
+        <pos>42.1686483,14.6956548</pos>
+        <name>Porto di Vasto</name>
     </station>
     <station>
         <pos>43.8341544,10.5707132</pos>
@@ -1432,12 +1508,24 @@
         <name>Massarosa Bozzano</name>
     </station>
     <station>
+        <pos>42.4212545,14.2879084</pos>
+        <name>Francavilla al Mare</name>
+    </station>
+    <station>
         <pos>43.7767141,11.2477468</pos>
         <name>Firenze S.M.N.</name>
     </station>
     <station>
         <pos>42.9266731,10.7557492</pos>
         <name>Follonica</name>
+    </station>
+    <station>
+        <pos>42.4443322,14.2070413</pos>
+        <name>Pescara San Marco</name>
+    </station>
+    <station>
+        <pos>42.226587,13.9045929</pos>
+        <name>Tocco da Casauria</name>
     </station>
     <station>
         <pos>43.8792551,10.7807</pos>
@@ -1448,8 +1536,20 @@
         <name>Migliarino Pisano</name>
     </station>
     <station>
+        <pos>42.6605021,13.71582</pos>
+        <name>Teramo</name>
+    </station>
+    <station>
+        <pos>42.0382929,13.9214664</pos>
+        <name>Sulmona - Introdacqua</name>
+    </station>
+    <station>
         <pos>42.3510045,13.3849121</pos>
         <name>L'Aquila</name>
+    </station>
+    <station>
+        <pos>42.0798896,14.7393824</pos>
+        <name>Vasto S.Salvo</name>
     </station>
     <station>
         <pos>42.7672917,11.1065103</pos>
@@ -1472,12 +1572,32 @@
         <name>Pineto-Atri</name>
     </station>
     <station>
+        <pos>42.2440739,13.9375368</pos>
+        <name>Torre dei Passeri</name>
+    </station>
+    <station>
+        <pos>42.7103293,13.9085391</pos>
+        <name>Mosciano Sant'Angelo</name>
+    </station>
+    <station>
+        <pos>42.0006497,14.992693</pos>
+        <name>Termoli</name>
+    </station>
+    <station>
         <pos>42.6392689,11.1344053</pos>
         <name>Albarese</name>
     </station>
     <station>
         <pos>43.6303513,13.3976897</pos>
         <name>Falconara Marittima</name>
+    </station>
+    <station>
+        <pos>42.1936954,14.6329939</pos>
+        <name>Casalbordino</name>
+    </station>
+    <station>
+        <pos>42.2368098,14.5227428</pos>
+        <name>Fossaceisa</name>
     </station>
     <station>
         <pos>41.9008151,12.5023317</pos>
@@ -1526,6 +1646,10 @@
     <station>
         <pos>41.1177331,16.8701566</pos>
         <name>Bari Centrale</name>
+    </station>
+    <station>
+        <pos>41.9573852,15.0424164</pos>
+        <name>Campomarino</name>
     </station>
     <station>
         <pos>41.3466115,15.9959686</pos>

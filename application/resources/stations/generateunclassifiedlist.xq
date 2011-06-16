@@ -1,6 +1,7 @@
 <stations>
 {
-for $doc in ('nordovest.osm', 
+for $doc in ('nord.osm',
+             'nordovest.osm', 
              'nordest.osm',
 	     'liguria.osm',
              'centronord.osm', 
