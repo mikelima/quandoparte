@@ -51,7 +51,7 @@ bool StationListProxyModel::filterAcceptsRow(int sourceRow,
     return true;
 }
 
-void StationListProxyModel::setRecentOnlyFilter(bool)
+void StationListProxyModel::setRecentOnlyFilter(bool activation)
 {
-    m_filterRecentOnly = true;
+    m_filterRecentOnly = activation;
 }

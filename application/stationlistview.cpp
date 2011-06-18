@@ -74,6 +74,8 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     SortingMode mode = static_cast<SortingMode>(
                 settings.value("StationListView/SortingMode",
                                AlphaSorting).toInt());
+    filterModel->setRecentStations(
+                settings.value("RecentStations").toString().split(","));
     setSortingMode(mode);
 }
 
@@ -139,6 +141,7 @@ void StationListView::handleSortingChange(QAction *action)
 
 void StationListView::setSortingMode(StationListView::SortingMode mode)
 {
+    qDebug() << "setSorting Mode" << mode << "called";
     if (mode != m_sortingMode) {
         m_sortingMode = mode;
         filterModel->setRecentOnlyFilter(false);
