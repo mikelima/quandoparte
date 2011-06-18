@@ -1,0 +1,57 @@
+#include "stationlistproxymodel.h"
+#include "stationlistmodel.h"
+
+#include <QDebug>
+#include <QGeoCoordinate>
+
+QTM_USE_NAMESPACE
+
+Q_DECLARE_METATYPE(QGeoCoordinate)
+
+StationListProxyModel::StationListProxyModel(QObject *parent) :
+    QSortFilterProxyModel(parent),
+    m_here(44.5, 9.0),
+    m_filterRecentOnly(false)
+{
+}
+
+bool StationListProxyModel::lessThan(const QModelIndex &left,
+                                     const QModelIndex &right) const
+{
+    int role = sortRole();
+
+    if (role == StationListModel::PositionRole) {
+        QGeoCoordinate first = left.data(role).value<QGeoCoordinate>();
+        QGeoCoordinate second = right.data(role).value<QGeoCoordinate>();
+       return first.distanceTo(m_here) < second.distanceTo(m_here);
+    } else {
+        return QString::compare(left.data(role).toString(),
+                                right.data(role).toString(),
+                                sortCaseSensitivity()) < 0;
+    }
+}
+
+void StationListProxyModel::setUserPosition(const QtMobility::QGeoCoordinate &pos)
+{
+    m_here = pos;
+}
+
+void StationListProxyModel::setRecentStations(const QStringList &stations)
+{
+    m_stations = stations;
+}
+
+bool StationListProxyModel::filterAcceptsRow(int sourceRow,
+                                             const QModelIndex &sourceParent) const
+{
+    if (m_filterRecentOnly) {
+        QModelIndex i = sourceModel()->index(sourceRow, 0, sourceParent);
+        return m_stations.contains(sourceModel()->data(i).toString());
+    }
+    return true;
+}
+
+void StationListProxyModel::setRecentOnlyFilter(bool)
+{
+    m_filterRecentOnly = true;
+}
