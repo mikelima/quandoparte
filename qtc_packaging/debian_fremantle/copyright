@@ -1,17 +1,15 @@
-This package was debianized by Luciano Montanaro <mikelima@zaphod> on
+This package was debianized by Luciano Montanaro <mikelima@cirulla.net> on
 Sat, 18 Jun 2011 16:14:30 +0200.
 
 It was downloaded from <url://example.com>
 
 Upstream Author(s):
 
-    <put author's name and email here>
-    <likewise for another author>
+    Luciano Montanaro <mikelima@cirulla.net>
 
 Copyright:
 
-    <Copyright (C) YYYY Name OfAuthor>
-    <likewise for another author>
+    Copyright (C) Luciano Montanaro
 
 License:
 
@@ -32,7 +30,7 @@ License:
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 
-The Debian packaging is (C) 2011, Luciano Montanaro <mikelima@zaphod> and
+The Debian packaging is (C) 2011, Luciano Montanaro <mikelima@cirulla.net> and
 is licensed under the GPL, see above.
 
 
