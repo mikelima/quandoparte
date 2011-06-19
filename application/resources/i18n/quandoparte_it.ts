@@ -8,9 +8,13 @@
         <translation type="obsolete">&lt;p&gt;%1&lt;/p&gt;&lt;p&gt;Copyright © 2010&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Distribuito secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../app.cpp" line="108"/>
         <source>&lt;p&gt;%1 version %2&lt;/p&gt;&lt;p&gt;Copyright (c) 2010&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;</source>
-        <translation>&lt;p&gt;%1 versione %2&lt;/p&gt;&lt;p&gt;Copyright © 2010&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Distribuito secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;</translation>
+        <translation type="obsolete">&lt;p&gt;%1 versione %2&lt;/p&gt;&lt;p&gt;Copyright © 2010&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Distribuito secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../app.cpp" line="135"/>
+        <source>&lt;p&gt;%1 version %2&lt;/p&gt;&lt;p&gt;Copyright (c) 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;</source>
+        <translation>&lt;p&gt;%1 versione %2&lt;/p&gt;&lt;p&gt;Copyright © 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Distribuito secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -22,8 +26,20 @@
     </message>
     <message>
         <location filename="../../settingsdialog.ui" line="25"/>
+        <source>Show Last Station on Startup</source>
+        <translation>Mostra l&apos;ultima stazione all&apos;avvio</translation>
+    </message>
+    <message>
         <source>Station:</source>
-        <translation>Stazione:</translation>
+        <translation type="obsolete">Stazione:</translation>
+    </message>
+</context>
+<context>
+    <name>StationListModel</name>
+    <message>
+        <location filename="../../stationlistmodel.cpp" line="35"/>
+        <source>Not a qpl file</source>
+        <translation>Non è un file qpl</translation>
     </message>
 </context>
 <context>
@@ -36,7 +52,7 @@
     <message>
         <location filename="../../stationlistview.ui" line="37"/>
         <source>View</source>
-        <translation type="unfinished"></translation>
+        <translation>Vista</translation>
     </message>
     <message>
         <location filename="../../stationlistview.ui" line="53"/>
@@ -82,27 +98,27 @@
 <context>
     <name>StationView</name>
     <message>
-        <location filename="../../stationview.cpp" line="36"/>
+        <location filename="../../stationview.cpp" line="37"/>
         <source>Arrivals</source>
         <translation>Arrivi</translation>
     </message>
     <message>
-        <location filename="../../stationview.cpp" line="37"/>
+        <location filename="../../stationview.cpp" line="38"/>
         <source>Departures</source>
         <translation>Partenze</translation>
     </message>
     <message>
-        <location filename="../../stationview.cpp" line="38"/>
+        <location filename="../../stationview.cpp" line="39"/>
         <source>Settings</source>
         <translation>Impostazioni</translation>
     </message>
     <message>
-        <location filename="../../stationview.cpp" line="39"/>
+        <location filename="../../stationview.cpp" line="40"/>
         <source>Change Station</source>
         <translation>Cambia stazione</translation>
     </message>
     <message>
-        <location filename="../../stationview.cpp" line="40"/>
+        <location filename="../../stationview.cpp" line="41"/>
         <source>About</source>
         <translation>Informazioni</translation>
     </message>
