@@ -19,7 +19,7 @@ public:
 
 signals:
     void aboutTriggered(void);
-    void settingsTriggered(void);
+    void settingsChangeRequested(void);
     void stationListSelectTriggered(void);
 
 public slots:

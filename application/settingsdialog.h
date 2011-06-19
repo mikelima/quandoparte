@@ -19,6 +19,9 @@ public:
     explicit SettingsDialog(QWidget *parent = 0);
     ~SettingsDialog();
 
+private slots:
+    void showStationChanged(bool);
+
 private:
 #ifdef Q_WS_MAEMO_5
     QMaemo5ValueButton *updateIntervalButton;

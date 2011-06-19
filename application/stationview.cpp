@@ -67,7 +67,7 @@ StationView::StationView(QWidget *parent) :
     view->setTextSizeMultiplier(2.0);
     view->setBackgroundRole(QPalette::Window);
     connect(showAboutAction, SIGNAL(triggered()), this, SIGNAL(aboutTriggered()));
-    connect(showSettingsAction, SIGNAL(triggered()), this, SIGNAL(settingsTriggered()));
+    connect(showSettingsAction, SIGNAL(triggered()), this, SIGNAL(settingsChangeRequested()));
     connect(showStationListSelectAction, SIGNAL(triggered()), this, SIGNAL(stationListSelectTriggered()));
     connect(viewSelectionGroup, SIGNAL(triggered(QAction *)), this, SLOT(viewSelectionGroupTriggered(QAction *)));
     setCentralWidget(view);

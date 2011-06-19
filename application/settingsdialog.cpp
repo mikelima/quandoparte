@@ -26,6 +26,7 @@ Boston, MA 02110-1301, USA.
 #include <QMaemo5ValueButton>
 #endif
 
+#include <QSettings>
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
     QDialog(parent),
@@ -35,12 +36,27 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui(new Ui::SettingsDialog)
 {
     ui->setupUi(this);
+
+    QSettings settings;
+    bool showStationPreference = settings.value("ShowStationImmediately",
+                                                false).toBool();
+    ui->showLastStationCheckBox->setChecked(showStationPreference);
+    connect(ui->showLastStationCheckBox, SIGNAL(toggled(bool)),
+            SLOT(showStationChanged(bool)));
+#if 0
 #ifdef Q_WS_MAEMO_5
     ui->formLayout->addWidget(updateIntervalButton);
+#endif
 #endif
 }
 
 SettingsDialog::~SettingsDialog()
 {
     delete ui;
+}
+
+void SettingsDialog::showStationChanged(bool newValue)
+{
+    QSettings settings;
+    settings.setValue("ShowStationImmediately", newValue);
 }

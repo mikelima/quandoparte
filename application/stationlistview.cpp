@@ -63,6 +63,8 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
 
     connect(ui->showAboutAction, SIGNAL(triggered()),
             this, SIGNAL(aboutTriggered()));
+    connect(ui->showSettingsAction, SIGNAL(triggered()),
+            this, SIGNAL(settingsChangeRequested()));
     connect(ui->listView,
             SIGNAL(activated(QModelIndex)), SLOT(showStation(QModelIndex)));
     connect(ui->filterEdit, SIGNAL(textChanged(const QString &)),
@@ -83,17 +85,6 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
 StationListView::~StationListView()
 {
     delete ui;
-}
-
-void StationListView::showSettings(void)
-{
-    qDebug() << "Show Settings";
-    SettingsDialog *settingsDialog = new SettingsDialog(this);
-    if (settingsDialog->exec() == QDialog::Accepted) {
-        // TODO Use new settings
-    }
-
-    delete settingsDialog;
 }
 
 void StationListView::showStation(const QModelIndex &index)

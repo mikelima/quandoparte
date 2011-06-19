@@ -55,10 +55,17 @@ App::App(QObject *parent) :
             stationListView, SLOT(updatePosition(QGeoPositionInfo)));
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
+
     connect(stationListView, SIGNAL(aboutTriggered()),
             SLOT(showAboutDialog()));
     connect(stationView, SIGNAL(aboutTriggered()),
             SLOT(showAboutDialog()));
+
+    connect(stationListView, SIGNAL(settingsChangeRequested()),
+            SLOT(showSettingsDialog()));
+    connect(stationView, SIGNAL(settingsChangeRequested()),
+            SLOT(showSettingsDialog()));
+
     connect(stationView, SIGNAL(stationListSelectTriggered()),
             SLOT(showStationSelectView()));
 
@@ -125,6 +132,13 @@ void App::queryStation(const QString &station)
 
 void App::showSettingsDialog()
 {
+    qDebug() << "Settings Dialog called";
+
+    SettingsDialog *dialog = new SettingsDialog(stationView);
+    if (dialog->exec() == QDialog::Accepted) {
+        // TODO Use new settings
+    }
+    delete dialog;
 }
 
 void App::showAboutDialog()
