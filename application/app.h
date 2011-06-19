@@ -66,8 +66,8 @@ private:
     QString queryBaseUrl;
     QString stationName;
     QStringList recentStations;
-    bool showingArrivals;
     int checkingInterval;
+    bool stationViewPreferred;
 };
 
 #endif // APPLICATION_H

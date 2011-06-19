@@ -38,7 +38,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->setupUi(this);
 
     QSettings settings;
-    bool showStationPreference = settings.value("ShowStationImmediately",
+    bool showStationPreference = settings.value("StationViewPreferred",
                                                 false).toBool();
     ui->showLastStationCheckBox->setChecked(showStationPreference);
     connect(ui->showLastStationCheckBox, SIGNAL(toggled(bool)),
@@ -58,5 +58,5 @@ SettingsDialog::~SettingsDialog()
 void SettingsDialog::showStationChanged(bool newValue)
 {
     QSettings settings;
-    settings.setValue("ShowStationImmediately", newValue);
+    settings.setValue("StationViewPreferred", newValue);
 }

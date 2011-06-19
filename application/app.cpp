@@ -72,18 +72,9 @@ App::App(QObject *parent) :
     readSettings();
 
     qDebug() << "found" << stationListModel->rowCount() << "stations";
-#if defined(Q_WS_S60)
-    stationView->showMaximized();
-#else
     stationView->show();
-#endif
-
-    if (recentStations.isEmpty()) {
-#if defined(Q_WS_S60)
-        stationListView->showMaximized();
-#else
+    if (recentStations.isEmpty() || !stationViewPreferred) {
         stationListView->show();
-#endif
     } else {
         queryStation(recentStations.front());
     }
@@ -136,7 +127,7 @@ void App::showSettingsDialog()
 
     SettingsDialog *dialog = new SettingsDialog(stationView);
     if (dialog->exec() == QDialog::Accepted) {
-        // TODO Use new settings
+        readSettings();
     }
     delete dialog;
 }
@@ -168,6 +159,7 @@ void App::readSettings(void)
 
     recentStations = settings.value("RecentStations").toString().split(",");
     checkingInterval = settings.value("CheckInterval", 2000).toInt();
+    stationViewPreferred = settings.value("StationViewPreferred", false).toBool();
 }
 
 void App::saveSettings(void)
@@ -179,6 +171,7 @@ void App::saveSettings(void)
     settings.setValue("QueryURL", queryBaseUrl);
     settings.setValue("RecentStations", recentStations.join(","));
     settings.setValue("CheckInterval", checkingInterval);
+    settings.setValue("StationViewPreferred", stationViewPreferred);
 }
 
 QString App::dataDir(void)

@@ -75,6 +75,9 @@ StationView::StationView(QWidget *parent) :
     setAttribute(Qt::WA_Maemo5StackedWindow);
     setAttribute(Qt::WA_Maemo5AutoOrientation);
 #endif
+#if defined(Q_WS_S60)
+    setWindowState(Qt::WindowMaximized);
+#endif
 }
 
 void StationView::setStation(const QString &station)
