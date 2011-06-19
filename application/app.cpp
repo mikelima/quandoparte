@@ -51,8 +51,10 @@ App::App(QObject *parent) :
 {
     stationListModel->load(dataDir() + "stations/stations.qpl");
 
-    connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
-            stationListView, SLOT(updatePosition(QGeoPositionInfo)));
+    if (positionInfoSource) {
+        connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+                stationListView, SLOT(updatePosition(QGeoPositionInfo)));
+    }
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
 
@@ -80,7 +82,9 @@ App::App(QObject *parent) :
     }
 
     // Testing only: start updates rigt away.
-    positionInfoSource->startUpdates();
+    if (positionInfoSource) {
+        positionInfoSource->startUpdates();
+    }
 }
 
 App::~App()
