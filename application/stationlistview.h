@@ -58,6 +58,7 @@ private:
     StationListModel *stationListModel;
     StationListProxyModel *filterModel;
     KeyPressForwarder *keyPressForwarder;
+    QGeoPositionInfoSource *positionInfoSource;
     SortingMode m_sortingMode;
 };
 

@@ -25,16 +25,12 @@ Boston, MA 02110-1301, USA.
 #include <QApplication>
 #include <QStringList>
 
-#include <QGeoPositionInfoSource>
-
 class QNetworkAccessManager;
 class QNetworkReply;
 
 class StationView;
 class StationListView;
 class StationListModel;
-
-QTM_USE_NAMESPACE
 
 class App : public QObject
 {
@@ -59,7 +55,6 @@ public:
 private:
     QNetworkAccessManager *accessManager;
     QNetworkReply *stationQueryReply;
-    QGeoPositionInfoSource *positionInfoSource;
     StationView *stationView;
     StationListModel *stationListModel;
     StationListView *stationListView;

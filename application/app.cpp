@@ -44,17 +44,12 @@ QTM_USE_NAMESPACE
 App::App(QObject *parent) :
     QObject(parent),
     accessManager(new QNetworkAccessManager(this)),
-    positionInfoSource(QGeoPositionInfoSource::createDefaultSource(this)),
     stationView(new StationView()),
     stationListModel(new StationListModel(this)),
     stationListView(new StationListView(stationListModel, stationView))
 {
     stationListModel->load(dataDir() + "stations/stations.qpl");
 
-    if (positionInfoSource) {
-        connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
-                stationListView, SLOT(updatePosition(QGeoPositionInfo)));
-    }
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
 
@@ -79,11 +74,6 @@ App::App(QObject *parent) :
         stationListView->show();
     } else {
         queryStation(recentStations.front());
-    }
-
-    // Testing only: start updates rigt away.
-    if (positionInfoSource) {
-        positionInfoSource->startUpdates();
     }
 }
 

@@ -40,6 +40,7 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     stationListModel(model),
     filterModel(new StationListProxyModel(this)),
     keyPressForwarder(new KeyPressForwarder(this)),
+    positionInfoSource(QGeoPositionInfoSource::createDefaultSource(this)),
     m_sortingMode(NoSorting)
 
 {
@@ -71,6 +72,13 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
             SLOT(handleFilterChanges(const QString &)));
     connect(viewSelectionGroup, SIGNAL(triggered(QAction*)),
             SLOT(handleSortingChange(QAction*)));
+
+    if (positionInfoSource) {
+        connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+                SLOT(updatePosition(QGeoPositionInfo)));
+        // Testing only: start updates rigt away.
+        positionInfoSource->startUpdates();
+    }
 
     QSettings settings;
     SortingMode mode = static_cast<SortingMode>(
