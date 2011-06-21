@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
+CONFIG += qt webkit mobility
 QT += webkit network maemo5
+MOBILITY = location
 
 TARGET = quandoparte
 TEMPLATE = app
@@ -35,9 +37,6 @@ HEADERS += \
 FORMS += \
     settingsdialog.ui \
     stationlistview.ui
-
-CONFIG += webkit mobility
-MOBILITY = location
 
 symbian {
     TARGET.UID3 = 0xe30fb688
