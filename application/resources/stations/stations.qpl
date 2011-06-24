@@ -1340,14 +1340,6 @@
         <name>Senigallia</name>
     </station>
     <station>
-        <pos>43.610086,13.4557096</pos>
-        <name>Ancona Torrette</name>
-    </station>
-    <station>
-        <pos>43.6167313,13.430454</pos>
-        <name>Palombina</name>
-    </station>
-    <station>
         <pos>43.6512706,13.3465974</pos>
         <name>Montemarciano</name>
     </station>
@@ -1356,7 +1348,15 @@
         <name>Marzocca</name>
     </station>
     <station>
-        <pos>43.8372051,10.5061017</pos>
+        <pos>43.3090115,13.7257203</pos>
+        <name>Civitanova Marche-Montegranaro</name>
+    </station>
+    <station>
+        <pos>43.5747668,13.5234209</pos>
+        <name>Varano</name>
+    </station>
+    <station>
+        <pos>43.8371478,10.5061393</pos>
         <name>Lucca</name>
     </station>
     <station>
@@ -1524,6 +1524,14 @@
         <name>Pescara San Marco</name>
     </station>
     <station>
+        <pos>43.2816309,13.4776649</pos>
+        <name>Piediripa - Corridonia</name>
+    </station>
+    <station>
+        <pos>43.2930393,13.4552447</pos>
+        <name>Macerata</name>
+    </station>
+    <station>
         <pos>42.226587,13.9045929</pos>
         <name>Tocco da Casauria</name>
     </station>
@@ -1680,6 +1688,10 @@
         <name>Napoli Centrale</name>
     </station>
     <station>
+        <pos>38.1845417,15.5616609</pos>
+        <name>Messina Centrale</name>
+    </station>
+    <station>
         <pos>38.1876129,15.5637552</pos>
         <name>Messina Marittima</name>
     </station>
@@ -1788,7 +1800,7 @@
         <name>Olbia</name>
     </station>
     <station>
-        <pos>39.215934,9.1081114</pos>
+        <pos>39.2159562,9.1080056</pos>
         <name>Cagliari</name>
     </station>
     <station>
@@ -1842,5 +1854,73 @@
     <station>
         <pos>40.5749011,8.3221206</pos>
         <name>Alghero-Sant'Agostino</name>
+    </station>
+    <station>
+        <pos>44.1090501,8.2422996</pos>
+        <name>Borghetto S S</name>
+    </station>
+    <station>
+        <pos>44.1183256,9.8640868</pos>
+        <name>Cà dei Boschetti</name>
+    </station>
+    <station>
+        <pos>44.1090501,8.2422996</pos>
+        <name>Borghetto S S</name>
+    </station>
+    <station>
+        <pos>44.1183256,9.8640868</pos>
+        <name>Cà dei Boschetti</name>
+    </station>
+    <station>
+        <pos>45.8723294,13.4837315</pos>
+        <name>Sagrado</name>
+    </station>
+    <station>
+        <pos>45.9330617,13.2877533</pos>
+        <name>Santa Maria la Longa</name>
+    </station>
+    <station>
+        <pos>45.953641,13.2749904</pos>
+        <name>Santo Stefano Udinese</name>
+    </station>
+    <station>
+        <pos>45.8872739,13.3047602</pos>
+        <name>Sevegliano</name>
+    </station>
+    <station>
+        <pos>45.2574788,10.3884251</pos>
+        <name>Remedello Sotto</name>
+    </station>
+    <station>
+        <pos>44.5509122,11.1968423</pos>
+        <name>Anzola</name>
+    </station>
+    <station>
+        <pos>44.0745317,10.0161998</pos>
+        <name>Luni</name>
+    </station>
+    <station>
+        <pos>43.870533,7.5529913</pos>
+        <name>Airole</name>
+    </station>
+    <station>
+        <pos>43.610086,13.4557096</pos>
+        <name>Ancona Torrette</name>
+    </station>
+    <station>
+        <pos>43.6168579,13.4300751</pos>
+        <name>Palombina</name>
+    </station>
+    <station>
+        <pos>43.2893152,13.6469827</pos>
+        <name>Montecosaro Scalo</name>
+    </station>
+    <station>
+        <pos>43.6072738,13.3574688</pos>
+        <name>Castelferretti</name>
+    </station>
+    <station>
+        <pos>43.6263443,13.3815002</pos>
+        <name>Falconara Stadio</name>
     </station>
 </stations>
