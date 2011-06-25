@@ -48,7 +48,7 @@ App::App(QObject *parent) :
     stationListModel(new StationListModel(this)),
     stationListView(new StationListView(stationListModel, stationView))
 {
-    stationListModel->load(dataDir() + "stations/stations.qpl");
+    stationListModel->load("stations:stations.qpl");
 
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
@@ -170,9 +170,5 @@ void App::saveSettings(void)
 
 QString App::dataDir(void)
 {
-#ifdef Q_WS_MAEMO_5
-    return QString("/opt/usr/share/apps/quandoparte/");
-#else
-    return QString("/usr/share/apps/quandoparte/");
-#endif
+    return QString(DATADIR);
 }

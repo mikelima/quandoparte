@@ -23,6 +23,8 @@ Boston, MA 02110-1301, USA.
 
 #include <QAction>
 #include <QActionGroup>
+#include <QDir>
+#include <QFileInfo>
 #include <QDebug>
 #include <QMenu>
 #include <QMenuBar>
@@ -155,10 +157,14 @@ void StationView::updateCss(void)
 {
     QUrl cssUrl;
     QSettings settings;
+    QStringList paths = QDir::searchPaths("css");
+    QFileInfo fileInfo;
     if (settings.value("StationView/ShowArrivals", true).toBool()) {
-        cssUrl.setEncodedUrl("file:///opt/usr/share/apps/quandoparte/css/arrivals.css");
+        fileInfo = QFileInfo("css:arrivals.css");
     } else {
-        cssUrl.setEncodedUrl("file:///opt/usr/share/apps/quandoparte/css/departures.css");
+        fileInfo = QFileInfo("css:departures.css");
     }
+    cssUrl = QUrl::fromLocalFile(fileInfo.absoluteFilePath());
+    qDebug() << "Css url:" << cssUrl;
     QWebSettings::globalSettings()->setUserStyleSheetUrl(cssUrl);
 }

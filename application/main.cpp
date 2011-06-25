@@ -22,6 +22,7 @@ Boston, MA 02110-1301, USA.
 #include "app.h"
 
 #include <QApplication>
+#include <QDir>
 #include <QDebug>
 #include <QLocale>
 #include <QTranslator>
@@ -37,14 +38,17 @@ int main(int argc, char *argv[])
     a.setOrganizationDomain("cirulla.net");
     a.setApplicationVersion(QP_VERSION);
 
+    QDir::setSearchPaths("css", QStringList(DATADIR "/css"));
+    QDir::setSearchPaths("stations", QStringList(DATADIR "/stations"));
+    QDir::setSearchPaths("i18n", QStringList(DATADIR "/i18n"));
+
 #ifdef QT_KEYPAD_NAVIGATION
     QApplication::setNavigationMode(Qt::NavigationModeKeypadTabOrder);
 #endif
 
     QString locale = QLocale::system().name();
     QTranslator translator;
-    if (translator.load(QString("quandoparte_") + locale,
-                        App::dataDir() + "i18n")) {
+    if (translator.load(QString("i18n:quandoparte_") + locale)) {
         qDebug() << "Translation for locale" << locale << "loaded";
         a.installTranslator(&translator);
     } else {
