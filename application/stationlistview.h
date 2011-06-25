@@ -52,7 +52,9 @@ private slots:
     void handleFilterChanges(const QString &filter);
     void handleSortingChange(QAction *action);
 
-private:
+    void handlefilterClearClick();
+
+    private:
     Ui::StationListView *ui;
     QActionGroup *viewSelectionGroup;
     StationListModel *stationListModel;

@@ -44,11 +44,15 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     m_sortingMode(NoSorting)
 
 {
+    ui->setupUi(this);
 #ifdef Q_WS_MAEMO_5
     setAttribute(Qt::WA_Maemo5StackedWindow);
     setAttribute(Qt::WA_Maemo5AutoOrientation);
+    ui->filterClear->setIcon(QIcon::fromTheme("general_close"));
+#else
+    ui->filterClear->setIcon(QIcon::fromTheme("edit-clear"));
 #endif
-    ui->setupUi(this);
+
     viewSelectionGroup->addAction(ui->sortByNameAction);
     viewSelectionGroup->addAction(ui->sortByDistanceAction);
     viewSelectionGroup->addAction(ui->sortRecentFirstAction);
@@ -57,7 +61,7 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     ui->listView->setModel(filterModel);
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->listView->setSelectionMode(QAbstractItemView::SingleSelection);
-    ui->filterEdit->hide();
+    ui->filterFrame->hide();
 
     keyPressForwarder->setTarget(ui->filterEdit);
     ui->listView->installEventFilter(keyPressForwarder);
@@ -66,10 +70,11 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
             this, SIGNAL(aboutTriggered()));
     connect(ui->showSettingsAction, SIGNAL(triggered()),
             this, SIGNAL(settingsChangeRequested()));
-    connect(ui->listView,
-            SIGNAL(activated(QModelIndex)), SLOT(showStation(QModelIndex)));
+    connect(ui->listView, SIGNAL(activated(QModelIndex)),
+            SLOT(showStation(QModelIndex)));
     connect(ui->filterEdit, SIGNAL(textChanged(const QString &)),
             SLOT(handleFilterChanges(const QString &)));
+    connect(ui->filterClear, SIGNAL(clicked()), SLOT(handlefilterClearClick()));
     connect(viewSelectionGroup, SIGNAL(triggered(QAction*)),
             SLOT(handleSortingChange(QAction*)));
 
@@ -104,10 +109,11 @@ void StationListView::showStation(const QModelIndex &index)
 void StationListView::handleFilterChanges(const QString &filter)
 {
     if (!filter.isEmpty())
-        ui->filterEdit->show();
+        ui->filterFrame->show();
     else
-        ui->filterEdit->hide();
+        ui->filterFrame->hide();
     filterModel->setFilterFixedString(filter);
+    qDebug() << "Filtering for" << filter;
 }
 
 void StationListView::updatePosition(const QtMobility::QGeoPositionInfo &update)
@@ -171,4 +177,9 @@ void StationListView::setSortingMode(StationListView::SortingMode mode)
 StationListView::SortingMode StationListView::sortingMode()
 {
     return m_sortingMode;
+}
+
+void StationListView::handlefilterClearClick()
+{
+    ui->filterEdit->clear();
 }
