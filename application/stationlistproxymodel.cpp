@@ -44,11 +44,15 @@ void StationListProxyModel::setRecentStations(const QStringList &stations)
 bool StationListProxyModel::filterAcceptsRow(int sourceRow,
                                              const QModelIndex &sourceParent) const
 {
+    bool acceptable;
+    QModelIndex i = sourceModel()->index(sourceRow, 0, sourceParent);
+    QString stationName = sourceModel()->data(i).toString();
     if (m_filterRecentOnly) {
-        QModelIndex i = sourceModel()->index(sourceRow, 0, sourceParent);
-        return m_stations.contains(sourceModel()->data(i).toString());
+        acceptable =  m_stations.contains(stationName);
+    } else {
+        acceptable = true;
     }
-    return true;
+    return acceptable && stationName.contains(filterRegExp());
 }
 
 void StationListProxyModel::setRecentOnlyFilter(bool activation)
