@@ -10,7 +10,7 @@ MOBILITY = location
 
 TARGET = quandoparte
 TEMPLATE = app
-VERSION = 0.3.5
+VERSION = 0.3.6
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
 
