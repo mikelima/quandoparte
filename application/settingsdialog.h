@@ -22,6 +22,8 @@ public:
 private slots:
     void showStationChanged(bool);
 
+    void periodicUpdateToggled(bool checked);
+
 private:
 #ifdef Q_WS_MAEMO_5
     QMaemo5ValueButton *updateIntervalButton;

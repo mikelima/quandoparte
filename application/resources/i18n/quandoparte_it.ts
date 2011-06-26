@@ -25,9 +25,14 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../settingsdialog.ui" line="25"/>
+        <location filename="../../settingsdialog.ui" line="45"/>
         <source>Show Last Station on Startup</source>
         <translation>Mostra l&apos;ultima stazione all&apos;avvio</translation>
+    </message>
+    <message>
+        <location filename="../../settingsdialog.ui" line="52"/>
+        <source>Update Display Periodically</source>
+        <translation>Aggiorna stazione periodicamente</translation>
     </message>
     <message>
         <source>Station:</source>
@@ -50,47 +55,47 @@
         <translation>Elenco delle stazioni</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="37"/>
+        <location filename="../../stationlistview.ui" line="65"/>
         <source>View</source>
         <translation>Vista</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="53"/>
+        <location filename="../../stationlistview.ui" line="81"/>
         <source>Near</source>
         <translation>Vicine</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="56"/>
+        <location filename="../../stationlistview.ui" line="84"/>
         <source>Show near stations first</source>
         <translation>Mostra per prime le stazioni vicine</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="64"/>
+        <location filename="../../stationlistview.ui" line="92"/>
         <source>ABC</source>
         <translation>ABC</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="67"/>
+        <location filename="../../stationlistview.ui" line="95"/>
         <source>Sort stations by name</source>
         <translation>Ordina le stazioni per nome</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="72"/>
+        <location filename="../../stationlistview.ui" line="100"/>
         <source>Settings</source>
         <translation>Impostazioni</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="77"/>
+        <location filename="../../stationlistview.ui" line="105"/>
         <source>About</source>
         <translation>Informazioni</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="85"/>
+        <location filename="../../stationlistview.ui" line="113"/>
         <source>Recent</source>
         <translation>Recenti</translation>
     </message>
     <message>
-        <location filename="../../stationlistview.ui" line="88"/>
+        <location filename="../../stationlistview.ui" line="116"/>
         <source>Show recently checked stations first</source>
         <translation>Mostra per prime le stazioni recenti</translation>
     </message>
@@ -98,27 +103,27 @@
 <context>
     <name>StationView</name>
     <message>
-        <location filename="../../stationview.cpp" line="37"/>
+        <location filename="../../stationview.cpp" line="39"/>
         <source>Arrivals</source>
         <translation>Arrivi</translation>
     </message>
     <message>
-        <location filename="../../stationview.cpp" line="38"/>
+        <location filename="../../stationview.cpp" line="40"/>
         <source>Departures</source>
         <translation>Partenze</translation>
     </message>
     <message>
-        <location filename="../../stationview.cpp" line="39"/>
+        <location filename="../../stationview.cpp" line="41"/>
         <source>Settings</source>
         <translation>Impostazioni</translation>
     </message>
     <message>
-        <location filename="../../stationview.cpp" line="40"/>
+        <location filename="../../stationview.cpp" line="42"/>
         <source>Change Station</source>
         <translation>Cambia stazione</translation>
     </message>
     <message>
-        <location filename="../../stationview.cpp" line="41"/>
+        <location filename="../../stationview.cpp" line="43"/>
         <source>About</source>
         <translation>Informazioni</translation>
     </message>
