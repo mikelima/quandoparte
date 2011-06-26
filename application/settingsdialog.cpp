@@ -43,6 +43,11 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->showLastStationCheckBox->setChecked(showStationPreference);
     connect(ui->showLastStationCheckBox, SIGNAL(toggled(bool)),
             SLOT(showStationChanged(bool)));
+
+    bool checkingInterval = settings.value("CheckInterval", 0).toInt();
+    ui->periodicUpdateCheckBox->setChecked(checkingInterval > 30000);
+    connect(ui->periodicUpdateCheckBox, SIGNAL(toggled(bool)),
+            SLOT(periodicUpdateToggled(bool)));
 #if 0
 #ifdef Q_WS_MAEMO_5
     ui->formLayout->addWidget(updateIntervalButton);
@@ -59,4 +64,10 @@ void SettingsDialog::showStationChanged(bool newValue)
 {
     QSettings settings;
     settings.setValue("StationViewPreferred", newValue);
+}
+
+void SettingsDialog::periodicUpdateToggled(bool checked)
+{
+    QSettings settings;
+    settings.setValue("CheckInterval", checked ? 120000 : 0);
 }

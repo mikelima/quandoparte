@@ -27,6 +27,7 @@ Boston, MA 02110-1301, USA.
 
 class QNetworkAccessManager;
 class QNetworkReply;
+class QTimer;
 
 class StationView;
 class StationListView;
@@ -45,6 +46,7 @@ signals:
 
 public slots:
     void queryStation(const QString &station);
+    void updateStation();
     void downloadFinished(void);
     void showAboutDialog(void);
     void showSettingsDialog(void);
@@ -55,11 +57,11 @@ public:
 private:
     QNetworkAccessManager *accessManager;
     QNetworkReply *stationQueryReply;
+    QTimer *checkingTimer;
     StationView *stationView;
     StationListModel *stationListModel;
     StationListView *stationListView;
     QString queryBaseUrl;
-    QString stationName;
     QStringList recentStations;
     int checkingInterval;
     bool stationViewPreferred;

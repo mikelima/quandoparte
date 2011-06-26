@@ -32,6 +32,7 @@ Boston, MA 02110-1301, USA.
 #include <QNetworkRequest>
 #include <QObject>
 #include <QSettings>
+#include <QTimer>
 #include <QUrl>
 
 #include <QGeoPositionInfoSource>
@@ -44,6 +45,7 @@ QTM_USE_NAMESPACE
 App::App(QObject *parent) :
     QObject(parent),
     accessManager(new QNetworkAccessManager(this)),
+    checkingTimer(new QTimer(this)),
     stationView(new StationView()),
     stationListModel(new StationListModel(this)),
     stationListView(new StationListView(stationListModel, stationView))
@@ -69,6 +71,8 @@ App::App(QObject *parent) :
     readSettings();
 
     qDebug() << "found" << stationListModel->rowCount() << "stations";
+
+    connect(checkingTimer, SIGNAL(timeout()), SLOT(updateStation()));
     stationView->show();
     if (recentStations.isEmpty() || !stationViewPreferred) {
         stationListView->show();
@@ -79,7 +83,9 @@ App::App(QObject *parent) :
 
 App::~App()
 {
+    disconnect();
     delete stationView;
+    delete stationListView;
     saveSettings();
 }
 
@@ -113,6 +119,14 @@ void App::queryStation(const QString &station)
 #ifdef Q_WS_MAEMO_5
     stationListView->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, true);
 #endif
+}
+
+void App::updateStation()
+{
+    qDebug() << "updating station data";
+    if (!recentStations.isEmpty() && !stationListView->isVisible()) {
+        queryStation(recentStations.front());
+    }
 }
 
 void App::showSettingsDialog()
@@ -152,8 +166,27 @@ void App::readSettings(void)
     stationView->setBaseUrl(queryBaseUrl);
 
     recentStations = settings.value("RecentStations").toString().split(",");
-    checkingInterval = settings.value("CheckInterval", 2000).toInt();
+    qDebug() << "RecentStations:" << recentStations;
+
     stationViewPreferred = settings.value("StationViewPreferred", false).toBool();
+    qDebug() << "StationsViewPreferred:" << stationViewPreferred;
+
+    checkingInterval = settings.value("CheckInterval", 0).toInt();
+    qDebug() << "CheckInterval:" << checkingInterval;
+
+    /*
+       I would use > 0 here, but people may have an old settings file with a 2
+       seconds timeout which is way too short.
+       As a workaround I consider anything less than 30 seconds as too short
+       and disable the timer.
+    */
+    if (checkingInterval > 30000) {
+        checkingTimer->setInterval(checkingInterval);
+        checkingTimer->start();
+    } else {
+        checkingTimer->setInterval(-1);
+        checkingTimer->stop();
+    }
 }
 
 void App::saveSettings(void)
