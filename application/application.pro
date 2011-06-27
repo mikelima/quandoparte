@@ -4,8 +4,8 @@
 #
 #-------------------------------------------------
 
-CONFIG += qt webkit mobility
 QT += webkit network maemo5
+CONFIG += qt webkit mobility
 MOBILITY = location
 
 TARGET = quandoparte
@@ -54,8 +54,6 @@ OTHER_FILES += \
     $$replace(TRANSLATIONS, .ts, .qm) \
     resources/stations/stations.qpl
 
-message($${OTHER_FILES})
-
 unix {
     isEmpty(PREFIX) {
         maemo5 {
@@ -69,6 +67,7 @@ unix {
     DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"
 }
 
+message(Installing to prefix $$PREFIX)
 
 unix:!symbian {
     target.path = $$BINDIR
