@@ -1,0 +1,35 @@
+div.header {
+	margin: 1em;
+	padding: 1em;
+	background-color: #eee;
+	border-radius: 1em;
+}
+div.header p {
+	font-style: italic;
+}
+div.navigation {
+	float: right;
+	padding: 1em;
+}
+div.bodymatter {
+	width: 60em;
+	margin: 2em;
+}
+#icon {
+	margin: 6pt;
+	float: left;
+}
+div.screenshot {
+	margin: 10pt;
+	padding: 12pt;
+	padding-top: 6pt;
+	padding-bottom: 3pt;
+	text-align: center;
+	width: 800px;
+	border: none;
+	background-color: #eee
+}
+div.screenshot p {
+	font-style: italic;
+	text-indent: 0pt;
+}
