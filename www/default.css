@@ -29,11 +29,16 @@ div.screenshot {
 	padding-top: 6pt;
 	padding-bottom: 3pt;
 	text-align: center;
-	width: 800px;
+	width: 50%;
 	border: none;
 	background-color: #eee
 }
+
 div.screenshot p {
 	font-style: italic;
 	text-indent: 0pt;
+}
+
+div.screenshot img {
+	width: 100%
 }
