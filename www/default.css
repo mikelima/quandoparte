@@ -1,8 +1,9 @@
 div.header {
-	margin: 1em;
+	margin: 1em auto;
 	padding: 1em;
 	background-color: #eee;
 	border-radius: 1em;
+	max-width: 80em;
 }
 div.header p {
 	font-style: italic;
@@ -12,8 +13,11 @@ div.navigation {
 	padding: 1em;
 }
 div.bodymatter {
-	width: 60em;
-	margin: 2em;
+	vertical-align: center;
+	text-align: justify;
+	text-justify: newspaper;
+	max-width: 60em;
+	margin: 2em auto;
 }
 #icon {
 	margin: 6pt;
