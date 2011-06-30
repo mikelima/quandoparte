@@ -8,13 +8,13 @@ color: white ! important;
 display:none ! important;
 }
 
-.bloccotreno, .bloccorisultato {
+.bloccotreno, .bloccorisultato, .corpocentrale {
 background-color: black ! important;
 color: white ! important;
 }
 
 h1, h2 {
-color: white ! important
+color: white ! important;
 }
 
 #footer {
@@ -22,5 +22,21 @@ display: none ! important;
 }
 
 div.bloccotreno br:first-of-type {
-display: none
+display: none;
+}
+
+.evidenziato, .giaeffettuate {
+background-color: #003 ! important;
+}
+
+a, a.link {
+color: #8ff ! important;
+}
+
+a.active {
+color: #8ff ! important;
+}
+
+a.visited {
+color: #f8f ! important;
 }
