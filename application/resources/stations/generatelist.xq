@@ -37,11 +37,12 @@ data($node/@lat)
 data($node/@lon)
 }
 </pos>
-<name>
-{
-data($node//tag[@k='name']/@v)
-}
-</name>
+<name>{
+if (fn:exists(data($node//tag[@k='name:it']))) then
+	data($node//tag[@k='name:it']/@v)
+else
+	data($node//tag[@k='name']/@v)
+}</name>
 </station>
 }
 </stations>
