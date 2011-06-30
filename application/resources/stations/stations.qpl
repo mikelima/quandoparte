@@ -1688,6 +1688,10 @@
         <name>Napoli Centrale</name>
     </station>
     <station>
+        <pos>38.0050116,15.4234391</pos>
+        <name>Ali terme</name>
+    </station>
+    <station>
         <pos>38.1845417,15.5616609</pos>
         <name>Messina Centrale</name>
     </station>
@@ -1702,6 +1706,10 @@
     <station>
         <pos>38.1040084,15.6356535</pos>
         <name>Reggio Calabria Centrale</name>
+    </station>
+    <station>
+        <pos>38.0463933,15.4654302</pos>
+        <name>Scaletta Zanclea</name>
     </station>
     <station>
         <pos>37.0689055,15.2817358</pos>
@@ -1732,6 +1740,10 @@
         <name>Taormina-Giardini</name>
     </station>
     <station>
+        <pos>37.8774704,15.3030517</pos>
+        <name>Letojanni</name>
+    </station>
+    <station>
         <pos>37.9462799,15.3676448</pos>
         <name>Teresa</name>
     </station>
@@ -1740,20 +1752,72 @@
         <name>Catania Centrale</name>
     </station>
     <station>
+        <pos>36.7781075,14.9142926</pos>
+        <name>Ispica</name>
+    </station>
+    <station>
         <pos>37.7302045,15.1935589</pos>
         <name>Giarre-Riposto</name>
     </station>
     <station>
         <pos>37.1449872,14.4035066</pos>
-        <name>Stazione di Niscemi</name>
+        <name>Niscemi</name>
     </station>
     <station>
         <pos>37.0730063,14.2592314</pos>
         <name>Gela</name>
     </station>
     <station>
+        <pos>36.7336061,14.8471695</pos>
+        <name>Pozzallo</name>
+    </station>
+    <station>
+        <pos>36.8159558,14.9528428</pos>
+        <name>Rosolini</name>
+    </station>
+    <station>
+        <pos>36.8825024,15.0743007</pos>
+        <name>Noto</name>
+    </station>
+    <station>
+        <pos>37.9861407,15.4043377</pos>
+        <name>Nizza di Sicilia</name>
+    </station>
+    <station>
+        <pos>37.9731076,15.391476</pos>
+        <name>Roccalumera Mandanici</name>
+    </station>
+    <station>
+        <pos>36.8529504,14.7541665</pos>
+        <name>Modica</name>
+    </station>
+    <station>
         <pos>37.5957859,15.1617307</pos>
         <name>Acireale</name>
+    </station>
+    <station>
+        <pos>36.9626447,15.1919016</pos>
+        <name>Cassibile</name>
+    </station>
+    <station>
+        <pos>37.0061424,15.245952</pos>
+        <name>Santa Teresa Longarini</name>
+    </station>
+    <station>
+        <pos>36.9075826,15.1257652</pos>
+        <name>Avola</name>
+    </station>
+    <station>
+        <pos>36.9966485,14.4254266</pos>
+        <name>Acate</name>
+    </station>
+    <station>
+        <pos>36.9587639,14.5249597</pos>
+        <name>Vittoria</name>
+    </station>
+    <station>
+        <pos>36.9192579,14.7256947</pos>
+        <name>Ragusa</name>
     </station>
     <station>
         <pos>40.345699,18.1657097</pos>
