@@ -1,11 +1,55 @@
 <stations>
     <station>
+        <pos>46.6425775,11.5727372</pos>
+        <name>Chiusa</name>
+    </station>
+    <station>
+        <pos>46.6555811,11.1487573</pos>
+        <name>Maia Bassa</name>
+    </station>
+    <station>
         <pos>46.0150464,9.2863808</pos>
         <name>Varenna Esino</name>
     </station>
     <station>
+        <pos>46.5753173,11.1986043</pos>
+        <name>Gargazzone</name>
+    </station>
+    <station>
+        <pos>46.5536802,11.2205405</pos>
+        <name>Vilpiano-Nalles</name>
+    </station>
+    <station>
         <pos>46.1670575,9.872934</pos>
         <name>Sondrio</name>
+    </station>
+    <station>
+        <pos>46.3194727,11.2572871</pos>
+        <name>Egna</name>
+    </station>
+    <station>
+        <pos>46.434723,11.323671</pos>
+        <name>Laives</name>
+    </station>
+    <station>
+        <pos>46.3608632,11.2969543</pos>
+        <name>Ora</name>
+    </station>
+    <station>
+        <pos>46.6074071,11.1828253</pos>
+        <name>Lana-Postal</name>
+    </station>
+    <station>
+        <pos>46.601038,11.5324951</pos>
+        <name>Ponte Gardena</name>
+    </station>
+    <station>
+        <pos>46.7098993,11.6496937</pos>
+        <name>Bressanone</name>
+    </station>
+    <station>
+        <pos>46.8690306,11.4883722</pos>
+        <name>Campo di Trens</name>
     </station>
     <station>
         <pos>46.0394838,9.3027464</pos>
@@ -28,8 +72,40 @@
         <name>Colico</name>
     </station>
     <station>
+        <pos>46.9380571,11.4412574</pos>
+        <name>Colle Isarco</name>
+    </station>
+    <station>
+        <pos>46.895705,11.4402246</pos>
+        <name>Vipiteno</name>
+    </station>
+    <station>
+        <pos>46.4855293,11.2977934</pos>
+        <name>Ponte d'Adige</name>
+    </station>
+    <station>
+        <pos>46.5284069,11.2485881</pos>
+        <name>Terlano</name>
+    </station>
+    <station>
+        <pos>46.4051213,11.3158433</pos>
+        <name>Bronzolo</name>
+    </station>
+    <station>
+        <pos>46.4964549,11.3585963</pos>
+        <name>Bolzano</name>
+    </station>
+    <station>
+        <pos>46.6733477,11.1487734</pos>
+        <name>Merano</name>
+    </station>
+    <station>
         <pos>46.0128268,13.1097586</pos>
         <name>Basiliano</name>
+    </station>
+    <station>
+        <pos>46.7888059,11.6101555</pos>
+        <name>Fortezza</name>
     </station>
     <station>
         <pos>46.0558379,13.241962</pos>
@@ -165,7 +241,7 @@
     </station>
     <station>
         <pos>44.2266561,8.4109828</pos>
-        <name>Spotorno - Noli</name>
+        <name>Spotorno Noli</name>
     </station>
     <station>
         <pos>44.3151169,9.3224788</pos>
@@ -488,7 +564,7 @@
         <name>Oviglio</name>
     </station>
     <station>
-        <pos>45.312751,8.8620662</pos>
+        <pos>45.3127095,8.8620394</pos>
         <name>Vigevano</name>
     </station>
     <station>
@@ -1549,7 +1625,7 @@
     </station>
     <station>
         <pos>42.0382929,13.9214664</pos>
-        <name>Sulmona - Introdacqua</name>
+        <name>Sulmona-Introdacqua</name>
     </station>
     <station>
         <pos>42.3510045,13.3849121</pos>
@@ -1760,6 +1836,10 @@
         <name>Giarre-Riposto</name>
     </station>
     <station>
+        <pos>37.3599237,13.8554118</pos>
+        <name>Canicattì</name>
+    </station>
+    <station>
         <pos>37.1449872,14.4035066</pos>
         <name>Niscemi</name>
     </station>
@@ -1928,14 +2008,6 @@
         <name>Cà dei Boschetti</name>
     </station>
     <station>
-        <pos>44.1090501,8.2422996</pos>
-        <name>Borghetto S S</name>
-    </station>
-    <station>
-        <pos>44.1183256,9.8640868</pos>
-        <name>Cà dei Boschetti</name>
-    </station>
-    <station>
         <pos>45.8723294,13.4837315</pos>
         <name>Sagrado</name>
     </station>
@@ -1986,5 +2058,17 @@
     <station>
         <pos>43.6263443,13.3815002</pos>
         <name>Falconara Stadio</name>
+    </station>
+    <station>
+        <pos>36.7319062,14.7445976</pos>
+        <name>Sampieri</name>
+    </station>
+    <station>
+        <pos>36.7900877,14.6991854</pos>
+        <name>Scicli</name>
+    </station>
+    <station>
+        <pos>36.9313064,14.7509584</pos>
+        <name>Ragusa Ibla</name>
     </station>
 </stations>
