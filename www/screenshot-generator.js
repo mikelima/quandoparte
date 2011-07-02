@@ -31,4 +31,8 @@ function build_screenshot_list()
 		generate_div(screenshots[key], key, screenshots);
 }
 
-window.addEventListener('load', build_screenshot_list);
+if (window.addEventListener) {
+	window.addEventListener('load', build_screenshot_list, false);
+} else if (window.attachEvent) {
+	window.attachEvent('onload', build_screenshot_list);
+}
