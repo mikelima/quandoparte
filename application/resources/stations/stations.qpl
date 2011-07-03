@@ -88,6 +88,14 @@
         <name>Colico</name>
     </station>
     <station>
+        <pos>46.5063535,13.6072502</pos>
+        <name>Tarvisio Boscoverde</name>
+    </station>
+    <station>
+        <pos>46.5027967,13.4950793</pos>
+        <name>Ugovizza Valbruna</name>
+    </station>
+    <station>
         <pos>46.9380571,11.4412574</pos>
         <name>Colle Isarco</name>
     </station>
@@ -2122,6 +2130,10 @@
     <station>
         <pos>40.5749011,8.3221206</pos>
         <name>Alghero-Sant'Agostino</name>
+    </station>
+    <station>
+        <pos>46.3320242,13.1356031</pos>
+        <name>Venzone</name>
     </station>
     <station>
         <pos>46.2880527,11.2327355</pos>
