@@ -10,7 +10,7 @@ MOBILITY = location
 
 TARGET = quandoparte
 TEMPLATE = app
-VERSION = 0.4.0
+VERSION = 0.4.1
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
 
@@ -52,7 +52,9 @@ OTHER_FILES += \
     resources/arrivals.css \
     resources/departures.css \
     $$replace(TRANSLATIONS, .ts, .qm) \
-    resources/stations/stations.qpl
+    resources/stations/stations.qpl \
+    resources/stations/generatelist.xq \
+    resources/stations/generateunclassifiedlist.xq
 
 unix {
     isEmpty(PREFIX) {
