@@ -146,10 +146,18 @@ void App::showAboutDialog()
     QString name = QApplication::instance()->applicationName();
     QString version = QApplication::instance()->applicationVersion();
     QString aboutText = QString(
-                tr("<p>%1 version %2</p>"
+                tr("<h2>"
+                   "<a href='http://quandoparte.garage.maemo.org'>%1</a> version %2"
+                   "</h2>"
                    "<p>Copyright (c) 2010, 2011</p>"
                    "<p>Luciano Montanaro (mikelima@cirulla.net)</p>"
-                   "<p>Licensed under the GNU Public License v2 or above</p>")).arg(name).arg(version);
+                   "<p>Licensed under the GNU Public License v2 or above</p>"
+                   "<p>Station geolocation data from "
+                   "<a href='http://www.openstreetmap.org'>OpenStreetMap</a>"
+                   "</p>"
+                   "<p>Realtime train data from "
+                   "<a href='http://mobile.viaggiatreno.it'>Viaggiatreno</a>"
+                   "</p>")).arg(name).arg(version);
     QMessageBox::about(stationView, name, aboutText);
 }
 
