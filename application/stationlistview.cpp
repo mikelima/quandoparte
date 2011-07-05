@@ -81,8 +81,6 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     if (positionInfoSource) {
         connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
                 SLOT(updatePosition(QGeoPositionInfo)));
-        // Testing only: start updates rigt away.
-        positionInfoSource->startUpdates();
     }
 
     QSettings settings;
@@ -167,6 +165,11 @@ void StationListView::setSortingMode(StationListView::SortingMode mode)
         case NoSorting:
         default:
             break;
+        }
+        if (mode == DistanceSorting) {
+            positionInfoSource->startUpdates();
+        } else {
+            positionInfoSource->stopUpdates();
         }
         filterModel->invalidate();
         filterModel->sort(0);
