@@ -1032,6 +1032,10 @@
         <name>Ferrara</name>
     </station>
     <station>
+        <pos>44.8988206,11.6203312</pos>
+        <name>Occhiobello</name>
+    </station>
+    <station>
         <pos>44.6977212,10.6433493</pos>
         <name>Reggio Emilia</name>
     </station>
@@ -1096,6 +1100,10 @@
         <name>Parma</name>
     </station>
     <station>
+        <pos>45.6882469,12.6337302</pos>
+        <name>Ceggia</name>
+    </station>
+    <station>
         <pos>45.8239877,13.3432373</pos>
         <name>Cervignano Aquileia Grado</name>
     </station>
@@ -1124,12 +1132,20 @@
         <name>Rimini Miramare</name>
     </station>
     <station>
+        <pos>45.720768,12.6820282</pos>
+        <name>San Stino di Livenza</name>
+    </station>
+    <station>
         <pos>45.932969,13.6068411</pos>
         <name>Gorizia Centrale</name>
     </station>
     <station>
         <pos>45.9350699,13.5474919</pos>
         <name>Mossa</name>
+    </station>
+    <station>
+        <pos>45.6596524,12.2450991</pos>
+        <name>Treviso Centrale</name>
     </station>
     <station>
         <pos>45.9574803,13.4614463</pos>
@@ -1176,8 +1192,12 @@
         <name>Calvisano</name>
     </station>
     <station>
+        <pos>45.4292192,11.9475439</pos>
+        <name>Ponte di Brenta</name>
+    </station>
+    <station>
         <pos>45.4077939,11.8525671</pos>
-        <name>Padova Campo di Marte</name>
+        <name>Padova Campo Marte</name>
     </station>
     <station>
         <pos>45.1489387,12.0848108</pos>
@@ -1216,6 +1236,38 @@
         <name>Lerino</name>
     </station>
     <station>
+        <pos>45.4427456,12.0180254</pos>
+        <name>Vigonza-Pianiga</name>
+    </station>
+    <station>
+        <pos>45.4534431,12.0717739</pos>
+        <name>Dolo</name>
+    </station>
+    <station>
+        <pos>45.463007,12.1190976</pos>
+        <name>Mira-Mirano</name>
+    </station>
+    <station>
+        <pos>45.1322127,11.7491378</pos>
+        <name>Stanghella</name>
+    </station>
+    <station>
+        <pos>45.0070725,11.7488913</pos>
+        <name>Arquà</name>
+    </station>
+    <station>
+        <pos>44.960102,11.7381448</pos>
+        <name>Polesella</name>
+    </station>
+    <station>
+        <pos>44.9228305,11.6745657</pos>
+        <name>Canaro</name>
+    </station>
+    <station>
+        <pos>44.8741076,11.6127529</pos>
+        <name>Pontelagoscuro</name>
+    </station>
+    <station>
         <pos>45.853538,13.4859291</pos>
         <name>Redipuglia</name>
     </station>
@@ -1236,6 +1288,10 @@
         <name>Bivio d'Aurisina</name>
     </station>
     <station>
+        <pos>45.5451761,12.314304</pos>
+        <name>Gaggio Porta Est</name>
+    </station>
+    <station>
         <pos>45.4132408,11.3450722</pos>
         <name>Lonigo</name>
     </station>
@@ -1248,6 +1304,14 @@
         <name>Collecchio</name>
     </station>
     <station>
+        <pos>45.639826,12.559834</pos>
+        <name>San Donà Di Piave Jesolo</name>
+    </station>
+    <station>
+        <pos>45.6241941,12.5003115</pos>
+        <name>Fossalta di Piave</name>
+    </station>
+    <station>
         <pos>45.1430943,10.0179241</pos>
         <name>Cremona</name>
     </station>
@@ -1256,16 +1320,24 @@
         <name>Vicofertile</name>
     </station>
     <station>
+        <pos>45.777771,13.0011081</pos>
+        <name>Latisana-Lignano-Bibione</name>
+    </station>
+    <station>
         <pos>45.15874,10.7832647</pos>
         <name>Mantova</name>
     </station>
     <station>
-        <pos>44.8364752,10.1767851</pos>
+        <pos>44.836549,10.1766875</pos>
         <name>Castelguelfo</name>
     </station>
     <station>
         <pos>45.9068263,13.296463</pos>
         <name>Palmanova</name>
+    </station>
+    <station>
+        <pos>45.7790305,12.6076765</pos>
+        <name>Motta di Livenza</name>
     </station>
     <station>
         <pos>45.1442129,10.6475418</pos>
@@ -1296,8 +1368,20 @@
         <name>San Zeno-Folzano</name>
     </station>
     <station>
+        <pos>45.5739715,12.3639768</pos>
+        <name>Quarto d'Altino</name>
+    </station>
+    <station>
+        <pos>45.6134391,12.4546806</pos>
+        <name>Meolo</name>
+    </station>
+    <station>
         <pos>45.7054266,13.7190463</pos>
         <name>Miramare</name>
+    </station>
+    <station>
+        <pos>45.7809687,12.8310779</pos>
+        <name>Portogruaro-Caorle</name>
     </station>
     <station>
         <pos>45.441379,12.3204994</pos>
@@ -1352,6 +1436,10 @@
         <name>Baricetta</name>
     </station>
     <station>
+        <pos>45.0769877,11.7810787</pos>
+        <name>Rovigo</name>
+    </station>
+    <station>
         <pos>45.3273602,11.7964083</pos>
         <name>Terme Euganee-Abano-Montegrotto</name>
     </station>
@@ -1362,6 +1450,10 @@
     <station>
         <pos>45.4508165,12.163934</pos>
         <name>Oriago</name>
+    </station>
+    <station>
+        <pos>45.5066646,12.2476332</pos>
+        <name>Venezia Carpenedo</name>
     </station>
     <station>
         <pos>44.6561015,10.7810864</pos>
@@ -1382,6 +1474,10 @@
     <station>
         <pos>45.8550186,13.3173596</pos>
         <name>Strassoldo</name>
+    </station>
+    <station>
+        <pos>45.1993142,11.7129801</pos>
+        <name>Sant'Elena</name>
     </station>
     <station>
         <pos>43.7926605,7.6100099</pos>
@@ -1780,6 +1876,66 @@
         <name>Santa Severa</name>
     </station>
     <station>
+        <pos>41.1856878,14.0927986</pos>
+        <name>Sparanise</name>
+    </station>
+    <station>
+        <pos>41.317483,14.1038661</pos>
+        <name>Vairano-Caianello</name>
+    </station>
+    <station>
+        <pos>41.4955715,13.7312046</pos>
+        <name>Piedimonte-Villa Santa Lucia-Aquino</name>
+    </station>
+    <station>
+        <pos>41.5263832,13.6457164</pos>
+        <name>Roccasecca</name>
+    </station>
+    <station>
+        <pos>41.5236727,13.5220335</pos>
+        <name>Ceprano</name>
+    </station>
+    <station>
+        <pos>41.5329571,13.4107724</pos>
+        <name>Castro-Pofi-Vallecorsa</name>
+    </station>
+    <station>
+        <pos>41.6871024,13.1457651</pos>
+        <name>Sgurgola</name>
+    </station>
+    <station>
+        <pos>41.7103164,13.09599</pos>
+        <name>Anagni-Fiuggi</name>
+    </station>
+    <station>
+        <pos>41.7400912,13.0029306</pos>
+        <name>Colleferro-Segni-Paliano</name>
+    </station>
+    <station>
+        <pos>41.7742852,12.9237153</pos>
+        <name>Valmontone</name>
+    </station>
+    <station>
+        <pos>41.7830162,12.8896728</pos>
+        <name>Labico</name>
+    </station>
+    <station>
+        <pos>41.8218387,12.8269366</pos>
+        <name>Zagarolo</name>
+    </station>
+    <station>
+        <pos>41.8385118,12.7560458</pos>
+        <name>Colonna Galleria</name>
+    </station>
+    <station>
+        <pos>41.8260851,12.669898</pos>
+        <name>Tor Vergata</name>
+    </station>
+    <station>
+        <pos>41.8043086,12.5995431</pos>
+        <name>Ciampino</name>
+    </station>
+    <station>
         <pos>41.9008151,12.5023317</pos>
         <name>Roma Termini</name>
     </station>
@@ -1798,6 +1954,18 @@
     <station>
         <pos>41.9535017,12.0816966</pos>
         <name>Ladispoli-Cerveteri</name>
+    </station>
+    <station>
+        <pos>41.7884383,12.6042577</pos>
+        <name>Casabianca</name>
+    </station>
+    <station>
+        <pos>41.7244847,12.6105938</pos>
+        <name>Pavona</name>
+    </station>
+    <station>
+        <pos>41.7689015,12.6560602</pos>
+        <name>Marino Laziale</name>
     </station>
     <station>
         <pos>41.4658938,15.5558481</pos>
@@ -1820,8 +1988,32 @@
         <name>Roma Aurelia</name>
     </station>
     <station>
+        <pos>41.7937096,12.6170824</pos>
+        <name>Acqua Acetosa</name>
+    </station>
+    <station>
+        <pos>41.7835594,12.6260302</pos>
+        <name>Sassone</name>
+    </station>
+    <station>
+        <pos>41.7742804,12.6061979</pos>
+        <name>Santa Maria delle Mole</name>
+    </station>
+    <station>
+        <pos>41.1012393,14.2104317</pos>
+        <name>Capua</name>
+    </station>
+    <station>
+        <pos>41.173818,14.1605695</pos>
+        <name>Pignataro Maggiore</name>
+    </station>
+    <station>
         <pos>41.0826222,16.995766</pos>
         <name>Bari Torre a Mare</name>
+    </station>
+    <station>
+        <pos>41.6923081,12.6504232</pos>
+        <name>Cecchina</name>
     </station>
     <station>
         <pos>41.1148289,16.89937</pos>
@@ -1830,6 +2022,10 @@
     <station>
         <pos>41.9793402,12.0476425</pos>
         <name>Marina di Cerveteri</name>
+    </station>
+    <station>
+        <pos>41.6824618,12.7809022</pos>
+        <name>Velletri</name>
     </station>
     <station>
         <pos>41.7764601,15.3849971</pos>
@@ -1846,6 +2042,46 @@
     <station>
         <pos>41.1177331,16.8701566</pos>
         <name>Bari Centrale</name>
+    </station>
+    <station>
+        <pos>41.6737219,12.6898153</pos>
+        <name>Lanuvio</name>
+    </station>
+    <station>
+        <pos>41.7108053,12.6216849</pos>
+        <name>Cancelleria</name>
+    </station>
+    <station>
+        <pos>41.7264243,12.6578762</pos>
+        <name>Albano Laziale</name>
+    </station>
+    <station>
+        <pos>41.832714,12.7283492</pos>
+        <name>Colle Mattia</name>
+    </station>
+    <station>
+        <pos>41.738863,12.6494839</pos>
+        <name>Villetta</name>
+    </station>
+    <station>
+        <pos>41.7469013,12.6522863</pos>
+        <name>Castel Gandolfo</name>
+    </station>
+    <station>
+        <pos>41.779519,12.6345823</pos>
+        <name>Pantanella</name>
+    </station>
+    <station>
+        <pos>41.6750764,12.7516299</pos>
+        <name>Sant'Eurosia</name>
+    </station>
+    <station>
+        <pos>41.674568,12.7262473</pos>
+        <name>San Gennaro</name>
+    </station>
+    <station>
+        <pos>41.6252636,13.328595</pos>
+        <name>Frosinone</name>
     </station>
     <station>
         <pos>41.9573852,15.0424164</pos>
@@ -1872,8 +2108,16 @@
         <name>San Severo</name>
     </station>
     <station>
+        <pos>41.5735901,13.3363076</pos>
+        <name>Ceccano</name>
+    </station>
+    <station>
         <pos>41.872398,12.4844557</pos>
         <name>Roma Ostiense</name>
+    </station>
+    <station>
+        <pos>41.0686679,14.3281852</pos>
+        <name>Caserta</name>
     </station>
     <station>
         <pos>41.807454,15.3509201</pos>
@@ -2148,6 +2392,10 @@
         <name>Cà dei Boschetti</name>
     </station>
     <station>
+        <pos>45.7754404,12.4935858</pos>
+        <name>Oderzo</name>
+    </station>
+    <station>
         <pos>45.8723294,13.4837315</pos>
         <name>Sagrado</name>
     </station>
@@ -2198,6 +2446,10 @@
     <station>
         <pos>43.6263443,13.3815002</pos>
         <name>Falconara Stadio</name>
+    </station>
+    <station>
+        <pos>41.8307724,12.5688225</pos>
+        <name>Capannelle</name>
     </station>
     <station>
         <pos>36.7319062,14.7445976</pos>
