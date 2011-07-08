@@ -788,6 +788,10 @@
         <name>Robbio</name>
     </station>
     <station>
+        <pos>45.0721884,9.2055053</pos>
+        <name>Barbianello</name>
+    </station>
+    <station>
         <pos>45.5898436,7.7949642</pos>
         <name>Pont-Saint-Martin</name>
     </station>
@@ -1060,7 +1064,7 @@
         <name>Bologna Centrale</name>
     </station>
     <station>
-        <pos>44.5150887,11.2847367</pos>
+        <pos>44.5150377,11.2847821</pos>
         <name>Borgo Panigale</name>
     </station>
     <station>
@@ -1162,6 +1166,10 @@
     <station>
         <pos>45.4140608,11.1697651</pos>
         <name>Caldiero</name>
+    </station>
+    <station>
+        <pos>44.4743004,11.2761189</pos>
+        <name>Casalecchio di Reno</name>
     </station>
     <station>
         <pos>45.4176683,11.8804405</pos>
@@ -1268,6 +1276,14 @@
         <name>Pontelagoscuro</name>
     </station>
     <station>
+        <pos>44.3949075,11.2543379</pos>
+        <name>Sasso Marconi</name>
+    </station>
+    <station>
+        <pos>44.3419151,11.2073105</pos>
+        <name>Marzabotto</name>
+    </station>
+    <station>
         <pos>45.853538,13.4859291</pos>
         <name>Redipuglia</name>
     </station>
@@ -1332,6 +1348,10 @@
         <name>Castelguelfo</name>
     </station>
     <station>
+        <pos>44.1775717,10.9805546</pos>
+        <name>Silla</name>
+    </station>
+    <station>
         <pos>45.9068263,13.296463</pos>
         <name>Palmanova</name>
     </station>
@@ -1392,6 +1412,34 @@
         <name>Sacile</name>
     </station>
     <station>
+        <pos>44.3105355,11.1615016</pos>
+        <name>Pioppe di Salvaro</name>
+    </station>
+    <station>
+        <pos>44.3336384,11.1918825</pos>
+        <name>Pian di Venola</name>
+    </station>
+    <station>
+        <pos>44.5035378,11.2746511</pos>
+        <name>Casteldebole</name>
+    </station>
+    <station>
+        <pos>44.4234492,11.269365</pos>
+        <name>Pontecchio Marconi</name>
+    </station>
+    <station>
+        <pos>44.2828972,11.1144021</pos>
+        <name>Vergato</name>
+    </station>
+    <station>
+        <pos>44.2470852,11.0963833</pos>
+        <name>Carbona</name>
+    </station>
+    <station>
+        <pos>44.2298598,11.053578</pos>
+        <name>Riola</name>
+    </station>
+    <station>
         <pos>45.451323,10.2394895</pos>
         <name>Montirone</name>
     </station>
@@ -1412,12 +1460,8 @@
         <name>Fornovo</name>
     </station>
     <station>
-        <pos>44.482966,11.2725888</pos>
+        <pos>44.4829262,11.2727303</pos>
         <name>Casalecchio Garibaldi</name>
-    </station>
-    <station>
-        <pos>44.4742812,11.2761723</pos>
-        <name>Casalecchio di Reno Centro</name>
     </station>
     <station>
         <pos>45.8908232,11.0336488</pos>
@@ -1458,6 +1502,10 @@
     <station>
         <pos>44.6561015,10.7810864</pos>
         <name>Rubiera</name>
+    </station>
+    <station>
+        <pos>44.156502,10.9778753</pos>
+        <name>Porretta Terme</name>
     </station>
     <station>
         <pos>45.4027957,11.2744864</pos>
@@ -1897,7 +1945,7 @@
     </station>
     <station>
         <pos>41.5329571,13.4107724</pos>
-        <name>Castro-Pofi-Vallecorsa</name>
+        <name>Castro-Pofi</name>
     </station>
     <station>
         <pos>41.6871024,13.1457651</pos>
@@ -2400,6 +2448,10 @@
         <name>Sagrado</name>
     </station>
     <station>
+        <pos>44.3635029,11.2161864</pos>
+        <name>Lama di Reno</name>
+    </station>
+    <station>
         <pos>45.9330617,13.2877533</pos>
         <name>Santa Maria la Longa</name>
     </station>
@@ -2412,8 +2464,20 @@
         <name>Sevegliano</name>
     </station>
     <station>
+        <pos>44.0097179,10.901386</pos>
+        <name>Piteccio</name>
+    </station>
+    <station>
         <pos>45.2574788,10.3884251</pos>
         <name>Remedello Sotto</name>
+    </station>
+    <station>
+        <pos>44.0123748,10.915252</pos>
+        <name>Castagno</name>
+    </station>
+    <station>
+        <pos>44.027844,10.9149096</pos>
+        <name>S. Mommè</name>
     </station>
     <station>
         <pos>44.5509122,11.1968423</pos>
@@ -2438,6 +2502,14 @@
     <station>
         <pos>43.2893152,13.6469827</pos>
         <name>Montecosaro Scalo</name>
+    </station>
+    <station>
+        <pos>43.9939528,10.9196981</pos>
+        <name>Corbezzi</name>
+    </station>
+    <station>
+        <pos>43.9654619,10.9099618</pos>
+        <name>Valdibrana</name>
     </station>
     <station>
         <pos>43.6072738,13.3574688</pos>
