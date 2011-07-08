@@ -38,7 +38,9 @@ data($node/@lon)
 }
 </pos>
 <name>{
-if (fn:exists(data($node//tag[@k='name:it']))) then
+if (fn:exists(data($node//tag[@k='name:rfi']))) then
+	data($node//tag[@k='name:rfi']/@v)
+else if (fn:exists(data($node//tag[@k='name:it']))) then
 	data($node//tag[@k='name:it']/@v)
 else
 	data($node//tag[@k='name']/@v)
