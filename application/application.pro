@@ -10,7 +10,7 @@ MOBILITY = location
 
 TARGET = quandoparte
 TEMPLATE = app
-VERSION = 0.4.1
+VERSION = 0.4.2
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
 
@@ -65,6 +65,7 @@ unix {
         }
     }
     BINDIR=$$PREFIX/bin
+    DESKTOPDIR=$$PREFIX/share/applications
     DATADIR=$$PREFIX/share/apps/$${TARGET}
     DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"
 }
@@ -81,7 +82,7 @@ unix:!symbian {
     maemo5 {
         desktopfile.path = /usr/share/applications/hildon
     } else {
-        desktopfile.path = $$DATADIR/applications
+        desktopfile.path = $$DESKTOPDIR
     }
     INSTALLS += desktopfile
 }
