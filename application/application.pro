@@ -4,7 +4,12 @@
 #
 #-------------------------------------------------
 
-QT += webkit network maemo5
+QT += webkit network
+
+maemo5 {
+    QT += maemo5
+}
+
 CONFIG += qt webkit mobility
 MOBILITY = location
 
@@ -13,6 +18,10 @@ TEMPLATE = app
 VERSION = 0.4.1
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
+
+!debug {
+    DEFINES += QT_NO_DEBUG_OUTPUT
+}
 
 TRANSLATIONS = resources/i18n/quandoparte_it.ts
 
@@ -47,6 +56,9 @@ symbian {
 
 OTHER_FILES += \
     quandoparte.desktop \
+    icons/48x48/quandoparte.png \
+    icons/64x64/quandoparte.png \
+    icons/scalable/quandoparte.svg \
     icons/quandoparte.png \
     resources/quandoparte.css \
     resources/arrivals.css \
@@ -60,8 +72,10 @@ unix {
     isEmpty(PREFIX) {
         maemo5 {
             PREFIX=/opt/usr
+            DESKTOPDIR=/usr/share/applications/hildon
         } else {
             PREFIX=/usr/local
+            DESKTOPDIR=$$PREFIX/share/applications
         }
     }
     BINDIR=$$PREFIX/bin
@@ -78,11 +92,7 @@ unix:!symbian {
 
 unix:!symbian {
     desktopfile.files = $${TARGET}.desktop
-    maemo5 {
-        desktopfile.path = /usr/share/applications/hildon
-    } else {
-        desktopfile.path = $$DATADIR/applications
-    }
+    desktopfile.path = $$DESKTOPDIR
     INSTALLS += desktopfile
 }
 
@@ -97,12 +107,15 @@ unix:!symbian {
 
     icon48.files = icons/48x48/$${TARGET}.png
     icon64.files = icons/64x64/$${TARGET}.png
+    iconscalable.files = icons/scalable/$${TARGET}.svg
 
     icon48.path = /usr/share/icons/hicolor/48x48/apps
     icon64.path = /usr/share/icons/hicolor/64x64/apps
+    iconscalable.path = /usr/share/icons/hicolor/scalable/apps
 
     INSTALLS += icon48
     INSTALLS += icon64
+    INSTALLS += iconscalable
     INSTALLS += css
     INSTALLS += i18n
     INSTALLS += stations
