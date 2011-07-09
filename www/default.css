@@ -1,9 +1,10 @@
 div.header {
-	margin: 1em auto;
-	padding: 1em;
+	margin: 10pt auto;
+	padding: 10pt;
 	background-color: #eee;
-	border-radius: 1em;
+	border-radius: 10pt;
 	max-width: 80em;
+	box-shadow: 2pt 2pt 6pt #aaa;
 }
 div.header p {
 	font-style: italic;
@@ -13,18 +14,28 @@ div.navigation {
 	padding: 1em;
 }
 div.bodymatter {
-	vertical-align: center;
 	text-align: justify;
-	text-justify: newspaper;
 	max-width: 60em;
 	margin: 2em auto;
 }
 div.footer {
-	margin: 1em auto;
-	padding: 1em;
+	margin: 10pt auto;
+	padding-top: 5pt;
+	padding-bottom: 5pt;
+	padding-left: 10pt;
+	padding-right: 10pt;
 	background-color: #eee;
-	border-radius: 1em;
+	border-radius: 10pt;
 	max-width: 80em;
+	box-shadow: 2pt 2pt 6pt #aaa;
+}
+div.copy {
+	text-align: center;
+	font-size: small;
+}
+div.note {
+	text-align: center;
+	font-size: small;
 }
 #icon {
 	margin: 6pt;
@@ -39,7 +50,9 @@ div.screenshot {
 	text-align: center;
 	width: 33%;
 	border: none;
-	background-color: #eee
+	background-color: #eee;
+	border-radius: 10pt;
+	box-shadow: 2pt 2pt 6pt #aaa;
 }
 div.screenshot p {
 	font-style: italic;
