@@ -1,6 +1,7 @@
 #include "stationlistmodel.h"
 
 #include <QFile>
+#include <QFileInfo>
 #include <QDebug>
 #include <QStandardItem>
 #include <QGeoCoordinate>
@@ -18,8 +19,9 @@ StationListModel::StationListModel(QObject *parent) :
 bool StationListModel::load(const QString &filename)
 {
     QFile file(filename);
+    QFileInfo fi(file);
 
-    qDebug() << "loading filename:" << filename;
+    qDebug() << "loading file:" << fi.absoluteFilePath();
 
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "cannot open file:" << filename;
