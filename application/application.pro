@@ -10,6 +10,19 @@ maemo5 {
     QT += maemo5
 }
 
+harmattan {
+    message(Compiling for the Harmattan platform)
+}
+maemo5 {
+    message(Compiling for the Fremantle platform)
+}
+symbian {
+    message(Compiling for the Symbian platform)
+}
+!harmattan:!maemo5:!symbian {
+    message(Compiling for the Desktop platform)
+}
+
 CONFIG += qt webkit mobility
 MOBILITY = location
 
