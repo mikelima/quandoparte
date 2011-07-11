@@ -11,29 +11,30 @@ maemo5 {
 }
 
 harmattan {
-    message(Compiling for the Harmattan platform)
+    PLATFORM = harmattan
 }
 maemo5 {
-    message(Compiling for the Fremantle platform)
+    PLATFORM = fremantle
 }
 symbian {
-    message(Compiling for the Symbian platform)
+    PLATFORM = symbian
 }
 !harmattan:!maemo5:!symbian {
-    message(Compiling for the Desktop platform)
+    PLATFORM = desktop
 }
+message(Compiling for the $$PLATFORM platform)
 
 CONFIG += qt webkit mobility
 MOBILITY = location
 
 TARGET = quandoparte
 TEMPLATE = app
-VERSION = 0.4.1
+VERSION = 0.4.3
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
 
 !debug {
-    DEFINES += QT_NO_DEBUG_OUTPUT
+#    DEFINES += QT_NO_DEBUG_OUTPUT
 }
 
 TRANSLATIONS = resources/i18n/quandoparte_it.ts
@@ -68,7 +69,8 @@ symbian {
 }
 
 OTHER_FILES += \
-    quandoparte.desktop \
+    resources/harmattan/applications/quandoparte.desktop \
+    resources/fremantle/applications/quandoparte.desktop \
     icons/48x48/quandoparte.png \
     icons/64x64/quandoparte.png \
     icons/scalable/quandoparte.svg \
@@ -85,12 +87,16 @@ unix {
     isEmpty(PREFIX) {
         maemo5 {
             PREFIX=/opt/usr
-            DESKTOPDIR=/usr/share/applications/hildon
         } else {
             PREFIX=/usr/local
-            DESKTOPDIR=$$PREFIX/share/applications
         }
     }
+    maemo5 {
+        DESKTOPDIR=/usr/share/applications/hildon
+    } else {
+        DESKTOPDIR=$$PREFIX/share/applications
+    }
+
     BINDIR=$$PREFIX/bin
     DATADIR=$$PREFIX/share/apps/$${TARGET}
     DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"
@@ -104,7 +110,7 @@ unix:!symbian {
 }
 
 unix:!symbian {
-    desktopfile.files = $${TARGET}.desktop
+    desktopfile.files = resources/$$PLATFORM/applications/$${TARGET}.desktop
     desktopfile.path = $$DESKTOPDIR
     INSTALLS += desktopfile
 }
@@ -132,14 +138,4 @@ unix:!symbian {
     INSTALLS += css
     INSTALLS += i18n
     INSTALLS += stations
-}
-
-unix {
-    desktopfile.files = $${TARGET}.desktop
-    maemo5 {
-        desktopfile.path = /usr/share/applications/hildon
-    } else {
-        desktopfile.path = $$DATADIR/applications
-    }
-    INSTALLS += desktopfile
 }
