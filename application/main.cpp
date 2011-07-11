@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     } else {
         qDebug() << "Translation for locale" << locale << "not found";
     }
-#ifdef TARGE_PLATFORM_FREMANTLE
+#ifdef TARGET_PLATFORM_FREMANTLE
     App theApp;
 #else
     View theView;
