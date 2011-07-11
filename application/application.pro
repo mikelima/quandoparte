@@ -4,32 +4,61 @@
 #
 #-------------------------------------------------
 
+VERSION = 0.4.80
+
 QT += webkit network
 
+harmattan {
+    QT += declarative
+    PLATFORM = harmattan
+    DEFINES += TARGET_PLATFORM_HARMATTAN
+    # enable booster
+    CONFIG += qdeclarative-boostable
+    QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
+    QMAKE_LFLAGS += -pie -rdynamic
+    PLATFORM_SOURCES = view.cpp
+    PLATFORM_HEADERS = view.h
+}
 maemo5 {
     QT += maemo5
-}
-
-harmattan {
-    PLATFORM = harmattan
-}
-maemo5 {
     PLATFORM = fremantle
+    DEFINES += TARGET_PLATFORM_FREMANTLE
+    PLATFORM_SOURCES = \
+        app.cpp \
+        stationlistview.cpp \
+        stationview.cpp \
+        settingsdialog.cpp \
+        keypressforwarder.cpp
+    PLATFORM_HEADERS= \
+        app.h \
+        stationlistview.h \
+        keypressforwarder.h \
+        settingsdialog.h \
+        stationview.h
 }
 symbian {
+    QT += declarative
+    DEFINES += TARGET_PLATFORM_SYMBIAN
     PLATFORM = symbian
+    PLATFORM_SOURCES = view.cpp
+    PLATFORM_HEADERS = view.h
 }
 !harmattan:!maemo5:!symbian {
     PLATFORM = desktop
+    DEFINES += TARGET_PLATFORM_DESKTOP
+    PLATFORM_SOURCES = view.cpp
 }
-message(Compiling for the $$PLATFORM platform)
+
+message(Compiling For:    $$PLATFORM)
+message(Platform Sources: $$PLATFORM_SOURCES)
+message(Qt Modules Used:  $$QT)
+message(Building version: $$VERSION)
 
 CONFIG += qt webkit mobility
 MOBILITY = location
 
 TARGET = quandoparte
 TEMPLATE = app
-VERSION = 0.4.3
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
 
@@ -39,21 +68,14 @@ DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
 
 TRANSLATIONS = resources/i18n/quandoparte_it.ts
 
-SOURCES += main.cpp \
-    settingsdialog.cpp \
-    stationview.cpp \
-    app.cpp \
-    stationlistview.cpp \
-    keypressforwarder.cpp \
+SOURCES += \
+    $$PLATFORM_SOURCES \
+    main.cpp \
     stationlistmodel.cpp \
     stationlistproxymodel.cpp
 
 HEADERS += \
-    settingsdialog.h \
-    stationview.h \
-    app.h \
-    stationlistview.h \
-    keypressforwarder.h \
+    $$PLATFORM_HEADERS \
     stationlistmodel.h \
     stationlistproxymodel.h
 
@@ -81,7 +103,8 @@ OTHER_FILES += \
     $$replace(TRANSLATIONS, .ts, .qm) \
     resources/stations/stations.qpl \
     resources/stations/generatelist.xq \
-    resources/stations/generateunclassifiedlist.xq
+    resources/stations/generateunclassifiedlist.xq \
+    resources/harmattan/qml/main.qml
 
 unix {
     isEmpty(PREFIX) {
@@ -138,4 +161,10 @@ unix:!symbian {
     INSTALLS += css
     INSTALLS += i18n
     INSTALLS += stations
+}
+
+harmattan {
+    qml.files = resources/harmattan/qml/*.qml
+    qml.path = $$DATADIR/qml
+    INSTALLS += qml
 }
