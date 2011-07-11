@@ -1,10 +1,4 @@
-quandoparte (0.4.4) unstable; urgency=low
-  * Updated station list
-  * Udated icons
-
- -- Luciano Montanaro <mikelima@cirulla.net>  Sun, 18 Dec 2011 15:14:14 +0100
-
-quandoparte (0.4.3) unstable; urgency=low
+quandoparte (0.4.80) unstable; urgency=low
 
   * Initial Release.
 

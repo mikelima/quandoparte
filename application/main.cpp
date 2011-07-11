@@ -20,6 +20,7 @@ Boston, MA 02110-1301, USA.
 */
 
 #include "app.h"
+#include "view.h"
 
 #include <QApplication>
 #include <QDir>
@@ -41,6 +42,7 @@ int main(int argc, char *argv[])
     QDir::setSearchPaths("css", QStringList(DATADIR "/css"));
     QDir::setSearchPaths("stations", QStringList(DATADIR "/stations"));
     QDir::setSearchPaths("i18n", QStringList(DATADIR "/i18n"));
+    QDir::setSearchPaths("qml", QStringList(DATADIR "/qml"));
 
 #ifdef QT_KEYPAD_NAVIGATION
     QApplication::setNavigationMode(Qt::NavigationModeKeypadTabOrder);
@@ -54,9 +56,12 @@ int main(int argc, char *argv[])
     } else {
         qDebug() << "Translation for locale" << locale << "not found";
     }
+#ifdef TARGE_PLATFORM_FREMANTLE
     App theApp;
+#else
+    View theView;
+    theView.show();
+#endif
 
     return a.exec();
-
-    theApp.saveSettings();
 }
