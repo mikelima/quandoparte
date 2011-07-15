@@ -13,9 +13,9 @@ class StationListProxyModel : public QSortFilterProxyModel
 
 public:
     explicit StationListProxyModel(QObject *parent = 0);
-    void setUserPosition(const QGeoCoordinate &pos);
-    void setRecentStations(const QStringList &stations);
-    void setRecentOnlyFilter(bool);
+    Q_INVOKABLE void setUserPosition(const QGeoCoordinate &pos);
+    Q_INVOKABLE void setRecentStations(const QStringList &stations);
+    Q_INVOKABLE void setRecentOnlyFilter(bool);
 
 protected:
     virtual bool lessThan(const QModelIndex &left, const QModelIndex &right) const;

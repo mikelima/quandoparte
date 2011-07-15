@@ -13,6 +13,9 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     m_here(44.5, 9.0),
     m_filterRecentOnly(false)
 {
+    QHash<int, QByteArray> roles;
+    roles[StationListModel::PositionRole] = "position";
+    setRoleNames(roles);
 }
 
 bool StationListProxyModel::lessThan(const QModelIndex &left,
