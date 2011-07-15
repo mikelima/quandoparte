@@ -20,7 +20,9 @@ Boston, MA 02110-1301, USA.
 */
 
 #include "app.h"
+#ifndef TARGET_PLATFORM_FREMANTLE
 #include "view.h"
+#endif
 
 #include <QApplication>
 #include <QDir>
