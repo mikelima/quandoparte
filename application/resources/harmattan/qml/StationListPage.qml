@@ -3,6 +3,7 @@ import com.nokia.meego 1.0
 import "/usr/lib/qt4/imports/com/nokia/meego/UIConstants.js" as UiConstants
 
 Page {
+    property variant stationView
     id: stationListPage
     anchors.margins: UiConstants.DEFAULT_MARGIN
     tools: ToolBarLayout {
@@ -16,25 +17,61 @@ Page {
     {
         var component = Qt.createComponent("StationPage.qml");
         if (component.status == Component.Ready) {
-            pageStack.push(component)
-            component.html = "<p>Hello World</p>"
+            var view = component.createObject(stationListPage)
+            stationListPage.stationView = view
+            pageStack.push(view)
+            view.html = "<h1>Hello World</h1><p>Lorem ipsum</p>"
         }
         else
-            console.log("Cannot load component: " + component.errorString());
+            console.log('Cannot load component: ' + component.errorString());
+    }
+
+    function highlightSearch(s)
+    {
+        return s.replace(searchField.text,
+                         '<span style="text-decoration:underline">' +
+                         searchField.text + '</span>')
     }
 
     Column {
         width: parent.width
         height: parent.height
         TextField {
+            id: searchField
             width: parent.width
             placeholderText: "Search..."
+            platformStyle: TextFieldStyle { paddingRight: clearButton.width }
+            onTextChanged: {
+                listView.model = null
+                listView.model = model
+            }
+            Image {
+                id: clearButton
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                source: "image://theme/icon-m-input-clear"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        inputContext.reset()
+                        searchField.text = ""
+                    }
+                }
+            }
+        }
+        Rectangle {
+            height: 16
         }
         ListView {
             id: stationListView
+            clip: true
             width: parent.width
             height: parent.height
             model: ListModel {
+                id: model
+                ListElement {
+                    name: "Genova Voltri"
+                }
                 ListElement {
                     name: "Genova Sestri Ponente"
                 }
@@ -43,6 +80,9 @@ Page {
                 }
                 ListElement {
                     name: "Genova Sampierdarena"
+                }
+                ListElement {
+                    name: "Genova Via di Francia"
                 }
                 ListElement {
                     name: "Genova Piazza Principe"
@@ -62,7 +102,7 @@ Page {
             }
             delegate: Item {
                 id: listItem
-                height: 88
+                height: 48
                 width: parent.width
                 BorderImage {
                     id: background
@@ -79,7 +119,7 @@ Page {
 
                         Label {
                             id: mainText
-                            text: model.name
+                            text: highlightSearch(model.name)
                             font.bold: true
                             //font.family: UiConstants.FONT_FAMILY
                             //font.pixelSize: UiConstants.FONT_DEFAULT
