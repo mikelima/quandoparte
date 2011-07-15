@@ -680,6 +680,10 @@
         <name>Aosta</name>
     </station>
     <station>
+        <pos>44.6512219,7.663726</pos>
+        <name>Savigliano</name>
+    </station>
+    <station>
         <pos>45.2565295,9.1543878</pos>
         <name>Certosa di Pavia</name>
     </station>
@@ -694,6 +698,10 @@
     <station>
         <pos>44.9280462,7.4832665</pos>
         <name>Airasca</name>
+    </station>
+    <station>
+        <pos>44.7709847,7.6856262</pos>
+        <name>Racconigi</name>
     </station>
     <station>
         <pos>44.5307872,8.9189332</pos>
@@ -808,6 +816,10 @@
         <name>Cuneo</name>
     </station>
     <station>
+        <pos>44.5506323,7.7179762</pos>
+        <name>Fossano</name>
+    </station>
+    <station>
         <pos>45.3414445,8.3100567</pos>
         <name>Olcenengo</name>
     </station>
@@ -834,6 +846,14 @@
     <station>
         <pos>45.0261305,7.6574641</pos>
         <name>Torino Lingotto</name>
+    </station>
+    <station>
+        <pos>44.8469014,7.7280673</pos>
+        <name>Carmagnola</name>
+    </station>
+    <station>
+        <pos>44.7075811,7.6921953</pos>
+        <name>Cavallermaggiore</name>
     </station>
     <station>
         <pos>44.2183763,9.9772765</pos>
@@ -986,6 +1006,10 @@
     <station>
         <pos>45.4870647,9.2050181</pos>
         <name>Milano Centrale</name>
+    </station>
+    <station>
+        <pos>44.3858847,7.9427255</pos>
+        <name>Lesegno</name>
     </station>
     <station>
         <pos>45.4725329,12.2558807</pos>
@@ -1276,7 +1300,7 @@
         <name>Pontelagoscuro</name>
     </station>
     <station>
-        <pos>44.3949075,11.2543379</pos>
+        <pos>44.3949384,11.2543328</pos>
         <name>Sasso Marconi</name>
     </station>
     <station>
@@ -1400,6 +1424,10 @@
         <name>Miramare</name>
     </station>
     <station>
+        <pos>44.0033969,10.5516116</pos>
+        <name>Bagni di Lucca</name>
+    </station>
+    <station>
         <pos>45.7809687,12.8310779</pos>
         <name>Portogruaro-Caorle</name>
     </station>
@@ -1424,7 +1452,7 @@
         <name>Casteldebole</name>
     </station>
     <station>
-        <pos>44.4234492,11.269365</pos>
+        <pos>44.4231153,11.2692588</pos>
         <name>Pontecchio Marconi</name>
     </station>
     <station>
@@ -1458,6 +1486,14 @@
     <station>
         <pos>44.6937087,10.1019419</pos>
         <name>Fornovo</name>
+    </station>
+    <station>
+        <pos>44.0680572,10.4520228</pos>
+        <name>Barga Gallicano</name>
+    </station>
+    <station>
+        <pos>44.1944207,10.1938191</pos>
+        <name>Minucciano-Pieve-Casola</name>
     </station>
     <station>
         <pos>44.4829262,11.2727303</pos>
@@ -1820,6 +1856,10 @@
         <name>Orbetello-Monte Argentario</name>
     </station>
     <station>
+        <pos>43.9078835,10.5345839</pos>
+        <name>Ponte a Moriano</name>
+    </station>
+    <station>
         <pos>43.7767141,11.2477468</pos>
         <name>Firenze S.M.N.</name>
     </station>
@@ -1882,6 +1922,14 @@
     <station>
         <pos>42.5646461,11.1645553</pos>
         <name>Talamone</name>
+    </station>
+    <station>
+        <pos>43.9593862,10.507811</pos>
+        <name>Diecimo-Pescaglia</name>
+    </station>
+    <station>
+        <pos>43.9772118,10.5411989</pos>
+        <name>Borgo a Mozzano</name>
     </station>
     <station>
         <pos>42.6077508,14.0689988</pos>
