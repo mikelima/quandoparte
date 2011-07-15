@@ -1,11 +1,9 @@
 #ifndef QP_VIEW_H
 #define QP_VIEW_H
 
-#include <QWidget>
+#include <QDeclarativeView>
 
-class QDeclarativeView;
-
-class View : public QWidget
+class View : public QDeclarativeView
 {
     Q_OBJECT
 public:
@@ -16,7 +14,6 @@ signals:
 public slots:
 
 private:
-    QDeclarativeView *m_view;
 };
 
 #endif // QP_VIEW_H
