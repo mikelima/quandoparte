@@ -3,7 +3,7 @@ import com.nokia.meego 1.0
 import QtWebKit 1.0
 
 Page {
-    property string html: "<p>Hello</p>"
+    property alias html: view.html
     anchors.fill: parent
 
     tools: ToolBarLayout {
@@ -11,8 +11,14 @@ Page {
         ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
         ToolIcon { iconId: "icon-m-toolbar-view-menu"; }
     }
+    LabelStyle {
+        id: labelStyle
+    }
     WebView {
         id: view
         anchors.fill: parent
+        settings.defaultFontSize: labelStyle.fontPixelSize
+        settings.defaultFixedFontSize: labelStyle.fontPixelSize
+        settings.standardFontFamily: labelStyle.fontFamily
     }
 }
