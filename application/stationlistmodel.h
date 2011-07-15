@@ -10,7 +10,7 @@ class StationListModel;
 class StationListModel : public QStandardItemModel
 {
     Q_OBJECT
-
+    Q_ENUMS(StationListRole)
 public:
     enum StationListRole {
         PositionRole = Qt::UserRole + 1, //< QGeoCoordinate - Station coordinate
