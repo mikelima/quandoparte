@@ -1,5 +1,6 @@
 #include "view.h"
 #include <QDeclarativeView>
+#include <QDeclarativeEngine>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -28,13 +29,13 @@ static QString trueFilePath(QString path)
 }
 
 View::View(QWidget *parent) :
-    QWidget(parent),
-    m_view(new QDeclarativeView(this))
+    QDeclarativeView(parent)
 {
     showFullScreen();
 
     // This does not seem ot work in harmattan. As a workaround, change dir to
     // the qml dir, then load the file.
     // m_view->setSource(QUrl::fromLocalFile("qml:main.qml"));
-    m_view->setSource(QUrl::fromLocalFile(trueFilePath("qml:main.qml")));
+    qDebug() << "import path list:" << engine()->importPathList();
+    setSource(QUrl::fromLocalFile(trueFilePath("qml:main.qml")));
 }
