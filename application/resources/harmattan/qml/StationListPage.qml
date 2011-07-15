@@ -1,11 +1,10 @@
 import QtQuick 1.0
+import QtMobility.location 1.1
 import com.nokia.meego 1.0
-import "/usr/lib/qt4/imports/com/nokia/meego/UIConstants.js" as UiConstants
 
 Page {
     property variant stationView
     id: stationListPage
-    anchors.margins: UiConstants.DEFAULT_MARGIN
     tools: ToolBarLayout {
         id: toolBar
         ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
@@ -42,8 +41,6 @@ Page {
             placeholderText: "Search..."
             platformStyle: TextFieldStyle { paddingRight: clearButton.width }
             onTextChanged: {
-                listView.model = null
-                listView.model = model
             }
             Image {
                 id: clearButton
@@ -67,6 +64,8 @@ Page {
             clip: true
             width: parent.width
             height: parent.height
+            model:  stationListProxyModel
+            /*
             model: ListModel {
                 id: model
                 ListElement {
@@ -99,7 +98,7 @@ Page {
                 ListElement {
                     name: "Genova Nervi"
                 }
-            }
+            }*/
             delegate: Item {
                 id: listItem
                 height: 48
@@ -119,10 +118,8 @@ Page {
 
                         Label {
                             id: mainText
-                            text: highlightSearch(model.name)
+                            text: highlightSearch(model.display)
                             font.bold: true
-                            //font.family: UiConstants.FONT_FAMILY
-                            //font.pixelSize: UiConstants.FONT_DEFAULT
                         }
                     }
                 }
@@ -130,7 +127,7 @@ Page {
                     id: mouseArea
                     anchors.fill: background
                     onClicked: {
-                        stationListPage.loadStation(name)
+                        stationListPage.loadStation(model.display)
                     }
                 }
             }
