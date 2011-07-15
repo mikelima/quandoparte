@@ -4,15 +4,36 @@ import "/usr/lib/qt4/imports/com/nokia/meego/UIConstants.js" as UiConstants
 
 Page {
     id: stationListPage
-    tools: toolBar
     anchors.margins: UiConstants.DEFAULT_MARGIN
+    tools: ToolBarLayout {
+        id: toolBar
+        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
+        ToolIcon { iconId: "icon-m-toolbar-settings"; onClicked: settingsSheet.open(); }
+        ToolIcon { iconId: "icon-m-toolbar-view-menu"; }
+    }
+
+    function loadStation()
+    {
+        var component = Qt.createComponent("StationPage.qml");
+        if (component.status == Component.Ready) {
+            pageStack.push(component)
+            component.html = "<p>Hello World</p>"
+        }
+        else
+            console.log("Cannot load component: " + component.errorString());
+    }
+
     Column {
+        width: parent.width
+        height: parent.height
         TextField {
+            width: parent.width
             placeholderText: "Search..."
         }
         ListView {
             id: stationListView
-            anchors.fill: parent
+            width: parent.width
+            height: parent.height
             model: ListModel {
                 ListElement {
                     name: "Genova Sestri Ponente"
@@ -59,6 +80,7 @@ Page {
                         Label {
                             id: mainText
                             text: model.name
+                            font.bold: true
                             //font.family: UiConstants.FONT_FAMILY
                             //font.pixelSize: UiConstants.FONT_DEFAULT
                         }
@@ -68,7 +90,7 @@ Page {
                     id: mouseArea
                     anchors.fill: background
                     onClicked: {
-                        stationListPage.openFile(page)
+                        stationListPage.loadStation(name)
                     }
                 }
             }
@@ -121,13 +143,6 @@ Page {
                 }
             }
         }
-    }
-
-    ToolBarLayout {
-        id: toolBar
-        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
-        ToolIcon { iconId: "icon-m-toolbar-settings"; onClicked: settingsSheet.open(); }
-        ToolIcon { iconId: "icon-m-toolbar-view-menu"; }
     }
 }
 
