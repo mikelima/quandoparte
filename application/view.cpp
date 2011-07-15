@@ -1,6 +1,9 @@
 #include "view.h"
+#include "stationlistmodel.h"
+#include "stationlistproxymodel.h"
+
+#include <QDeclarativeContext>
 #include <QDeclarativeView>
-#include <QDeclarativeEngine>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -29,13 +32,22 @@ static QString trueFilePath(QString path)
 }
 
 View::View(QWidget *parent) :
-    QDeclarativeView(parent)
+    QDeclarativeView(parent),
+    stationListModel(new StationListModel(this)),
+    stationListProxyModel(new StationListProxyModel(this))
 {
     showFullScreen();
+    stationListModel->load(trueFilePath("stations:stations.qpl"));
+
+    stationListProxyModel->setSourceModel(stationListModel);
+    stationListProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    QDeclarativeContext *context = this->rootContext();
+    context->setContextProperty("stationListProxyModel", stationListProxyModel);
 
     // This does not seem ot work in harmattan. As a workaround, change dir to
     // the qml dir, then load the file.
     // m_view->setSource(QUrl::fromLocalFile("qml:main.qml"));
-    qDebug() << "import path list:" << engine()->importPathList();
     setSource(QUrl::fromLocalFile(trueFilePath("qml:main.qml")));
+
 }
