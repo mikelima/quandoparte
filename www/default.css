@@ -43,7 +43,7 @@ div.note {
 }
 div.screenshot {
 	display: inline-block;
-	margin: 10pt;
+	margin: 30pt;
 	padding: 12pt;
 	padding-top: 6pt;
 	padding-bottom: 3pt;
@@ -60,4 +60,26 @@ div.screenshot p {
 }
 div.screenshot img {
 	width: 100%
+}
+
+div#picture-display {
+	position: absolute;
+	visibility: hidden;
+	z-index: 1;
+	opacity: 0.0;
+	margin: 10pt;
+	padding: 12pt;
+	padding-top: 6pt;
+	padding-bottom: 6pt;
+	text-align: center;
+	border: none;
+	background-color: #eee;
+	border-radius: 10pt;
+	box-shadow: 2pt 2pt 6pt #aaa;
+	-moz-transition-duration: 0.4s;
+	-moz-transition-property: opacity z-index visibility;
+	-moz-transition-timing-function: ease-in;
+	-webkit-transition-duration: 0.4s;
+	-webkit-transition-property: opacity z-index visibility;
+	-webkit-transition-timing-function: ease-in;
 }
