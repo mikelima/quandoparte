@@ -65,40 +65,6 @@ Page {
             width: parent.width
             height: parent.height
             model:  stationListProxyModel
-            /*
-            model: ListModel {
-                id: model
-                ListElement {
-                    name: "Genova Voltri"
-                }
-                ListElement {
-                    name: "Genova Sestri Ponente"
-                }
-                ListElement {
-                    name: "Genova Cornigliano"
-                }
-                ListElement {
-                    name: "Genova Sampierdarena"
-                }
-                ListElement {
-                    name: "Genova Via di Francia"
-                }
-                ListElement {
-                    name: "Genova Piazza Principe"
-                }
-                ListElement {
-                    name: "Genova Brignole"
-                }
-                ListElement {
-                    name: "Genova Sturla"
-                }
-                ListElement {
-                    name: "Genova Quinto"
-                }
-                ListElement {
-                    name: "Genova Nervi"
-                }
-            }*/
             delegate: Item {
                 id: listItem
                 height: 48
