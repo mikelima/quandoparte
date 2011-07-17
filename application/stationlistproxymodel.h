@@ -11,8 +11,16 @@ class StationListProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString searchPattern READ searchPattern WRITE setSearchPattern)
-
+    Q_ENUMS(SortingMode)
 public:
+
+    enum SortingMode {
+        NoSorting,
+        AlphaSorting,
+        DistanceSorting,
+        RecentUsageSorting
+    };
+
     explicit StationListProxyModel(QObject *parent = 0);
 
     QString searchPattern() const;
