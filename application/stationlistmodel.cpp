@@ -48,11 +48,6 @@ bool StationListModel::load(const QString &filename)
         qDebug() << "file error for:" << filename;
         return false;
     }
-    /*
-    QModelIndex first = index(0, 0);
-    QModelIndex last = index(rowCount(), columnCount());
-    emit dataChanged(first, last);
-    */
     emit layoutChanged();
     return true;
 }
