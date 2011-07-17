@@ -83,10 +83,9 @@ App::App(QObject *parent) :
 
 App::~App()
 {
+    saveSettings();
     disconnect();
     delete stationView;
-    delete stationListView;
-    saveSettings();
 }
 
 void App::downloadFinished(void)
