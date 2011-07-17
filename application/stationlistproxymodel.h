@@ -11,7 +11,7 @@ class StationListProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString searchPattern READ searchPattern WRITE setSearchPattern)
-    Q_PROPERTY(SortingMode sortingMode READ sortingMode WRITE setSortingMode)
+    Q_PROPERTY(SortingMode sortingMode READ sortingMode WRITE setSortingMode NOTIFY sortingModeChanged)
     Q_ENUMS(SortingMode)
 public:
 
@@ -33,6 +33,9 @@ public:
     Q_INVOKABLE void setUserPosition(const QGeoCoordinate &pos);
     Q_INVOKABLE void setRecentStations(const QStringList &stations);
     Q_INVOKABLE void setRecentOnlyFilter(bool);
+
+signals:
+    void sortingModeChanged(SortingMode mode);
 
 protected:
     virtual bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
