@@ -16,6 +16,9 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     QHash<int, QByteArray> roles;
     roles[StationListModel::PositionRole] = "position";
     setRoleNames(roles);
+
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
+    setSortCaseSensitivity(Qt::CaseInsensitive);
 }
 
 bool StationListProxyModel::lessThan(const QModelIndex &left,
