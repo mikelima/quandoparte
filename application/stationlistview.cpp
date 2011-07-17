@@ -57,7 +57,6 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     viewSelectionGroup->addAction(ui->sortByDistanceAction);
     viewSelectionGroup->addAction(ui->sortRecentFirstAction);
     filterModel->setSourceModel(stationListModel);
-    filterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
     ui->listView->setModel(filterModel);
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->listView->setSelectionMode(QAbstractItemView::SingleSelection);
