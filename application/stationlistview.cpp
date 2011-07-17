@@ -90,6 +90,7 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     filterModel->setRecentStations(
                 settings.value("RecentStations").toString().split(","));
     setSortingMode(mode);
+    emit sortingModeChanged(mode);
 }
 
 
@@ -146,21 +147,15 @@ void StationListView::setSortingMode(StationListProxyModel::SortingMode mode)
 {
     qDebug() << "setSorting Mode" << mode << "called";
     if (mode != m_sortingMode) {
-        m_sortingMode = mode;
-        filterModel->setRecentOnlyFilter(false);
-
         switch (mode) {
         case StationListProxyModel::AlphaSorting:
-            filterModel->setSortRole(Qt::DisplayRole);
             ui->sortByNameAction->setChecked(true);
             break;
         case StationListProxyModel::DistanceSorting:
-            filterModel->setSortRole(StationListModel::PositionRole);
             ui->sortByDistanceAction->setChecked(true);
             break;
         case StationListProxyModel::RecentUsageSorting:
             ui->sortRecentFirstAction->setChecked(true);
-            filterModel->setRecentOnlyFilter(true);
             break;
         case StationListProxyModel::NoSorting:
         default:
@@ -171,9 +166,9 @@ void StationListView::setSortingMode(StationListProxyModel::SortingMode mode)
         } else {
             positionInfoSource->stopUpdates();
         }
-        filterModel->invalidate();
-        filterModel->sort(0);
-        emit sortingModeChanged(mode);
+        m_sortingMode = mode;
+        filterModel->setSortingMode(mode);
+
     }
 }
 

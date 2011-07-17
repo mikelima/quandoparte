@@ -11,6 +11,7 @@ Q_DECLARE_METATYPE(QGeoCoordinate)
 StationListProxyModel::StationListProxyModel(QObject *parent) :
     QSortFilterProxyModel(parent),
     m_here(44.5, 9.0),
+    m_sortingMode(NoSorting),
     m_filterRecentOnly(false)
 {
     QHash<int, QByteArray> roles;
@@ -82,9 +83,29 @@ StationListProxyModel::SortingMode StationListProxyModel::sortingMode()
     return m_sortingMode;
 }
 
-void StationListProxyModel::setSortingMode(StationListProxyModel::SortingMode mode)
+void StationListProxyModel::setSortingMode(SortingMode mode)
 {
-    m_sortingMode = mode;
-    invalidate();
-    sort(0);
+    if (mode != m_sortingMode) {
+        qDebug() << "setSorting Mode" << mode << m_sortingMode << "called";
+        m_sortingMode = mode;
+        setRecentOnlyFilter(false);
+
+        switch (mode) {
+        case StationListProxyModel::AlphaSorting:
+            setSortRole(Qt::DisplayRole);
+            break;
+        case StationListProxyModel::DistanceSorting:
+            setSortRole(StationListModel::PositionRole);
+            break;
+        case StationListProxyModel::RecentUsageSorting:
+            setRecentOnlyFilter(true);
+            break;
+        case StationListProxyModel::NoSorting:
+        default:
+            break;
+        }
+        invalidate();
+        sort(0);
+        emit sortingModeChanged(mode);
+    }
 }
