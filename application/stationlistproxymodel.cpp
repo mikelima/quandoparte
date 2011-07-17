@@ -62,3 +62,14 @@ void StationListProxyModel::setRecentOnlyFilter(bool activation)
 {
     m_filterRecentOnly = activation;
 }
+
+QString StationListProxyModel::searchPattern() const
+{
+    return m_searchPattern;
+}
+
+void StationListProxyModel::setSearchPattern(const QString &pattern)
+{
+    m_searchPattern = pattern;
+    setFilterFixedString(m_searchPattern);
+}
