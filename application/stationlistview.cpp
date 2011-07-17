@@ -41,7 +41,7 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     filterModel(new StationListProxyModel(this)),
     keyPressForwarder(new KeyPressForwarder(this)),
     positionInfoSource(QGeoPositionInfoSource::createDefaultSource(this)),
-    m_sortingMode(NoSorting)
+    m_sortingMode(StationListProxyModel::NoSorting)
 
 {
     ui->setupUi(this);
@@ -83,9 +83,10 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     }
 
     QSettings settings;
-    SortingMode mode = static_cast<SortingMode>(
+    StationListProxyModel::SortingMode mode =
+            static_cast<StationListProxyModel::SortingMode>(
                 settings.value("StationListView/SortingMode",
-                               AlphaSorting).toInt());
+                               StationListProxyModel::AlphaSorting).toInt());
     filterModel->setRecentStations(
                 settings.value("RecentStations").toString().split(","));
     setSortingMode(mode);
@@ -123,15 +124,15 @@ void StationListView::updatePosition(const QtMobility::QGeoPositionInfo &update)
 
 void StationListView::handleSortingChange(QAction *action)
 {
-    SortingMode mode = NoSorting;
+    StationListProxyModel::SortingMode mode = StationListProxyModel::NoSorting;
     if (action == ui->sortByNameAction) {
-        mode = AlphaSorting;
+        mode = StationListProxyModel::AlphaSorting;
         qDebug() << "sort by name";
     } else if (action == ui->sortByDistanceAction) {
-        mode = DistanceSorting;
+        mode = StationListProxyModel::DistanceSorting;
         qDebug() << "sort by distance";
     } else if (action == ui->sortRecentFirstAction) {
-        mode = RecentUsageSorting;
+        mode = StationListProxyModel::RecentUsageSorting;
         qDebug() << "sort by recent use";
     }
 
@@ -141,7 +142,7 @@ void StationListView::handleSortingChange(QAction *action)
     setSortingMode(mode);
 }
 
-void StationListView::setSortingMode(StationListView::SortingMode mode)
+void StationListView::setSortingMode(StationListProxyModel::SortingMode mode)
 {
     qDebug() << "setSorting Mode" << mode << "called";
     if (mode != m_sortingMode) {
@@ -149,23 +150,23 @@ void StationListView::setSortingMode(StationListView::SortingMode mode)
         filterModel->setRecentOnlyFilter(false);
 
         switch (mode) {
-        case AlphaSorting:
+        case StationListProxyModel::AlphaSorting:
             filterModel->setSortRole(Qt::DisplayRole);
             ui->sortByNameAction->setChecked(true);
             break;
-        case DistanceSorting:
+        case StationListProxyModel::DistanceSorting:
             filterModel->setSortRole(StationListModel::PositionRole);
             ui->sortByDistanceAction->setChecked(true);
             break;
-        case RecentUsageSorting:
+        case StationListProxyModel::RecentUsageSorting:
             ui->sortRecentFirstAction->setChecked(true);
             filterModel->setRecentOnlyFilter(true);
             break;
-        case NoSorting:
+        case StationListProxyModel::NoSorting:
         default:
             break;
         }
-        if (mode == DistanceSorting) {
+        if (mode == StationListProxyModel::DistanceSorting) {
             positionInfoSource->startUpdates();
         } else {
             positionInfoSource->stopUpdates();
@@ -176,7 +177,7 @@ void StationListView::setSortingMode(StationListView::SortingMode mode)
     }
 }
 
-StationListView::SortingMode StationListView::sortingMode()
+StationListProxyModel::SortingMode StationListView::sortingMode()
 {
     return m_sortingMode;
 }
