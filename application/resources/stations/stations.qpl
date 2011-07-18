@@ -392,6 +392,14 @@
         <name>Sesto San Giovanni</name>
     </station>
     <station>
+        <pos>45.0388289,6.8310842</pos>
+        <name>Oulx Cesana Claviere Sestriere</name>
+    </station>
+    <station>
+        <pos>45.0788646,7.5742477</pos>
+        <name>Collegno</name>
+    </station>
+    <station>
         <pos>45.4286384,8.7400712</pos>
         <name>Trecate</name>
     </station>
@@ -656,6 +664,10 @@
         <name>Salsomaggiore Terme</name>
     </station>
     <station>
+        <pos>45.0766638,6.7099661</pos>
+        <name>Bardonecchia</name>
+    </station>
+    <station>
         <pos>45.363721,8.1801567</pos>
         <name>Santhià</name>
     </station>
@@ -700,12 +712,20 @@
         <name>Airasca</name>
     </station>
     <station>
+        <pos>45.0900153,6.9272827</pos>
+        <name>Exilles</name>
+    </station>
+    <station>
         <pos>44.7709847,7.6856262</pos>
         <name>Racconigi</name>
     </station>
     <station>
         <pos>44.5307872,8.9189332</pos>
         <name>Piano orizzontale dei Giovi</name>
+    </station>
+    <station>
+        <pos>45.0682563,7.5989937</pos>
+        <name>Grugliasco</name>
     </station>
     <station>
         <pos>44.409468,8.9011893</pos>
@@ -842,6 +862,10 @@
     <station>
         <pos>44.8875569,7.33715</pos>
         <name>Pinerolo</name>
+    </station>
+    <station>
+        <pos>45.1011895,7.361014</pos>
+        <name>Sant'Ambrogio</name>
     </station>
     <station>
         <pos>45.0261305,7.6574641</pos>
@@ -997,7 +1021,7 @@
     </station>
     <station>
         <pos>45.0739697,7.6670161</pos>
-        <name>Porta Susa</name>
+        <name>Torino Porta Susa</name>
     </station>
     <station>
         <pos>45.1603755,8.440554</pos>
@@ -1006,6 +1030,10 @@
     <station>
         <pos>45.4870647,9.2050181</pos>
         <name>Milano Centrale</name>
+    </station>
+    <station>
+        <pos>45.119938,6.9886996</pos>
+        <name>Chiomonte</name>
     </station>
     <station>
         <pos>44.3858847,7.9427255</pos>
@@ -1972,6 +2000,38 @@
         <name>Santa Severa</name>
     </station>
     <station>
+        <pos>40.9401253,14.263478</pos>
+        <name>Frattamaggiore-Grumo Nevano</name>
+    </station>
+    <station>
+        <pos>41.2713276,13.5455328</pos>
+        <name>Itri</name>
+    </station>
+    <station>
+        <pos>40.9077708,14.2987066</pos>
+        <name>Casoria-Afragola</name>
+    </station>
+    <station>
+        <pos>40.9733213,14.2184122</pos>
+        <name>Aversa</name>
+    </station>
+    <station>
+        <pos>40.9959705,14.128653</pos>
+        <name>Albanova</name>
+    </station>
+    <station>
+        <pos>41.0052813,14.0674415</pos>
+        <name>Villa Literno</name>
+    </station>
+    <station>
+        <pos>41.1234277,13.971695</pos>
+        <name>Falciano-Mondragone-Carinola</name>
+    </station>
+    <station>
+        <pos>41.7060489,12.5736467</pos>
+        <name>Pomezia-Santa Palomba</name>
+    </station>
+    <station>
         <pos>41.1856878,14.0927986</pos>
         <name>Sparanise</name>
     </station>
@@ -2036,10 +2096,6 @@
         <name>Roma Termini</name>
     </station>
     <station>
-        <pos>40.8529447,14.4807705</pos>
-        <name>Ottaviano</name>
-    </station>
-    <station>
         <pos>41.3156314,15.8973468</pos>
         <name>Cerignola Campagna</name>
     </station>
@@ -2096,12 +2152,20 @@
         <name>Santa Maria delle Mole</name>
     </station>
     <station>
+        <pos>40.9921285,14.1719803</pos>
+        <name>San Marcellino-Frignano</name>
+    </station>
+    <station>
         <pos>41.1012393,14.2104317</pos>
         <name>Capua</name>
     </station>
     <station>
         <pos>41.173818,14.1605695</pos>
         <name>Pignataro Maggiore</name>
+    </station>
+    <station>
+        <pos>40.9493139,14.2470537</pos>
+        <name>Sant'Antimo-Sant'Arpino</name>
     </station>
     <station>
         <pos>41.0826222,16.995766</pos>
@@ -2176,6 +2240,38 @@
         <name>San Gennaro</name>
     </station>
     <station>
+        <pos>41.6423082,12.6485743</pos>
+        <name>Campoleone</name>
+    </station>
+    <station>
+        <pos>41.5865239,12.8275792</pos>
+        <name>Cisterna di Latina</name>
+    </station>
+    <station>
+        <pos>41.4955564,13.0383933</pos>
+        <name>Sezze Romano</name>
+    </station>
+    <station>
+        <pos>41.4216823,13.186832</pos>
+        <name>Priverno-Fossanova</name>
+    </station>
+    <station>
+        <pos>41.3459338,13.3470362</pos>
+        <name>Monte San Biagio</name>
+    </station>
+    <station>
+        <pos>41.3376254,13.4249171</pos>
+        <name>Fondi-Sperlonga</name>
+    </station>
+    <station>
+        <pos>41.2588346,13.6062023</pos>
+        <name>Formia</name>
+    </station>
+    <station>
+        <pos>41.2575839,13.7208496</pos>
+        <name>Minturno-Scauri</name>
+    </station>
+    <station>
         <pos>41.6252636,13.328595</pos>
         <name>Frosinone</name>
     </station>
@@ -2204,6 +2300,10 @@
         <name>San Severo</name>
     </station>
     <station>
+        <pos>41.538182,12.9462886</pos>
+        <name>Latina</name>
+    </station>
+    <station>
         <pos>41.5735901,13.3363076</pos>
         <name>Ceccano</name>
     </station>
@@ -2220,8 +2320,20 @@
         <name>Poggio Imperiale</name>
     </station>
     <station>
+        <pos>40.8538819,14.2879784</pos>
+        <name>Napoli Gianturco</name>
+    </station>
+    <station>
+        <pos>40.8480343,14.2963846</pos>
+        <name>Napoli Galileo Ferraris</name>
+    </station>
+    <station>
         <pos>40.8529478,14.2729455</pos>
         <name>Napoli Centrale</name>
+    </station>
+    <station>
+        <pos>41.809481,12.557682</pos>
+        <name>Torricola</name>
     </station>
     <station>
         <pos>41.8723848,12.4661388</pos>
@@ -2258,6 +2370,14 @@
     <station>
         <pos>38.0463933,15.4654302</pos>
         <name>Scaletta Zanclea</name>
+    </station>
+    <station>
+        <pos>38.4228318,15.89698</pos>
+        <name>Gioia Tauro</name>
+    </station>
+    <station>
+        <pos>38.3648747,15.8445062</pos>
+        <name>Palmi</name>
     </station>
     <station>
         <pos>37.0689055,15.2817358</pos>
