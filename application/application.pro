@@ -72,12 +72,14 @@ SOURCES += \
     $$PLATFORM_SOURCES \
     main.cpp \
     stationlistmodel.cpp \
-    stationlistproxymodel.cpp
+    stationlistproxymodel.cpp \
+    settings.cpp
 
 HEADERS += \
     $$PLATFORM_HEADERS \
     stationlistmodel.h \
-    stationlistproxymodel.h
+    stationlistproxymodel.h \
+    settings.h
 
 FORMS += \
     settingsdialog.ui \
