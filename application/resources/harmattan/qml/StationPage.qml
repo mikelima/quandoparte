@@ -1,6 +1,7 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 import QtWebKit 1.0
+import QtQuick 1.0
 
 Page {
     property alias html: view.html
@@ -21,4 +22,4 @@ Page {
         settings.defaultFixedFontSize: labelStyle.fontPixelSize
         settings.standardFontFamily: labelStyle.fontFamily
     }
-}
+ }

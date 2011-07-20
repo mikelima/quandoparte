@@ -76,6 +76,7 @@ void StationListProxyModel::setSearchPattern(const QString &pattern)
 {
     m_searchPattern = pattern;
     setFilterFixedString(m_searchPattern);
+    qDebug() << "set Search pattern to" << pattern;
 }
 
 StationListProxyModel::SortingMode StationListProxyModel::sortingMode()
