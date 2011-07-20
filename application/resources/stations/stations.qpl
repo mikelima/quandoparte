@@ -1020,10 +1020,6 @@
         <name>Solero</name>
     </station>
     <station>
-        <pos>45.0739697,7.6670161</pos>
-        <name>Torino Porta Susa</name>
-    </station>
-    <station>
         <pos>45.1603755,8.440554</pos>
         <name>Casale Popolo</name>
     </station>
@@ -1038,6 +1034,10 @@
     <station>
         <pos>44.3858847,7.9427255</pos>
         <name>Lesegno</name>
+    </station>
+    <station>
+        <pos>45.0712141,7.664709</pos>
+        <name>Torino Porta Susa Sotterranea</name>
     </station>
     <station>
         <pos>45.4725329,12.2558807</pos>
@@ -2152,6 +2152,10 @@
         <name>Santa Maria delle Mole</name>
     </station>
     <station>
+        <pos>40.9941672,14.4193873</pos>
+        <name>Cancello</name>
+    </station>
+    <station>
         <pos>40.9921285,14.1719803</pos>
         <name>San Marcellino-Frignano</name>
     </station>
@@ -2276,6 +2280,10 @@
         <name>Frosinone</name>
     </station>
     <station>
+        <pos>41.1235746,14.7842821</pos>
+        <name>Benevento Porta Rufina</name>
+    </station>
+    <station>
         <pos>41.9573852,15.0424164</pos>
         <name>Campomarino</name>
     </station>
@@ -2346,6 +2354,18 @@
     <station>
         <pos>41.8792368,12.5236721</pos>
         <name>Roma Tuscolana</name>
+    </station>
+    <station>
+        <pos>41.1346117,14.7798646</pos>
+        <name>Benevento Arco Traiano</name>
+    </station>
+    <station>
+        <pos>41.1417818,14.7701349</pos>
+        <name>Benevento</name>
+    </station>
+    <station>
+        <pos>41.1371055,14.4593574</pos>
+        <name>Frasso Telesino-Dugenta</name>
     </station>
     <station>
         <pos>38.0051603,15.423587</pos>
@@ -2690,6 +2710,22 @@
     <station>
         <pos>41.8307724,12.5688225</pos>
         <name>Capannelle</name>
+    </station>
+    <station>
+        <pos>41.2117465,14.5260239</pos>
+        <name>Telese-Cerreto</name>
+    </station>
+    <station>
+        <pos>41.2101017,14.5709617</pos>
+        <name>Solopaca</name>
+    </station>
+    <station>
+        <pos>41.0487028,14.3961152</pos>
+        <name>Maddaloni superiore</name>
+    </station>
+    <station>
+        <pos>41.1927514,14.4792381</pos>
+        <name>Amorosi-Melizzano</name>
     </station>
     <station>
         <pos>36.7319062,14.7445976</pos>
