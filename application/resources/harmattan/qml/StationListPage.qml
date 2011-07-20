@@ -27,37 +27,31 @@ Page {
 
     function highlightSearch(s)
     {
-        return s.replace(searchField.text,
-                         '<span style="text-decoration:underline">' +
-                         searchField.text + '</span>')
+        // TODO compile RegExp on change, or find a way to cleanly use
+        // stationListProxyModel.filterRegExp
+        if (searchField.text.length) {
+            var r = new RegExp(searchField.text, 'i')
+            var match = r.exec(s)
+            return s.replace(r, '<span style="text-decoration:underline">' +
+                             match + '</span>')
+        } else {
+            return s
+        }
     }
 
     Column {
-        width: parent.width
+        x: 16
+        y: 16
+        width: parent.width - 32
         height: parent.height
-        TextField {
+        spacing: 16
+        SearchBar {
             id: searchField
-            width: parent.width
-            placeholderText: "Search..."
-            platformStyle: TextFieldStyle { paddingRight: clearButton.width }
-            onTextChanged: {
-            }
-            Image {
-                id: clearButton
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                source: "image://theme/icon-m-input-clear"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        inputContext.reset()
-                        searchField.text = ""
-                    }
-                }
-            }
         }
-        Rectangle {
-            height: 16
+        Binding {
+            target: stationListProxyModel
+            property: "searchPattern"
+            value: searchField.text
         }
         ListView {
             id: stationListView

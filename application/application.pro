@@ -106,7 +106,8 @@ OTHER_FILES += \
     resources/stations/generateunclassifiedlist.xq \
     resources/harmattan/qml/main.qml \
     resources/harmattan/qml/StationListPage.qml \
-    resources/harmattan/qml/StationPage.qml
+    resources/harmattan/qml/StationPage.qml \
+    resources/harmattan/qml/SearchBar.qml
 
 unix {
     isEmpty(PREFIX) {
