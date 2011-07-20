@@ -1,6 +1,9 @@
+#ifndef EDITFIELDENABLER_H
+#define EDITFIELDENABLER_H
+
 /*
 
-Copyright (C) 2011 mikelima
+Copyright (C) 2011 Luciano Montanaro <mikelima@cirulla.net>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,9 +21,6 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 Boston, MA 02110-1301, USA.
 
 */
-
-#ifndef EDITFIELDENABLER_H
-#define EDITFIELDENABLER_H
 
 #include <QObject>
 
