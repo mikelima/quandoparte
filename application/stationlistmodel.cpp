@@ -46,6 +46,7 @@ bool StationListModel::load(const QString &filename)
         qDebug() << "file error for:" << filename;
         return false;
     }
+    emit layoutChanged();
     return true;
 }
 
