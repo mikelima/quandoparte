@@ -61,11 +61,16 @@ View::View(QWidget *parent) :
     stationListModel->load(trueFilePath("stations:stations.qpl"));
 
     stationListProxyModel->setSourceModel(stationListModel);
-    stationListProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
 
+    /* Types to be made accessible to QML */
     qmlRegisterType<Settings>("net.cirulla.quandoparte", 1, 0, "Settings");
+    qmlRegisterType<StationListProxyModel>(
+                "net.cirulla.quandoparte", 1, 0, "StationListProxyModel");
 
     QDeclarativeContext *context = this->rootContext();
+    /* objects to be made accessible to QML */
+    context->setContextProperty("settings", Settings::instance());
+    context->setContextProperty("stationList", stationListModel);
     context->setContextProperty("stationListProxyModel", stationListProxyModel);
 
     // This does not seem ot work in harmattan. As a workaround, change dir to

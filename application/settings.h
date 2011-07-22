@@ -45,6 +45,7 @@ class Settings : public QObject
 public:
     explicit Settings(QObject *parent = 0);
     ~Settings();
+    Q_INVOKABLE static Settings *instance();
 
     Q_INVOKABLE void load(void);
     Q_INVOKABLE void save(void);

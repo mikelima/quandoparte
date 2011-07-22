@@ -107,3 +107,12 @@ void Settings::setStationViewPreferred(bool preference)
     m_stationViewPreferred = preference;
     emit stationViewPreferredChanged(m_stationViewPreferred);
 }
+
+Settings *Settings::instance()
+{
+    static Settings *settings = 0;
+
+    if (!settings)
+        settings = new Settings();
+    return settings;
+}

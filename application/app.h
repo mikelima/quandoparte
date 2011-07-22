@@ -61,10 +61,6 @@ private:
     StationView *stationView;
     StationListModel *stationListModel;
     StationListView *stationListView;
-    QString queryBaseUrl;
-    QStringList recentStations;
-    int checkingInterval;
-    bool stationViewPreferred;
 };
 
 #endif // APPLICATION_H
