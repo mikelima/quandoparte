@@ -1,10 +1,14 @@
 import QtQuick 1.0
 import QtMobility.location 1.1
 import com.nokia.meego 1.0
+import net.cirulla.quandoparte 1.0
 
 Page {
     property variant stationView
     id: stationListPage
+    Component.onCompleted: {
+        stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
+    }
     tools: ToolBarLayout {
         id: toolBar
         ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
