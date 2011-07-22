@@ -19,6 +19,7 @@ Boston, MA 02110-1301, USA.
 
 */
 
+#include <settings.h>
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
 
@@ -26,7 +27,6 @@ Boston, MA 02110-1301, USA.
 #include <QMaemo5ValueButton>
 #endif
 
-#include <QSettings>
 
 SettingsDialog::SettingsDialog(QWidget *parent) :
     QDialog(parent),
@@ -35,16 +35,16 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 #endif
     ui(new Ui::SettingsDialog)
 {
+    Settings *settings = Settings::instance();
+
     ui->setupUi(this);
 
-    QSettings settings;
-    bool showStationPreference = settings.value("StationViewPreferred",
-                                                false).toBool();
+    bool showStationPreference = settings->stationViewPreferred();
     ui->showLastStationCheckBox->setChecked(showStationPreference);
     connect(ui->showLastStationCheckBox, SIGNAL(toggled(bool)),
             SLOT(showStationChanged(bool)));
 
-    bool checkingInterval = settings.value("CheckInterval", 0).toInt();
+    bool checkingInterval = settings->checkingInterval();
     ui->periodicUpdateCheckBox->setChecked(checkingInterval > 30000);
     connect(ui->periodicUpdateCheckBox, SIGNAL(toggled(bool)),
             SLOT(periodicUpdateToggled(bool)));
@@ -62,12 +62,12 @@ SettingsDialog::~SettingsDialog()
 
 void SettingsDialog::showStationChanged(bool newValue)
 {
-    QSettings settings;
-    settings.setValue("StationViewPreferred", newValue);
+    Settings *settings = Settings::instance();
+    settings->setStationViewPreferred(newValue);
 }
 
 void SettingsDialog::periodicUpdateToggled(bool checked)
 {
-    QSettings settings;
-    settings.setValue("CheckInterval", checked ? 120000 : 0);
+    Settings *settings = Settings::instance();
+    settings->setCheckingInterval(checked ? 120000 : 0);
 }

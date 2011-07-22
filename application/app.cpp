@@ -24,6 +24,7 @@ Boston, MA 02110-1301, USA.
 #include "stationlistmodel.h"
 #include "stationlistview.h"
 #include "settingsdialog.h"
+#include "settings.h"
 
 #include <QDebug>
 #include <QMessageBox>
@@ -74,10 +75,11 @@ App::App(QObject *parent) :
 
     connect(checkingTimer, SIGNAL(timeout()), SLOT(updateStation()));
     stationView->show();
-    if (recentStations.isEmpty() || !stationViewPreferred) {
+    Settings *settings = Settings::instance();
+    if (settings->recentStations().isEmpty() || !settings->stationViewPreferred()) {
         stationListView->show();
     } else {
-        queryStation(recentStations.front());
+        queryStation(settings->recentStations().front());
     }
 }
 
@@ -104,16 +106,17 @@ void App::downloadFinished(void)
 void App::queryStation(const QString &station)
 {
     QNetworkRequest request;
-    request.setUrl(queryBaseUrl);
+    Settings *settings = Settings::instance();
+    request.setUrl(settings->queryBaseUrl());
     const QString queryString = "stazione=" + station;
     const QByteArray query(queryString.toLocal8Bit());
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),
             this, SLOT(downloadFinished()));
-    recentStations.push_front(station);
-    recentStations.removeDuplicates();
-    if (recentStations.count() > RECENT_STATIONS_MAX_COUNT) {
-        recentStations.pop_back();
+    settings->recentStations().push_front(station);
+    settings->recentStations().removeDuplicates();
+    if (settings->recentStations().count() > RECENT_STATIONS_MAX_COUNT) {
+        settings->recentStations().pop_back();
     }
 #ifdef Q_WS_MAEMO_5
     stationListView->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, true);
@@ -122,9 +125,11 @@ void App::queryStation(const QString &station)
 
 void App::updateStation()
 {
+    Settings *settings = Settings::instance();
+
     qDebug() << "updating station data";
-    if (!recentStations.isEmpty() && !stationListView->isVisible()) {
-        queryStation(recentStations.front());
+    if (!settings->recentStations().isEmpty() && !stationListView->isVisible()) {
+        queryStation(settings->recentStations().front());
     }
 }
 
@@ -167,19 +172,8 @@ void App::showStationSelectView(void)
 
 void App::readSettings(void)
 {
-    QSettings settings;
-    queryBaseUrl = settings.value("QueryURL",
-                                  "http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione").toString();
-    stationView->setBaseUrl(queryBaseUrl);
-
-    recentStations = settings.value("RecentStations").toString().split(",");
-    qDebug() << "RecentStations:" << recentStations;
-
-    stationViewPreferred = settings.value("StationViewPreferred", false).toBool();
-    qDebug() << "StationsViewPreferred:" << stationViewPreferred;
-
-    checkingInterval = settings.value("CheckInterval", 0).toInt();
-    qDebug() << "CheckInterval:" << checkingInterval;
+    Settings *settings = Settings::instance();
+    stationView->setBaseUrl(settings->queryBaseUrl());
 
     /*
        I would use > 0 here, but people may have an old settings file with a 2
@@ -187,8 +181,8 @@ void App::readSettings(void)
        As a workaround I consider anything less than 30 seconds as too short
        and disable the timer.
     */
-    if (checkingInterval > 30000) {
-        checkingTimer->setInterval(checkingInterval);
+    if (settings->checkingInterval() > 30000) {
+        checkingTimer->setInterval(settings->checkingInterval());
         checkingTimer->start();
     } else {
         checkingTimer->setInterval(-1);
@@ -198,14 +192,7 @@ void App::readSettings(void)
 
 void App::saveSettings(void)
 {
-    QSettings settings;
-
-    qDebug() << "Saving Settings to" << settings.fileName();
-
-    settings.setValue("QueryURL", queryBaseUrl);
-    settings.setValue("RecentStations", recentStations.join(","));
-    settings.setValue("CheckInterval", checkingInterval);
-    settings.setValue("StationViewPreferred", stationViewPreferred);
+    Settings::instance()->save();
 }
 
 QString App::dataDir(void)
