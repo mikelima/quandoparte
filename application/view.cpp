@@ -20,14 +20,14 @@ Boston, MA 02110-1301, USA.
 */
 
 #include "view.h"
+#include "settings.h"
 #include "stationlistmodel.h"
 #include "stationlistproxymodel.h"
 
-#include <QDeclarativeContext>
-#include <QDeclarativeView>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QtDeclarative>
 
 // search Paths seem to be broken in Harmattan?
 
@@ -62,6 +62,8 @@ View::View(QWidget *parent) :
 
     stationListProxyModel->setSourceModel(stationListModel);
     stationListProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    qmlRegisterType<Settings>("net.cirulla.quandoparte", 1, 0, "Settings");
 
     QDeclarativeContext *context = this->rootContext();
     context->setContextProperty("stationListProxyModel", stationListProxyModel);
