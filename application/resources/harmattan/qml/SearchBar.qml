@@ -1,16 +1,44 @@
 import QtQuick 1.0
 import com.nokia.meego 1.0
+import "uiconstants.js" as UiConstants
 
-Item {
+
+BorderImage {
     property alias text: searchField.text
     width: parent.width
-    height: 48
+    border.left: 10
+    border.right: 10
+    border.top: 10
+    border.bottom: 10
+    height:  UiConstants.SearchBarDefaultHeight
+    source: style.background
+
+    ToolBarStyle {
+        id: style
+    }
+    Item {
+        id: spacerTop
+        width: parent.width
+        height: UiConstants.DefaultMargins
+    }
+    Item {
+        id: spacerLeft
+        anchors.left: parent.left
+        width: UiConstants.DefaultMargins
+        height: searchField.height
+    }
+    Item {
+        id: spacerRight
+        anchors.right: parent.right
+        width: UiConstants.DefaultMargins
+        height: searchField.height
+    }
 
     TextField {
         id: searchField
-        width: parent.width
-        anchors.margins: 16
-        anchors.centerIn: parent
+        anchors.top: spacerTop.bottom
+        anchors.left: spacerLeft.right
+        anchors.right: spacerRight.left
         placeholderText: qsTr("Search")
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
         platformStyle: TextFieldStyle { paddingRight: clearButton.width }
@@ -45,5 +73,11 @@ Item {
                 }
             }
         }
+    }
+    Item {
+        id: spacerBottom
+        width: parent.width
+        anchors.top: searchField.bottom
+        height: UiConstants.DefaultMargins
     }
 }
