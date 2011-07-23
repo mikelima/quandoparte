@@ -109,7 +109,9 @@ OTHER_FILES += \
     resources/harmattan/qml/main.qml \
     resources/harmattan/qml/StationListPage.qml \
     resources/harmattan/qml/StationPage.qml \
-    resources/harmattan/qml/SearchBar.qml
+    resources/harmattan/qml/SearchBar.qml \
+    resources/harmattan/qml/PageHeader.qml \
+    resources/harmattan/qml/uiconstants.js
 
 unix {
     isEmpty(PREFIX) {
@@ -169,7 +171,7 @@ unix:!symbian {
 }
 
 harmattan {
-    qml.files = resources/harmattan/qml/*.qml
+    qml.files = resources/harmattan/qml/*.qml resources/harmattan/qml/*.js
     qml.path = $$DATADIR/qml
     INSTALLS += qml
 }
