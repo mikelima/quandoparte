@@ -46,6 +46,33 @@ Page {
     PageHeader {
         id: header
         anchors.top: parent.top
+        text: qsTr("Stations")
+        options: ListModel {
+            id: dialogOptions
+            ListElement {
+                name: QT_TR_NOOP("Stations by Name")
+            }
+            ListElement {
+                name: QT_TR_NOOP("Stations by Distance")
+            }
+            ListElement {
+                name: QT_TR_NOOP("Stations Recently Seen")
+            }
+        }
+        onSelectedIndexChanged: {
+            header.text = dialogOptions.get(selectedIndex).name
+            switch (selectedIndex) {
+            case 0:
+                stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
+                break;
+            case 1:
+                stationListProxyModel.sortingMode = StationListProxyModel.DistanceSorting
+                break;
+            case 2:
+                stationListProxyModel.sortingMode = StationListProxyModel.RecentUsageSorting
+                break;
+            }
+        }
     }
     SearchBar {
         id: searchField
@@ -106,8 +133,8 @@ Page {
 
     Sheet {
         id: settingsSheet
-        acceptButtonText: "Save"
-        rejectButtonText: "Cancel"
+        acceptButtonText: qsTr("Save")
+        rejectButtonText: qsTr("Cancel")
         content: Item {
             x: 16
             y: 16
