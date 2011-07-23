@@ -43,20 +43,26 @@ Page {
         }
     }
 
+    PageHeader {
+        id: header
+        anchors.top: parent.top
+    }
+    SearchBar {
+        id: searchField
+        anchors.top: header.bottom
+    }
+    Binding {
+        target: stationListProxyModel
+        property: "searchPattern"
+        value: searchField.text
+    }
     Column {
         x: 16
         y: 16
+        anchors.top: searchField.bottom
         width: parent.width - 32
         height: parent.height
         spacing: 16
-        SearchBar {
-            id: searchField
-        }
-        Binding {
-            target: stationListProxyModel
-            property: "searchPattern"
-            value: searchField.text
-        }
         ListView {
             id: stationListView
             clip: true
