@@ -12,3 +12,6 @@ const HeaderDefaultTopSpacingLandscape = 16
 const HeaderDefaultBottomSpacingLandscape = 16
 
 const SearchBarDefaultHeight = 80
+
+const HeaderFontPixelSize = 32
+const HeaderFontStyle = "Light"
