@@ -43,7 +43,7 @@ BorderImage {
         inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
         platformStyle: TextFieldStyle { paddingRight: clearButton.width }
         onTextChanged: {
-            if (searchField.text.length == 0) {
+            if (searchField.text.length === 0) {
                 searchButton.visible = true
                 clearButton.visible = false
             } else {
