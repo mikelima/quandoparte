@@ -83,13 +83,23 @@ Page {
         property: "searchPattern"
         value: searchField.text
     }
-    Column {
+    Rectangle {
+        id: shadow
+        width: parent.width
+        anchors.top: mainView.top
+        height: 5
+        gradient: Gradient {
+            GradientStop {color: "#aa000000"; position: 0.0}
+            GradientStop {color: "#00000000"; position: 1.0}
+        }
+    }
+    Item {
+        id: mainView
         x: 16
         y: 16
         anchors.top: searchField.bottom
         width: parent.width - 32
         height: parent.height
-        spacing: 16
         ListView {
             id: stationListView
             clip: true
