@@ -13,7 +13,10 @@ Rectangle {
     height: screen.currentOrientation == Screen.Landscape ?
                 UiConstants.HeaderDefaultHeightLandscape :
     UiConstants.HeaderDefaultHeightPortrait
-    color: mouse.pressed ? "#060" : "#071"
+    gradient: Gradient {
+        GradientStop { color: mouse.pressed ? "#040" : "#061"; position: 0.0 }
+        GradientStop { color: "#0a2"; position: 1.0 }
+    }
 
     TumblerButtonStyle {
         id: style
