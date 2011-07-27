@@ -45,7 +45,7 @@ void DataProvider::queryStation(const QString &station)
     const QByteArray query(queryString.toLocal8Bit());
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),
-            this, SLOT(queryStationCompleted()));
+            SLOT(onQueryStationReply()));
     settings->recentStations().push_front(station);
     settings->recentStations().removeDuplicates();
     if (settings->recentStations().count() > RECENT_STATIONS_MAX_COUNT) {
@@ -64,11 +64,12 @@ void DataProvider::updateStation()
     }
 }
 
-void DataProvider::queryStationCompleted()
+void DataProvider::onQueryStationReply()
 {
     disconnect(stationQueryReply, SIGNAL(finished()),
                this, SLOT(downloadFinished()));
     // TODO implement parsing or data returning...
+    emit queryStationCompleted(stationQueryReply->readAll());
     stationQueryReply->deleteLater();
     stationQueryReply = 0;
 }

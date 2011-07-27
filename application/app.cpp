@@ -20,6 +20,7 @@ Boston, MA 02110-1301, USA.
 */
 
 #include "app.h"
+#include "dataprovider.h"
 #include "stationview.h"
 #include "stationlistmodel.h"
 #include "stationlistview.h"
@@ -45,13 +46,16 @@ QTM_USE_NAMESPACE
 
 App::App(QObject *parent) :
     QObject(parent),
-    accessManager(new QNetworkAccessManager(this)),
+    dataProvider(new DataProvider(this)),
     checkingTimer(new QTimer(this)),
     stationView(new StationView()),
     stationListModel(new StationListModel(this)),
     stationListView(new StationListView(stationListModel, stationView))
 {
     stationListModel->load("stations:stations.qpl");
+
+    connect(dataProvider, SIGNAL(queryStationCompleted(QByteArray)),
+            SLOT(downloadFinished(QByteArray)));
 
     connect(stationListView, SIGNAL(stationSelected(const QString &)),
             SLOT(queryStation(const QString &)));
@@ -79,7 +83,7 @@ App::App(QObject *parent) :
     if (settings->recentStations().isEmpty() || !settings->stationViewPreferred()) {
         stationListView->show();
     } else {
-        queryStation(settings->recentStations().front());
+        updateStation();
     }
 }
 
@@ -90,14 +94,10 @@ App::~App()
     delete stationView;
 }
 
-void App::downloadFinished(void)
+void App::downloadFinished(const QByteArray &data)
 {
-    disconnect(stationQueryReply, SIGNAL(finished()),
-               this, SLOT(downloadFinished()));
-    stationView->updateView(stationQueryReply->readAll());
+    stationView->updateView(data);
     stationListView->hide();
-    stationQueryReply->deleteLater();
-    stationQueryReply = 0;
 #ifdef Q_WS_MAEMO_5
     stationListView->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, false);
 #endif
@@ -105,19 +105,7 @@ void App::downloadFinished(void)
 
 void App::queryStation(const QString &station)
 {
-    QNetworkRequest request;
-    Settings *settings = Settings::instance();
-    request.setUrl(settings->queryBaseUrl());
-    const QString queryString = "stazione=" + station;
-    const QByteArray query(queryString.toLocal8Bit());
-    stationQueryReply = accessManager->post(request, query);
-    connect(stationQueryReply, SIGNAL(finished()),
-            this, SLOT(downloadFinished()));
-    settings->recentStations().push_front(station);
-    settings->recentStations().removeDuplicates();
-    if (settings->recentStations().count() > RECENT_STATIONS_MAX_COUNT) {
-        settings->recentStations().pop_back();
-    }
+    dataProvider->queryStation(station);
 #ifdef Q_WS_MAEMO_5
     stationListView->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, true);
 #endif
@@ -125,11 +113,8 @@ void App::queryStation(const QString &station)
 
 void App::updateStation()
 {
-    Settings *settings = Settings::instance();
-
-    qDebug() << "updating station data";
-    if (!settings->recentStations().isEmpty() && !stationListView->isVisible()) {
-        queryStation(settings->recentStations().front());
+    if (!stationListView->isVisible()) {
+        dataProvider->updateStation();
     }
 }
 
