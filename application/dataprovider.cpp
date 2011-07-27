@@ -22,6 +22,7 @@ Boston, MA 02110-1301, USA.
 #include "dataprovider.h"
 #include "settings.h"
 
+#include <QDebug>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
@@ -29,8 +30,8 @@ Boston, MA 02110-1301, USA.
 // Constants
 static const int RECENT_STATIONS_MAX_COUNT = 10;
 
-DataProvider::DataProvider(QDeclarativeItem *parent) :
-    QDeclarativeItem(parent),
+DataProvider::DataProvider(QObject *parent) :
+    QObject(parent),
     accessManager(new QNetworkAccessManager(this))
 {
 }

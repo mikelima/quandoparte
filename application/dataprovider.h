@@ -22,16 +22,16 @@ Boston, MA 02110-1301, USA.
 #ifndef DATAPROVIDER_H
 #define DATAPROVIDER_H
 
-#include <QDeclarativeItem>
+#include <QObject>
 
 class QNetworkAccessManager;
 class QNetworkReply;
 
-class DataProvider : public QDeclarativeItem
+class DataProvider : public QObject
 {
     Q_OBJECT
 public:
-    explicit DataProvider(QDeclarativeItem *parent = 0);
+    explicit DataProvider(QObject *parent = 0);
 
 signals:
 
