@@ -25,10 +25,9 @@ Boston, MA 02110-1301, USA.
 #include <QApplication>
 #include <QStringList>
 
-class QNetworkAccessManager;
-class QNetworkReply;
 class QTimer;
 
+class DataProvider;
 class StationView;
 class StationListView;
 class StationListModel;
@@ -47,7 +46,7 @@ signals:
 public slots:
     void queryStation(const QString &station);
     void updateStation();
-    void downloadFinished(void);
+    void downloadFinished(const QByteArray &data);
     void showAboutDialog(void);
     void showSettingsDialog(void);
     void showStationSelectView(void);
@@ -55,8 +54,7 @@ public:
     void saveSettings(void);
     void readSettings(void);
 private:
-    QNetworkAccessManager *accessManager;
-    QNetworkReply *stationQueryReply;
+    DataProvider *dataProvider;
     QTimer *checkingTimer;
     StationView *stationView;
     StationListModel *stationListModel;

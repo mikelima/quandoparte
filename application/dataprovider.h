@@ -34,13 +34,14 @@ public:
     explicit DataProvider(QObject *parent = 0);
 
 signals:
+    void queryStationCompleted(const QByteArray &result);
 
 public slots:
     void queryStation(const QString &station);
     void updateStation();
 
 private slots:
-    void queryStationCompleted(void);
+    void onQueryStationReply(void);
 
 private:
     QNetworkAccessManager *accessManager;
