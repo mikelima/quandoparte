@@ -41,6 +41,9 @@ class Settings : public QObject
     Q_PROPERTY(bool stationViewPreferred
                READ stationViewPreferred WRITE setStationViewPreferred
                NOTIFY stationViewPreferredChanged)
+    Q_PROPERTY(bool showArrivalsPreferred
+               READ showArrivalsPreferred WRITE setShowArrivalsPreferred
+               NOTIFY showArrivalsPreferredChanged)
 
 public:
     explicit Settings(QObject *parent = 0);
@@ -62,11 +65,15 @@ public:
     bool stationViewPreferred();
     void setStationViewPreferred(bool);
 
+    bool showArrivalsPreferred();
+    void setShowArrivalsPreferred(bool);
+
 signals:
     void queryBaseUrlChanged(const QString &);
     void recentStationsChanged(const QStringList &);
     void checkingIntervalChanged(int);
     void stationViewPreferredChanged(bool);
+    void showArrivalsPreferredChanged(bool);
 
 public slots:
 
@@ -75,6 +82,7 @@ private:
     QStringList m_recentStations;
     int m_checkingInterval;
     bool m_stationViewPreferred;
+    bool m_showArrivalsPreferred;
 };
 
 #endif // SETTINGS_H
