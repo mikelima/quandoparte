@@ -46,7 +46,6 @@ Page {
     PageHeader {
         id: header
         anchors.top: parent.top
-        text: qsTr("Stations")
         selectedIndex: stationListProxyModel.sortingMode
         options: ListModel {
             id: dialogOptions
@@ -59,11 +58,6 @@ Page {
             ListElement {
                 name: QT_TR_NOOP("Stations Recently Seen")
             }
-        }
-        onSelectedIndexChanged: {
-            header.text = dialogOptions.get(selectedIndex).name
-            console.log("Selection changed to: " + selectedIndex)
-            console.log("Selection text is: " + header.text)
         }
     }
     SearchBar {

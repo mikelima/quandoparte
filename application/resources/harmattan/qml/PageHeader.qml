@@ -59,4 +59,13 @@ Rectangle {
         id: dialog
         titleText: qsTr("Show")
     }
+    onSelectedIndexChanged: {
+        console.log("Selection changed to: " + selectedIndex)
+        if (options === undefined || options.count === 0) {
+            header.text = " "
+        } else {
+            header.text = options.get(selectedIndex).name
+            console.log("Selection text is: " + header.text)
+        }
+    }
 }
