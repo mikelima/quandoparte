@@ -47,6 +47,7 @@ Page {
         id: header
         anchors.top: parent.top
         text: qsTr("Stations")
+        selectedIndex: stationListProxyModel.sortingMode
         options: ListModel {
             id: dialogOptions
             ListElement {
@@ -61,17 +62,8 @@ Page {
         }
         onSelectedIndexChanged: {
             header.text = dialogOptions.get(selectedIndex).name
-            switch (selectedIndex) {
-            case 0:
-                stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
-                break;
-            case 1:
-                stationListProxyModel.sortingMode = StationListProxyModel.DistanceSorting
-                break;
-            case 2:
-                stationListProxyModel.sortingMode = StationListProxyModel.RecentUsageSorting
-                break;
-            }
+            console.log("Selection changed to: " + selectedIndex)
+            console.log("Selection text is: " + header.text)
         }
     }
     SearchBar {
@@ -82,6 +74,11 @@ Page {
         target: stationListProxyModel
         property: "searchPattern"
         value: searchField.text
+    }
+    Binding {
+        target: stationListProxyModel
+        property: "sortingMode"
+        value: header.selectedIndex
     }
     Rectangle {
         id: shadow
