@@ -2,6 +2,7 @@ import QtQuick 1.0
 import QtMobility.location 1.1
 import com.nokia.meego 1.0
 import net.cirulla.quandoparte 1.0
+import "uiconstants.js" as UiConstants
 
 Page {
     property variant stationView
@@ -144,15 +145,16 @@ Page {
             Column {
                 spacing: 16
                 anchors.fill: parent
-                Row {
+                Item {
                     height: 40
-                    spacing: 16
+                    anchors.leftMargin: UiConstants.DefaultMargins
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Label {
                         font.bold: true
                         text: "Show Last Station on Startup"
                         anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
                     }
                     Switch {
                         anchors.verticalCenter: parent.verticalCenter
@@ -160,9 +162,9 @@ Page {
                         anchors.right: parent.right
                     }
                 }
-                Row {
+                Item {
                     height: 40
-                    spacing: 16
+                    anchors.leftMargin: UiConstants.DefaultMargins
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Label {
