@@ -12,7 +12,7 @@ Rectangle {
     width: parent.width
     height: screen.currentOrientation == Screen.Landscape ?
                 UiConstants.HeaderDefaultHeightLandscape :
-    UiConstants.HeaderDefaultHeightPortrait
+                UiConstants.HeaderDefaultHeightPortrait
     gradient: Gradient {
         GradientStop { color: mouse.pressed ? "#040" : "#061"; position: 0.0 }
         GradientStop { color: "#0a2"; position: 1.0 }
@@ -22,16 +22,13 @@ Rectangle {
         id: style
         inverted: true
     }
-    Item {
-        id: spacer
-        anchors.left: parent.left
-        width: UiConstants.DefaultMargins
-        height: parent.heigth
-    }
     Label {
         id: label
-        anchors.left: spacer.right
-        anchors.verticalCenter: parent.verticalCenter
+        anchors {
+            left: parent.left;
+            leftMargin: UiConstants.DefaultMargins;
+            verticalCenter: parent.verticalCenter;
+        }
         font {
             pixelSize: UiConstants.HeaderFontPixelSize
             bold: false
@@ -46,8 +43,8 @@ Rectangle {
 
     Image {
         id: icon
-
-        anchors { right: (label.text != "") ? parent.right : undefined;
+        anchors {
+            right: (label.text != "") ? parent.right : undefined;
             rightMargin: UiConstants.DefaultMargins;
             horizontalCenter: (label.text != "") ? undefined : parent.horizontalCenter;
             verticalCenter: parent.verticalCenter;
