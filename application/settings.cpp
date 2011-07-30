@@ -25,6 +25,15 @@ Boston, MA 02110-1301, USA.
 #include <QSettings>
 #include <QStringList>
 
+Settings *Settings::instance()
+{
+    static Settings *settings = 0;
+
+    if (!settings)
+        settings = new Settings();
+    return settings;
+}
+
 Settings::Settings(QObject *parent) :
     QObject(parent)
 {
@@ -110,15 +119,6 @@ void Settings::setStationViewPreferred(bool preference)
 {
     m_stationViewPreferred = preference;
     emit stationViewPreferredChanged(m_stationViewPreferred);
-}
-
-Settings *Settings::instance()
-{
-    static Settings *settings = 0;
-
-    if (!settings)
-        settings = new Settings();
-    return settings;
 }
 
 bool Settings::showArrivalsPreferred()
