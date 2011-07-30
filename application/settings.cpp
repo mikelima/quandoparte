@@ -49,6 +49,9 @@ void Settings::load()
 
     m_checkingInterval = settings.value("CheckInterval", 0).toInt();
     qDebug() << "CheckInterval:" << m_checkingInterval;
+
+    m_showArrivalsPreferred = settings.value("StationView/ShowArrivals", false).toBool();
+    qDebug() << "ShowArrivalsPreferred:" << m_showArrivalsPreferred;
 }
 
 void Settings::save()
@@ -61,6 +64,7 @@ void Settings::save()
     settings.setValue("RecentStations", m_recentStations.join(","));
     settings.setValue("CheckInterval", m_checkingInterval);
     settings.setValue("StationViewPreferred", m_stationViewPreferred);
+    settings.setValue("StationView/ShowArrivals", m_stationViewPreferred);
 }
 
 QString Settings::queryBaseUrl()
@@ -115,4 +119,15 @@ Settings *Settings::instance()
     if (!settings)
         settings = new Settings();
     return settings;
+}
+
+bool Settings::showArrivalsPreferred()
+{
+    return m_showArrivalsPreferred;
+}
+
+void Settings::setShowArrivalsPreferred(bool preference)
+{
+    m_showArrivalsPreferred = preference;
+    emit showArrivalsPreferredChanged(m_showArrivalsPreferred);
 }
