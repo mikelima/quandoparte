@@ -3,6 +3,7 @@ import QtMobility.location 1.1
 import com.nokia.meego 1.0
 import net.cirulla.quandoparte 1.0
 import "uiconstants.js" as UiConstants
+import "StationListPage.js" as Private
 
 Page {
     property variant stationView
@@ -17,33 +18,15 @@ Page {
         ToolIcon { iconId: "icon-m-toolbar-view-menu"; }
     }
 
-    function loadStation()
-    {
-        var component = Qt.createComponent("StationPage.qml");
-        if (component.status == Component.Ready) {
-            var view = component.createObject(stationListPage)
-            stationListPage.stationView = view
-            pageStack.push(view)
-            view.html = "<h1>Hello World</h1><p>Lorem ipsum</p>"
-        }
-        else
-            console.log('Cannot load component: ' + component.errorString());
-    }
-
-    function highlightSearch(s)
-    {
-        // TODO compile RegExp on change, or find a way to cleanly use
-        // stationListProxyModel.filterRegExp
-        if (searchField.text.length) {
-            var r = new RegExp(searchField.text, 'i')
-            var match = r.exec(s)
-            return s.replace(r, '<span style="text-decoration:underline">' +
-                             match + '</span>')
-        } else {
-            return s
+    DataProvider {
+        id: provider
+        onStationScheduleReady: {
+            if (Private.view !== undefined) {
+                Private.view.html = result
+                //Private.view.url = url
+            }
         }
     }
-
     PageHeader {
         id: header
         anchors.top: parent.top
@@ -117,7 +100,7 @@ Page {
 
                         Label {
                             id: mainText
-                            text: highlightSearch(model.display)
+                            text: Private.highlightSearch(model.display)
                             font.bold: true
                         }
                     }
@@ -126,7 +109,7 @@ Page {
                     id: mouseArea
                     anchors.fill: background
                     onClicked: {
-                        stationListPage.loadStation(model.display)
+                        Private.loadStation(model.display)
                     }
                 }
             }
