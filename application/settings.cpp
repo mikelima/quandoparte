@@ -73,7 +73,7 @@ void Settings::save()
     settings.setValue("RecentStations", m_recentStations.join(","));
     settings.setValue("CheckInterval", m_checkingInterval);
     settings.setValue("StationViewPreferred", m_stationViewPreferred);
-    settings.setValue("StationView/ShowArrivals", m_stationViewPreferred);
+    settings.setValue("StationView/ShowArrivals", m_showArrivalsPreferred);
 }
 
 QString Settings::queryBaseUrl()
