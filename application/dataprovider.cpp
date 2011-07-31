@@ -26,9 +26,14 @@ Boston, MA 02110-1301, USA.
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QWebElement>
+#include <QWebFrame>
+#include <QWebPage>
 
 // Constants
 static const int RECENT_STATIONS_MAX_COUNT = 10;
+
+// Class methods
 
 DataProvider::DataProvider(QObject *parent) :
     QObject(parent),
@@ -36,7 +41,7 @@ DataProvider::DataProvider(QObject *parent) :
 {
 }
 
-void DataProvider::queryStation(const QString &station)
+void DataProvider::stationSchedule(const QString &station)
 {
     QNetworkRequest request;
     Settings *settings = Settings::instance();
@@ -45,7 +50,7 @@ void DataProvider::queryStation(const QString &station)
     const QByteArray query(queryString.toLocal8Bit());
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),
-            SLOT(onQueryStationReply()));
+            SLOT(onStationScheduleReady()));
     settings->recentStations().push_front(station);
     settings->recentStations().removeDuplicates();
     if (settings->recentStations().count() > RECENT_STATIONS_MAX_COUNT) {
@@ -60,16 +65,16 @@ void DataProvider::updateStation()
 
     qDebug() << "updating station data";
     if (!settings->recentStations().isEmpty()) {
-        queryStation(settings->recentStations().front());
+        stationSchedule(settings->recentStations().front());
     }
 }
 
-void DataProvider::onQueryStationReply()
+void DataProvider::onStationScheduleReady()
 {
     disconnect(stationQueryReply, SIGNAL(finished()),
                this, SLOT(downloadFinished()));
     // TODO implement parsing or data returning...
-    emit queryStationCompleted(stationQueryReply->readAll());
+    emit stationScheduleReady(stationQueryReply->readAll());
     stationQueryReply->deleteLater();
     stationQueryReply = 0;
 }
