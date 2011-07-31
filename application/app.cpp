@@ -54,7 +54,7 @@ App::App(QObject *parent) :
 {
     stationListModel->load("stations:stations.qpl");
 
-    connect(dataProvider, SIGNAL(stationScheduleReady(QByteArray)),
+    connect(dataProvider, SIGNAL(stationScheduleReady(QByteArray, QUrl)),
             SLOT(downloadFinished(QByteArray)));
 
     connect(stationListView, SIGNAL(stationSelected(QString)),
