@@ -21,6 +21,7 @@ Boston, MA 02110-1301, USA.
 
 #include "view.h"
 #include "settings.h"
+#include "dataprovider.h"
 #include "stationlistmodel.h"
 #include "stationlistproxymodel.h"
 
@@ -63,6 +64,7 @@ View::View(QWidget *parent) :
     stationListProxyModel->setSourceModel(stationListModel);
 
     /* Types to be made accessible to QML */
+    qmlRegisterType<DataProvider>("net.cirulla.quandoparte", 1, 0, "DataProvider");
     qmlRegisterType<Settings>("net.cirulla.quandoparte", 1, 0, "Settings");
     qmlRegisterType<StationListProxyModel>(
                 "net.cirulla.quandoparte", 1, 0, "StationListProxyModel");
