@@ -42,7 +42,6 @@ Page {
         }
         width: parent.width
 
-
         settings.defaultFontSize: labelStyle.fontPixelSize
         settings.defaultFixedFontSize: labelStyle.fontPixelSize
         settings.standardFontFamily: labelStyle.fontFamily
