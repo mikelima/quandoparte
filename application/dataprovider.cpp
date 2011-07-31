@@ -72,9 +72,10 @@ void DataProvider::updateStation()
 void DataProvider::onStationScheduleReady()
 {
     disconnect(stationQueryReply, SIGNAL(finished()),
-               this, SLOT(downloadFinished()));
+               this, SLOT(onStationScheduleReady()));
     // TODO implement parsing or data returning...
-    emit stationScheduleReady(stationQueryReply->readAll());
+    emit stationScheduleReady(QString::fromUtf8(stationQueryReply->readAll()),
+                              stationQueryReply->url());
     stationQueryReply->deleteLater();
     stationQueryReply = 0;
 }

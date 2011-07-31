@@ -26,6 +26,7 @@ Boston, MA 02110-1301, USA.
 
 class QNetworkAccessManager;
 class QNetworkReply;
+class QUrl;
 
 class DataProvider : public QObject
 {
@@ -34,7 +35,7 @@ public:
     explicit DataProvider(QObject *parent = 0);
 
 signals:
-    void stationScheduleReady(const QByteArray &result);
+    void stationScheduleReady(const QString &result, const QUrl &url);
 
 public slots:
     void stationSchedule(const QString &station);
