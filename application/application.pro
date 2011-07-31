@@ -74,14 +74,16 @@ SOURCES += \
     stationlistmodel.cpp \
     stationlistproxymodel.cpp \
     settings.cpp \
-    dataprovider.cpp
+    dataprovider.cpp \
+    stationschedule.cpp
 
 HEADERS += \
     $$PLATFORM_HEADERS \
     stationlistmodel.h \
     stationlistproxymodel.h \
     settings.h \
-    dataprovider.h
+    dataprovider.h \
+    stationschedule.h
 
 FORMS += \
     settingsdialog.ui \
