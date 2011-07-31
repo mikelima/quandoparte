@@ -113,7 +113,8 @@ OTHER_FILES += \
     resources/harmattan/qml/StationPage.qml \
     resources/harmattan/qml/SearchBar.qml \
     resources/harmattan/qml/PageHeader.qml \
-    resources/harmattan/qml/uiconstants.js
+    resources/harmattan/qml/uiconstants.js \
+    resources/harmattan/qml/StationListPage.js
 
 unix {
     isEmpty(PREFIX) {
