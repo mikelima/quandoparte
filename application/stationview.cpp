@@ -20,6 +20,7 @@ Boston, MA 02110-1301, USA.
 */
 
 #include "stationview.h"
+#include "settings.h"
 
 #include <QAction>
 #include <QActionGroup>
@@ -50,8 +51,8 @@ StationView::StationView(QWidget *parent) :
     showDeparturesAction->setCheckable(true);
     showDeparturesAction->setChecked(true);
 
-    QSettings settings;
-    if (settings.value("StationView/ShowArrivals", false).toBool() == true) {
+    Settings *settings = Settings::instance();
+    if (settings->showArrivalsPreferred()) {
         showArrivalsAction->setChecked(true);
     } else {
         showDeparturesAction->setChecked(true);
@@ -144,22 +145,19 @@ void StationView::updateView(const QByteArray &page)
 
 void StationView::viewSelectionGroupTriggered(QAction *action)
 {
-    QSettings settings;
-    if (action == showArrivalsAction) {
-        settings.setValue("StationView/ShowArrivals", true);
-    } else {
-        settings.setValue("StationView/ShowArrivals", false);
-    }
+    Settings *settings = Settings::instance();
+    settings->setShowArrivalsPreferred(
+                action == showArrivalsAction ? true : false);
     updateCss();
 }
 
 void StationView::updateCss(void)
 {
     QUrl cssUrl;
-    QSettings settings;
+    Settings *settings = Settings::instance();
     QStringList paths = QDir::searchPaths("css");
     QFileInfo fileInfo;
-    if (settings.value("StationView/ShowArrivals", true).toBool()) {
+    if (settings->showArrivalsPreferred()) {
         fileInfo = QFileInfo("css:arrivals.css");
     } else {
         fileInfo = QFileInfo("css:departures.css");
