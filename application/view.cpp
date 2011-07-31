@@ -28,6 +28,7 @@ Boston, MA 02110-1301, USA.
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QtConcurrentRun>
 #include <QtDeclarative>
 
 // search Paths seem to be broken in Harmattan?
@@ -59,7 +60,9 @@ View::View(QWidget *parent) :
     stationListProxyModel(new StationListProxyModel(this))
 {
     showFullScreen();
-    stationListModel->load(trueFilePath("stations:stations.qpl"));
+    future = QtConcurrent::run(
+                stationListModel, &StationListModel::load,
+                trueFilePath("stations:stations.qpl"));
 
     stationListProxyModel->setSourceModel(stationListModel);
 
@@ -79,5 +82,9 @@ View::View(QWidget *parent) :
     // the qml dir, then load the file.
     // m_view->setSource(QUrl::fromLocalFile("qml:main.qml"));
     setSource(QUrl::fromLocalFile(trueFilePath("qml:main.qml")));
+}
 
+View::~View()
+{
+    future.waitForFinished();
 }

@@ -22,6 +22,7 @@ Boston, MA 02110-1301, USA.
 
 */
 
+#include <QFuture>
 #include <QDeclarativeView>
 
 class StationListModel;
@@ -32,14 +33,16 @@ class View : public QDeclarativeView
     Q_OBJECT
 public:
     explicit View(QWidget *parent = 0);
+    ~View();
 
 signals:
 
 public slots:
 
 private:
-   StationListModel *stationListModel;
-   StationListProxyModel *stationListProxyModel;
+    QFuture<void> future;
+    StationListModel *stationListModel;
+    StationListProxyModel *stationListProxyModel;
 };
 
 #endif // QP_VIEW_H
