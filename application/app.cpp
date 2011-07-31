@@ -54,11 +54,11 @@ App::App(QObject *parent) :
 {
     stationListModel->load("stations:stations.qpl");
 
-    connect(dataProvider, SIGNAL(queryStationCompleted(QByteArray)),
+    connect(dataProvider, SIGNAL(stationScheduleReady(QByteArray)),
             SLOT(downloadFinished(QByteArray)));
 
-    connect(stationListView, SIGNAL(stationSelected(const QString &)),
-            SLOT(queryStation(const QString &)));
+    connect(stationListView, SIGNAL(stationSelected(QString)),
+            SLOT(queryStation(QString)));
 
     connect(stationListView, SIGNAL(aboutTriggered()),
             SLOT(showAboutDialog()));
@@ -105,7 +105,7 @@ void App::downloadFinished(const QByteArray &data)
 
 void App::queryStation(const QString &station)
 {
-    dataProvider->queryStation(station);
+    dataProvider->stationSchedule(station);
 #ifdef Q_WS_MAEMO_5
     stationListView->setAttribute(Qt::WA_Maemo5ShowProgressIndicator, true);
 #endif
