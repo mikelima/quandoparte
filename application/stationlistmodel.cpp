@@ -32,7 +32,6 @@ Q_DECLARE_METATYPE(QGeoCoordinate)
 
 StationListModel::StationListModel(QObject *parent) :
     QStandardItemModel(parent)
-
 {
     setRowCount(0);
 }
@@ -120,7 +119,6 @@ void StationListModel::readPosElement(QStandardItem *item)
     QStringList coordinates = m_reader.readElementText().split(",");
     QGeoCoordinate pos = QGeoCoordinate(coordinates[0].toDouble(), coordinates[1].toDouble());
     item->setData(QVariant::fromValue(pos), PositionRole);
-    qDebug() << "pos:" << pos;
     m_reader.readElementText();
     if (m_reader.isEndElement()) {
         m_reader.readNext();
@@ -130,7 +128,6 @@ void StationListModel::readPosElement(QStandardItem *item)
 void StationListModel::readNameElement(QStandardItem *item)
 {
     item->setText(m_reader.readElementText());
-    qDebug() << "name:" << item->text();
     if (m_reader.isEndElement()) {
         m_reader.readNext();
     }
