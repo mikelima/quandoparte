@@ -22,6 +22,7 @@ Boston, MA 02110-1301, USA.
 
 */
 
+#include "stationlistproxymodel.h"
 #include <QObject>
 #include <QString>
 #include <QStringList>
@@ -45,6 +46,9 @@ class Settings : public QObject
                READ showArrivalsPreferred WRITE setShowArrivalsPreferred
                NOTIFY showArrivalsPreferredChanged)
 
+    Q_PROPERTY(StationListProxyModel::SortingMode stationListSortingMode
+               READ stationListSortingMode WRITE setStationListSortingMode
+               NOTIFY stationListSortingModeChanged)
 public:
     explicit Settings(QObject *parent = 0);
     ~Settings();
@@ -68,21 +72,27 @@ public:
     bool showArrivalsPreferred();
     void setShowArrivalsPreferred(bool);
 
+    StationListProxyModel::SortingMode stationListSortingMode();
+    void setStationListSortingMode(StationListProxyModel::SortingMode mode);
+
 signals:
     void queryBaseUrlChanged(const QString &);
     void recentStationsChanged(const QStringList &);
     void checkingIntervalChanged(int);
     void stationViewPreferredChanged(bool);
     void showArrivalsPreferredChanged(bool);
+    void stationListSortingModeChanged(StationListProxyModel::SortingMode mode);
 
 public slots:
 
 private:
     QString m_queryBaseUrl;
     QStringList m_recentStations;
+    StationListProxyModel::SortingMode m_stationListSortingMode;
     int m_checkingInterval;
     bool m_stationViewPreferred;
     bool m_showArrivalsPreferred;
+
 };
 
 #endif // SETTINGS_H

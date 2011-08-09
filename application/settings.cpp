@@ -25,6 +25,8 @@ Boston, MA 02110-1301, USA.
 #include <QSettings>
 #include <QStringList>
 
+Q_DECLARE_METATYPE(StationListProxyModel::SortingMode)
+
 Settings *Settings::instance()
 {
     static Settings *settings = 0;
@@ -61,6 +63,10 @@ void Settings::load()
 
     m_showArrivalsPreferred = settings.value("StationView/ShowArrivals", false).toBool();
     qDebug() << "ShowArrivalsPreferred:" << m_showArrivalsPreferred;
+
+    m_stationListSortingMode = settings.value("StationView/ShowArrivals",
+                                              StationListProxyModel::AlphaSorting).value<StationListProxyModel::SortingMode>();
+    qDebug() << "stationListSortingMode:" << m_stationListSortingMode;
 }
 
 void Settings::save()
@@ -74,6 +80,7 @@ void Settings::save()
     settings.setValue("CheckInterval", m_checkingInterval);
     settings.setValue("StationViewPreferred", m_stationViewPreferred);
     settings.setValue("StationView/ShowArrivals", m_showArrivalsPreferred);
+    settings.setValue("StationListView/SortingMode", m_stationListSortingMode);
 }
 
 QString Settings::queryBaseUrl()
@@ -130,4 +137,15 @@ void Settings::setShowArrivalsPreferred(bool preference)
 {
     m_showArrivalsPreferred = preference;
     emit showArrivalsPreferredChanged(m_showArrivalsPreferred);
+}
+
+StationListProxyModel::SortingMode Settings::stationListSortingMode()
+{
+    return m_stationListSortingMode;
+}
+
+void Settings::setStationListSortingMode(StationListProxyModel::SortingMode mode)
+{
+    m_stationListSortingMode = mode;
+    emit stationListSortingModeChanged(m_stationListSortingMode);
 }
