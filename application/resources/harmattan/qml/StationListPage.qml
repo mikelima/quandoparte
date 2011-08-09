@@ -100,7 +100,7 @@ Page {
 
                         Label {
                             id: mainText
-                            text: Private.highlightSearch(model.display)
+                            text: Private.highlightSearch(model.display, UiConstants.AccentColor)
                             font.bold: true
                         }
                     }
