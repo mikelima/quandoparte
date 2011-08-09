@@ -14,8 +14,8 @@ Rectangle {
                 UiConstants.HeaderDefaultHeightLandscape :
                 UiConstants.HeaderDefaultHeightPortrait
     gradient: Gradient {
-        GradientStop { color: mouse.pressed ? "#040" : "#061"; position: 0.0 }
-        GradientStop { color: "#0a2"; position: 1.0 }
+        GradientStop { color: Qt.darker(UiConstants.AccentColor, mouse.pressed ? 1.5 : 1.25); position: 0.0 }
+        GradientStop { color: Qt.lighter(UiConstants.AccentColor, 1.5); position: 1.0 }
     }
 
     TumblerButtonStyle {
