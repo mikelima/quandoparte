@@ -15,3 +15,5 @@ const SearchBarDefaultHeight = 80
 
 const HeaderFontPixelSize = 32
 const HeaderFontStyle = "Light"
+
+const AccentColor = "#081"
