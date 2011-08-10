@@ -11,11 +11,20 @@ Page {
     Component.onCompleted: {
         stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
     }
+    Menu {
+        id: menu
+        content: MenuLayout {
+            MenuItem {
+                text: qsTr("About Quando Parte")
+                onClicked: Private.showAboutPage()
+            }
+        }
+    }
     tools: ToolBarLayout {
         id: toolBar
         ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
         ToolIcon { iconId: "icon-m-toolbar-settings"; onClicked: settingsSheet.open(); }
-        ToolIcon { iconId: "icon-m-toolbar-view-menu"; }
+        ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
     }
 
     DataProvider {
