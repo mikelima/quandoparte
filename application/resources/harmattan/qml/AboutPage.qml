@@ -37,6 +37,7 @@ Page {
                    "<a href='http://www.openstreetmap.org'>OpenStreetMap</a></p>" +
                    "<p>Realtime train data from " +
                    "<a href='http://mobile.viaggiatreno.it'>Viaggiatreno</a></p>");
+        onLinkActivated: Qt.openUrlExternally(link)
     }
     LabelStyle {
         id: labelStyle
