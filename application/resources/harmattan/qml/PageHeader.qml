@@ -38,7 +38,7 @@ Rectangle {
     MouseArea {
         id: mouse
         anchors.fill: parent
-        onClicked: dialog.open()
+        onClicked: if (options.count > 1) dialog.open()
     }
 
     Image {
@@ -49,6 +49,7 @@ Rectangle {
             horizontalCenter: (label.text != "") ? undefined : parent.horizontalCenter;
             verticalCenter: parent.verticalCenter;
         }
+        visible: options.count > 1
         height: label.height
         source: "image://theme/meegotouch-combobox-indicator" +
                 (style.inverted ? "-inverted" : "") +
