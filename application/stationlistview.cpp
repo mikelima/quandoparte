@@ -40,7 +40,6 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     stationListModel(model),
     filterModel(new StationListProxyModel(this)),
     keyPressForwarder(new KeyPressForwarder(this)),
-    positionInfoSource(QGeoPositionInfoSource::createDefaultSource(this)),
     m_sortingMode(StationListProxyModel::NoSorting)
 
 {
@@ -77,11 +76,6 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     connect(viewSelectionGroup, SIGNAL(triggered(QAction*)),
             SLOT(handleSortingChange(QAction*)));
 
-    if (positionInfoSource) {
-        connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
-                SLOT(updatePosition(QGeoPositionInfo)));
-    }
-
     QSettings settings;
     StationListProxyModel::SortingMode mode =
             static_cast<StationListProxyModel::SortingMode>(
@@ -113,14 +107,6 @@ void StationListView::handleFilterChanges(const QString &filter)
         ui->filterFrame->hide();
     filterModel->setFilterFixedString(filter);
     qDebug() << "Filtering for" << filter;
-}
-
-void StationListView::updatePosition(const QtMobility::QGeoPositionInfo &update)
-{
-    qDebug() << "Position update received" << update;
-    filterModel->setUserPosition(update.coordinate());
-    filterModel->invalidate();
-    filterModel->sort(0);
 }
 
 void StationListView::handleSortingChange(QAction *action)
@@ -160,11 +146,6 @@ void StationListView::setSortingMode(StationListProxyModel::SortingMode mode)
         case StationListProxyModel::NoSorting:
         default:
             break;
-        }
-        if (mode == StationListProxyModel::DistanceSorting) {
-            positionInfoSource->startUpdates();
-        } else {
-            positionInfoSource->stopUpdates();
         }
         m_sortingMode = mode;
         filterModel->setSortingMode(mode);

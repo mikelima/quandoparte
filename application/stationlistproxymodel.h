@@ -24,6 +24,7 @@ Boston, MA 02110-1301, USA.
 
 #include <QSortFilterProxyModel>
 #include <QGeoCoordinate>
+#include <QGeoPositionInfoSource>
 #include <QStringList>
 
 QTM_USE_NAMESPACE
@@ -37,7 +38,6 @@ class StationListProxyModel : public QSortFilterProxyModel
 public:
 
     enum SortingMode {
-        NoSorting,
         AlphaSorting,
         DistanceSorting,
         RecentUsageSorting
@@ -63,8 +63,12 @@ protected:
     virtual bool filterAcceptsRow(int sourceRow,
             const QModelIndex &sourceParent) const;
 
+private slots:
+    void updatePosition(const QGeoPositionInfo &update);
+
 private:
     QString m_searchPattern;
+    QGeoPositionInfoSource *positionInfoSource;
     QGeoCoordinate m_here;
     QStringList m_stations;
     SortingMode m_sortingMode;

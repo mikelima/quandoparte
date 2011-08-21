@@ -26,7 +26,6 @@ Boston, MA 02110-1301, USA.
 
 #include <QMainWindow>
 #include <QModelIndex>
-#include <QGeoPositionInfoSource>
 
 namespace Ui {
     class StationListView;
@@ -59,9 +58,6 @@ signals:
     void settingsChangeRequested(void);
     void sortingModeChanged(StationListProxyModel::SortingMode mode);
 
-public slots:
-    void updatePosition(const QGeoPositionInfo &update);
-
 private slots:
     void showStation(const QModelIndex &index);
     void handleFilterChanges(const QString &filter);
@@ -75,7 +71,6 @@ private slots:
     StationListModel *stationListModel;
     StationListProxyModel *filterModel;
     KeyPressForwarder *keyPressForwarder;
-    QGeoPositionInfoSource *positionInfoSource;
     StationListProxyModel::SortingMode m_sortingMode;
 };
 

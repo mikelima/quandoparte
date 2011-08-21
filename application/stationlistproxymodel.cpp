@@ -31,8 +31,9 @@ Q_DECLARE_METATYPE(QGeoCoordinate)
 
 StationListProxyModel::StationListProxyModel(QObject *parent) :
     QSortFilterProxyModel(parent),
+    positionInfoSource(QGeoPositionInfoSource::createDefaultSource(this)),
     m_here(44.5, 9.0),
-    m_sortingMode(NoSorting),
+    m_sortingMode(AlphaSorting),
     m_filterRecentOnly(false)
 {
     QHash<int, QByteArray> roles;
@@ -41,6 +42,13 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
 
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setSortCaseSensitivity(Qt::CaseInsensitive);
+    if (positionInfoSource) {
+        qDebug() << "position info source available";
+        connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+                SLOT(updatePosition(QGeoPositionInfo)));
+    } else {
+        qDebug() << "No position info source available";
+    }
 }
 
 bool StationListProxyModel::lessThan(const QModelIndex &left,
@@ -122,12 +130,24 @@ void StationListProxyModel::setSortingMode(SortingMode mode)
         case StationListProxyModel::RecentUsageSorting:
             setRecentOnlyFilter(true);
             break;
-        case StationListProxyModel::NoSorting:
         default:
             break;
+        }
+        if (mode == StationListProxyModel::DistanceSorting) {
+            positionInfoSource->startUpdates();
+        } else {
+            positionInfoSource->stopUpdates();
         }
         invalidate();
         sort(0);
         emit sortingModeChanged(mode);
     }
+}
+
+void StationListProxyModel::updatePosition(const QtMobility::QGeoPositionInfo &update)
+{
+    qDebug() << "Position update received" << update;
+    setUserPosition(update.coordinate());
+    invalidate();
+    sort(0);
 }

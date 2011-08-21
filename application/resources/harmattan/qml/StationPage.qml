@@ -5,6 +5,7 @@ import net.cirulla.quandoparte 1.0
 
 Page {
     property alias html: view.html
+    property alias url: view.url
     anchors.fill: parent
 
     tools: ToolBarLayout {
