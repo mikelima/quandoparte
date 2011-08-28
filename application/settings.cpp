@@ -41,32 +41,34 @@ Settings::Settings(QObject *parent) :
 {
     load();
 }
+
 Settings::~Settings()
 {
+    qDebug() << "Settings destructor called";
     save();
 }
 
+void Settings::dump()
+{
+    qDebug() << "RecentStations:" << m_recentStations;
+    qDebug() << "StationsViewPreferred:" << m_stationViewPreferred;
+    qDebug() << "CheckInterval:" << m_checkingInterval;
+    qDebug() << "ShowArrivalsPreferred:" << m_showArrivalsPreferred;
+    qDebug() << "stationListSortingMode:" << m_stationListSortingMode;
+}
+ 
 void Settings::load()
 {
     QSettings settings;
     m_queryBaseUrl = settings.value("QueryURL",
                                   "http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione").toString();
-
     m_recentStations = settings.value("RecentStations").toString().split(",");
-    qDebug() << "RecentStations:" << m_recentStations;
-
     m_stationViewPreferred = settings.value("StationViewPreferred", false).toBool();
-    qDebug() << "StationsViewPreferred:" << m_stationViewPreferred;
-
     m_checkingInterval = settings.value("CheckInterval", 0).toInt();
-    qDebug() << "CheckInterval:" << m_checkingInterval;
-
     m_showArrivalsPreferred = settings.value("StationView/ShowArrivals", false).toBool();
-    qDebug() << "ShowArrivalsPreferred:" << m_showArrivalsPreferred;
-
-    m_stationListSortingMode = settings.value("StationView/ShowArrivals",
-                                              StationListProxyModel::AlphaSorting).value<StationListProxyModel::SortingMode>();
-    qDebug() << "stationListSortingMode:" << m_stationListSortingMode;
+    int mode = settings.value("StationListView/SortingMode").toInt();
+    m_stationListSortingMode = (StationListProxyModel::SortingMode)mode;
+    dump();
 }
 
 void Settings::save()
@@ -81,6 +83,8 @@ void Settings::save()
     settings.setValue("StationViewPreferred", m_stationViewPreferred);
     settings.setValue("StationView/ShowArrivals", m_showArrivalsPreferred);
     settings.setValue("StationListView/SortingMode", m_stationListSortingMode);
+    settings.sync();
+    dump();
 }
 
 QString Settings::queryBaseUrl()
