@@ -29,7 +29,6 @@ Boston, MA 02110-1301, USA.
 #include <QDebug>
 #include <QMenu>
 #include <QMenuBar>
-#include <QSettings>
 #include <QWebElement>
 #include <QWebFrame>
 #include <QWebView>
