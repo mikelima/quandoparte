@@ -24,6 +24,7 @@ Boston, MA 02110-1301, USA.
 
 #include "stationlistproxymodel.h"
 #include <QObject>
+#include <QSettings>
 #include <QString>
 #include <QStringList>
 
@@ -54,7 +55,6 @@ public:
     ~Settings();
     Q_INVOKABLE static Settings *instance();
 
-    Q_INVOKABLE void load(void);
     Q_INVOKABLE void save(void);
 
     QString queryBaseUrl();
@@ -86,13 +86,7 @@ signals:
 public slots:
 
 private:
-    QString m_queryBaseUrl;
-    QStringList m_recentStations;
-    StationListProxyModel::SortingMode m_stationListSortingMode;
-    int m_checkingInterval;
-    bool m_stationViewPreferred;
-    bool m_showArrivalsPreferred;
-
+    QSettings m_settings;
 };
 
 #endif // SETTINGS_H

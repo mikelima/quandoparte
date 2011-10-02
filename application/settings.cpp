@@ -39,7 +39,7 @@ Settings *Settings::instance()
 Settings::Settings(QObject *parent) :
     QObject(parent)
 {
-    load();
+    qDebug() << "Settings constructor called";
 }
 
 Settings::~Settings()
@@ -48,76 +48,45 @@ Settings::~Settings()
     save();
 }
 
-void Settings::dump()
-{
-    qDebug() << "RecentStations:" << m_recentStations;
-    qDebug() << "StationsViewPreferred:" << m_stationViewPreferred;
-    qDebug() << "CheckInterval:" << m_checkingInterval;
-    qDebug() << "ShowArrivalsPreferred:" << m_showArrivalsPreferred;
-    qDebug() << "stationListSortingMode:" << m_stationListSortingMode;
-}
- 
-void Settings::load()
-{
-    QSettings settings;
-    m_queryBaseUrl = settings.value("QueryURL",
-                                  "http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione").toString();
-    m_recentStations = settings.value("RecentStations").toString().split(",");
-    m_stationViewPreferred = settings.value("StationViewPreferred", false).toBool();
-    m_checkingInterval = settings.value("CheckInterval", 0).toInt();
-    m_showArrivalsPreferred = settings.value("StationView/ShowArrivals", false).toBool();
-    int mode = settings.value("StationListView/SortingMode").toInt();
-    m_stationListSortingMode = (StationListProxyModel::SortingMode)mode;
-    dump();
-}
-
 void Settings::save()
 {
-    QSettings settings;
+    qDebug() << "Saving Settings to" << m_settings.fileName();
 
-    qDebug() << "Saving Settings to" << settings.fileName();
-
-    settings.setValue("QueryURL", m_queryBaseUrl);
-    settings.setValue("RecentStations", m_recentStations.join(","));
-    settings.setValue("CheckInterval", m_checkingInterval);
-    settings.setValue("StationViewPreferred", m_stationViewPreferred);
-    settings.setValue("StationView/ShowArrivals", m_showArrivalsPreferred);
-    settings.setValue("StationListView/SortingMode", m_stationListSortingMode);
-    settings.sync();
+    m_settings.sync();
     dump();
 }
 
 QString Settings::queryBaseUrl()
 {
-    return m_queryBaseUrl;
+    return m_settings.value("QueryURL",
+                            "http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione").toString();
 }
 
 void Settings::setQueryBaseUrl(const QString &url)
 {
-    m_queryBaseUrl = url;
+    m_settings.setValue("QueryURL", url);
     emit queryBaseUrlChanged(m_queryBaseUrl);
 }
 
 QStringList Settings::recentStations()
 {
-    return m_recentStations;
+    return m_settings.value("RecentStations").toString().split(",");
 }
 
 void Settings::setRecentStations(const QStringList &stations)
 {
-    m_recentStations = stations;
+    m_settings.setValue("RecentStations", stations.join(","));
     emit recentStationsChanged(m_recentStations);
 }
 
 int Settings::checkingInterval()
 {
-    return m_checkingInterval;
+    return m_settings.value("CheckInterval", 0).toInt();
 }
 
 void Settings::setCheckingInterval(int interval)
 {
-    m_checkingInterval = interval;
-
+    m_settings.setValue("CheckInterval", interval);
     emit checkingIntervalChanged(m_checkingInterval);
 }
 
@@ -128,28 +97,29 @@ bool Settings::stationViewPreferred()
 
 void Settings::setStationViewPreferred(bool preference)
 {
-    m_stationViewPreferred = preference;
+    m_settings.setValue("StationViewPreferred", preference);
     emit stationViewPreferredChanged(m_stationViewPreferred);
 }
 
 bool Settings::showArrivalsPreferred()
 {
-    return m_showArrivalsPreferred;
+    return m_settings.value("StationView/ShowArrivals", false).toBool();
 }
 
 void Settings::setShowArrivalsPreferred(bool preference)
 {
-    m_showArrivalsPreferred = preference;
+    m_settings.setValue("StationView/ShowArrivals", preference);
     emit showArrivalsPreferredChanged(m_showArrivalsPreferred);
 }
 
 StationListProxyModel::SortingMode Settings::stationListSortingMode()
 {
-    return m_stationListSortingMode;
+    int mode = m_settings.value("StationListView/SortingMode").toInt();
+    return (StationListProxyModel::SortingMode)mode;
 }
 
 void Settings::setStationListSortingMode(StationListProxyModel::SortingMode mode)
 {
-    m_stationListSortingMode = mode;
+    m_settings.setValue("StationListView/SortingMode", mode);
     emit stationListSortingModeChanged(m_stationListSortingMode);
 }
