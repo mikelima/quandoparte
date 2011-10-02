@@ -8,9 +8,6 @@ import "StationListPage.js" as Private
 Page {
     property variant stationView
     id: stationListPage
-    Component.onCompleted: {
-        stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
-    }
     Menu {
         id: menu
         content: MenuLayout {
