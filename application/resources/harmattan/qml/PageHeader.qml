@@ -10,7 +10,7 @@ Rectangle {
 
     id: root
     width: parent.width
-    height: screen.currentOrientation == Screen.Landscape ?
+    height: screen.currentOrientation === Screen.Landscape ?
                 UiConstants.HeaderDefaultHeightLandscape :
                 UiConstants.HeaderDefaultHeightPortrait
     gradient: Gradient {
