@@ -4,7 +4,7 @@ import com.nokia.meego 1.0
 PageStackWindow {
     id: window
     showToolBar: true
-    showStatusBar: true
+    showStatusBar: screen.currentOrientation === Screen.Landscape ? false : true
     initialPage: StationListPage {
     }
 }
