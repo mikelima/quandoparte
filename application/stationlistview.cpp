@@ -41,7 +41,6 @@ StationListView::StationListView(StationListModel *model, QWidget *parent) :
     filterModel(new StationListProxyModel(this)),
     keyPressForwarder(new KeyPressForwarder(this)),
     m_sortingMode(StationListProxyModel::NoSorting)
-
 {
     ui->setupUi(this);
 #ifdef Q_WS_MAEMO_5
