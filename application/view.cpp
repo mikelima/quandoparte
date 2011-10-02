@@ -28,6 +28,7 @@ Boston, MA 02110-1301, USA.
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QModelIndex>
 #include <QtConcurrentRun>
 #include <QtDeclarative>
 
@@ -67,6 +68,8 @@ View::View(QWidget *parent) :
     stationListProxyModel->setSourceModel(stationListModel);
 
     /* Types to be made accessible to QML */
+    qRegisterMetaType<QModelIndex>("QModelIndex");
+    //qRegisterMetaType<StationListProxyModel::SortingMode>("SortingMode");
     qmlRegisterType<DataProvider>("net.cirulla.quandoparte", 1, 0, "DataProvider");
     qmlRegisterType<Settings>("net.cirulla.quandoparte", 1, 0, "Settings");
     qmlRegisterType<StationListProxyModel>(
