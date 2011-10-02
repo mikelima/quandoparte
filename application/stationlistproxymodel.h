@@ -25,6 +25,7 @@ Boston, MA 02110-1301, USA.
 #include <QSortFilterProxyModel>
 #include <QGeoCoordinate>
 #include <QGeoPositionInfoSource>
+#include <QMetaType>
 #include <QStringList>
 
 QTM_USE_NAMESPACE
@@ -74,5 +75,7 @@ private:
     SortingMode m_sortingMode;
     bool m_filterRecentOnly;
 };
+
+Q_DECLARE_METATYPE(StationListProxyModel::SortingMode)
 
 #endif // STATIONLISTPROXYMODEL_H
