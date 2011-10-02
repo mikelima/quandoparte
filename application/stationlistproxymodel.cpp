@@ -20,6 +20,8 @@ Boston, MA 02110-1301, USA.
 */
 
 #include "stationlistproxymodel.h"
+
+#include "settings.h"
 #include "stationlistmodel.h"
 
 #include <QDebug>
@@ -33,13 +35,14 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     QSortFilterProxyModel(parent),
     positionInfoSource(QGeoPositionInfoSource::createDefaultSource(this)),
     m_here(44.5, 9.0),
-    m_sortingMode(AlphaSorting),
     m_filterRecentOnly(false)
 {
     QHash<int, QByteArray> roles;
     roles[StationListModel::PositionRole] = "position";
     setRoleNames(roles);
 
+    Settings *settings = Settings::instance();
+    m_sortingMode = settings->stationListSortingMode();
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setSortCaseSensitivity(Qt::CaseInsensitive);
     if (positionInfoSource) {
@@ -140,6 +143,10 @@ void StationListProxyModel::setSortingMode(SortingMode mode)
         }
         invalidate();
         sort(0);
+
+        Settings *settings = Settings::instance();
+        settings->setStationListSortingMode(m_sortingMode);
+
         emit sortingModeChanged(mode);
     }
 }
