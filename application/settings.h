@@ -76,17 +76,12 @@ public:
     void setStationListSortingMode(StationListProxyModel::SortingMode mode);
 
 signals:
-    void queryBaseUrlChanged(const QString &);
-    void recentStationsChanged(const QStringList &);
-    void checkingIntervalChanged(int);
-    void stationViewPreferredChanged(bool);
-    void showArrivalsPreferredChanged(bool);
-    void stationListSortingModeChanged(StationListProxyModel::SortingMode mode);
-
-public slots:
-
-private:
-    QSettings m_settings;
+    void queryBaseUrlChanged();
+    void recentStationsChanged();
+    void checkingIntervalChanged();
+    void stationViewPreferredChanged();
+    void showArrivalsPreferredChanged();
+    void stationListSortingModeChanged();
 };
 
 #endif // SETTINGS_H

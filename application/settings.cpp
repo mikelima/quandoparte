@@ -25,8 +25,6 @@ Boston, MA 02110-1301, USA.
 #include <QSettings>
 #include <QStringList>
 
-Q_DECLARE_METATYPE(StationListProxyModel::SortingMode)
-
 Settings *Settings::instance()
 {
     static Settings *settings = 0;
@@ -50,76 +48,101 @@ Settings::~Settings()
 
 void Settings::save()
 {
-    qDebug() << "Saving Settings to" << m_settings.fileName();
+    QSettings settings;
 
-    m_settings.sync();
-    dump();
+    qDebug() << "Saving Settings to" << settings.fileName();
+    settings.sync();
 }
 
 QString Settings::queryBaseUrl()
 {
-    return m_settings.value("QueryURL",
-                            "http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione").toString();
+    QSettings settings;
+    return settings.value("QueryURL",
+                          "http://mobile.viaggiatreno.it/viaggiatreno/mobile/stazione").toString();
 }
 
 void Settings::setQueryBaseUrl(const QString &url)
 {
-    m_settings.setValue("QueryURL", url);
-    emit queryBaseUrlChanged(m_queryBaseUrl);
+    QSettings settings;
+
+    settings.setValue("QueryURL", url);
+    emit queryBaseUrlChanged();
 }
 
 QStringList Settings::recentStations()
 {
-    return m_settings.value("RecentStations").toString().split(",");
+    QSettings settings;
+
+    return settings.value("RecentStations").toString().split(",");
 }
 
 void Settings::setRecentStations(const QStringList &stations)
 {
-    m_settings.setValue("RecentStations", stations.join(","));
-    emit recentStationsChanged(m_recentStations);
+    QSettings settings;
+
+    settings.setValue("RecentStations", stations.join(","));
+    emit recentStationsChanged();
 }
 
 int Settings::checkingInterval()
 {
-    return m_settings.value("CheckInterval", 0).toInt();
+    QSettings settings;
+
+    return settings.value("CheckInterval", 0).toInt();
 }
 
 void Settings::setCheckingInterval(int interval)
 {
-    m_settings.setValue("CheckInterval", interval);
-    emit checkingIntervalChanged(m_checkingInterval);
+    QSettings settings;
+
+    settings.setValue("CheckInterval", interval);
+    emit checkingIntervalChanged();
 }
 
 bool Settings::stationViewPreferred()
 {
-    return m_stationViewPreferred;
+    QSettings settings;
+
+    return settings.value("StationViewPreferred", false).toBool();
 }
 
 void Settings::setStationViewPreferred(bool preference)
 {
-    m_settings.setValue("StationViewPreferred", preference);
-    emit stationViewPreferredChanged(m_stationViewPreferred);
+    QSettings settings;
+
+    settings.setValue("StationViewPreferred", preference);
+    emit stationViewPreferredChanged();
 }
 
 bool Settings::showArrivalsPreferred()
 {
-    return m_settings.value("StationView/ShowArrivals", false).toBool();
+    QSettings settings;
+
+    return settings.value("StationView/ShowArrivals", false).toBool();
 }
 
 void Settings::setShowArrivalsPreferred(bool preference)
 {
-    m_settings.setValue("StationView/ShowArrivals", preference);
-    emit showArrivalsPreferredChanged(m_showArrivalsPreferred);
+    QSettings settings;
+
+    settings.setValue("StationView/ShowArrivals", preference);
+    emit showArrivalsPreferredChanged();
 }
 
 StationListProxyModel::SortingMode Settings::stationListSortingMode()
 {
-    int mode = m_settings.value("StationListView/SortingMode").toInt();
+    QSettings settings;
+
+    int mode = settings.value("StationListView/SortingMode").toInt();
+    qDebug() << "StationListSortingMode is" << mode;
     return (StationListProxyModel::SortingMode)mode;
 }
 
 void Settings::setStationListSortingMode(StationListProxyModel::SortingMode mode)
 {
-    m_settings.setValue("StationListView/SortingMode", mode);
-    emit stationListSortingModeChanged(m_stationListSortingMode);
+    QSettings settings;
+
+    settings.setValue("StationListView/SortingMode", mode);
+    qDebug() << "StationListSortingMode set to" << mode;
+    emit stationListSortingModeChanged();
 }
