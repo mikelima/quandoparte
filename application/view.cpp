@@ -24,6 +24,7 @@ Boston, MA 02110-1301, USA.
 #include "dataprovider.h"
 #include "stationlistmodel.h"
 #include "stationlistproxymodel.h"
+#include "stationschedulemodel.h"
 
 #include <QDebug>
 #include <QDir>
@@ -69,11 +70,11 @@ View::View(QWidget *parent) :
 
     /* Types to be made accessible to QML */
     qRegisterMetaType<QModelIndex>("QModelIndex");
-    //qRegisterMetaType<StationListProxyModel::SortingMode>("SortingMode");
-    qmlRegisterType<DataProvider>("net.cirulla.quandoparte", 1, 0, "DataProvider");
     qmlRegisterType<Settings>("net.cirulla.quandoparte", 1, 0, "Settings");
     qmlRegisterType<StationListProxyModel>(
                 "net.cirulla.quandoparte", 1, 0, "StationListProxyModel");
+    qmlRegisterType<StationScheduleModel>(
+                "net.cirulla.quandoparte", 1, 0, "StationScheduleModel");
 
     QDeclarativeContext *context = this->rootContext();
     /* objects to be made accessible to QML */
