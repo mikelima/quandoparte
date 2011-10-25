@@ -23,16 +23,6 @@ Page {
         ToolIcon { iconId: "icon-m-toolbar-settings"; onClicked: settingsSheet.open(); }
         ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
     }
-
-    DataProvider {
-        id: provider
-        onStationScheduleReady: {
-            if (Private.view !== undefined) {
-                Private.view.html = result
-                //Private.view.url = url
-            }
-        }
-    }
     PageHeader {
         id: header
         anchors.top: parent.top
