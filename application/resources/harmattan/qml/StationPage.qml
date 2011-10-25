@@ -2,10 +2,12 @@ import QtQuick 1.1
 import QtWebKit 1.0
 import com.nokia.meego 1.0
 import net.cirulla.quandoparte 1.0
+import "uiconstants.js" as UiConstants
 
 Page {
-    property alias html: view.html
-    property alias url: view.url
+    property alias name: schedule.name
+    property alias html: webView.html
+    property alias url: webView.url
     anchors.fill: parent
 
     tools: ToolBarLayout {
@@ -27,6 +29,21 @@ Page {
             }
         }
     }
+    InfoBar {
+        id: info
+        anchors.top: header.bottom
+        text: parent.name
+    }
+    Rectangle {
+        id: shadow
+        width: parent.width
+        anchors.top: view.top
+        height: 5
+        gradient: Gradient {
+            GradientStop {color: "#aa000000"; position: 0.0}
+            GradientStop {color: "#00000000"; position: 1.0}
+        }
+    }
     Binding {
         target: settings
         property: "showArrivalsPreferred"
@@ -35,16 +52,30 @@ Page {
     LabelStyle {
         id: labelStyle
     }
-    WebView {
+    Item {
         id: view
         anchors {
-            top: header.bottom;
+            top: info.bottom;
             bottom: parent.bottom;
         }
         width: parent.width
 
-        settings.defaultFontSize: labelStyle.fontPixelSize
-        settings.defaultFixedFontSize: labelStyle.fontPixelSize
-        settings.standardFontFamily: labelStyle.fontFamily
+        WebView {
+            id: webView
+            visible: false
+            anchors.fill: parent
+
+            settings.defaultFontSize: labelStyle.fontPixelSize
+            settings.defaultFixedFontSize: labelStyle.fontPixelSize
+            settings.standardFontFamily: labelStyle.fontFamily
+        }
+    }
+
+    StationScheduleModel {
+        id: schedule
+    }
+
+    Component.onCompleted: {
+        schedule.fetch(name)
     }
  }

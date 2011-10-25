@@ -19,7 +19,7 @@ function loadStation(name)
         stationListPage.stationView = view
         pageStack.push(view)
         view.html = "<h1>Loading station " + name + "</h1><p>Lorem ipsum</p>"
-        provider.stationSchedule(name)
+        view.name = name
     }
     else
         console.log('Cannot load component: ' + component.errorString());
