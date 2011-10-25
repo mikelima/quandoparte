@@ -2372,6 +2372,10 @@
         <name>Teramo</name>
     </station>
     <station>
+        <pos>42.0956267,13.0801805</pos>
+        <name>Carsoli</name>
+    </station>
+    <station>
         <pos>42.0382929,13.9214664</pos>
         <name>Sulmona-Introdacqua</name>
     </station>
@@ -2400,6 +2404,10 @@
         <name>Perugia Ponte San Giovanni</name>
     </station>
     <station>
+        <pos>42.0395619,13.4265006</pos>
+        <name>Avezzano</name>
+    </station>
+    <station>
         <pos>43.0839597,12.3556024</pos>
         <name>Perugia Silvestrini</name>
     </station>
@@ -2420,6 +2428,14 @@
         <name>Chiusi-Chianciano Terme</name>
     </station>
     <station>
+        <pos>42.0769989,13.543388</pos>
+        <name>Celano-Ovindi</name>
+    </station>
+    <station>
+        <pos>42.0603789,13.6292849</pos>
+        <name>Collarmele</name>
+    </station>
+    <station>
         <pos>43.9593862,10.507811</pos>
         <name>Diecimo-Pescaglia</name>
     </station>
@@ -2432,8 +2448,28 @@
         <name>Montallese</name>
     </station>
     <station>
+        <pos>42.0162292,12.9220046</pos>
+        <name>Mandela-Sambuci</name>
+    </station>
+    <station>
         <pos>42.6077508,14.0689988</pos>
         <name>Pineto-Atri</name>
+    </station>
+    <station>
+        <pos>42.0530759,13.3443862</pos>
+        <name>Scurcola Marsicana</name>
+    </station>
+    <station>
+        <pos>42.0706906,13.255704</pos>
+        <name>Tagliacozzo</name>
+    </station>
+    <station>
+        <pos>42.0264629,13.7201978</pos>
+        <name>Carrito Ortona</name>
+    </station>
+    <station>
+        <pos>42.0311798,13.862029</pos>
+        <name>Bugnara</name>
     </station>
     <station>
         <pos>42.2440739,13.9375368</pos>
@@ -2450,6 +2486,10 @@
     <station>
         <pos>42.0006497,14.992693</pos>
         <name>Termoli</name>
+    </station>
+    <station>
+        <pos>42.0537169,13.8344847</pos>
+        <name>Prezza</name>
     </station>
     <station>
         <pos>42.6392689,11.1344053</pos>
@@ -2510,6 +2550,34 @@
     <station>
         <pos>43.8739397,10.2528942</pos>
         <name>Viareggio</name>
+    </station>
+    <station>
+        <pos>42.0610962,13.598399</pos>
+        <name>Cerchio</name>
+    </station>
+    <station>
+        <pos>42.0970224,13.2169561</pos>
+        <name>Sante Marie</name>
+    </station>
+    <station>
+        <pos>42.0375703,13.6689567</pos>
+        <name>Pescina</name>
+    </station>
+    <station>
+        <pos>42.0174028,13.8357271</pos>
+        <name>Anversa-Villalago-Scanno</name>
+    </station>
+    <station>
+        <pos>42.0407396,13.7766347</pos>
+        <name>Cocullo</name>
+    </station>
+    <station>
+        <pos>42.0828176,13.7837816</pos>
+        <name>Goriano Sicoli</name>
+    </station>
+    <station>
+        <pos>42.0979496,13.8090431</pos>
+        <name>Raiano</name>
     </station>
     <station>
         <pos>40.9400475,14.263473</pos>
@@ -3220,8 +3288,16 @@
         <name>Venzone</name>
     </station>
     <station>
+        <pos>45.1701206,9.7552995</pos>
+        <name>Maleo</name>
+    </station>
+    <station>
         <pos>45.1730915,8.9916573</pos>
         <name>Gropello Cairoli</name>
+    </station>
+    <station>
+        <pos>45.3441076,9.7299415</pos>
+        <name>Madignano</name>
     </station>
     <station>
         <pos>44.1090501,8.2422996</pos>
@@ -3258,6 +3334,14 @@
     <station>
         <pos>45.1569401,9.0372075</pos>
         <name>Villanova d'Ardenghi</name>
+    </station>
+    <station>
+        <pos>45.1843406,9.7907952</pos>
+        <name>Ponte d'Adda</name>
+    </station>
+    <station>
+        <pos>45.3210816,9.1910574</pos>
+        <name>Villamaggiore</name>
     </station>
     <station>
         <pos>45.7323536,11.7957983</pos>
