@@ -75,7 +75,7 @@ SOURCES += \
     stationlistproxymodel.cpp \
     settings.cpp \
     dataprovider.cpp \
-    stationschedule.cpp
+    stationschedulemodel.cpp
 
 HEADERS += \
     $$PLATFORM_HEADERS \
@@ -83,7 +83,7 @@ HEADERS += \
     stationlistproxymodel.h \
     settings.h \
     dataprovider.h \
-    stationschedule.h
+    stationschedulemodel.h
 
 FORMS += \
     settingsdialog.ui \
@@ -117,7 +117,8 @@ OTHER_FILES += \
     resources/harmattan/qml/PageHeader.qml \
     resources/harmattan/qml/uiconstants.js \
     resources/harmattan/qml/StationListPage.js \
-    resources/harmattan/qml/AboutPage.qml
+    resources/harmattan/qml/AboutPage.qml \
+    resources/harmattan/qml/InfoBar.qml
 
 unix {
     isEmpty(PREFIX) {

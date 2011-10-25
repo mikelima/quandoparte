@@ -1,6 +1,6 @@
 /*
 
-Copyright (C) 2011 Luciano Montanaro <mikelima@cirulla.net>
+Copyright (C) 2011 mikelima
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,37 +19,35 @@ Boston, MA 02110-1301, USA.
 
 */
 
-#ifndef DATAPROVIDER_H
-#define DATAPROVIDER_H
+#ifndef STATIONSCHEDULEMODEL_H
+#define STATIONSCHEDULEMODEL_H
 
 #include <QObject>
-#include <QSharedPointer>
+#include <QStringListModel>
+#include <QUrl>
 
-class QNetworkAccessManager;
-class QNetworkReply;
-class QUrl;
-
-class StationScheduleModel;
-
-class DataProvider : public QObject
+class StationScheduleModel : public QStringListModel
 {
     Q_OBJECT
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+
 public:
-    explicit DataProvider(QObject *parent = 0);
-    static DataProvider *instance();
+    explicit StationScheduleModel(const QString &name = "", QObject *parent = 0);
+
+    QString &name();
+    void setName(const QString &name);
+
 signals:
-    void stationScheduleReady(const QByteArray &data, const QUrl &url);
+    void nameChanged();
 
 public slots:
-    void fetchStationSchedule(const QString &station);
-    void updateStation();
+    void fetch(const QString &name);
 
 private slots:
-    void onStationScheduleFetched(void);
+    void parse(const QByteArray &htmlReply, const QUrl &baseUrl);
 
 private:
-    QNetworkAccessManager *accessManager;
-    QNetworkReply *stationQueryReply;
+    QString m_name;
 };
 
-#endif // DATAPROVIDER_H
+#endif // STATIONSCHEDULEMODEL_H

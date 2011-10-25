@@ -21,11 +21,13 @@ Boston, MA 02110-1301, USA.
 
 #include "dataprovider.h"
 #include "settings.h"
+#include "stationschedulemodel.h"
 
 #include <QDebug>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QSharedPointer>
 #include <QWebElement>
 #include <QWebFrame>
 #include <QWebPage>
@@ -35,13 +37,22 @@ static const int RECENT_STATIONS_MAX_COUNT = 10;
 
 // Class methods
 
+DataProvider *DataProvider::instance()
+{
+    static DataProvider *dataProvider = 0;
+
+    if (!dataProvider)
+        dataProvider = new DataProvider(0);
+    return dataProvider;
+}
+
 DataProvider::DataProvider(QObject *parent) :
     QObject(parent),
     accessManager(new QNetworkAccessManager(this))
 {
 }
 
-void DataProvider::stationSchedule(const QString &station)
+void DataProvider::fetchStationSchedule(const QString &station)
 {
     QNetworkRequest request;
     Settings *settings = Settings::instance();
@@ -50,13 +61,12 @@ void DataProvider::stationSchedule(const QString &station)
     const QByteArray query(queryString.toLocal8Bit());
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),
-            SLOT(onStationScheduleReady()));
+            SLOT(onStationScheduleFetched()));
     settings->recentStations().push_front(station);
     settings->recentStations().removeDuplicates();
     if (settings->recentStations().count() > RECENT_STATIONS_MAX_COUNT) {
         settings->recentStations().pop_back();
     }
-    // TODO Implement busy indication...
 }
 
 void DataProvider::updateStation()
@@ -65,17 +75,18 @@ void DataProvider::updateStation()
 
     qDebug() << "updating station data";
     if (!settings->recentStations().isEmpty()) {
-        stationSchedule(settings->recentStations().front());
+        fetchStationSchedule(settings->recentStations().front());
     }
 }
 
-void DataProvider::onStationScheduleReady()
+void DataProvider::onStationScheduleFetched()
 {
     disconnect(stationQueryReply, SIGNAL(finished()),
-               this, SLOT(onStationScheduleReady()));
-    // TODO implement parsing or data returning...
-    emit stationScheduleReady(QString::fromUtf8(stationQueryReply->readAll()),
-                              stationQueryReply->url());
+               this, SLOT(onStationScheduleFetched()));
+
+    QString name = Settings::instance()->recentStations().front();
+
+    emit stationScheduleReady(stationQueryReply->readAll(), stationQueryReply->url());
     stationQueryReply->deleteLater();
     stationQueryReply = 0;
 }
