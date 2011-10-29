@@ -2144,6 +2144,14 @@
         <name>Spello</name>
     </station>
     <station>
+        <pos>43.1006533,12.7672644</pos>
+        <name>Nocera Umbra</name>
+    </station>
+    <station>
+        <pos>43.2838836,12.7572512</pos>
+        <name>Fossato Di Vico-Gubbio</name>
+    </station>
+    <station>
         <pos>43.8264995,10.2903639</pos>
         <name>Torre del Lago Puccini</name>
     </station>
@@ -2172,6 +2180,10 @@
         <name>Assisi</name>
     </station>
     <station>
+        <pos>43.5203599,13.251885</pos>
+        <name>Jesi</name>
+    </station>
+    <station>
         <pos>42.4686669,14.2040208</pos>
         <name>Pescara Centrale</name>
     </station>
@@ -2186,6 +2198,10 @@
     <station>
         <pos>43.8430006,13.0247182</pos>
         <name>Fano</name>
+    </station>
+    <station>
+        <pos>43.345501,12.905456</pos>
+        <name>Fabriano</name>
     </station>
     <station>
         <pos>43.8000708,11.236127</pos>
@@ -2296,6 +2312,10 @@
         <name>Rieti</name>
     </station>
     <station>
+        <pos>43.3455675,12.9861847</pos>
+        <name>Albacina</name>
+    </station>
+    <station>
         <pos>43.8590731,10.3460724</pos>
         <name>Massarosa Bozzano</name>
     </station>
@@ -2350,6 +2370,18 @@
     <station>
         <pos>42.226587,13.9045929</pos>
         <name>Tocco da Casauria</name>
+    </station>
+    <station>
+        <pos>42.3796598,13.0175774</pos>
+        <name>Castel Sant'Angelo</name>
+    </station>
+    <station>
+        <pos>42.4098921,13.0711318</pos>
+        <name>Antrodoco</name>
+    </station>
+    <station>
+        <pos>43.5955438,13.3277099</pos>
+        <name>Chiaravalle</name>
     </station>
     <station>
         <pos>43.8792551,10.7807</pos>
@@ -2452,6 +2484,10 @@
         <name>Pineto-Atri</name>
     </station>
     <station>
+        <pos>43.2335233,12.7672096</pos>
+        <name>Gualdo Tadino</name>
+    </station>
+    <station>
         <pos>42.0530759,13.3443862</pos>
         <name>Scurcola Marsicana</name>
     </station>
@@ -2478,6 +2514,10 @@
     <station>
         <pos>42.7103293,13.9085391</pos>
         <name>Mosciano Sant'Angelo</name>
+    </station>
+    <station>
+        <pos>43.4029795,12.9771822</pos>
+        <name>Genga</name>
     </station>
     <station>
         <pos>42.0006497,14.992693</pos>
@@ -2574,6 +2614,14 @@
     <station>
         <pos>42.0979496,13.8090431</pos>
         <name>Raiano</name>
+    </station>
+    <station>
+        <pos>42.7481073,12.7363441</pos>
+        <name>Spoleto</name>
+    </station>
+    <station>
+        <pos>42.3877526,12.9427209</pos>
+        <name>Cittaducale</name>
     </station>
     <station>
         <pos>40.9400475,14.263473</pos>
@@ -3048,12 +3096,36 @@
         <name>Messina Marittima</name>
     </station>
     <station>
+        <pos>38.4886149,15.9700514</pos>
+        <name>Rosarno</name>
+    </station>
+    <station>
+        <pos>38.714597,16.1398447</pos>
+        <name>Vibo Valentia-Pizzo</name>
+    </station>
+    <station>
+        <pos>38.9211787,16.256017</pos>
+        <name>Lamezia Terme Centrale</name>
+    </station>
+    <station>
         <pos>38.1094774,13.3674386</pos>
         <name>Palermo Centrale</name>
     </station>
     <station>
-        <pos>38.1040084,15.6356535</pos>
+        <pos>38.1149736,15.6496525</pos>
+        <name>Reggio Calabria Lido</name>
+    </station>
+    <station>
+        <pos>38.1040438,15.6357552</pos>
         <name>Reggio Calabria Centrale</name>
+    </station>
+    <station>
+        <pos>38.1507242,15.6588566</pos>
+        <name>Reggio di Calabria Archi</name>
+    </station>
+    <station>
+        <pos>38.2197477,15.6340243</pos>
+        <name>Villa San Giovanni</name>
     </station>
     <station>
         <pos>38.0463933,15.4654302</pos>
@@ -3450,6 +3522,10 @@
     <station>
         <pos>43.9654619,10.9099618</pos>
         <name>Valdibrana</name>
+    </station>
+    <station>
+        <pos>43.0568384,12.7550505</pos>
+        <name>Valtopina</name>
     </station>
     <station>
         <pos>42.062107,13.5811622</pos>
