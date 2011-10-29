@@ -2248,7 +2248,7 @@
         <name>Torricella</name>
     </station>
     <station>
-        <pos>42.0608113,13.9072084</pos>
+        <pos>42.0608261,13.9071984</pos>
         <name>Sulmona</name>
     </station>
     <station>
@@ -2604,7 +2604,7 @@
         <name>Falciano-Mondragone-Carinola</name>
     </station>
     <station>
-        <pos>41.7061015,12.5736217</pos>
+        <pos>41.7060802,12.573554</pos>
         <name>Pomezia-Santa Palomba</name>
     </station>
     <station>
@@ -3088,7 +3088,7 @@
         <name>Catania Bicocca</name>
     </station>
     <station>
-        <pos>37.7951939,15.2056243</pos>
+        <pos>37.7951909,15.2056543</pos>
         <name>Fiumedfreddo</name>
     </station>
     <station>
@@ -3112,7 +3112,7 @@
         <name>Ispica</name>
     </station>
     <station>
-        <pos>37.7302045,15.1935589</pos>
+        <pos>37.730211,15.193563</pos>
         <name>Giarre-Riposto</name>
     </station>
     <station>
@@ -3294,6 +3294,14 @@
     <station>
         <pos>45.3441076,9.7299415</pos>
         <name>Madignano</name>
+    </station>
+    <station>
+        <pos>45.831272,9.3528637</pos>
+        <name>Civate</name>
+    </station>
+    <station>
+        <pos>45.8210909,9.3591545</pos>
+        <name>Sala Al Barro-Galbiate</name>
     </station>
     <station>
         <pos>44.1090501,8.2422996</pos>
