@@ -2832,8 +2832,16 @@
         <name>Aprilia</name>
     </station>
     <station>
+        <pos>41.3709116,15.6056392</pos>
+        <name>Santuario Incoronata</name>
+    </station>
+    <station>
         <pos>41.4714214,12.6126122</pos>
         <name>Marechiaro</name>
+    </station>
+    <station>
+        <pos>41.3149892,15.6206126</pos>
+        <name>Ordona</name>
     </station>
     <station>
         <pos>41.6923081,12.6504232</pos>
@@ -2842,6 +2850,10 @@
     <station>
         <pos>41.1148289,16.89937</pos>
         <name>Bari Parco Sud</name>
+    </station>
+    <station>
+        <pos>41.3974888,15.5956421</pos>
+        <name>Cervaro</name>
     </station>
     <station>
         <pos>41.6824618,12.7809022</pos>
@@ -2854,6 +2866,10 @@
     <station>
         <pos>41.3350469,13.1960963</pos>
         <name>Fiora</name>
+    </station>
+    <station>
+        <pos>41.219712,15.5476212</pos>
+        <name>Ascoli Satriano</name>
     </station>
     <station>
         <pos>41.7764601,15.3849971</pos>
@@ -2948,6 +2964,10 @@
         <name>Frosinone</name>
     </station>
     <station>
+        <pos>40.9898879,15.6469028</pos>
+        <name>Melfi</name>
+    </station>
+    <station>
         <pos>41.3660848,13.2008602</pos>
         <name>Frasso</name>
     </station>
@@ -2960,6 +2980,10 @@
         <name>Capocroce</name>
     </station>
     <station>
+        <pos>40.6518349,15.8023921</pos>
+        <name>Potenza Macchia Romana</name>
+    </station>
+    <station>
         <pos>41.9573852,15.0424164</pos>
         <name>Campomarino</name>
     </station>
@@ -2968,8 +2992,48 @@
         <name>Candida</name>
     </station>
     <station>
+        <pos>41.0789431,15.5505657</pos>
+        <name>Rocchetta Sant'Antonio-Lacedonia</name>
+    </station>
+    <station>
+        <pos>41.1507633,15.5334338</pos>
+        <name>Candela-Sant'Agata di Puglia</name>
+    </station>
+    <station>
         <pos>41.117189,16.8875031</pos>
         <name>Bari Marconi</name>
+    </station>
+    <station>
+        <pos>40.5933155,16.241089</pos>
+        <name>Grassano</name>
+    </station>
+    <station>
+        <pos>40.5508024,16.0868201</pos>
+        <name>Campomaggiore–Pietrapertosa</name>
+    </station>
+    <station>
+        <pos>40.5161754,16.4756833</pos>
+        <name>Ferrandina-Pomarico-Miglionico</name>
+    </station>
+    <station>
+        <pos>40.3679144,16.8146518</pos>
+        <name>Metaponto</name>
+    </station>
+    <station>
+        <pos>40.6294883,15.8067793</pos>
+        <name>Potenza Centrale</name>
+    </station>
+    <station>
+        <pos>40.5834718,16.3516456</pos>
+        <name>Salandra-Grottole</name>
+    </station>
+    <station>
+        <pos>40.5886037,15.9978302</pos>
+        <name>Trivigno</name>
+    </station>
+    <station>
+        <pos>40.6563517,15.8801028</pos>
+        <name>Vaglio Basilicata</name>
     </station>
     <station>
         <pos>41.3497243,16.0903781</pos>
@@ -3020,6 +3084,10 @@
         <name>Napoli Centrale</name>
     </station>
     <station>
+        <pos>41.062081,15.5954506</pos>
+        <name>Leonessa</name>
+    </station>
+    <station>
         <pos>41.809481,12.557682</pos>
         <name>Torricola</name>
     </station>
@@ -3046,6 +3114,10 @@
     <station>
         <pos>41.8792368,12.5236721</pos>
         <name>Roma Tuscolana</name>
+    </station>
+    <station>
+        <pos>40.7876521,15.7580623</pos>
+        <name>Avigliano Lucania</name>
     </station>
     <station>
         <pos>41.1346117,14.7798646</pos>
@@ -3084,6 +3156,10 @@
         <name>Torre in Pietra-Palidoro</name>
     </station>
     <station>
+        <pos>40.4208806,16.5522262</pos>
+        <name>Pisticci</name>
+    </station>
+    <station>
         <pos>38.0051603,15.423587</pos>
         <name>Alì Terme</name>
     </station>
@@ -3112,6 +3188,14 @@
         <name>Palermo Centrale</name>
     </station>
     <station>
+        <pos>38.2707671,16.3020775</pos>
+        <name>Siderno</name>
+    </station>
+    <station>
+        <pos>39.6030063,16.6407843</pos>
+        <name>Rossano</name>
+    </station>
+    <station>
         <pos>38.1149736,15.6496525</pos>
         <name>Reggio Calabria Lido</name>
     </station>
@@ -3132,12 +3216,28 @@
         <name>Scaletta Zanclea</name>
     </station>
     <station>
-        <pos>38.4228318,15.89698</pos>
+        <pos>38.7285544,16.5419401</pos>
+        <name>Montepaone-Montauro</name>
+    </station>
+    <station>
+        <pos>39.8655051,16.532249</pos>
+        <name>Trebisacce</name>
+    </station>
+    <station>
+        <pos>39.0845609,17.1084139</pos>
+        <name>Crotone</name>
+    </station>
+    <station>
+        <pos>38.4233923,15.8974676</pos>
         <name>Gioia Tauro</name>
     </station>
     <station>
-        <pos>38.3648747,15.8445062</pos>
+        <pos>38.3649298,15.8444359</pos>
         <name>Palmi</name>
+    </station>
+    <station>
+        <pos>38.300202,16.3312711</pos>
+        <name>Gioiosa Ionica</name>
     </station>
     <station>
         <pos>37.0689055,15.2817358</pos>
@@ -3252,6 +3352,10 @@
         <name>Ragusa</name>
     </station>
     <station>
+        <pos>37.9167225,15.7813929</pos>
+        <name>Melito di Porto Salvo</name>
+    </station>
+    <station>
         <pos>40.345699,18.1657097</pos>
         <name>Lecce</name>
     </station>
@@ -3264,7 +3368,7 @@
         <name>Brindisi</name>
     </station>
     <station>
-        <pos>40.4891763,18.0007022</pos>
+        <pos>40.489161,18.000647</pos>
         <name>San Pietro Vernotico</name>
     </station>
     <station>
@@ -3290,6 +3394,14 @@
     <station>
         <pos>40.8517215,17.3857959</pos>
         <name>Fasano</name>
+    </station>
+    <station>
+        <pos>40.5631665,17.8019745</pos>
+        <name>Mesagne</name>
+    </station>
+    <station>
+        <pos>40.523165,17.5847498</pos>
+        <name>Francavilla Fontana</name>
     </station>
     <station>
         <pos>40.9251223,9.4990819</pos>
@@ -3468,7 +3580,7 @@
         <name>S. Mommè</name>
     </station>
     <station>
-        <pos>44.5509122,11.1968423</pos>
+        <pos>44.5510644,11.1964325</pos>
         <name>Anzola</name>
     </station>
     <station>
@@ -3552,8 +3664,20 @@
         <name>Maddaloni superiore</name>
     </station>
     <station>
+        <pos>40.6119906,15.9558589</pos>
+        <name>Brindisi di Montagna</name>
+    </station>
+    <station>
+        <pos>40.574692,16.0213123</pos>
+        <name>Albano di Lucania</name>
+    </station>
+    <station>
         <pos>41.1927514,14.4792381</pos>
         <name>Amorosi-Melizzano</name>
+    </station>
+    <station>
+        <pos>40.3975566,16.6822911</pos>
+        <name>Bernalda</name>
     </station>
     <station>
         <pos>36.7319062,14.7445976</pos>
