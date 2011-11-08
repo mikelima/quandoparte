@@ -18,7 +18,6 @@ function loadStation(name)
         view = component.createObject(stationListPage)
         stationListPage.stationView = view
         pageStack.push(view)
-        view.html = "<h1>Loading station " + name + "</h1><p>Lorem ipsum</p>"
         view.name = name
     }
     else

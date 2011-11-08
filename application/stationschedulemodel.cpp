@@ -30,6 +30,10 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
     m_name(name)
 
 {
+    DataProvider *provider = DataProvider::instance();
+
+    connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
+            this, SLOT(parse(QByteArray,QUrl)));
 }
 
 QString & StationScheduleModel::name()
@@ -39,15 +43,17 @@ QString & StationScheduleModel::name()
 
 void StationScheduleModel::setName(const QString &name)
 {
-    m_name = name;
-    emit nameChanged();
+    if (name != m_name) {
+        m_name = name;
+        emit nameChanged();
+    }
 }
 
 void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUrl)
 {
     Q_UNUSED(baseUrl);
     qDebug() << "--- start of query result --- cut here ------";
-    qDebug() << htmlReply;
+    qDebug() << QString::fromUtf8(htmlReply.constData());
     qDebug() << "--- end of query result ----- cut here ------";
 }
 
@@ -55,8 +61,6 @@ void StationScheduleModel::fetch(const QString &name)
 {
     DataProvider *provider = DataProvider::instance();
 
-    connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
-            this, SLOT(parse(QByteArray,QUrl)));
     provider->fetchStationSchedule(name);
     setName(name);
 }
