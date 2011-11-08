@@ -57,6 +57,8 @@ void DataProvider::fetchStationSchedule(const QString &station)
     QNetworkRequest request;
     Settings *settings = Settings::instance();
     request.setUrl(settings->queryBaseUrl());
+
+    qDebug() << "fetching schedule for station" << station;
     const QString queryString = "stazione=" + station;
     const QByteArray query(queryString.toLocal8Bit());
     stationQueryReply = accessManager->post(request, query);
