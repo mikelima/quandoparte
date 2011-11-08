@@ -6,8 +6,6 @@ import "uiconstants.js" as UiConstants
 
 Page {
     property alias name: schedule.name
-    property alias html: webView.html
-    property alias url: webView.url
     anchors.fill: parent
 
     tools: ToolBarLayout {
@@ -60,22 +58,49 @@ Page {
         }
         width: parent.width
 
-        WebView {
-            id: webView
-            visible: false
-            anchors.fill: parent
+        ListView {
+            id: stationScheduleView
+            clip: true
+            width: parent.width
+            height: parent.height
+            model:  schedule
+            delegate: Item {
+                id: listItem
+                height: 48
+                width: parent.width
+                BorderImage {
+                    id: background
+                    anchors.fill: parent
+                    // Fill page borders
+                    visible: mouseArea.pressed
+                    source: "image://theme/meegotouch-list-background-pressed-center"
+                }
+                Row {
+                    anchors.fill: parent
 
-            settings.defaultFontSize: labelStyle.fontPixelSize
-            settings.defaultFixedFontSize: labelStyle.fontPixelSize
-            settings.standardFontFamily: labelStyle.fontFamily
+                    Column {
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        Label {
+                            id: mainText
+                            text: Private.highlightSearch(model.display, UiConstants.AccentColor)
+                            font.bold: true
+                        }
+                    }
+                }
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: background
+                    onClicked: {
+                        // Load an external page about the train, for now
+                    }
+                }
+            }
         }
     }
 
     StationScheduleModel {
         id: schedule
-    }
-
-    Component.onCompleted: {
-        schedule.fetch(name)
+        onNameChanged: schedule.fetch(name)
     }
  }
