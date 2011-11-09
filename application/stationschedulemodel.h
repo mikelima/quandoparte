@@ -48,6 +48,8 @@ private slots:
 
 private:
     QString m_name;
+    QStringList departures;
+    QStringList arrivals;
 };
 
 #endif // STATIONSCHEDULEMODEL_H

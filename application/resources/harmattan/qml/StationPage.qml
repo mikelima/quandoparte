@@ -52,11 +52,12 @@ Page {
     }
     Item {
         id: view
-        anchors {
-            top: info.bottom;
-            bottom: parent.bottom;
-        }
-        width: parent.width
+        anchors.top: info.bottom
+        anchors.bottom: tools.top
+        x: 16
+        y: 16
+        width: parent.width - 32
+        height: parent.height
 
         ListView {
             id: stationScheduleView
@@ -66,7 +67,7 @@ Page {
             model:  schedule
             delegate: Item {
                 id: listItem
-                height: 48
+                height: 192
                 width: parent.width
                 BorderImage {
                     id: background
@@ -83,7 +84,7 @@ Page {
 
                         Label {
                             id: mainText
-                            text: Private.highlightSearch(model.display, UiConstants.AccentColor)
+                            text: model.display
                             font.bold: true
                         }
                     }

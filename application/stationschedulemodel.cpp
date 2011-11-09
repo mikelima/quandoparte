@@ -24,6 +24,9 @@ Boston, MA 02110-1301, USA.
 #include "dataprovider.h"
 
 #include <QDebug>
+#include <QWebElement>
+#include <QWebFrame>
+#include <QWebPage>
 
 StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent) :
     QStringListModel(parent),
@@ -55,6 +58,57 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     qDebug() << "--- start of query result --- cut here ------";
     qDebug() << QString::fromUtf8(htmlReply.constData());
     qDebug() << "--- end of query result ----- cut here ------";
+
+    emit layoutAboutToBeChanged();
+    QWebPage page;
+    page.mainFrame()->setContent(htmlReply, "text/html", baseUrl);
+    QWebElement doc = page.mainFrame()->documentElement();
+
+    // Find the first div
+    QWebElement current = doc.findFirst("div");
+
+    QStringList departures, arrivals;
+    qDebug() << "skipping to the departures";
+    // Skip to the first div of class corpocentrale, which contains the first
+    // departure-related contents
+    while (!current.classes().contains("corpocentrale")) {
+        current = current.nextSibling();
+        qDebug() << "skipping to the next element";
+        if (current.isNull())
+            break;
+    }
+    // Mark every div as a departure class element; the next corpocentrale
+    // marks the start of the arrivals section
+    qDebug() << "marking departures";
+    do {
+        if (current.classes().contains("bloccorisultato")) {
+            departures << current.toPlainText();
+        }
+        current.addClass("departures");
+        current = current.nextSibling();
+        qDebug() << "marking as departures";
+        if (current.isNull())
+            break;
+    } while (!current.classes().contains("corpocentrale"));
+
+    // Mark everything as an arrival, until reaching the footer
+    while (!current.classes().contains("footer")) {
+        if (current.classes().contains("bloccorisultato")) {
+            arrivals << current.toPlainText();
+        }
+        current.addClass("arrivals");
+        current = current.nextSibling();
+        qDebug() << "marking as arrival";
+        if (current.isNull())
+            break;
+    }
+
+    setStringList(departures);
+    qDebug() << "departures list contain:";
+    qDebug() << departures;
+    qDebug() << "arrivals list contain:";
+    qDebug() << arrivals;
+    emit  layoutChanged();
 }
 
 void StationScheduleModel::fetch(const QString &name)
