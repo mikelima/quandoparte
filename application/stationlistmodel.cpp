@@ -43,6 +43,7 @@ bool StationListModel::load(const QString &filename)
 
     qDebug() << "loading file:" << fi.absoluteFilePath();
 
+    emit layoutAboutToBeChanged();
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "cannot open file:" << filename;
         return false;
