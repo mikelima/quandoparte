@@ -396,6 +396,10 @@
         <name>Mondovì</name>
     </station>
     <station>
+        <pos>45.8088206,9.0725654</pos>
+        <name>Como San Giovanni</name>
+    </station>
+    <station>
         <pos>45.121861,7.7125626</pos>
         <name>Torino Stura</name>
     </station>
@@ -622,6 +626,14 @@
     <station>
         <pos>45.6991734,9.5843503</pos>
         <name>Ponte San Pietro</name>
+    </station>
+    <station>
+        <pos>45.7860272,9.275342</pos>
+        <name>Casletto-Rogeno</name>
+    </station>
+    <station>
+        <pos>45.7870634,9.2556563</pos>
+        <name>Moiana</name>
     </station>
     <station>
         <pos>45.4087981,9.0310515</pos>
@@ -900,6 +912,18 @@
         <name>Ovada Nord</name>
     </station>
     <station>
+        <pos>45.7890639,9.3375751</pos>
+        <name>Oggiono</name>
+    </station>
+    <station>
+        <pos>45.7809631,9.3017283</pos>
+        <name>Molteno</name>
+    </station>
+    <station>
+        <pos>45.8463802,9.36815</pos>
+        <name>Valmadrera</name>
+    </station>
+    <station>
         <pos>45.6033382,9.3048499</pos>
         <name>Villasanta</name>
     </station>
@@ -1024,6 +1048,10 @@
         <name>Borgolombardo</name>
     </station>
     <station>
+        <pos>45.7768169,9.073329</pos>
+        <name>Albate-Camerlata</name>
+    </station>
+    <station>
         <pos>45.490522,8.0914552</pos>
         <name>Vergnasco</name>
     </station>
@@ -1042,6 +1070,10 @@
     <station>
         <pos>45.182453,9.6536494</pos>
         <name>Casalpusterlengo</name>
+    </station>
+    <station>
+        <pos>45.7524232,9.1302739</pos>
+        <name>Cantù</name>
     </station>
     <station>
         <pos>45.0605813,8.6606532</pos>
@@ -1302,6 +1334,22 @@
     <station>
         <pos>45.223194,9.5868572</pos>
         <name>Secugnago</name>
+    </station>
+    <station>
+        <pos>44.8084688,8.147182</pos>
+        <name>Costigliole</name>
+    </station>
+    <station>
+        <pos>44.7147617,8.2886312</pos>
+        <name>Canelli</name>
+    </station>
+    <station>
+        <pos>44.7489149,8.1522092</pos>
+        <name>Castagnole delle Lanze</name>
+    </station>
+    <station>
+        <pos>44.6935384,7.8485692</pos>
+        <name>Bra</name>
     </station>
     <station>
         <pos>45.4725329,12.2558807</pos>
@@ -3224,10 +3272,6 @@
         <name>Trebisacce</name>
     </station>
     <station>
-        <pos>39.0845609,17.1084139</pos>
-        <name>Crotone</name>
-    </station>
-    <station>
         <pos>38.4233923,15.8974676</pos>
         <name>Gioia Tauro</name>
     </station>
@@ -3238,6 +3282,10 @@
     <station>
         <pos>38.300202,16.3312711</pos>
         <name>Gioiosa Ionica</name>
+    </station>
+    <station>
+        <pos>39.0844733,17.1085394</pos>
+        <name>Crotone</name>
     </station>
     <station>
         <pos>37.0689055,15.2817358</pos>
@@ -3468,6 +3516,14 @@
         <name>Venzone</name>
     </station>
     <station>
+        <pos>44.6958983,7.9160511</pos>
+        <name>Santa Vittoria</name>
+    </station>
+    <station>
+        <pos>44.830613,8.1751635</pos>
+        <name>Isola D'asti</name>
+    </station>
+    <station>
         <pos>45.1701206,9.7552995</pos>
         <name>Maleo</name>
     </station>
@@ -3490,6 +3546,10 @@
     <station>
         <pos>44.1090501,8.2422996</pos>
         <name>Borghetto S S</name>
+    </station>
+    <station>
+        <pos>44.722763,8.1201754</pos>
+        <name>Neive</name>
     </station>
     <station>
         <pos>44.1183256,9.8640868</pos>
@@ -3530,6 +3590,10 @@
     <station>
         <pos>45.3210816,9.1910574</pos>
         <name>Villamaggiore</name>
+    </station>
+    <station>
+        <pos>44.7170948,8.2412363</pos>
+        <name>Santo Stefano Belbo</name>
     </station>
     <station>
         <pos>45.7323536,11.7957983</pos>
