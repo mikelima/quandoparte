@@ -27,13 +27,21 @@ Boston, MA 02110-1301, USA.
 #include <QWebElement>
 #include <QWebFrame>
 #include <QWebPage>
-
 StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent) :
-    QStringListModel(parent),
+    QAbstractListModel(parent),
     m_name(name)
 
 {
     DataProvider *provider = DataProvider::instance();
+    QHash<int, QByteArray> roles;
+    roles[DepartureStationRole] = "departureStation";
+    roles[DepartureTimeRole] = "departureTime";
+    roles[ArrivalStationRole] = "arrivalStation";
+    roles[ArrivalTimeRole] = "ArrivalTime";
+    roles[DetailsUrlRole] = "DetailsUrl";
+    roles[DelayRole] = "delay";
+    roles[DelayClassRole] = "delayClassRole";
+    setRoleNames(roles);
 
     connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
             this, SLOT(parse(QByteArray,QUrl)));
@@ -50,6 +58,11 @@ void StationScheduleModel::setName(const QString &name)
         m_name = name;
         emit nameChanged();
     }
+}
+
+StationScheduleItem &parseResult(QWebElement &result)
+{
+
 }
 
 void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUrl)
@@ -84,7 +97,10 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
         if (current.classes().contains("bloccorisultato")) {
             departures << current.toPlainText();
         }
-        current.addClass("departures");
+        StationScheduleItem schedule = parseResult(current);
+        if (schedule.isValid()) {
+            m_schedules << schedule;
+        }
         current = current.nextSibling();
         qDebug() << "marking as departures";
         if (current.isNull())
@@ -96,14 +112,12 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
         if (current.classes().contains("bloccorisultato")) {
             arrivals << current.toPlainText();
         }
-        current.addClass("arrivals");
         current = current.nextSibling();
         qDebug() << "marking as arrival";
         if (current.isNull())
             break;
     }
 
-    setStringList(departures);
     qDebug() << "departures list contain:";
     qDebug() << departures;
     qDebug() << "arrivals list contain:";
