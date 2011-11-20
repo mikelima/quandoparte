@@ -75,7 +75,8 @@ SOURCES += \
     stationlistproxymodel.cpp \
     settings.cpp \
     dataprovider.cpp \
-    stationschedulemodel.cpp
+    stationschedulemodel.cpp \
+    stationscheduleitem.cpp
 
 HEADERS += \
     $$PLATFORM_HEADERS \
@@ -83,7 +84,8 @@ HEADERS += \
     stationlistproxymodel.h \
     settings.h \
     dataprovider.h \
-    stationschedulemodel.h
+    stationschedulemodel.h \
+    stationscheduleitem.h
 
 FORMS += \
     settingsdialog.ui \
@@ -182,3 +184,5 @@ harmattan {
     qml.path = $$DATADIR/qml
     INSTALLS += qml
 }
+
+

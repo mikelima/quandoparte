@@ -22,20 +22,36 @@ Boston, MA 02110-1301, USA.
 #ifndef STATIONSCHEDULEMODEL_H
 #define STATIONSCHEDULEMODEL_H
 
+#include "stationscheduleitem.h"
+
 #include <QObject>
-#include <QStringListModel>
+#include <QAbstractListModel>
 #include <QUrl>
 
-class StationScheduleModel : public QStringListModel
+class StationScheduleModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+
+    enum StationRoles {
+        RefRole = Qt::UserRole +1,
+        DepartureStationRole,
+        DepartureTimeRole,
+        ArrivalStationRole,
+        ArrivalTimeRole,
+        DetailsUrlRole,
+        DelayRole,
+        DelayClassRole
+    };
 
 public:
     explicit StationScheduleModel(const QString &name = "", QObject *parent = 0);
 
     QString &name();
     void setName(const QString &name);
+
+    int rowCount(const QModelIndex &parent) const;
+    QVariant data(const QModelIndex &index, int role) const;
 
 signals:
     void nameChanged();
@@ -48,8 +64,7 @@ private slots:
 
 private:
     QString m_name;
-    QStringList departures;
-    QStringList arrivals;
+    QList<StationScheduleItem> m_schedules;
 };
 
 #endif // STATIONSCHEDULEMODEL_H
