@@ -34,7 +34,7 @@ class StationScheduleModel : public QAbstractListModel
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
 
     enum StationRoles {
-        RefRole = Qt::UserRole +1,
+        TrainRole = Qt::UserRole +1,
         DepartureStationRole,
         DepartureTimeRole,
         ArrivalStationRole,
