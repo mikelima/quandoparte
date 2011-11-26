@@ -34,6 +34,7 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
 {
     DataProvider *provider = DataProvider::instance();
     QHash<int, QByteArray> roles;
+    roles[TrainRole] = "train";
     roles[DepartureStationRole] = "departureStation";
     roles[DepartureTimeRole] = "departureTime";
     roles[ArrivalStationRole] = "arrivalStation";
@@ -60,9 +61,16 @@ void StationScheduleModel::setName(const QString &name)
     }
 }
 
-StationScheduleItem &parseResult(QWebElement &result)
+StationScheduleItem parseResult(const QWebElement &result)
 {
-
+    StationScheduleItem item;
+    qDebug() << "result:" << result.toPlainText();
+    QWebElement current = result.findFirst("h2");
+    if (!current.isNull()) {
+        item.setTrain(current.toPlainText());
+    }
+    qDebug() << "train:" << item.train();
+    return item;
 }
 
 void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUrl)
@@ -73,6 +81,7 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     qDebug() << "--- end of query result ----- cut here ------";
 
     emit layoutAboutToBeChanged();
+    beginInsertRows(QModelIndex(), 0, 0);
     QWebPage page;
     page.mainFrame()->setContent(htmlReply, "text/html", baseUrl);
     QWebElement doc = page.mainFrame()->documentElement();
@@ -96,10 +105,10 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     do {
         if (current.classes().contains("bloccorisultato")) {
             departures << current.toPlainText();
-        }
-        StationScheduleItem schedule = parseResult(current);
-        if (schedule.isValid()) {
-            m_schedules << schedule;
+            StationScheduleItem schedule = parseResult(current);
+            if (schedule.isValid()) {
+                m_schedules << schedule;
+            }
         }
         current = current.nextSibling();
         qDebug() << "marking as departures";
@@ -118,11 +127,12 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
             break;
     }
 
-    qDebug() << "departures list contain:";
-    qDebug() << departures;
-    qDebug() << "arrivals list contain:";
-    qDebug() << arrivals;
-    emit  layoutChanged();
+    //qDebug() << "departures list contain:";
+    //qDebug() << departures;
+    //qDebug() << "arrivals list contain:";
+    //qDebug() << arrivals;
+    emit layoutChanged();
+    endInsertRows();
 }
 
 void StationScheduleModel::fetch(const QString &name)
@@ -131,4 +141,43 @@ void StationScheduleModel::fetch(const QString &name)
 
     provider->fetchStationSchedule(name);
     setName(name);
+}
+
+int StationScheduleModel::rowCount(const QModelIndex &parent) const
+{
+    qDebug() << "there are" << m_schedules.count() << "schedules";
+    return m_schedules.count();
+}
+
+QVariant StationScheduleModel::data(const QModelIndex &index, int role) const
+{
+    qDebug() << "getting data for role" << role;
+    if (!index.isValid()) {
+        return QVariant();
+    }
+    if (index.row() > m_schedules.count()) {
+        return QVariant();
+    }
+    StationScheduleItem item = m_schedules[index.row()];
+    switch (role) {
+    case Qt::DisplayRole:
+    case TrainRole:
+        return QVariant::fromValue(item.train());
+    case DepartureStationRole:
+        return QVariant::fromValue(item.departureStation());
+    case DepartureTimeRole:
+        return QVariant::fromValue(item.departureTime());
+    case ArrivalStationRole:
+        return QVariant::fromValue(item.arrivalStation());
+    case ArrivalTimeRole:
+        return QVariant::fromValue(item.arrivalTime());
+    case DetailsUrlRole:
+        return QVariant::fromValue(item.detailsUrl());
+    case DelayRole:
+        return QVariant::fromValue(item.delay());
+    case DelayClassRole:
+        return QVariant::fromValue(item.delayClass());
+    default:
+        return QVariant::fromValue(QString("Unknown role requested"));
+    }
 }
