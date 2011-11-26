@@ -62,12 +62,13 @@ Page {
         ListView {
             id: stationScheduleView
             clip: true
+            visible: false
             width: parent.width
             height: parent.height
             model:  schedule
             delegate: Item {
                 id: listItem
-                height: 192
+                height: 64
                 width: parent.width
                 BorderImage {
                     id: background
@@ -84,7 +85,7 @@ Page {
 
                         Label {
                             id: mainText
-                            text: model.display
+                            text: train
                             font.bold: true
                         }
                     }
@@ -103,10 +104,33 @@ Page {
                 }
             }
         }
+        BusyIndicator {
+            id: busyIndicator
+            anchors.centerIn: view
+            visible: !stationScheduleView.visible
+            running: visible
+        }
+        states: [
+            State {
+                name: "loading"
+                PropertyChanges {
+                    target: stationScheduleView
+                    visible: false
+                }
+            },
+            State {
+                name: "ready"
+                PropertyChanges {
+                    target: stationScheduleView
+                    visible: true
+                }
+            }
+        ]
     }
-
     StationScheduleModel {
         id: schedule
         onNameChanged: schedule.fetch(name)
+        onLayoutChanged: view.state = "ready"
     }
+
  }
