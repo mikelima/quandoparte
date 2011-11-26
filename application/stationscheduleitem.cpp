@@ -25,7 +25,7 @@ Boston, MA 02110-1301, USA.
 
 class StationScheduleItemData : public QSharedData {
 public:
-    QString id;
+    QString train;
     QString departureStation;
     QString departureTime;
     QString arrivalStation;
@@ -54,14 +54,14 @@ StationScheduleItem::~StationScheduleItem()
 {
 }
 
-QString &StationScheduleItem::id()
+QString &StationScheduleItem::train()
 {
-    return d->id;
+    return d->train;
 }
 
-void StationScheduleItem::setId(const QString &value)
+void StationScheduleItem::setTrain(const QString &value)
 {
-    d->id = value;
+    d->train = value;
 }
 
 QString &StationScheduleItem::departureStation()
@@ -132,4 +132,9 @@ int StationScheduleItem::delayClass()
 void StationScheduleItem::setDelayClass(const int value)
 {
     d->delayClass = value;
+}
+
+bool StationScheduleItem::isValid()
+{
+    return !d->train.isEmpty();
 }
