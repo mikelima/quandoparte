@@ -34,8 +34,8 @@ public:
     StationScheduleItem &operator=(const StationScheduleItem &);
     ~StationScheduleItem();
 
-    QString &id();
-    void setId(const QString &value);
+    QString &train();
+    void setTrain(const QString &value);
 
     QString &departureStation();
     void setDepartureStation(const QString &value);
