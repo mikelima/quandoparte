@@ -44,6 +44,7 @@ bool StationListModel::load(const QString &filename)
     qDebug() << "loading file:" << fi.absoluteFilePath();
 
     emit layoutAboutToBeChanged();
+    beginInsertRows(QModelIndex(), 0, 0);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         qDebug() << "cannot open file:" << filename;
         return false;
@@ -70,6 +71,7 @@ bool StationListModel::load(const QString &filename)
         return false;
     }
     emit layoutChanged();
+    endInsertRows();
     return true;
 }
 
