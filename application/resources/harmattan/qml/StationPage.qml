@@ -53,7 +53,6 @@ Page {
     Item {
         id: view
         anchors.top: info.bottom
-        anchors.bottom: tools.top
         x: 16
         y: 16
         width: parent.width - 32
@@ -68,7 +67,7 @@ Page {
             model:  schedule
             delegate: Item {
                 id: listItem
-                height: 64
+                height: UiConstants.ListItemHeightDefault
                 width: parent.width
                 BorderImage {
                     id: background
@@ -80,13 +79,32 @@ Page {
                 Row {
                     anchors.fill: parent
 
+                    spacing: UiConstants.ButtonSpacing
                     Column {
                         anchors.verticalCenter: parent.verticalCenter
-
+                        Row {
+                            spacing: UiConstants.ButtonSpacing
+                            Label {
+                                text: departureTime
+                                font.bold: UiConstants.SpecialFontBoldness
+                                font.pixelSize: UiConstants.SpecialFontPixelSize
+                            }
+                            Label {
+                                text: train
+                                font.bold: UiConstants.SpecialFontBoldness
+                                font.pixelSize: UiConstants.SpecialFontPixelSize
+                                color: UiConstants.AccentColor
+                            }
+                        }
                         Label {
-                            id: mainText
-                            text: train
-                            font.bold: true
+                            text: qsTr("per ") + departureStation
+                            font.bold: UiConstants.DefaultFontBoldness
+                            font.pixelSize: UiConstants.DefaultFontPixelSize
+                        }
+                        Label {
+                            text: delay
+                            font.bold: UiConstants.SubtitleFontBoldness
+                            font.pixelSize: UiConstants.SubtitleFontPixelSize
                         }
                     }
                 }
@@ -104,8 +122,14 @@ Page {
                 }
             }
         }
+        SectionScroller {
+            listView: stationScheduleView
+        }
         BusyIndicator {
             id: busyIndicator
+            platformStyle: BusyIndicatorStyle {
+                size: "large"
+            }
             anchors.centerIn: view
             visible: !stationScheduleView.visible
             running: visible
