@@ -79,7 +79,7 @@ Page {
             model:  stationListProxyModel
             delegate: Item {
                 id: listItem
-                height: 48
+                height: UiConstants.ListItemHeightDefault
                 width: parent.width
                 BorderImage {
                     id: background
@@ -109,6 +109,13 @@ Page {
                     }
                 }
             }
+        }
+        SectionScroller {
+            listView: stationListView
+        }
+        ScrollDecorator {
+            id: decorator
+            flickableItem: stationListView
         }
     }
 
