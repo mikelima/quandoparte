@@ -61,15 +61,83 @@ void StationScheduleModel::setName(const QString &name)
     }
 }
 
+static void parseDelayClass(const QWebElement &element, StationScheduleItem &item)
+{
+    if (!element.isNull()) {
+        QWebElement image = element.findFirst("img");
+        if (!image.isNull()) {
+            int delayClass = 42;
+            QString imageName = image.attribute("src");
+            if (!imageName.isEmpty()) {
+                QRegExp delayClassRegexp("pallinoRit([0-9])\\.png");
+                int pos = delayClassRegexp.indexIn(imageName);
+                qDebug() << "regexp matched at pos:" << pos << "match:" << delayClassRegexp.cap(0);
+                delayClass =  (pos >= 0) ? delayClassRegexp.cap(1).toInt() : 0;
+            }
+            item.setDelayClass(delayClass);
+        } else {
+            qDebug() << "img not found";
+        }
+    } else {
+        qDebug() << "div.bloccotreno not found";
+    }
+}
+
+static void parseDetailsUrl(const QWebElement &element, StationScheduleItem &item)
+{
+    if (!element.isNull()) {
+        QWebElement link = element.findFirst("a");
+        QString url = link.attribute("href");
+        item.setDetailsUrl(url);
+    } else {
+        qDebug() << "link not found";
+    }
+}
+
+static void parseTrain(const QString &text, StationScheduleItem &item)
+{
+    QRegExp filter("^(Per|Da) (.*)\\n"
+                   "Delle ore (.*)\n"
+                   "Binario Previsto: (.*)\n"
+                   "Binario Reale: (.*)\n"
+                   "(.*)$");
+    int pos = filter.indexIn(text);
+    if (pos >= 0) {
+        if (filter.cap(1) == "Per") {
+            item.setDepartureStation(filter.cap(2));
+            item.setDepartureTime(filter.cap(3));
+        } else {
+            item.setArrivalStation(filter.cap(2));
+            item.setArrivalTime(filter.cap(3));
+        }
+        item.setDelay(filter.cap(6));
+    } else {
+        qDebug() << "could not parse" << text;
+    }
+}
+
 StationScheduleItem parseResult(const QWebElement &result)
 {
     StationScheduleItem item;
-    qDebug() << "result:" << result.toPlainText();
+
     QWebElement current = result.findFirst("h2");
     if (!current.isNull()) {
         item.setTrain(current.toPlainText());
     }
+    parseDetailsUrl(result, item);
+    current = result.findFirst("div.bloccotreno");
+    parseDelayClass(current, item);
+    QString rawText = current.toPlainText();
+    parseTrain(rawText, item);
+
     qDebug() << "train:" << item.train();
+    qDebug() << "delayClass:" << item.delayClass();
+    qDebug() << "detailsUrl:" << item.detailsUrl();
+    qDebug() << "departureStation:" << item.departureStation();
+    qDebug() << "departureTime:" << item.departureTime();
+    qDebug() << "arrivalStation:" << item.arrivalStation();
+    qDebug() << "arrivalTime:" << item.arrivalTime();
+    qDebug() << "delay:" << item.delay();
     return item;
 }
 
@@ -127,12 +195,12 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
             break;
     }
 
-    //qDebug() << "departures list contain:";
-    //qDebug() << departures;
+    qDebug() << "departures list contain:";
+    qDebug() << departures;
     //qDebug() << "arrivals list contain:";
     //qDebug() << arrivals;
-    emit layoutChanged();
     endInsertRows();
+    emit layoutChanged();
 }
 
 void StationScheduleModel::fetch(const QString &name)
@@ -145,7 +213,7 @@ void StationScheduleModel::fetch(const QString &name)
 
 int StationScheduleModel::rowCount(const QModelIndex &parent) const
 {
-    qDebug() << "there are" << m_schedules.count() << "schedules";
+    qDebug() << "schedule.count" << m_schedules.count();
     return m_schedules.count();
 }
 
@@ -155,7 +223,7 @@ QVariant StationScheduleModel::data(const QModelIndex &index, int role) const
     if (!index.isValid()) {
         return QVariant();
     }
-    if (index.row() > m_schedules.count()) {
+    if (index.row() >= m_schedules.count()) {
         return QVariant();
     }
     StationScheduleItem item = m_schedules[index.row()];
