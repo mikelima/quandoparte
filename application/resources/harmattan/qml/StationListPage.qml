@@ -133,7 +133,7 @@ Page {
                 anchors.fill: parent
                 Item {
                     height: 40
-                    anchors.leftMargin: UiConstants.DefaultMargins
+                    anchors.leftMargin: UiConstants.DefaultMargin
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Label {
@@ -150,7 +150,7 @@ Page {
                 }
                 Item {
                     height: 40
-                    anchors.leftMargin: UiConstants.DefaultMargins
+                    anchors.leftMargin: UiConstants.DefaultMargin
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Label {
