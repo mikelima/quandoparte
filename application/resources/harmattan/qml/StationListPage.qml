@@ -8,6 +8,12 @@ import "StationListPage.js" as Private
 Page {
     property variant stationView
     id: stationListPage
+    tools: ToolBarLayout {
+        id: toolBar
+        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
+        ToolIcon { iconId: "icon-m-toolbar-settings"; onClicked: settingsSheet.open(); }
+        ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
+    }
     Menu {
         id: menu
         content: MenuLayout {
@@ -16,12 +22,6 @@ Page {
                 onClicked: Private.showAboutPage()
             }
         }
-    }
-    tools: ToolBarLayout {
-        id: toolBar
-        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
-        ToolIcon { iconId: "icon-m-toolbar-settings"; onClicked: settingsSheet.open(); }
-        ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
     }
     PageHeader {
         id: header
@@ -54,32 +54,36 @@ Page {
         property: "sortingMode"
         value: header.selectedIndex
     }
-    Rectangle {
-        id: shadow
-        width: parent.width
-        anchors.top: mainView.top
-        height: 5
-        gradient: Gradient {
-            GradientStop {color: "#aa000000"; position: 0.0}
-            GradientStop {color: "#00000000"; position: 1.0}
-        }
-    }
     Item {
         id: mainView
-        x: 16
-        y: 16
-        anchors.top: searchField.bottom
-        width: parent.width - 32
-        height: parent.height
+        anchors {
+            top: searchField.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+        }
+        Rectangle {
+            id: shadow
+            width: parent.width
+            anchors.top: mainView.top
+            height: 5
+            gradient: Gradient {
+                GradientStop {color: "#aa000000"; position: 0.0}
+                GradientStop {color: "#00000000"; position: 1.0}
+            }
+        }
         ListView {
             id: stationListView
             clip: true
             width: parent.width
-            height: parent.height
+            anchors {
+                top: shadow.top
+                bottom: parent.bottom
+            }
             model:  stationListProxyModel
             delegate: Item {
                 id: listItem
-                height: UiConstants.ListItemHeightDefault
+                height: UiConstants.ListItemHeightSmall
                 width: parent.width
                 BorderImage {
                     id: background
@@ -90,7 +94,10 @@ Page {
                 }
                 Row {
                     anchors.fill: parent
-
+                    Item {
+                        width: UiConstants.DefaultMargin
+                        height: UiConstants.DefaultMargin
+                    }
                     Column {
                         anchors.verticalCenter: parent.verticalCenter
 
@@ -109,9 +116,6 @@ Page {
                     }
                 }
             }
-        }
-        SectionScroller {
-            listView: stationListView
         }
         ScrollDecorator {
             id: decorator
@@ -138,7 +142,7 @@ Page {
                     anchors.right: parent.right
                     Label {
                         font.bold: true
-                        text: "Show Last Station on Startup"
+                        text: qsTr("Show Last Station on Startup")
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
                     }
@@ -155,7 +159,7 @@ Page {
                     anchors.right: parent.right
                     Label {
                         font.bold: true
-                        text: "Update Display Periodically"
+                        text: qsTr("Update Display Periodically")
                         anchors.verticalCenter: parent.verticalCenter
                     }
                     Switch {
