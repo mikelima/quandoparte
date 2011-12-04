@@ -7,6 +7,12 @@
 VERSION = 0.4.80
 
 QT += webkit network
+CONFIG += qt webkit mobility
+MOBILITY = location
+
+contains(MEEGO_EDITION,harmattan) {
+    CONFIG += harmattan
+}
 
 harmattan {
     QT += declarative
@@ -14,7 +20,7 @@ harmattan {
     DEFINES += TARGET_PLATFORM_HARMATTAN
     # enable booster
     CONFIG += qdeclarative-boostable
-    QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
+    QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-psabi
     QMAKE_LFLAGS += -pie -rdynamic
     PLATFORM_SOURCES = view.cpp
     PLATFORM_HEADERS = view.h
@@ -53,9 +59,6 @@ message(Compiling For:    $$PLATFORM)
 message(Platform Sources: $$PLATFORM_SOURCES)
 message(Qt Modules Used:  $$QT)
 message(Building version: $$VERSION)
-
-CONFIG += qt webkit mobility
-MOBILITY = location
 
 TARGET = quandoparte
 TEMPLATE = app
@@ -126,20 +129,28 @@ unix {
     isEmpty(PREFIX) {
         maemo5 {
             PREFIX=/opt/usr
-        } else {
+        }
+        harmattan {
+            PREFIX=/opt/$${TARGET}
+        }
+        desktop {
             PREFIX=/usr/local
         }
     }
     maemo5 {
         DESKTOPDIR=/usr/share/applications/hildon
-    } else {
+    }
+    harmattan {
+        DESKTOPDIR=/usr/share/applications
+    }
+    desktop {
         DESKTOPDIR=$$PREFIX/share/applications
     }
 
     BINDIR=$$PREFIX/bin
     DESKTOPDIR=$$PREFIX/share/applications
     DATADIR=$$PREFIX/share/apps/$${TARGET}
-    DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"
+    DEFINES += DATADIR=\\\"$${DATADIR}\\\" PKGDATADIR=\\\"$${PKGDATADIR}\\\"
 }
 
 message(Installing to prefix $$PREFIX)
@@ -185,5 +196,3 @@ harmattan {
     qml.path = $$DATADIR/qml
     INSTALLS += qml
 }
-
-
