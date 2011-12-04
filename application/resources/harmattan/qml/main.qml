@@ -7,4 +7,8 @@ PageStackWindow {
     showStatusBar: screen.currentOrientation === Screen.Landscape ? false : true
     initialPage: StationListPage {
     }
+    /*
+    ToolBar {
+        anchors.bottom: parent.bottom
+    }*/
 }
