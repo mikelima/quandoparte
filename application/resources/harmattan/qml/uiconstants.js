@@ -1,6 +1,6 @@
 .pragma library
 
-const DefaultMargins = 16
+const DefaultMargin = 16
 const ButtonSpacing = 6
 
 const HeaderDefaultHeightLandscape = 46

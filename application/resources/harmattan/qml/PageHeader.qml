@@ -26,7 +26,7 @@ Rectangle {
         id: label
         anchors {
             left: parent.left;
-            leftMargin: UiConstants.DefaultMargins;
+            leftMargin: UiConstants.DefaultMargin;
             verticalCenter: parent.verticalCenter;
         }
         font {
@@ -45,7 +45,7 @@ Rectangle {
         id: icon
         anchors {
             right: (label.text != "") ? parent.right : undefined;
-            rightMargin: UiConstants.DefaultMargins;
+            rightMargin: UiConstants.DefaultMargin;
             horizontalCenter: (label.text != "") ? undefined : parent.horizontalCenter;
             verticalCenter: parent.verticalCenter;
         }

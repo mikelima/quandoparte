@@ -25,7 +25,7 @@ Page {
             top: header.bottom;
             left: parent.left;
             right: parent.right;
-            margins: UiConstants.DefaultMargins
+            margins: UiConstants.DefaultMargin
         }
         text: qsTr("<h2><a href='http://quandoparte.garage.maemo.org'>" +
                    "Quando Parte" + "</a></h2>" +"<p style='font-size:small;'>version " + "0.4.80" +

@@ -18,18 +18,18 @@ BorderImage {
     Item {
         id: spacerTop
         width: parent.width
-        height: UiConstants.DefaultMargins
+        height: UiConstants.DefaultMargin
     }
     Item {
         id: spacerLeft
         anchors.left: parent.left
-        width: UiConstants.DefaultMargins
+        width: UiConstants.DefaultMargin
         height: searchField.height
     }
     Item {
         id: spacerRight
         anchors.right: parent.right
-        width: UiConstants.DefaultMargins
+        width: UiConstants.DefaultMargin
         height: searchField.height
     }
     Label {
