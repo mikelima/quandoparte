@@ -972,7 +972,11 @@
         <name>Belgioioso</name>
     </station>
     <station>
-        <pos>44.4592657,8.9000976</pos>
+        <pos>44.5561212,9.9318358</pos>
+        <name>Berceto</name>
+    </station>
+    <station>
+        <pos>44.4592792,8.9001297</pos>
         <name>Genova Bolzaneto</name>
     </station>
     <station>
@@ -1374,6 +1378,10 @@
     <station>
         <pos>44.3740329,7.8947661</pos>
         <name>Vicoforte-San Michele</name>
+    </station>
+    <station>
+        <pos>44.372837,9.8876574</pos>
+        <name>Pontremoli</name>
     </station>
     <station>
         <pos>45.4725329,12.2558807</pos>
