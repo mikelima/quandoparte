@@ -1384,6 +1384,26 @@
         <name>Pontremoli</name>
     </station>
     <station>
+        <pos>44.2946249,9.9481234</pos>
+        <name>Villafranca-Bagnone</name>
+    </station>
+    <station>
+        <pos>44.4865607,9.7813646</pos>
+        <name>Borgo Val di Taro</name>
+    </station>
+    <station>
+        <pos>44.5201707,9.8449669</pos>
+        <name>Ostia Parmense</name>
+    </station>
+    <station>
+        <pos>44.614119,9.9802426</pos>
+        <name>Solignano</name>
+    </station>
+    <station>
+        <pos>44.331391,9.9333942</pos>
+        <name>Filattiera</name>
+    </station>
+    <station>
         <pos>45.4725329,12.2558807</pos>
         <name>Venezia Porto Marghera</name>
     </station>
@@ -1470,6 +1490,10 @@
     <station>
         <pos>44.0703037,12.4545112</pos>
         <name>Santarcangelo di Romagna</name>
+    </station>
+    <station>
+        <pos>44.5849888,11.2351178</pos>
+        <name>Osteria Nuova</name>
     </station>
     <station>
         <pos>44.5061081,11.3434453</pos>
@@ -1736,6 +1760,30 @@
         <name>Pontelagoscuro</name>
     </station>
     <station>
+        <pos>44.7957552,11.5438286</pos>
+        <name>Coronella</name>
+    </station>
+    <station>
+        <pos>44.7373414,11.4412201</pos>
+        <name>Galliera</name>
+    </station>
+    <station>
+        <pos>44.6979725,11.4048737</pos>
+        <name>San Pietro in Casale</name>
+    </station>
+    <station>
+        <pos>44.6465332,11.3790398</pos>
+        <name>San Giorgio di Piano</name>
+    </station>
+    <station>
+        <pos>44.5936789,11.3709082</pos>
+        <name>Funo Centergross</name>
+    </station>
+    <station>
+        <pos>44.5769997,11.3674369</pos>
+        <name>Castelmaggiore</name>
+    </station>
+    <station>
         <pos>44.3949384,11.2543328</pos>
         <name>Sasso Marconi</name>
     </station>
@@ -1808,6 +1856,10 @@
         <name>San Donà Di Piave Jesolo</name>
     </station>
     <station>
+        <pos>45.2693196,11.0134266</pos>
+        <name>Isola della Scala</name>
+    </station>
+    <station>
         <pos>45.6241941,12.5003115</pos>
         <name>Fossalta di Piave</name>
     </station>
@@ -1836,11 +1888,19 @@
         <name>Castelguelfo</name>
     </station>
     <station>
+        <pos>45.1800479,11.0706808</pos>
+        <name>Nogara</name>
+    </station>
+    <station>
         <pos>44.1775717,10.9805546</pos>
         <name>Silla</name>
     </station>
     <station>
-        <pos>45.9068263,13.296463</pos>
+        <pos>44.7191599,11.1528289</pos>
+        <name>Crevalcore</name>
+    </station>
+    <station>
+        <pos>45.9068263,13.2964630</pos>
         <name>Palmanova</name>
     </station>
     <station>
@@ -1850,6 +1910,10 @@
     <station>
         <pos>45.1442129,10.6475418</pos>
         <name>Castellucchio</name>
+    </station>
+    <station>
+        <pos>45.3387828,10.9881626</pos>
+        <name>Buttapietra</name>
     </station>
     <station>
         <pos>45.9657426,12.9767338</pos>
@@ -1996,12 +2060,36 @@
         <name>Monselice</name>
     </station>
     <station>
-        <pos>45.060865,11.9953396</pos>
+        <pos>45.1856279,11.0092715</pos>
+        <name>Bonferrato</name>
+    </station>
+    <station>
+        <pos>45.1766715,10.8939945</pos>
+        <name>Gazzo di Bigarello</name>
+    </station>
+    <station>
+        <pos>45.1834069,10.9753358</pos>
+        <name>Castel d'Ario</name>
+    </station>
+    <station>
+        <pos>45.1505064,10.8311241</pos>
+        <name>Mantova Frassine</name>
+    </station>
+    <station>
+        <pos>45.0608650,11.9953396</pos>
         <name>Baricetta</name>
     </station>
     <station>
         <pos>45.0769877,11.7810787</pos>
         <name>Rovigo</name>
+    </station>
+    <station>
+        <pos>44.8916319,11.1118099</pos>
+        <name>Mirandola</name>
+    </station>
+    <station>
+        <pos>44.7492217,10.1403803</pos>
+        <name>Medesano</name>
     </station>
     <station>
         <pos>45.3273602,11.7964083</pos>
@@ -2060,8 +2148,16 @@
         <name>Strassoldo</name>
     </station>
     <station>
+        <pos>44.6435643,11.1893364</pos>
+        <name>San Giovanni in Persiceto</name>
+    </station>
+    <station>
         <pos>44.5403654,11.9360511</pos>
         <name>Voltana</name>
+    </station>
+    <station>
+        <pos>44.8099238,10.1472366</pos>
+        <name>Noceto</name>
     </station>
     <station>
         <pos>43.7926605,7.6100099</pos>
@@ -3576,11 +3672,15 @@
         <name>Sala Al Barro-Galbiate</name>
     </station>
     <station>
+        <pos>45.0727285,9.1370147</pos>
+        <name>Bressana Argine</name>
+    </station>
+    <station>
         <pos>44.1090501,8.2422996</pos>
         <name>Borghetto S S</name>
     </station>
     <station>
-        <pos>44.722763,8.1201754</pos>
+        <pos>44.7227630,8.1201754</pos>
         <name>Neive</name>
     </station>
     <station>
@@ -3600,11 +3700,11 @@
         <name>Merana</name>
     </station>
     <station>
-        <pos>44.4275073,8.29537</pos>
+        <pos>44.4275073,8.2953700</pos>
         <name>Rocchetta Cairo</name>
     </station>
     <station>
-        <pos>45.172405,9.2617686</pos>
+        <pos>45.1724050,9.2617686</pos>
         <name>Albuzzano</name>
     </station>
     <station>
@@ -3684,7 +3784,11 @@
         <name>Luni</name>
     </station>
     <station>
-        <pos>43.870533,7.5529913</pos>
+        <pos>44.7247989,10.1145119</pos>
+        <name>Felegara</name>
+    </station>
+    <station>
+        <pos>43.8705330,7.5529913</pos>
         <name>Airole</name>
     </station>
     <station>
