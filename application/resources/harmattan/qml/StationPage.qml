@@ -32,15 +32,9 @@ Page {
         anchors.top: header.bottom
         text: parent.name
     }
-    Rectangle {
+    DroppedShadow {
         id: shadow
-        width: parent.width
         anchors.top: view.top
-        height: 5
-        gradient: Gradient {
-            GradientStop {color: "#aa000000"; position: 0.0}
-            GradientStop {color: "#00000000"; position: 1.0}
-        }
     }
     Binding {
         target: settings
@@ -122,8 +116,9 @@ Page {
                 }
             }
         }
-        SectionScroller {
-            listView: stationScheduleView
+        ScrollDecorator {
+            id: decorator
+            flickableItem: stationScheduleView
         }
         BusyIndicator {
             id: busyIndicator
