@@ -18,6 +18,17 @@ Page {
         id: menu
         content: MenuLayout {
             MenuItem {
+                text: qsTr("Update Periodically")
+                Switch {
+                    id: periodicCheckSwitch
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        right: parent.right
+                        rightMargin: UiConstants.DefaultMargin
+                    }
+                }
+            }
+            MenuItem {
                 text: qsTr("About Quando Parte")
                 onClicked: Private.showAboutPage()
             }
@@ -62,15 +73,9 @@ Page {
             left: parent.left
             right: parent.right
         }
-        Rectangle {
+        DroppedShadow {
             id: shadow
-            width: parent.width
             anchors.top: mainView.top
-            height: 5
-            gradient: Gradient {
-                GradientStop {color: "#aa000000"; position: 0.0}
-                GradientStop {color: "#00000000"; position: 1.0}
-            }
         }
         ListView {
             id: stationListView
@@ -90,7 +95,7 @@ Page {
                     anchors.fill: parent
                     // Fill page borders
                     visible: mouseArea.pressed
-                    source: "image://theme/meegotouch-list-background-pressed-center"
+                    source: "image://theme/meegotouch-list-fullwidth-background-pressed"
                 }
                 Row {
                     anchors.fill: parent
@@ -107,6 +112,13 @@ Page {
                             font.bold: true
                         }
                     }
+                }
+                Image {
+                    anchors {
+                        left: parent.left
+                        right: parent.right
+                    }
+                    source: "image://theme/meegotouch-separator-background-horizontal"
                 }
                 MouseArea {
                     id: mouseArea
@@ -150,22 +162,6 @@ Page {
                         anchors.verticalCenter: parent.verticalCenter
                         id: showLastStationSwitch
                         anchors.right: parent.right
-                    }
-                }
-                Item {
-                    height: 40
-                    anchors.leftMargin: UiConstants.DefaultMargin
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    Label {
-                        font.bold: true
-                        text: qsTr("Update Display Periodically")
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                    Switch {
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.right: parent.right
-                        id: periodicCheckSwitch
                     }
                 }
             }
