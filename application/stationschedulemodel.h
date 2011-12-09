@@ -64,7 +64,8 @@ private slots:
 
 private:
     QString m_name;
-    QList<StationScheduleItem> m_schedules;
+    QList<StationScheduleItem> m_departureSchedules;
+    QList<StationScheduleItem> m_arrivalSchedules;
 };
 
 #endif // STATIONSCHEDULEMODEL_H
