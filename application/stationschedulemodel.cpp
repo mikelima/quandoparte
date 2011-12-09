@@ -175,7 +175,7 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
             departures << current.toPlainText();
             StationScheduleItem schedule = parseResult(current);
             if (schedule.isValid()) {
-                m_schedules << schedule;
+                m_departureSchedules << schedule;
             }
         }
         current = current.nextSibling();
@@ -188,17 +188,16 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     while (!current.classes().contains("footer")) {
         if (current.classes().contains("bloccorisultato")) {
             arrivals << current.toPlainText();
+            StationScheduleItem schedule = parseResult(current);
+            if (schedule.isValid()) {
+                m_arrivalSchedules << schedule;
+            }
         }
         current = current.nextSibling();
         qDebug() << "marking as arrival";
         if (current.isNull())
             break;
     }
-
-    qDebug() << "departures list contain:";
-    qDebug() << departures;
-    //qDebug() << "arrivals list contain:";
-    //qDebug() << arrivals;
     endInsertRows();
     emit layoutChanged();
 }
@@ -213,8 +212,8 @@ void StationScheduleModel::fetch(const QString &name)
 
 int StationScheduleModel::rowCount(const QModelIndex &parent) const
 {
-    qDebug() << "schedule.count" << m_schedules.count();
-    return m_schedules.count();
+    qDebug() << "schedule.count" << m_departureSchedules.count();
+    return m_departureSchedules.count();
 }
 
 QVariant StationScheduleModel::data(const QModelIndex &index, int role) const
@@ -223,10 +222,10 @@ QVariant StationScheduleModel::data(const QModelIndex &index, int role) const
     if (!index.isValid()) {
         return QVariant();
     }
-    if (index.row() >= m_schedules.count()) {
+    if (index.row() >= m_departureSchedules.count()) {
         return QVariant();
     }
-    StationScheduleItem item = m_schedules[index.row()];
+    StationScheduleItem item = m_departureSchedules[index.row()];
     switch (role) {
     case Qt::DisplayRole:
     case TrainRole:
