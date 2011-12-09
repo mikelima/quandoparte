@@ -28,7 +28,10 @@ fn:not(fn:exists($node//tag[@k='disused'])) or fn:contains($node//tag[@k='disuse
 $node/tag[@k='operator'] and (
 fn:contains($node//tag[@k='operator']/@v, 'RFI') or 
 fn:contains($node//tag[@k='operator']/@v, 'Centostazioni') or 
-fn:contains($node//tag[@k='operator']/@v, 'Grandi Stazioni')))
+fn:contains($node//tag[@k='operator']/@v, 'Grandi Stazioni') or
+fn:contains($node//tag[@k='operator']/@v, 'FNM') or
+fn:contains($node//tag[@k='operator']/@v, 'FER')
+))
 return 
 <station>
 <pos>{
