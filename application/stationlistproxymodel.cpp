@@ -42,9 +42,10 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     setRoleNames(roles);
 
     Settings *settings = Settings::instance();
-    m_sortingMode = settings->stationListSortingMode();
+    forceSortingMode(settings->stationListSortingMode());
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setSortCaseSensitivity(Qt::CaseInsensitive);
+    setDynamicSortFilter(true);
     if (positionInfoSource) {
         qDebug() << "position info source available";
         connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
@@ -52,6 +53,9 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     } else {
         qDebug() << "No position info source available";
     }
+    connect(settings, SIGNAL(recentStationsChanged()),
+            this, SLOT(updateRecentStations()));
+    updateRecentStations();
 }
 
 bool StationListProxyModel::lessThan(const QModelIndex &left,
@@ -72,12 +76,26 @@ bool StationListProxyModel::lessThan(const QModelIndex &left,
 
 void StationListProxyModel::setUserPosition(const QtMobility::QGeoCoordinate &pos)
 {
+    qDebug() << "Position is now" << pos;
     m_here = pos;
+    if (sortingMode() == StationListProxyModel::DistanceSorting) {
+        invalidate();
+    }
 }
 
 void StationListProxyModel::setRecentStations(const QStringList &stations)
 {
+    qDebug() << "Recent stations are now" << stations;
     m_stations = stations;
+    if (sortingMode() == StationListProxyModel::RecentUsageSorting) {
+        invalidate();
+    }
+}
+
+void StationListProxyModel::updateRecentStations(void)
+{
+    Settings *settings = Settings::instance();
+    setRecentStations(settings->recentStations());
 }
 
 bool StationListProxyModel::filterAcceptsRow(int sourceRow,
@@ -119,36 +137,41 @@ StationListProxyModel::SortingMode StationListProxyModel::sortingMode()
 void StationListProxyModel::setSortingMode(SortingMode mode)
 {
     if (mode != m_sortingMode) {
-        qDebug() << "setSorting Mode" << mode << m_sortingMode << "called";
-        m_sortingMode = mode;
-        setRecentOnlyFilter(false);
-
-        switch (mode) {
-        case StationListProxyModel::AlphaSorting:
-            setSortRole(Qt::DisplayRole);
-            break;
-        case StationListProxyModel::DistanceSorting:
-            setSortRole(StationListModel::PositionRole);
-            break;
-        case StationListProxyModel::RecentUsageSorting:
-            setRecentOnlyFilter(true);
-            break;
-        default:
-            break;
-        }
-        if (mode == StationListProxyModel::DistanceSorting) {
-            positionInfoSource->startUpdates();
-        } else {
-            positionInfoSource->stopUpdates();
-        }
-        invalidate();
-        sort(0);
-
-        Settings *settings = Settings::instance();
-        settings->setStationListSortingMode(m_sortingMode);
-
-        emit sortingModeChanged(mode);
+        beginResetModel();
+        forceSortingMode(mode);
+        endResetModel();
     }
+    Settings *settings = Settings::instance();
+    settings->setStationListSortingMode(m_sortingMode);
+
+    emit sortingModeChanged(mode);
+}
+
+void StationListProxyModel::forceSortingMode(SortingMode mode)
+{
+    m_sortingMode = mode;
+    setRecentOnlyFilter(false);
+
+    switch (mode) {
+    case StationListProxyModel::AlphaSorting:
+        setSortRole(Qt::DisplayRole);
+        break;
+    case StationListProxyModel::DistanceSorting:
+        setSortRole(StationListModel::PositionRole);
+        break;
+    case StationListProxyModel::RecentUsageSorting:
+        setRecentOnlyFilter(true);
+        break;
+    default:
+        break;
+    }
+    if (mode == StationListProxyModel::DistanceSorting) {
+        positionInfoSource->startUpdates();
+    } else {
+        positionInfoSource->stopUpdates();
+    }
+    invalidate();
+    sort(0);
 }
 
 void StationListProxyModel::updatePosition(const QtMobility::QGeoPositionInfo &update)
