@@ -64,11 +64,13 @@ void DataProvider::fetchStationSchedule(const QString &station)
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),
             SLOT(onStationScheduleFetched()));
-    settings->recentStations().push_front(station);
-    settings->recentStations().removeDuplicates();
-    if (settings->recentStations().count() > RECENT_STATIONS_MAX_COUNT) {
-        settings->recentStations().pop_back();
+    QStringList recentStations = settings->recentStations();
+    recentStations.push_front(station);
+    recentStations.removeDuplicates();
+    if (recentStations.count() > RECENT_STATIONS_MAX_COUNT) {
+        recentStations.pop_back();
     }
+    settings->setRecentStations(recentStations);
 }
 
 void DataProvider::updateStation()
