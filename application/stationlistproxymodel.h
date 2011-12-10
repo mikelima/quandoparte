@@ -64,9 +64,12 @@ protected:
     virtual bool filterAcceptsRow(int sourceRow,
             const QModelIndex &sourceParent) const;
 
+private:
+    void forceSortingMode(SortingMode mode);
+
 private slots:
     void updatePosition(const QGeoPositionInfo &update);
-
+    void updateRecentStations(void);
 private:
     QString m_searchPattern;
     QGeoPositionInfoSource *positionInfoSource;
