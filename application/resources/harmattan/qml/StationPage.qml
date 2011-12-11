@@ -6,7 +6,6 @@ import "uiconstants.js" as UiConstants
 
 Page {
     property alias name: schedule.name
-    anchors.fill: parent
 
     tools: ToolBarLayout {
         id: toolBar
@@ -16,7 +15,7 @@ Page {
     PageHeader {
         id: header
         anchors.top: parent.top
-        selectedIndex: settings.showArrivalsPreferred ? 1 : 0
+        selectedIndex: schedule.type
         options: ListModel {
             id: dialogOptions
             ListElement {
@@ -28,36 +27,39 @@ Page {
         }
     }
     InfoBar {
-        id: info
+        id: infoBar
         anchors.top: header.bottom
         text: parent.name
     }
-    DroppedShadow {
-        id: shadow
-        anchors.top: view.top
-    }
     Binding {
-        target: settings
-        property: "showArrivalsPreferred"
-        value: header.selectedIndex === 1 ? true : false
+        target: schedule
+        property: "type"
+        value: header.selectedIndex
     }
     LabelStyle {
         id: labelStyle
     }
     Item {
         id: view
-        anchors.top: info.bottom
-        x: 16
-        y: 16
-        width: parent.width - 32
-        height: parent.height
-
+        anchors {
+            top: infoBar.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+        }
+        DroppedShadow {
+            id: shadow
+            anchors.top: view.top
+        }
         ListView {
             id: stationScheduleView
             clip: true
             visible: false
             width: parent.width
-            height: parent.height
+            anchors {
+                top: shadow.top
+                bottom: parent.bottom
+            }
             model:  schedule
             delegate: Item {
                 id: listItem
@@ -79,9 +81,16 @@ Page {
                         Row {
                             spacing: UiConstants.ButtonSpacing
                             Label {
+                                text: arrivalTime
+                                font.bold: UiConstants.SpecialFontBoldness
+                                font.pixelSize: UiConstants.SpecialFontPixelSize
+                                visible: schedule.type === StationScheduleModel.ArrivalSchedule
+                            }
+                            Label {
                                 text: departureTime
                                 font.bold: UiConstants.SpecialFontBoldness
                                 font.pixelSize: UiConstants.SpecialFontPixelSize
+                                visible: schedule.type === StationScheduleModel.DepartureSchedule
                             }
                             Label {
                                 text: train
@@ -91,9 +100,16 @@ Page {
                             }
                         }
                         Label {
-                            text: qsTr("per ") + departureStation
+                            text: qsTr("from ") + arrivalStation
                             font.bold: UiConstants.DefaultFontBoldness
                             font.pixelSize: UiConstants.DefaultFontPixelSize
+                            visible: schedule.type === StationScheduleModel.ArrivalSchedule
+                        }
+                        Label {
+                            text: qsTr("to ") + departureStation
+                            font.bold: UiConstants.DefaultFontBoldness
+                            font.pixelSize: UiConstants.DefaultFontPixelSize
+                            visible: schedule.type === StationScheduleModel.DepartureSchedule
                         }
                         Label {
                             text: delay
@@ -106,6 +122,13 @@ Page {
                     source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
                     anchors.right: parent.right;
                     anchors.verticalCenter: parent.verticalCenter
+                }
+                Image {
+                    anchors {
+                        left: parent.left
+                        right: parent.right
+                    }
+                    source: "image://theme/meegotouch-separator-background-horizontal"
                 }
                 MouseArea {
                     id: mouseArea
@@ -125,7 +148,7 @@ Page {
             platformStyle: BusyIndicatorStyle {
                 size: "large"
             }
-            anchors.centerIn: view
+            anchors.centerIn: parent
             visible: !stationScheduleView.visible
             running: visible
         }
