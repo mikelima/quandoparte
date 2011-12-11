@@ -32,6 +32,8 @@ class StationScheduleModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(ScheduleType type READ type WRITE setType NOTIFY typeChanged)
+    Q_ENUMS(ScheduleType)
 
     enum StationRoles {
         TrainRole = Qt::UserRole +1,
@@ -45,16 +47,25 @@ class StationScheduleModel : public QAbstractListModel
     };
 
 public:
+    enum ScheduleType {
+        DepartureSchedule,
+        ArrivalSchedule
+    };
+
     explicit StationScheduleModel(const QString &name = "", QObject *parent = 0);
 
     QString &name();
     void setName(const QString &name);
+
+    ScheduleType type();
+    void setType(ScheduleType type);
 
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
 
 signals:
     void nameChanged();
+    void typeChanged();
 
 public slots:
     void fetch(const QString &name);
@@ -66,6 +77,7 @@ private:
     QString m_name;
     QList<StationScheduleItem> m_departureSchedules;
     QList<StationScheduleItem> m_arrivalSchedules;
+    ScheduleType m_scheduleType;
 };
 
 #endif // STATIONSCHEDULEMODEL_H

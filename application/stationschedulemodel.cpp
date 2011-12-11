@@ -22,11 +22,13 @@ Boston, MA 02110-1301, USA.
 #include "stationschedulemodel.h"
 
 #include "dataprovider.h"
+#include "settings.h"
 
 #include <QDebug>
 #include <QWebElement>
 #include <QWebFrame>
 #include <QWebPage>
+
 StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent) :
     QAbstractListModel(parent),
     m_name(name)
@@ -38,8 +40,8 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
     roles[DepartureStationRole] = "departureStation";
     roles[DepartureTimeRole] = "departureTime";
     roles[ArrivalStationRole] = "arrivalStation";
-    roles[ArrivalTimeRole] = "ArrivalTime";
-    roles[DetailsUrlRole] = "DetailsUrl";
+    roles[ArrivalTimeRole] = "arrivalTime";
+    roles[DetailsUrlRole] = "detailsUrl";
     roles[DelayRole] = "delay";
     roles[DelayClassRole] = "delayClassRole";
     setRoleNames(roles);
@@ -58,6 +60,25 @@ void StationScheduleModel::setName(const QString &name)
     if (name != m_name) {
         m_name = name;
         emit nameChanged();
+    }
+}
+
+StationScheduleModel::ScheduleType StationScheduleModel::type()
+{
+    return m_scheduleType;
+}
+
+void StationScheduleModel::setType(StationScheduleModel::ScheduleType type)
+{
+    if (type != m_scheduleType) {
+        emit layoutAboutToBeChanged();
+        beginResetModel();
+        m_scheduleType = type;
+        emit typeChanged();
+        endResetModel();
+        emit layoutChanged();
+        Settings *settings = Settings::instance();
+        settings->setShowArrivalsPreferred(m_scheduleType == ArrivalSchedule ? true : false);
     }
 }
 
@@ -149,7 +170,7 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     qDebug() << "--- end of query result ----- cut here ------";
 
     emit layoutAboutToBeChanged();
-    beginInsertRows(QModelIndex(), 0, 0);
+    beginResetModel();
     QWebPage page;
     page.mainFrame()->setContent(htmlReply, "text/html", baseUrl);
     QWebElement doc = page.mainFrame()->documentElement();
@@ -198,7 +219,7 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
         if (current.isNull())
             break;
     }
-    endInsertRows();
+    endResetModel();
     emit layoutChanged();
 }
 
@@ -212,8 +233,14 @@ void StationScheduleModel::fetch(const QString &name)
 
 int StationScheduleModel::rowCount(const QModelIndex &parent) const
 {
-    qDebug() << "schedule.count" << m_departureSchedules.count();
-    return m_departureSchedules.count();
+    Q_UNUSED(parent);
+    if (m_scheduleType == DepartureSchedule) {
+        qDebug() << "schedule.count" << m_departureSchedules.count();
+        return m_departureSchedules.count();
+    } else {
+        qDebug() << "schedule.count" << m_arrivalSchedules.count();
+        return m_arrivalSchedules.count();
+    }
 }
 
 QVariant StationScheduleModel::data(const QModelIndex &index, int role) const
@@ -222,10 +249,12 @@ QVariant StationScheduleModel::data(const QModelIndex &index, int role) const
     if (!index.isValid()) {
         return QVariant();
     }
-    if (index.row() >= m_departureSchedules.count()) {
+    const QList<StationScheduleItem> &schedules =
+            (m_scheduleType == DepartureSchedule) ? m_departureSchedules : m_arrivalSchedules;
+    if (index.row() < 0 || index.row() >= schedules.count()) {
         return QVariant();
     }
-    StationScheduleItem item = m_departureSchedules[index.row()];
+    StationScheduleItem item = schedules[index.row()];
     switch (role) {
     case Qt::DisplayRole:
     case TrainRole:
