@@ -65,7 +65,6 @@ View::View(QWidget *parent) :
     future = QtConcurrent::run(
                 stationListModel, &StationListModel::load,
                 trueFilePath("stations:stations.qpl"));
-
     stationListProxyModel->setSourceModel(stationListModel);
 
     /* Types to be made accessible to QML */
