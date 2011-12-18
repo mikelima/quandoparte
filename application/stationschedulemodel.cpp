@@ -43,7 +43,7 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
     roles[ArrivalTimeRole] = "arrivalTime";
     roles[DetailsUrlRole] = "detailsUrl";
     roles[DelayRole] = "delay";
-    roles[DelayClassRole] = "delayClassRole";
+    roles[DelayClassRole] = "delayClass";
     setRoleNames(roles);
 
     connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
