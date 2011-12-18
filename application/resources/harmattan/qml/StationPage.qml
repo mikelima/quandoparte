@@ -74,8 +74,10 @@ Page {
                 }
                 Row {
                     anchors.fill: parent
-
                     spacing: UiConstants.ButtonSpacing
+                    DelayIndicator {
+                        level: delayClass
+                    }
                     Column {
                         anchors.verticalCenter: parent.verticalCenter
                         Row {
