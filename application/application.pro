@@ -124,7 +124,8 @@ OTHER_FILES += \
     resources/harmattan/qml/StationListPage.js \
     resources/harmattan/qml/AboutPage.qml \
     resources/harmattan/qml/InfoBar.qml \
-    resources/harmattan/qml/DroppedShadow.qml
+    resources/harmattan/qml/DroppedShadow.qml \
+    resources/harmattan/qml/DelayIndicator.qml
 
 unix {
     isEmpty(PREFIX) {
@@ -196,4 +197,5 @@ harmattan {
     qml.path = $$DATADIR/qml
     INSTALLS += qml
 }
+
 
