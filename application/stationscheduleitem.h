@@ -58,6 +58,12 @@ public:
     int delayClass();
     void setDelayClass(const int value);
 
+    QString &expectedPlatform();
+    void setExpectedPlatform(const QString &value);
+
+    QString &actualPlatform();
+    void setActualPlatform(const QString &value);
+
     bool isValid();
 private:
     QSharedDataPointer<StationScheduleItemData> d;

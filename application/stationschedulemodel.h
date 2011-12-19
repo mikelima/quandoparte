@@ -43,7 +43,9 @@ class StationScheduleModel : public QAbstractListModel
         ArrivalTimeRole,
         DetailsUrlRole,
         DelayRole,
-        DelayClassRole
+        DelayClassRole,
+        ExpectedPlatformRole,
+        ActualPlatformRole
     };
 
 public:

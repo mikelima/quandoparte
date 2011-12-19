@@ -32,6 +32,8 @@ public:
     QString arrivalTime;
     QString detailsUrl;
     QString delay;
+    QString expectedPlatform;
+    QString actualPlatform;
     int delayClass;
 };
 
@@ -132,6 +134,26 @@ int StationScheduleItem::delayClass()
 void StationScheduleItem::setDelayClass(const int value)
 {
     d->delayClass = value;
+}
+
+QString &StationScheduleItem::expectedPlatform()
+{
+    return d->expectedPlatform;
+}
+
+void StationScheduleItem::setExpectedPlatform(const QString &value)
+{
+    d->expectedPlatform = value;
+}
+
+QString &StationScheduleItem::actualPlatform()
+{
+    return d->actualPlatform;
+}
+
+void StationScheduleItem::setActualPlatform(const QString &value)
+{
+    d->actualPlatform = value;
 }
 
 bool StationScheduleItem::isValid()
