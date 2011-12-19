@@ -279,6 +279,10 @@ QVariant StationScheduleModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(item.delay());
     case DelayClassRole:
         return QVariant::fromValue(item.delayClass());
+    case ExpectedPlatformRole:
+        return QVariant::fromValue(item.expectedPlatform());
+    case ActualPlatformRole:
+        return QVariant::fromValue(item.actualPlatform());
     default:
         return QVariant::fromValue(QString("Unknown role requested"));
     }
