@@ -44,6 +44,8 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
     roles[DetailsUrlRole] = "detailsUrl";
     roles[DelayRole] = "delay";
     roles[DelayClassRole] = "delayClass";
+    roles[ExpectedPlatformRole] = "expectedPlatform";
+    roles[ActualPlatformRole] = "actualPlatform";
     setRoleNames(roles);
 
     connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
@@ -132,6 +134,8 @@ static void parseTrain(const QString &text, StationScheduleItem &item)
             item.setArrivalTime(filter.cap(3));
         }
         item.setDelay(filter.cap(6));
+        item.setExpectedPlatform(filter.cap(4));
+        item.setActualPlatform(filter.cap(5));
     } else {
         qDebug() << "could not parse" << text;
     }
@@ -158,6 +162,8 @@ StationScheduleItem parseResult(const QWebElement &result)
     qDebug() << "departureTime:" << item.departureTime();
     qDebug() << "arrivalStation:" << item.arrivalStation();
     qDebug() << "arrivalTime:" << item.arrivalTime();
+    qDebug() << "expectedPlatform:" << item.expectedPlatform();
+    qDebug() << "actualPlatform:" << item.actualPlatform();
     qDebug() << "delay:" << item.delay();
     return item;
 }
