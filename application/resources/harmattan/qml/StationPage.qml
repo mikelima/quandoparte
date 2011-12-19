@@ -73,6 +73,7 @@ Page {
                     source: "image://theme/meegotouch-list-background-pressed-center"
                 }
                 Row {
+                    id: bodyRow
                     anchors.fill: parent
                     spacing: UiConstants.ButtonSpacing
                     DelayIndicator {
@@ -114,16 +115,22 @@ Page {
                             visible: schedule.type === StationScheduleModel.DepartureSchedule
                         }
                         Label {
+                            id: delayLabel
                             text: delay
                             font.bold: UiConstants.SubtitleFontBoldness
                             font.pixelSize: UiConstants.SubtitleFontPixelSize
                         }
                     }
-                }
-                Image {
-                    source: "image://theme/icon-m-common-drilldown-arrow" + (theme.inverted ? "-inverse" : "")
-                    anchors.right: parent.right;
-                    anchors.verticalCenter: parent.verticalCenter
+                    Label {
+                        anchors {
+                            bottom: bodyRow.bottom
+                            right: bodyRow.right
+                            rightMargin: UiConstants.DefaultMargin
+                        }
+                        text: qsTr("Platform ") + actualPlatform
+                        font.bold: UiConstants.SubtitleFontBoldness
+                        font.pixelSize: UiConstants.SubtitleFontPixelSize
+                    }
                 }
                 Image {
                     anchors {
