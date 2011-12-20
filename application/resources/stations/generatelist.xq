@@ -30,7 +30,9 @@ fn:contains($node//tag[@k='operator']/@v, 'RFI') or
 fn:contains($node//tag[@k='operator']/@v, 'Centostazioni') or 
 fn:contains($node//tag[@k='operator']/@v, 'Grandi Stazioni') or
 fn:contains($node//tag[@k='operator']/@v, 'FNM') or
-fn:contains($node//tag[@k='operator']/@v, 'FER')
+fn:contains($node//tag[@k='operator']/@v, 'FER') or
+fn:contains($node//tag[@k='operator']/@v, 'RFT') or
+fn:contains($node//tag[@k='operator']/@v, 'LFI')
 ))
 return 
 <station>
