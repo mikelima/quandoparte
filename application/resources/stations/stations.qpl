@@ -3312,8 +3312,20 @@
         <name>Chiaravalle</name>
     </station>
     <station>
+        <pos>43.5737724,11.8653822</pos>
+        <name>Subbiano</name>
+    </station>
+    <station>
         <pos>43.8793024,10.7806932</pos>
         <name>Montecatini Terme-Monsummano</name>
+    </station>
+    <station>
+        <pos>43.5635782,11.8567753</pos>
+        <name>Capolona</name>
+    </station>
+    <station>
+        <pos>43.4631862,11.8582759</pos>
+        <name>Arezzo Pescaiola</name>
     </station>
     <station>
         <pos>42.3808792,12.4397948</pos>
@@ -3324,7 +3336,19 @@
         <name>Migliarino Pisano</name>
     </station>
     <station>
-        <pos>42.6605021,13.71582</pos>
+        <pos>43.7445934,11.7464653</pos>
+        <name>Porrena</name>
+    </station>
+    <station>
+        <pos>43.7302584,11.7680261</pos>
+        <name>Poppi</name>
+    </station>
+    <station>
+        <pos>43.7877102,11.7230864</pos>
+        <name>Pratovecchio</name>
+    </station>
+    <station>
+        <pos>42.6605021,13.7158200</pos>
         <name>Teramo</name>
     </station>
     <station>
@@ -3342,6 +3366,10 @@
     <station>
         <pos>42.0798896,14.7393824</pos>
         <name>Vasto S.Salvo</name>
+    </station>
+    <station>
+        <pos>43.5268138,11.8646372</pos>
+        <name>Giovi</name>
     </station>
     <station>
         <pos>42.7672917,11.1065103</pos>
@@ -3474,6 +3502,22 @@
     <station>
         <pos>43.0716379,12.5467986</pos>
         <name>Bastia</name>
+    </station>
+    <station>
+        <pos>43.6933479,11.8096011</pos>
+        <name>Bibbiena</name>
+    </station>
+    <station>
+        <pos>43.6859956,11.8257144</pos>
+        <name>Bibbiena Corsalone</name>
+    </station>
+    <station>
+        <pos>43.6113115,11.8640386</pos>
+        <name>Calbenzano</name>
+    </station>
+    <station>
+        <pos>43.7948678,11.7151787</pos>
+        <name>Pratovecchio Stia</name>
     </station>
     <station>
         <pos>43.3408433,11.9143232</pos>
@@ -4930,6 +4974,26 @@
     <station>
         <pos>43.6263443,13.3815002</pos>
         <name>Falconara Stadio</name>
+    </station>
+    <station>
+        <pos>43.5968206,11.8713561</pos>
+        <name>Baciano</name>
+    </station>
+    <station>
+        <pos>43.4702757,11.8674686</pos>
+        <name>Casello 1</name>
+    </station>
+    <station>
+        <pos>43.7116340,11.7855647</pos>
+        <name>Memmenano</name>
+    </station>
+    <station>
+        <pos>43.4943007,11.8725526</pos>
+        <name>Puglia - Ceciliano</name>
+    </station>
+    <station>
+        <pos>43.6280360,11.8538739</pos>
+        <name>Santa Mama</name>
     </station>
     <station>
         <pos>41.2117465,14.5260239</pos>
