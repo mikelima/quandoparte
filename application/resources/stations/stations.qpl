@@ -3028,10 +3028,6 @@
         <name>Varano</name>
     </station>
     <station>
-        <pos>43.7768935,11.2771317</pos>
-        <name>Firenze Campo di Marte</name>
-    </station>
-    <station>
         <pos>43.8371478,10.5061393</pos>
         <name>Lucca</name>
     </station>
@@ -3088,6 +3084,10 @@
         <name>Rosignano</name>
     </station>
     <station>
+        <pos>42.2975306,12.5229311</pos>
+        <name>Collevecchio-Poggio Sommavilla</name>
+    </station>
+    <station>
         <pos>43.9118045,10.2477178</pos>
         <name>Camaiore Lido Capezzano</name>
     </station>
@@ -3142,6 +3142,10 @@
     <station>
         <pos>42.4081046,11.3709979</pos>
         <name>Capalbio</name>
+    </station>
+    <station>
+        <pos>43.9598368,11.3802303</pos>
+        <name>Borgo San Lorenzo</name>
     </station>
     <station>
         <pos>42.1025372,13.8763035</pos>
@@ -3236,6 +3240,22 @@
         <name>Civita Castellana-Magliano</name>
     </station>
     <station>
+        <pos>42.4253491,12.1061904</pos>
+        <name>Viterbo Porta Fiorentina</name>
+    </station>
+    <station>
+        <pos>42.5202678,12.0504062</pos>
+        <name>Montefiascone</name>
+    </station>
+    <station>
+        <pos>42.5147066,12.1700543</pos>
+        <name>Grotte Santo Stefano</name>
+    </station>
+    <station>
+        <pos>42.5174291,12.2956658</pos>
+        <name>Attigliano</name>
+    </station>
+    <station>
         <pos>42.4376024,12.4090498</pos>
         <name>Orte</name>
     </station>
@@ -3250,6 +3270,10 @@
     <station>
         <pos>43.8590731,10.3460724</pos>
         <name>Massarosa Bozzano</name>
+    </station>
+    <station>
+        <pos>43.8222682,11.4850811</pos>
+        <name>Rufina</name>
     </station>
     <station>
         <pos>42.4212545,14.2879084</pos>
@@ -3336,8 +3360,16 @@
         <name>Arezzo Pescaiola</name>
     </station>
     <station>
+        <pos>43.9584246,11.3232363</pos>
+        <name>San Piero a Sieve</name>
+    </station>
+    <station>
         <pos>42.3808792,12.4397948</pos>
         <name>Gallese Teverina</name>
+    </station>
+    <station>
+        <pos>42.5464745,12.2544186</pos>
+        <name>Sipicciano</name>
     </station>
     <station>
         <pos>43.7640035,10.3425463</pos>
@@ -3380,6 +3412,10 @@
         <name>Giovi</name>
     </station>
     <station>
+        <pos>43.7775631,11.2765781</pos>
+        <name>Firenze Campo di Marte</name>
+    </station>
+    <station>
         <pos>42.7672917,11.1065103</pos>
         <name>Grosseto</name>
     </station>
@@ -3402,6 +3438,10 @@
     <station>
         <pos>43.0839597,12.3556024</pos>
         <name>Perugia Silvestrini</name>
+    </station>
+    <station>
+        <pos>42.2899465,12.5684607</pos>
+        <name>Stimigliano</name>
     </station>
     <station>
         <pos>42.5646461,11.1645553</pos>
@@ -3486,6 +3526,10 @@
     <station>
         <pos>42.0006497,14.992693</pos>
         <name>Termoli</name>
+    </station>
+    <station>
+        <pos>42.0067196,12.5201930</pos>
+        <name>Settebagni</name>
     </station>
     <station>
         <pos>42.0537169,13.8344847</pos>
