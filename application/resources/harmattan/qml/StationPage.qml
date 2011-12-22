@@ -144,6 +144,8 @@ Page {
                     anchors.fill: background
                     onClicked: {
                         // Load an external page about the train, for now
+                        Qt.openUrlExternally(settings.queryBaseUrl + "/" + detailsUrl)
+                        console.log(settings.queryBaseUrl + "/" + detailsUrl)
                     }
                 }
             }
@@ -183,5 +185,7 @@ Page {
         onNameChanged: schedule.fetch(name)
         onLayoutChanged: view.state = "ready"
     }
-
+    Settings {
+        id: settings
+    }
  }

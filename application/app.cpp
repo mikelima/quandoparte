@@ -158,7 +158,7 @@ void App::showStationSelectView(void)
 void App::readSettings(void)
 {
     Settings *settings = Settings::instance();
-    stationView->setBaseUrl(settings->queryBaseUrl());
+    stationView->setBaseUrl(settings->queryBaseUrl() + "stazione");
 
     /*
        I would use > 0 here, but people may have an old settings file with a 2
