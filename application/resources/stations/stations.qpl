@@ -2480,6 +2480,14 @@
         <name>Crevalcore</name>
     </station>
     <station>
+        <pos>44.6088761,10.6794992</pos>
+        <name>Pratissolo</name>
+    </station>
+    <station>
+        <pos>44.6345619,10.6656065</pos>
+        <name>Bosco</name>
+    </station>
+    <station>
         <pos>45.9068263,13.2964630</pos>
         <name>Palmanova</name>
     </station>
@@ -3272,6 +3280,10 @@
         <name>Massarosa Bozzano</name>
     </station>
     <station>
+        <pos>43.0865720,11.5523753</pos>
+        <name>Torrenieri-Montalcino</name>
+    </station>
+    <station>
         <pos>43.8222682,11.4850811</pos>
         <name>Rufina</name>
     </station>
@@ -3312,12 +3324,32 @@
         <name>Firenze S.M.N.</name>
     </station>
     <station>
+        <pos>43.2832940,11.6025045</pos>
+        <name>Rapolano Terme</name>
+    </station>
+    <station>
         <pos>42.9266731,10.7557492</pos>
         <name>Follonica</name>
     </station>
     <station>
         <pos>42.4443322,14.2070413</pos>
         <name>Pescara San Marco</name>
+    </station>
+    <station>
+        <pos>43.1532064,11.5937927</pos>
+        <name>S.Giovanni d'Asso</name>
+    </station>
+    <station>
+        <pos>43.2355032,11.5798678</pos>
+        <name>Asciano</name>
+    </station>
+    <station>
+        <pos>42.9762930,11.5459660</pos>
+        <name>Monte Amiata</name>
+    </station>
+    <station>
+        <pos>42.9647096,11.4284439</pos>
+        <name>S.Angelo-Cinigiano</name>
     </station>
     <station>
         <pos>43.2816309,13.4776649</pos>
@@ -3374,6 +3406,10 @@
     <station>
         <pos>43.7640035,10.3425463</pos>
         <name>Migliarino Pisano</name>
+    </station>
+    <station>
+        <pos>43.2567260,11.7064586</pos>
+        <name>Rigomagno</name>
     </station>
     <station>
         <pos>43.7445934,11.7464653</pos>
@@ -3650,6 +3686,10 @@
     <station>
         <pos>43.9777544,10.1994670</pos>
         <name>Forte dei Marmi Serravezza Q.</name>
+    </station>
+    <station>
+        <pos>42.9810641,11.3598394</pos>
+        <name>Monte Antico</name>
     </station>
     <station>
         <pos>40.9400475,14.2634730</pos>
@@ -4950,6 +4990,14 @@
     <station>
         <pos>44.5510644,11.1964325</pos>
         <name>Anzola</name>
+    </station>
+    <station>
+        <pos>44.5575894,10.7631121</pos>
+        <name>Villalunga</name>
+    </station>
+    <station>
+        <pos>44.5501631,10.7663857</pos>
+        <name>Veggia</name>
     </station>
     <station>
         <pos>44.0745317,10.0161998</pos>
