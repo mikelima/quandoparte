@@ -35,9 +35,12 @@ Boston, MA 02110-1301, USA.
 
 // search Paths seem to be broken in Harmattan?
 
-static QString trueFilePath(QString path)
+static QString trueFilePath(const QString &path)
 {
     qDebug() << "searching for" << path;
+#if USE_RESOURCES
+    return path;
+#else
     QString searchPathName = path.section(':', 0, 0);
     qDebug() << "path is" << searchPathName;
     QString fileName = path.section(':', 1, 1);
@@ -54,6 +57,7 @@ static QString trueFilePath(QString path)
     }
     qDebug() << "file not found";
     return QString();
+#endif
 }
 
 View::View(QWidget *parent) :
@@ -84,7 +88,8 @@ View::View(QWidget *parent) :
     // This does not seem ot work in harmattan. As a workaround, change dir to
     // the qml dir, then load the file.
     // m_view->setSource(QUrl::fromLocalFile("qml:main.qml"));
-    setSource(QUrl::fromLocalFile(trueFilePath("qml:main.qml")));
+    future.waitForFinished();
+    setSource(trueFilePath("qml:main.qml"));
 }
 
 View::~View()

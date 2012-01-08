@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 VERSION = 0.4.80
+USE_RESOURCES=0
 
 QT += webkit network
 CONFIG += qt webkit mobility
@@ -64,6 +65,10 @@ TARGET = quandoparte
 TEMPLATE = app
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
+
+contains(USE_RESOURCES,1) {
+    DEFINES += USE_RESOURCES=1
+}
 
 !debug {
 #    DEFINES += QT_NO_DEBUG_OUTPUT
@@ -151,7 +156,11 @@ unix {
 
     BINDIR=$$PREFIX/bin
     DESKTOPDIR=$$PREFIX/share/applications
-    DATADIR=$$PREFIX/share/apps/$${TARGET}
+    contains(USE_RESOURCES,1) {
+        DATADIR=":"
+    } else {
+        DATADIR=$$PREFIX/share/apps/$${TARGET}
+    }
     DEFINES += DATADIR=\\\"$${DATADIR}\\\" PKGDATADIR=\\\"$${PKGDATADIR}\\\"
 }
 
@@ -188,15 +197,22 @@ unix:!symbian {
     INSTALLS += icon48
     INSTALLS += icon64
     INSTALLS += iconscalable
-    INSTALLS += css
-    INSTALLS += i18n
-    INSTALLS += stations
+    !contains(USE_RESOURCES,1) {
+        INSTALLS += css
+        INSTALLS += i18n
+        INSTALLS += stations
+    }
 }
 
-harmattan {
-    qml.files = resources/harmattan/qml/*.qml resources/harmattan/qml/*.js
-    qml.path = $$DATADIR/qml
-    INSTALLS += qml
+!contains(USE_RESOURCES,1) {
+    harmattan {
+        qml.files = resources/harmattan/qml/*.qml resources/harmattan/qml/*.js
+        qml.path = $$DATADIR/qml
+        INSTALLS += qml
+    }
 }
 
-
+contains(USE_RESOURCES,1) {
+    RESOURCES += \
+        quandoparte.qrc
+}

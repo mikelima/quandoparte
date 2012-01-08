@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="uiconstants.js">resources/harmattan/qml/uiconstants.js</file>
+        <file alias="StationPage.qml">resources/harmattan/qml/StationPage.qml</file>
+        <file alias="StationListPage.qml">resources/harmattan/qml/StationListPage.qml</file>
+        <file alias="StationListPage.js">resources/harmattan/qml/StationListPage.js</file>
+        <file alias="SearchBar.qml">resources/harmattan/qml/SearchBar.qml</file>
+        <file alias="PageHeader.qml">resources/harmattan/qml/PageHeader.qml</file>
+        <file alias="main.qml">resources/harmattan/qml/main.qml</file>
+        <file alias="InfoBar.qml">resources/harmattan/qml/InfoBar.qml</file>
+        <file alias="DroppedShadow.qml">resources/harmattan/qml/DroppedShadow.qml</file>
+        <file alias="DelayIndicator.qml">resources/harmattan/qml/DelayIndicator.qml</file>
+        <file alias="AboutPage.qml">resources/harmattan/qml/AboutPage.qml</file>
+    </qresource>
+    <qresource prefix="/stations">
+        <file alias="stations.qpl">resources/stations/stations.qpl</file>
+    </qresource>
+    <qresource prefix="/i18n">
+        <file>resources/i18n/quandoparte_it.qm</file>
+    </qresource>
+</RCC>

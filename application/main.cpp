@@ -44,7 +44,11 @@ int main(int argc, char *argv[])
     QDir::setSearchPaths("css", QStringList(DATADIR "/css"));
     QDir::setSearchPaths("stations", QStringList(DATADIR "/stations"));
     QDir::setSearchPaths("i18n", QStringList(DATADIR "/i18n"));
+#ifdef USE_RESOURCES
+    QDir::setSearchPaths("qml", QStringList(DATADIR ""));
+#else
     QDir::setSearchPaths("qml", QStringList(DATADIR "/qml"));
+#endif
 
 #ifdef QT_KEYPAD_NAVIGATION
     QApplication::setNavigationMode(Qt::NavigationModeKeypadTabOrder);
