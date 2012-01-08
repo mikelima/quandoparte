@@ -9,8 +9,8 @@ Page {
 
     tools: ToolBarLayout {
         id: toolBar
-        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
-        ToolIcon { iconId: "icon-m-toolbar-view-menu"; }
+        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop() }
+        ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
     }
     PageHeader {
         id: header
@@ -121,16 +121,16 @@ Page {
                             font.pixelSize: UiConstants.SubtitleFontPixelSize
                         }
                     }
-                    Label {
-                        anchors {
-                            bottom: bodyRow.bottom
-                            right: bodyRow.right
-                            rightMargin: UiConstants.DefaultMargin
-                        }
-                        text: qsTr("Platform ") + actualPlatform
-                        font.bold: UiConstants.SubtitleFontBoldness
-                        font.pixelSize: UiConstants.SubtitleFontPixelSize
+                }
+                Label {
+                    anchors {
+                        bottom: bodyRow.bottom
+                        right: bodyRow.right
+                        rightMargin: UiConstants.DefaultMargin
                     }
+                    text: qsTr("Platform ") + actualPlatform
+                    font.bold: UiConstants.SubtitleFontBoldness
+                    font.pixelSize: UiConstants.SubtitleFontPixelSize
                 }
                 Image {
                     anchors {
