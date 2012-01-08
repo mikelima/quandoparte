@@ -63,6 +63,7 @@ bool StationListModel::load(const QString &filename)
         }
     }
     file.close();
+    qDebug() << rowCount() << "stations loaded";
     if (m_reader.hasError()) {
         qDebug() << "parser error for:" << filename;
         return false;
