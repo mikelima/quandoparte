@@ -106,6 +106,19 @@ symbian {
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
 }
 
+QMLSOURCES = \
+    resources/harmattan/qml/main.qml \
+    resources/harmattan/qml/StationListPage.qml \
+    resources/harmattan/qml/StationPage.qml \
+    resources/harmattan/qml/SearchBar.qml \
+    resources/harmattan/qml/PageHeader.qml \
+    resources/harmattan/qml/uiconstants.js \
+    resources/harmattan/qml/StationListPage.js \
+    resources/harmattan/qml/AboutPage.qml \
+    resources/harmattan/qml/InfoBar.qml \
+    resources/harmattan/qml/DroppedShadow.qml \
+    resources/harmattan/qml/DelayIndicator.qml
+
 OTHER_FILES += \
     resources/harmattan/applications/quandoparte.desktop \
     resources/fremantle/applications/quandoparte.desktop \
@@ -120,17 +133,7 @@ OTHER_FILES += \
     resources/stations/stations.qpl \
     resources/stations/generatelist.xq \
     resources/stations/generateunclassifiedlist.xq \
-    resources/harmattan/qml/main.qml \
-    resources/harmattan/qml/StationListPage.qml \
-    resources/harmattan/qml/StationPage.qml \
-    resources/harmattan/qml/SearchBar.qml \
-    resources/harmattan/qml/PageHeader.qml \
-    resources/harmattan/qml/uiconstants.js \
-    resources/harmattan/qml/StationListPage.js \
-    resources/harmattan/qml/AboutPage.qml \
-    resources/harmattan/qml/InfoBar.qml \
-    resources/harmattan/qml/DroppedShadow.qml \
-    resources/harmattan/qml/DelayIndicator.qml
+    $$QMLSOURCES
 
 unix {
     isEmpty(PREFIX) {
@@ -215,4 +218,8 @@ unix:!symbian {
 contains(USE_RESOURCES,1) {
     RESOURCES += \
         quandoparte.qrc
+}
+
+hack_to_fix_translations {
+    SOURCES += $$QMLSOURCES
 }
