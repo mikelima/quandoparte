@@ -50,6 +50,9 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
 
     connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
             this, SLOT(parse(QByteArray,QUrl)));
+
+    Settings *settings = Settings::instance();
+    m_scheduleType = settings->showArrivalsPreferred() ? ArrivalSchedule : DepartureSchedule;
 }
 
 QString & StationScheduleModel::name()
