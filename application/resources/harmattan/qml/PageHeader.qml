@@ -62,7 +62,8 @@ Rectangle {
     }
     onSelectedIndexChanged: {
         console.log("Selection changed to: " + selectedIndex)
-        if (options === undefined || options.count === 0) {
+        if (options === undefined || options.count === 0 ||
+                options.get(selectedIndex) === undefined) {
             header.text = " "
         } else {
             header.text = options.get(selectedIndex).name
