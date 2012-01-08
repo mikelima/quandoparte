@@ -10,8 +10,7 @@ Page {
     id: stationListPage
     tools: ToolBarLayout {
         id: toolBar
-        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
-        ToolIcon { iconId: "icon-m-toolbar-settings"; onClicked: settingsSheet.open(); }
+        ToolIcon { iconId: "icon-m-toolbar-search"; onClicked: searchField.visible = !searchField.visible; }
         ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
     }
     Menu {
@@ -54,6 +53,7 @@ Page {
     SearchBar {
         id: searchField
         anchors.top: header.bottom
+        visible: false
     }
     Binding {
         target: stationListProxyModel

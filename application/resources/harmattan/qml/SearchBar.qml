@@ -10,7 +10,7 @@ BorderImage {
     border.right: 10
     border.top: 10
     border.bottom: 10
-    height:  UiConstants.SearchBarDefaultHeight
+    height:  visible ? UiConstants.SearchBarDefaultHeight : 0
     source: style.background
 
     ToolBarStyle {
