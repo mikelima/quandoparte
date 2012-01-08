@@ -16,7 +16,7 @@
         <translation type="obsolete">&lt;p&gt;%1 versione %2&lt;/p&gt;&lt;p&gt;Copyright © 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Distribuito secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../app.cpp" line="149"/>
+        <location filename="../../app.cpp" line="138"/>
         <source>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;%1&lt;/a&gt; version %2&lt;/h2&gt;&lt;p&gt;Copyright (c) 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;&lt;p&gt;Station geolocation data from &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Realtime train data from &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;%1&lt;/a&gt; versione %2&lt;/h2&gt;&lt;p&gt;Copyright © 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (mikelima@cirulla.net)&lt;/p&gt;&lt;p&gt;Distribuito secondo la GNU Public License v2 o superiore&lt;/p&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati sui treni in tempo reale da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
@@ -46,7 +46,7 @@
 <context>
     <name>StationListModel</name>
     <message>
-        <location filename="../../stationlistmodel.cpp" line="35"/>
+        <location filename="../../stationlistmodel.cpp" line="59"/>
         <source>Not a qpl file</source>
         <translation>Non è un file qpl</translation>
     </message>
