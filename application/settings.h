@@ -40,16 +40,19 @@ class Settings : public QObject
     Q_PROPERTY(int checkingInterval
                READ checkingInterval WRITE setCheckingInterval
                NOTIFY checkingIntervalChanged)
+    Q_PROPERTY(bool autoUpdate
+               READ autoUpdate WRITE setAutoUpdate
+               NOTIFY autoUpdateChanged)
     Q_PROPERTY(bool stationViewPreferred
                READ stationViewPreferred WRITE setStationViewPreferred
                NOTIFY stationViewPreferredChanged)
     Q_PROPERTY(bool showArrivalsPreferred
                READ showArrivalsPreferred WRITE setShowArrivalsPreferred
                NOTIFY showArrivalsPreferredChanged)
-
     Q_PROPERTY(StationListProxyModel::SortingMode stationListSortingMode
                READ stationListSortingMode WRITE setStationListSortingMode
                NOTIFY stationListSortingModeChanged)
+    Q_PROPERTY(QString versionString READ versionString CONSTANT)
 public:
     explicit Settings(QObject *parent = 0);
     ~Settings();
@@ -66,6 +69,9 @@ public:
     int checkingInterval();
     void setCheckingInterval(int);
 
+    bool autoUpdate();
+    void setAutoUpdate(bool);
+
     bool stationViewPreferred();
     void setStationViewPreferred(bool);
 
@@ -75,10 +81,13 @@ public:
     StationListProxyModel::SortingMode stationListSortingMode();
     void setStationListSortingMode(StationListProxyModel::SortingMode mode);
 
+    QString versionString(void);
+
 signals:
     void queryBaseUrlChanged();
     void recentStationsChanged();
     void checkingIntervalChanged();
+    void autoUpdateChanged();
     void stationViewPreferredChanged();
     void showArrivalsPreferredChanged();
     void stationListSortingModeChanged();

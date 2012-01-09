@@ -21,6 +21,7 @@ Boston, MA 02110-1301, USA.
 
 #include "settings.h"
 
+#include <QApplication>
 #include <QDebug>
 #include <QSettings>
 #include <QStringList>
@@ -99,6 +100,24 @@ void Settings::setCheckingInterval(int interval)
     emit checkingIntervalChanged();
 }
 
+bool Settings::autoUpdate()
+{
+    QSettings settings;
+
+    bool current = settings.value("AutoUpdate", false).toBool();
+    qDebug() << "AutoUpdate is" << current;
+    return current;
+}
+
+void Settings::setAutoUpdate(bool preference)
+{
+    QSettings settings;
+
+    settings.setValue("AutoUpdate", preference);
+    qDebug() << "AutoUpdate set to" << preference;
+    emit autoUpdateChanged();
+}
+
 bool Settings::stationViewPreferred()
 {
     QSettings settings;
@@ -145,4 +164,9 @@ void Settings::setStationListSortingMode(StationListProxyModel::SortingMode mode
     settings.setValue("StationListView/SortingMode", mode);
     qDebug() << "StationListSortingMode set to" << mode;
     emit stationListSortingModeChanged();
+}
+
+QString Settings::versionString()
+{
+    return qApp->applicationVersion();
 }

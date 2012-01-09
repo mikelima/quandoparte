@@ -16,6 +16,7 @@ Page {
     Menu {
         id: menu
         content: MenuLayout {
+
             MenuItem {
                 text: qsTr("Update Periodically")
                 Switch {
@@ -25,7 +26,9 @@ Page {
                         right: parent.right
                         rightMargin: UiConstants.DefaultMargin
                     }
+                    checked: settings.autoUpdate
                 }
+                onClicked: settings.autoUpdate ^= true
             }
             MenuItem {
                 text: qsTr("About Quando Parte")
@@ -132,39 +135,6 @@ Page {
         ScrollDecorator {
             id: decorator
             flickableItem: stationListView
-        }
-    }
-
-    Sheet {
-        id: settingsSheet
-        acceptButtonText: qsTr("Save")
-        rejectButtonText: qsTr("Cancel")
-        content: Item {
-            x: 16
-            y: 16
-            width: parent.width - 32
-            height: parent.height - 32
-            Column {
-                spacing: 16
-                anchors.fill: parent
-                Item {
-                    height: 40
-                    anchors.leftMargin: UiConstants.DefaultMargin
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    Label {
-                        font.bold: true
-                        text: qsTr("Show Last Station on Startup")
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.left: parent.left
-                    }
-                    Switch {
-                        anchors.verticalCenter: parent.verticalCenter
-                        id: showLastStationSwitch
-                        anchors.right: parent.right
-                    }
-                }
-            }
         }
     }
 }
