@@ -16,7 +16,6 @@ Page {
     Menu {
         id: menu
         content: MenuLayout {
-
             MenuItem {
                 text: qsTr("Update Periodically")
                 Switch {
@@ -26,14 +25,14 @@ Page {
                         right: parent.right
                         rightMargin: UiConstants.DefaultMargin
                     }
-                    checked: settings.autoUpdate
+                    onCheckedChanged: settings.autoUpdate = checked
                 }
-                onClicked: settings.autoUpdate ^= true
             }
             MenuItem {
                 text: qsTr("About Quando Parte")
                 onClicked: Private.showAboutPage()
             }
+            Component.onCompleted: periodicCheckSwitch.checked = settings.autoUpdate
         }
     }
     PageHeader {
