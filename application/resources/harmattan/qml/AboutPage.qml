@@ -28,7 +28,7 @@ Page {
             margins: UiConstants.DefaultMargin
         }
         text: qsTr("<h2><a href='http://quandoparte.garage.maemo.org'>" +
-                   "Quando Parte" + "</a></h2>" +"<p style='font-size:small;'>version " + "0.4.80" +
+                   "Quando Parte" + "</a></h2>" +"<p style='font-size:small;'>version " + settings.versionString +
                    "</p>" +
                    "<p>Copyright (c) 2010, 2011</p>" +
                    "<p>Luciano Montanaro (<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)</p>" +

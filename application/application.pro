@@ -4,8 +4,8 @@
 #
 #-------------------------------------------------
 
-VERSION = 0.4.80
-USE_RESOURCES=0
+VERSION = 0.4.81
+USE_RESOURCES = 0
 
 QT += webkit network
 CONFIG += qt webkit mobility
@@ -158,7 +158,6 @@ unix {
     }
 
     BINDIR=$$PREFIX/bin
-    DESKTOPDIR=$$PREFIX/share/applications
     contains(USE_RESOURCES,1) {
         DATADIR=":"
     } else {
