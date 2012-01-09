@@ -188,4 +188,10 @@ Page {
     Settings {
         id: settings
     }
+   Component.onCompleted: {
+       updateTimer.timeout.connect(updateStation)
+   }
+   function updateStation() {
+        schedule.fetch(schedule.name)
+   }
  }
