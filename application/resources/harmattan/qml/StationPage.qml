@@ -16,15 +16,10 @@ Page {
         id: header
         anchors.top: parent.top
         selectedIndex: schedule.type
-        options: ListModel {
-            id: dialogOptions
-            ListElement {
-                name: QT_TR_NOOP("Departures")
-            }
-            ListElement {
-                name: QT_TR_NOOP("Arrivals")
-            }
-        }
+        options: [
+            qsTr("Departures"),
+            qsTr("Arrivals")
+        ]
     }
     InfoBar {
         id: infoBar

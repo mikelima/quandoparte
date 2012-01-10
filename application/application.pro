@@ -112,6 +112,7 @@ QMLSOURCES = \
     resources/harmattan/qml/StationPage.qml \
     resources/harmattan/qml/SearchBar.qml \
     resources/harmattan/qml/PageHeader.qml \
+    resources/harmattan/qml/PageHeader.js \
     resources/harmattan/qml/uiconstants.js \
     resources/harmattan/qml/StationListPage.js \
     resources/harmattan/qml/AboutPage.qml \

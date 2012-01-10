@@ -39,18 +39,11 @@ Page {
         id: header
         anchors.top: parent.top
         selectedIndex: stationListProxyModel.sortingMode
-        options: ListModel {
-            id: dialogOptions
-            ListElement {
-                name: QT_TR_NOOP("Stations by Name")
-            }
-            ListElement {
-                name: QT_TR_NOOP("Stations by Distance")
-            }
-            ListElement {
-                name: QT_TR_NOOP("Stations Recently Seen")
-            }
-        }
+        options: [
+            qsTr("Stations by Name"),
+            qsTr("Stations by Distance"),
+            qsTr("Stations Recently Seen")
+        ]
     }
     SearchBar {
         id: searchField

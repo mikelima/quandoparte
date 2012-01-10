@@ -13,12 +13,9 @@ Page {
         id: header
         anchors.top: parent.top
         selectedIndex: settings.showArrivalsPreferred ? 1 : 0
-        options: ListModel {
-            id: dialogOptions
-            ListElement {
-                name: QT_TR_NOOP("About Quando Parte")
-            }
-        }
+        options: [
+            qsTr("About Quando Parte")
+        ]
     }
     Label {
         anchors {
@@ -28,10 +25,12 @@ Page {
             margins: UiConstants.DefaultMargin
         }
         text: qsTr("<h2><a href='http://quandoparte.garage.maemo.org'>" +
-                   "Quando Parte" + "</a></h2>" +"<p style='font-size:small;'>version " + settings.versionString +
-                   "</p>" +
+                   "Quando Parte" + "</a></h2>" +"<p style='font-size:small;'>version ") +
+              settings.versionString +
+              qsTr("</p>" +
                    "<p>Copyright (c) 2010, 2011</p>" +
-                   "<p>Luciano Montanaro (<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)</p>" +
+                   "<p>Luciano Montanaro " +
+                   "(<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)</p>" +
                    "<p>Licensed under the GNU Public License v2 or above</p>" +
                    "<p/><p>Station geolocation data from " +
                    "<a href='http://www.openstreetmap.org'>OpenStreetMap</a></p>" +
