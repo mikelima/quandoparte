@@ -4,14 +4,23 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <location filename="../harmattan/qml/AboutPage.qml" line="19"/>
+        <location filename="../harmattan/qml/AboutPage.qml" line="17"/>
         <source>About Quando Parte</source>
         <translation>Informazioni su Quando Parte</translation>
     </message>
     <message>
+        <location filename="../harmattan/qml/AboutPage.qml" line="27"/>
+        <source>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;version </source>
+        <translation>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;versione </translation>
+    </message>
+    <message>
         <location filename="../harmattan/qml/AboutPage.qml" line="30"/>
+        <source>&lt;/p&gt;&lt;p&gt;Copyright (c) 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Station geolocation data from &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Realtime train data from &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</source>
+        <translation>&lt;/p&gt;&lt;p&gt;Copyright © 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Utilizzabile secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni  ottenuti da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati in tempo reale sui treni da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
         <source>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;version 0.4.80&lt;/p&gt;&lt;p&gt;Copyright (c) 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Station geolocation data from &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Realtime train data from &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</source>
-        <translation>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;versione 0.4.80&lt;/p&gt;&lt;p&gt;Copyright © 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Utilizzabile secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni  ottenuti da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati in tempo reale sui treni da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
+        <translation type="obsolete">&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;versione 0.4.80&lt;/p&gt;&lt;p&gt;Copyright © 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Utilizzabile secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni  ottenuti da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati in tempo reale sui treni da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -37,7 +46,7 @@
 <context>
     <name>PageHeader</name>
     <message>
-        <location filename="../harmattan/qml/PageHeader.qml" line="61"/>
+        <location filename="../harmattan/qml/PageHeader.qml" line="64"/>
         <source>Show</source>
         <translation>Mostra</translation>
     </message>
@@ -55,7 +64,7 @@
     <message>
         <location filename="../../settingsdialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation></translation>
+        <translation>Finestra di dialogo</translation>
     </message>
     <message>
         <location filename="../../settingsdialog.ui" line="22"/>
@@ -88,7 +97,7 @@
         <translation>Aggiorna periodicamente</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationListPage.qml" line="31"/>
+        <location filename="../harmattan/qml/StationListPage.qml" line="32"/>
         <source>About Quando Parte</source>
         <translation>Informazioni su Quando Parte</translation>
     </message>
@@ -98,29 +107,26 @@
         <translation>Stazioni per nome</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationListPage.qml" line="46"/>
+        <location filename="../harmattan/qml/StationListPage.qml" line="44"/>
         <source>Stations by Distance</source>
         <translation>Stazioni per distanza</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationListPage.qml" line="49"/>
+        <location filename="../harmattan/qml/StationListPage.qml" line="45"/>
         <source>Stations Recently Seen</source>
         <translation>Stazioni viste di recente</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationListPage.qml" line="140"/>
         <source>Save</source>
-        <translation>Salva</translation>
+        <translation type="obsolete">Salva</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationListPage.qml" line="141"/>
         <source>Cancel</source>
-        <translation>Annulla</translation>
+        <translation type="obsolete">Annulla</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationListPage.qml" line="157"/>
         <source>Show Last Station on Startup</source>
-        <translation>Mostra l&apos;ultima stazione all&apos;avvio</translation>
+        <translation type="obsolete">Mostra l&apos;ultima stazione all&apos;avvio</translation>
     </message>
 </context>
 <context>
@@ -179,27 +185,27 @@
 <context>
     <name>StationPage</name>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="22"/>
+        <location filename="../harmattan/qml/StationPage.qml" line="20"/>
         <source>Departures</source>
         <translation>Partenze</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="25"/>
+        <location filename="../harmattan/qml/StationPage.qml" line="21"/>
         <source>Arrivals</source>
         <translation>Arrivi</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="106"/>
+        <location filename="../harmattan/qml/StationPage.qml" line="101"/>
         <source>from </source>
         <translation>da</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="112"/>
+        <location filename="../harmattan/qml/StationPage.qml" line="107"/>
         <source>to </source>
         <translation>per</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="131"/>
+        <location filename="../harmattan/qml/StationPage.qml" line="126"/>
         <source>Platform </source>
         <translation>Binario</translation>
     </message>
