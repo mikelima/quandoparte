@@ -185,29 +185,44 @@
 <context>
     <name>StationPage</name>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="20"/>
+        <location filename="../harmattan/qml/StationPage.qml" line="19"/>
         <source>Departures</source>
         <translation>Partenze</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="21"/>
+        <location filename="../harmattan/qml/StationPage.qml" line="20"/>
         <source>Arrivals</source>
         <translation>Arrivi</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="101"/>
         <source>from </source>
-        <translation>da</translation>
+        <translation type="obsolete">da</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="107"/>
         <source>to </source>
-        <translation>per</translation>
+        <translation type="obsolete">per</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="126"/>
         <source>Platform </source>
-        <translation>Binario</translation>
+        <translation type="obsolete">Binario</translation>
+    </message>
+</context>
+<context>
+    <name>StationScheduleDelegate</name>
+    <message>
+        <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="59"/>
+        <source>from %1</source>
+        <translation>da %1</translation>
+    </message>
+    <message>
+        <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="65"/>
+        <source>to %1</source>
+        <translation>per %1</translation>
+    </message>
+    <message>
+        <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="83"/>
+        <source>Platform %1</source>
+        <translation>Binario %1</translation>
     </message>
 </context>
 <context>
