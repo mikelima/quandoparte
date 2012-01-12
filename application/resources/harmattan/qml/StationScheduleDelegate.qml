@@ -56,13 +56,13 @@ Item {
                 }
             }
             Label {
-                text: qsTr("from ") + root.arrivalStation
+                text: qsTr("from %1").arg(root.arrivalStation)
                 font.bold: UiConstants.DefaultFontBoldness
                 font.pixelSize: UiConstants.DefaultFontPixelSize
                 visible: type === StationScheduleModel.ArrivalSchedule
             }
             Label {
-                text: qsTr("to ") + root.departureStation
+                text: qsTr("to %1").arg(root.departureStation)
                 font.bold: UiConstants.DefaultFontBoldness
                 font.pixelSize: UiConstants.DefaultFontPixelSize
                 visible: type === StationScheduleModel.DepartureSchedule
@@ -80,7 +80,8 @@ Item {
             right: bodyRow.right
             rightMargin: UiConstants.DefaultMargin
         }
-        text: qsTr("Platform ") + root.actualPlatform
+        text: qsTr("Platform %1").arg((root.actualPlatform === "--") ? root.expectedPlatfrom : root.actualPlatform)
+        color: root.actualPlatform === "--" ? "#ddd" : UiConstants.AccentColor
         font.bold: UiConstants.SubtitleFontBoldness
         font.pixelSize: UiConstants.SubtitleFontPixelSize
     }
