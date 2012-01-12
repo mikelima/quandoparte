@@ -4,7 +4,7 @@ var about = undefined
 function showAboutPage()
 {
     var component = Qt.createComponent("AboutPage.qml")
-    if (component.status == Component.Ready) {
+    if (component.status === Component.Ready) {
         about = component.createObject(stationListPage)
         pageStack.push(about)
     } else
@@ -14,7 +14,7 @@ function showAboutPage()
 function loadStation(name)
 {
     var component = Qt.createComponent("StationPage.qml");
-    if (component.status == Component.Ready) {
+    if (component.status === Component.Ready) {
         view = component.createObject(stationListPage)
         stationListPage.stationView = view
         pageStack.push(view)
