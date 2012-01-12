@@ -220,9 +220,19 @@
         <translation>per %1</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="83"/>
+        <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="106"/>
         <source>Platform %1</source>
         <translation>Binario %1</translation>
+    </message>
+    <message>
+        <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="108"/>
+        <source>Platform &lt;span style=&apos;font-weight:bold;color:#080&apos;&gt;%2&lt;/span&gt;</source>
+        <translation>Binario &lt;span style=&apos;font-weight:bold;color:#080&apos;&gt;%2&lt;/span&gt;</translation>
+    </message>
+    <message>
+        <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="110"/>
+        <source>Platform &lt;span style=&apos;text-decoration:line-through&apos;&gt;%1&lt;/span&gt; &lt;span style=&apos;font-weight:bold;color:#800&apos;&gt;%2&lt;/span&gt;</source>
+        <translation>Binario &lt;span style=&apos;text-decoration:line-through&apos;&gt;%1&lt;/span&gt; &lt;span style=&apos;font-weight:bold;color:#800&apos;&gt;%2&lt;/span&gt;</translation>
     </message>
 </context>
 <context>
