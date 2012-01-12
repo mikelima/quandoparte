@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-VERSION = 0.4.81
+VERSION = 0.4.82
 USE_RESOURCES = 0
 
 QT += webkit network
