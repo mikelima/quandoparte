@@ -102,13 +102,10 @@ Page {
         onNameChanged: schedule.fetch(name)
         onLayoutChanged: view.state = "ready"
     }
-    Settings {
-        id: settings
+    Component.onCompleted: {
+        updateTimer.timeout.connect(updateStation)
     }
-   Component.onCompleted: {
-       updateTimer.timeout.connect(updateStation)
-   }
-   function updateStation() {
+    function updateStation() {
         schedule.fetch(schedule.name)
-   }
+    }
 }
