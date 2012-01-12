@@ -118,7 +118,8 @@ QMLSOURCES = \
     resources/harmattan/qml/AboutPage.qml \
     resources/harmattan/qml/InfoBar.qml \
     resources/harmattan/qml/DroppedShadow.qml \
-    resources/harmattan/qml/DelayIndicator.qml
+    resources/harmattan/qml/DelayIndicator.qml \
+    resources/harmattan/qml/StationScheduleDelegate.qml
 
 OTHER_FILES += \
     resources/harmattan/applications/quandoparte.desktop \

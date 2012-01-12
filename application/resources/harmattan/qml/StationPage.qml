@@ -1,5 +1,4 @@
 import QtQuick 1.1
-import QtWebKit 1.0
 import com.nokia.meego 1.0
 import net.cirulla.quandoparte 1.0
 import "uiconstants.js" as UiConstants
@@ -55,94 +54,17 @@ Page {
                 top: shadow.top
                 bottom: parent.bottom
             }
-            model:  schedule
-            delegate: Item {
-                id: listItem
-                height: UiConstants.ListItemHeightDefault
-                width: parent.width
-                BorderImage {
-                    id: background
-                    anchors.fill: parent
-                    // Fill page borders
-                    visible: mouseArea.pressed
-                    source: "image://theme/meegotouch-list-background-pressed-center"
-                }
-                Row {
-                    id: bodyRow
-                    anchors.fill: parent
-                    spacing: UiConstants.ButtonSpacing
-                    DelayIndicator {
-                        level: delayClass
-                    }
-                    Column {
-                        anchors.verticalCenter: parent.verticalCenter
-                        Row {
-                            spacing: UiConstants.ButtonSpacing
-                            Label {
-                                text: arrivalTime
-                                font.bold: UiConstants.SpecialFontBoldness
-                                font.pixelSize: UiConstants.SpecialFontPixelSize
-                                visible: schedule.type === StationScheduleModel.ArrivalSchedule
-                            }
-                            Label {
-                                text: departureTime
-                                font.bold: UiConstants.SpecialFontBoldness
-                                font.pixelSize: UiConstants.SpecialFontPixelSize
-                                visible: schedule.type === StationScheduleModel.DepartureSchedule
-                            }
-                            Label {
-                                text: train
-                                font.bold: UiConstants.SpecialFontBoldness
-                                font.pixelSize: UiConstants.SpecialFontPixelSize
-                                color: UiConstants.AccentColor
-                            }
-                        }
-                        Label {
-                            text: qsTr("from ") + arrivalStation
-                            font.bold: UiConstants.DefaultFontBoldness
-                            font.pixelSize: UiConstants.DefaultFontPixelSize
-                            visible: schedule.type === StationScheduleModel.ArrivalSchedule
-                        }
-                        Label {
-                            text: qsTr("to ") + departureStation
-                            font.bold: UiConstants.DefaultFontBoldness
-                            font.pixelSize: UiConstants.DefaultFontPixelSize
-                            visible: schedule.type === StationScheduleModel.DepartureSchedule
-                        }
-                        Label {
-                            id: delayLabel
-                            text: delay
-                            font.bold: UiConstants.SubtitleFontBoldness
-                            font.pixelSize: UiConstants.SubtitleFontPixelSize
-                        }
-                    }
-                }
-                Label {
-                    anchors {
-                        bottom: bodyRow.bottom
-                        right: bodyRow.right
-                        rightMargin: UiConstants.DefaultMargin
-                    }
-                    text: qsTr("Platform ") + actualPlatform
-                    font.bold: UiConstants.SubtitleFontBoldness
-                    font.pixelSize: UiConstants.SubtitleFontPixelSize
-                }
-                Image {
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                    }
-                    source: "image://theme/meegotouch-separator-background-horizontal"
-                }
-                MouseArea {
-                    id: mouseArea
-                    anchors.fill: background
-                    onClicked: {
-                        // Load an external page about the train, for now
-                        Qt.openUrlExternally(settings.queryBaseUrl + "/" + detailsUrl)
-                        console.log(settings.queryBaseUrl + "/" + detailsUrl)
-                    }
-                }
+            model: schedule
+            delegate: StationScheduleDelegate {
+                type: schedule.type
+                arrivalTime: model.arrivalTime
+                departureTime: model.departureTime
+                train: model.train
+                arrivalStation: model.arrivalStation
+                departureStation: model.departureStation
+                delay: model.delay
+                actualPlatform: model.actualPlatform
+                expectedPlatfrom: model.expectedPlatform
             }
         }
         ScrollDecorator {
@@ -189,4 +111,4 @@ Page {
    function updateStation() {
         schedule.fetch(schedule.name)
    }
- }
+}
