@@ -80,8 +80,7 @@ Item {
             right: bodyRow.right
             rightMargin: UiConstants.DefaultMargin
         }
-        text: qsTr("Platform %1").arg((root.actualPlatform === "--") ? root.expectedPlatfrom : root.actualPlatform)
-        color: root.actualPlatform === "--" ? "#ddd" : UiConstants.AccentColor
+        text: displayPlatform(root.expectedPlatfrom, root.actualPlatform)
         font.bold: UiConstants.SubtitleFontBoldness
         font.pixelSize: UiConstants.SubtitleFontPixelSize
     }
@@ -99,6 +98,18 @@ Item {
             // Load an external page about the train, for now
             Qt.openUrlExternally(settings.queryBaseUrl + "/" + detailsUrl)
             console.log(settings.queryBaseUrl + "/" + detailsUrl)
+        }
+    }
+    function displayPlatform(expected, actual)
+    {
+        if (actual === "--") {
+            return qsTr("Platform %1").arg(expected)
+        } else if (actual === expected || expected === "--") {
+            return qsTr("Platform <span style='font-weight:bold;color:#080'>%2</span>").arg(actual)
+        } else {
+            return qsTr("Platform " +
+                        "<span style='text-decoration:line-through'>%1</span> " +
+                        "<span style='font-weight:bold;color:#800'>%2</span>").arg(expected).arg(actual)
         }
     }
 }
