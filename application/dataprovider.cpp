@@ -52,14 +52,16 @@ DataProvider::DataProvider(QObject *parent) :
 {
 }
 
-void DataProvider::fetchStationSchedule(const QString &station)
+void DataProvider::fetchStationSchedule(const QString &station,
+                                        const QString &stationCode)
 {
     QNetworkRequest request;
     Settings *settings = Settings::instance();
     request.setUrl(settings->queryBaseUrl() + "stazione");
-
-    qDebug() << "fetching schedule for station" << station;
-    const QString queryString = "stazione=" + station;
+    qDebug() << "fetching schedule for station:" << station << "code:" << stationCode;
+    const QString queryString =
+            stationCode.isEmpty() ? "stazione=" + station :
+                                    "codiceStazione=" + stationCode;
     const QByteArray query(queryString.toLocal8Bit());
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),

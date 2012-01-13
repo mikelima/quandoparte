@@ -41,7 +41,7 @@ signals:
     void stationScheduleReady(const QByteArray &data, const QUrl &url);
 
 public slots:
-    void fetchStationSchedule(const QString &station);
+    void fetchStationSchedule(const QString &station, const QString &stationCode = QString());
     void updateStation();
 
 private slots:
