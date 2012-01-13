@@ -35,7 +35,7 @@ class StationListModel : public QStandardItemModel
 public:
     enum StationListRole {
         PositionRole = Qt::UserRole + 1, //< QGeoCoordinate - Station coordinate
-        StationIdRole, //< QString - Station Id (Precise name if the Display name is known to fail)
+        StationCodeRole, //< QString - Station Code (Precise name if the Display name is known to fail)
         RecentIndicatorRole //<bool - If the station has been recently looked up
     };
 
@@ -52,6 +52,7 @@ private:
     void readStationElement();
     void readPosElement(QStandardItem *item);
     void readNameElement(QStandardItem *item);
+    void readCodeElement(QStandardItem *item);
     void skipUnknownElement();
 
     QXmlStreamReader m_reader;

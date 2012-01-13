@@ -378,6 +378,7 @@
     <station>
         <pos>45.0609728,7.6778693</pos>
         <name>Torino Porta Nuova</name>
+        <code>S00219Torino P.Nuova</code>
     </station>
     <station>
         <pos>44.3513022,9.2313884</pos>

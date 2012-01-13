@@ -109,6 +109,8 @@ void StationListModel::readStationElement()
                 readPosElement(item);
             } else  if (m_reader.name() == "name") {
                 readNameElement(item);
+            } else  if (m_reader.name() == "code") {
+                readCodeElement(item);
             } else {
                 skipUnknownElement();
             }
@@ -132,6 +134,17 @@ void StationListModel::readPosElement(QStandardItem *item)
 void StationListModel::readNameElement(QStandardItem *item)
 {
     item->setText(m_reader.readElementText());
+    if (m_reader.isEndElement()) {
+        m_reader.readNext();
+    }
+}
+
+void StationListModel::readCodeElement(QStandardItem *item)
+{
+    const QString code = m_reader.readElementText();
+    qDebug() << "reading code element" << code;
+
+    item->setData(QVariant::fromValue(code), StationCodeRole);
     if (m_reader.isEndElement()) {
         m_reader.readNext();
     }
