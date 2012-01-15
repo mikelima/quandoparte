@@ -32,6 +32,7 @@ class StationScheduleModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString code READ code WRITE setCode NOTIFY codeChanged)
     Q_PROPERTY(ScheduleType type READ type WRITE setType NOTIFY typeChanged)
     Q_ENUMS(ScheduleType)
 
@@ -59,6 +60,9 @@ public:
     QString &name();
     void setName(const QString &name);
 
+    QString &code();
+    void setCode(const QString &code);
+
     ScheduleType type();
     void setType(ScheduleType type);
 
@@ -67,16 +71,18 @@ public:
 
 signals:
     void nameChanged();
+    void codeChanged();
     void typeChanged();
 
 public slots:
-    void fetch(const QString &name);
+    void fetch(const QString &name, const QString &code = QString());
 
 private slots:
     void parse(const QByteArray &htmlReply, const QUrl &baseUrl);
 
 private:
     QString m_name;
+    QString m_code;
     QList<StationScheduleItem> m_departureSchedules;
     QList<StationScheduleItem> m_arrivalSchedules;
     ScheduleType m_scheduleType;

@@ -68,6 +68,19 @@ void StationScheduleModel::setName(const QString &name)
     }
 }
 
+QString & StationScheduleModel::code()
+{
+    return m_code;
+}
+
+void StationScheduleModel::setCode(const QString &code)
+{
+    if (code != m_code) {
+        m_code = code;
+        emit codeChanged();
+    }
+}
+
 StationScheduleModel::ScheduleType StationScheduleModel::type()
 {
     return m_scheduleType;
@@ -232,12 +245,13 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     emit layoutChanged();
 }
 
-void StationScheduleModel::fetch(const QString &name)
+void StationScheduleModel::fetch(const QString &name, const QString &code)
 {
     DataProvider *provider = DataProvider::instance();
 
-    provider->fetchStationSchedule(name);
+    provider->fetchStationSchedule(name, code);
     setName(name);
+    setCode(code);
 }
 
 int StationScheduleModel::rowCount(const QModelIndex &parent) const
