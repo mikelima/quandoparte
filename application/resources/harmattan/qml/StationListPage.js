@@ -11,13 +11,20 @@ function showAboutPage()
         console.log('Cannot load component: ' + component.errorString());
 }
 
-function loadStation(name)
+function loadStation(name, code)
 {
     var component = Qt.createComponent("StationPage.qml");
     if (component.status === Component.Ready) {
         view = component.createObject(stationListPage)
         stationListPage.stationView = view
         pageStack.push(view)
+
+        /*
+            XXX Ugliness ahead! Changing the name triggers the station
+            to schedule to be fetched. So any extra data (the code specifically)
+            must be set before changing the name.
+         */
+        if (code !== undefined) view.code = code
         view.name = name
     }
     else

@@ -103,8 +103,14 @@ Page {
 
                         Label {
                             id: mainText
-                            text: Private.highlightSearch(model.display, UiConstants.AccentColor)
+                            text: Private.highlightSearch(model.name, UiConstants.AccentColor)
                             font.bold: true
+                        }
+                        Label {
+                            id: subText
+                            text: (model.code !== undefined) ? model.code : "none"
+                            font.bold: UiConstants.SubtitleFontBoldness
+                            font.pixelSize: UiConstants.SubtitleFontPixelSize
                         }
                     }
                 }
@@ -119,7 +125,7 @@ Page {
                     id: mouseArea
                     anchors.fill: background
                     onClicked: {
-                        Private.loadStation(model.display)
+                        Private.loadStation(model.name, model.code)
                     }
                 }
             }

@@ -5,6 +5,7 @@ import "uiconstants.js" as UiConstants
 
 Page {
     property alias name: schedule.name
+    property alias code: schedule.code
 
     tools: ToolBarLayout {
         id: toolBar
@@ -99,13 +100,14 @@ Page {
     }
     StationScheduleModel {
         id: schedule
-        onNameChanged: schedule.fetch(name)
+        onNameChanged: updateStation()
         onLayoutChanged: view.state = "ready"
     }
     Component.onCompleted: {
         updateTimer.timeout.connect(updateStation)
     }
     function updateStation() {
-        schedule.fetch(schedule.name)
+        console.log("Updating station with " + schedule.name + ", " + schedule.code)
+        schedule.fetch(schedule.name, schedule.code)
     }
 }
