@@ -1,0 +1,19 @@
+<stations>
+    <station>
+        <name>Genova Piazza Principe sotterranea</name>
+	<code>S04701</code>
+    </station>
+    <station>
+        <name>Genova San Biagio</name>
+	<code>S04222</code>
+    </station>
+    <station>
+        <name>Genova Voltri</name>
+	<code>S04534</code>
+    </station>
+    <station>
+        <name>Torino Porta Nuova</name>
+        <code>S00219</code>
+    </station>
+</stations>
+
