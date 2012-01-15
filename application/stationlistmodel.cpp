@@ -34,6 +34,11 @@ StationListModel::StationListModel(QObject *parent) :
     QStandardItemModel(parent)
 {
     setRowCount(0);
+    QHash<int, QByteArray> roles;
+    roles[Qt::DisplayRole] = "name";
+    roles[StationListModel::PositionRole] = "position";
+    roles[StationListModel::StationCodeRole] = "code";
+    setRoleNames(roles);
 }
 
 bool StationListModel::load(const QString &filename)
