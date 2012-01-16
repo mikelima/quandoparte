@@ -106,12 +106,6 @@ Page {
                             text: Private.highlightSearch(model.name, UiConstants.AccentColor)
                             font.bold: true
                         }
-                        Label {
-                            id: subText
-                            text: (model.code !== undefined) ? model.code : "none"
-                            font.bold: UiConstants.SubtitleFontBoldness
-                            font.pixelSize: UiConstants.SubtitleFontPixelSize
-                        }
                     }
                 }
                 Image {
