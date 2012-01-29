@@ -16,8 +16,8 @@ Item {
     property string actualPlatform
     property string expectedPlatfrom
 
-    height: UiConstants.ListItemHeightDefault
-    width: parent.width
+    implicitHeight: UiConstants.ListItemHeightLarge
+    height: UiConstants.ListItemHeightLarge
     BorderImage {
         id: background
         anchors.fill: parent
@@ -25,67 +25,97 @@ Item {
         visible: mouseArea.pressed
         source: "image://theme/meegotouch-list-background-pressed-center"
     }
-    Row {
+    Item {
         id: bodyRow
-        anchors.fill: parent
-        spacing: UiConstants.ButtonSpacing
+        anchors {
+            fill: parent
+            margins: UiConstants.ButtonSpacing
+        }
         DelayIndicator {
+            id: indicator
+            anchors {
+                top: parent.top
+                left: parent.left
+            }
             level: delayClass
         }
-        Column {
-            anchors.verticalCenter: parent.verticalCenter
+        Item {
+            anchors {
+                left: indicator.right
+                right: bodyRow.right
+                margins: UiConstants.ButtonSpacing
+            }
+            height: UiConstants.TitleFontPixelSize
             Row {
+                id: firstRow
+                anchors.top: parent.top
                 spacing: UiConstants.ButtonSpacing
                 Label {
                     id: arrivalTimeLabel
-                    font.bold: UiConstants.SpecialFontBoldness
-                    font.pixelSize: UiConstants.SpecialFontPixelSize
+                    font.bold: UiConstants.TitleFontBoldness
+                    font.pixelSize: UiConstants.TitleFontPixelSize
                     visible: type === StationScheduleModel.ArrivalSchedule
                 }
                 Label {
                     id: departureTimeLabel
-                    font.bold: UiConstants.SpecialFontBoldness
-                    font.pixelSize: UiConstants.SpecialFontPixelSize
+                    font.bold: UiConstants.TitleFontBoldness
+                    font.pixelSize: UiConstants.TitleFontPixelSize
                     visible: type === StationScheduleModel.DepartureSchedule
                 }
                 Label {
                     id: trainLabel
-                    font.bold: UiConstants.SpecialFontBoldness
-                    font.pixelSize: UiConstants.SpecialFontPixelSize
+                    font.bold: UiConstants.TitleFontBoldness
+                    font.pixelSize: UiConstants.TitleFontPixelSize
                     color: UiConstants.AccentColor
                 }
             }
-            Label {
-                text: qsTr("from %1").arg(root.arrivalStation)
-                font.bold: UiConstants.DefaultFontBoldness
-                font.pixelSize: UiConstants.DefaultFontPixelSize
-                visible: type === StationScheduleModel.ArrivalSchedule
+            Item {
+                id: secondRow
+                height: UiConstants.DefaultFontPixelSize
+                anchors.top: firstRow.bottom
+                Label {
+                    text: qsTr("from %1").arg(root.arrivalStation)
+                    font.bold: UiConstants.DefaultFontBoldness
+                    font.pixelSize: UiConstants.DefaultFontPixelSize
+                    visible: type === StationScheduleModel.ArrivalSchedule
+                }
+                Label {
+                    text: qsTr("to %1").arg(root.departureStation)
+                    font.bold: UiConstants.DefaultFontBoldness
+                    font.pixelSize: UiConstants.DefaultFontPixelSize
+                    visible: type === StationScheduleModel.DepartureSchedule
+                }
             }
-            Label {
-                text: qsTr("to %1").arg(root.departureStation)
-                font.bold: UiConstants.DefaultFontBoldness
-                font.pixelSize: UiConstants.DefaultFontPixelSize
-                visible: type === StationScheduleModel.DepartureSchedule
-            }
-            Label {
-                id: delayLabel
-                font.bold: UiConstants.SubtitleFontBoldness
-                font.pixelSize: UiConstants.SubtitleFontPixelSize
+            Item {
+                height: UiConstants.SubtitleFontPixelSize
+                anchors {
+                    top: secondRow.bottom
+                    left: parent.left
+                    right: parent.right
+                }
+                Label {
+                    id: delayLabel
+                    anchors.top: parent.top
+                    font.bold: UiConstants.SubtitleFontBoldness
+                    font.pixelSize: UiConstants.SubtitleFontPixelSize
+                }
+                Label {
+                    anchors {
+                        top: parent.top
+                        right: parent.right
+                        rightMargin: UiConstants.DefaultMargin
+                    }
+                    text: displayPlatform(root.expectedPlatfrom, root.actualPlatform)
+                    font.bold: UiConstants.SubtitleFontBoldness
+                    font.pixelSize: UiConstants.SubtitleFontPixelSize
+                }
             }
         }
-    }
-    Label {
-        anchors {
-            bottom: bodyRow.bottom
-            right: bodyRow.right
-            rightMargin: UiConstants.DefaultMargin
-        }
-        text: displayPlatform(root.expectedPlatfrom, root.actualPlatform)
-        font.bold: UiConstants.SubtitleFontBoldness
-        font.pixelSize: UiConstants.SubtitleFontPixelSize
     }
     Image {
         anchors {
+            leftMargin: UiConstants.DefaultMargin
+            rightMargin: UiConstants.DefaultMargin
             left: parent.left
             right: parent.right
         }

@@ -4,16 +4,18 @@ import "uiconstants.js" as UiConstants
 Item {
     id: indicator
     property int level: 0
-    width: UiConstants.DefaultMargin
-    anchors{
+    width: 10
+    height: parent.height
+    anchors {
         top: parent.top
         bottom: parent.bottom
+        rightMargin: UiConstants.SmallMargin
     }
     Rectangle {
         id: rect
         width: 10
-        height: parent.height
-        anchors.left: parent.left
+        height: UiConstants.ListItemHeightLarge - 10
+        anchors.centerIn: parent
         color: {
             switch (indicator.level) {
             case 0: return "#0b0"

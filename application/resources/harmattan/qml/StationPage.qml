@@ -57,6 +57,7 @@ Page {
             }
             model: schedule
             delegate: StationScheduleDelegate {
+                width: stationScheduleView.width
                 type: schedule.type
                 arrivalTime: model.arrivalTime
                 departureTime: model.departureTime
@@ -78,15 +79,43 @@ Page {
                 size: "large"
             }
             anchors.centerIn: parent
-            visible: !stationScheduleView.visible
             running: visible
+        }
+        Item {
+            id: errorDisplay
+            anchors.centerIn: parent
+            Column {
+                anchors.centerIn: parent
+                spacing: UiConstants.DefaultMargin
+                Text {
+                    text: qsTr("Error")
+                    font.pixelSize: UiConstants.HeaderFontPixelSize
+                    font.bold: UiConstants.HeaderFontBoldness
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                Text {
+                    text: schedule.error
+                    font.pixelSize: UiConstants.DefaultFontBoldness
+                    font.bold: UiConstants.DefaultFontBoldness
+                    horizontalAlignment: Text.AlignHCenter
+                }
+            }
         }
         states: [
             State {
                 name: "loading"
+                when: !completed
                 PropertyChanges {
                     target: stationScheduleView
                     visible: false
+                }
+                PropertyChanges {
+                    target: errorDisplay
+                    visible: false
+                }
+                PropertyChanges {
+                    target: busyIndicator
+                    visible: true
                 }
             },
             State {
@@ -95,16 +124,42 @@ Page {
                     target: stationScheduleView
                     visible: true
                 }
+                PropertyChanges {
+                    target: errorDisplay
+                    visible: false
+                }
+                PropertyChanges {
+                    target: busyIndicator
+                    visible: false
+                }
+            },
+            State {
+                name: "error"
+                when: schedule.error
+                PropertyChanges {
+                    target: stationScheduleView
+                    visible: true
+                }
+                PropertyChanges {
+                    target: errorDisplay
+                    visible: false
+                }
+                PropertyChanges {
+                    target: busyIndicator
+                    visible: false
+                }
             }
         ]
     }
     StationScheduleModel {
         id: schedule
         onNameChanged: updateStation()
-        onLayoutChanged: view.state = "ready"
+        onLayoutChanged: if (error) view.state = "error"
+                         else view.state = "ready"
     }
     Component.onCompleted: {
         updateTimer.timeout.connect(updateStation)
+        view.state = "loading"
     }
     function updateStation() {
         console.log("Updating station with " + schedule.name + ", " + schedule.code)

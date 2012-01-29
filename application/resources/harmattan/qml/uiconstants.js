@@ -1,6 +1,7 @@
 .pragma library
 
 const DefaultMargin = 16
+const SmallMargin = 8
 const ButtonSpacing = 6
 
 const HeaderDefaultHeightLandscape = 46
@@ -16,9 +17,13 @@ const SearchBarDefaultHeight = 80
 
 const ListItemHeightSmall = 64
 const ListItemHeightDefault = 80
+const ListItemHeightLarge = 96
 
 const HeaderFontPixelSize = 32
 const HeaderFontBoldness = false
+
+const TitleFontPixelSize = 26
+const TitleFontBoldness = true
 
 const SpecialFontPixelSize = 24
 const SpecialFontBoldness = true
