@@ -46,6 +46,7 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
         qDebug() << "position info source available";
         connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
                 SLOT(updatePosition(QGeoPositionInfo)));
+        positionInfoSource->setUpdateInterval(5000);
     } else {
         qDebug() << "No position info source available";
     }
@@ -173,7 +174,12 @@ void StationListProxyModel::forceSortingMode(SortingMode mode)
 void StationListProxyModel::updatePosition(const QtMobility::QGeoPositionInfo &update)
 {
     qDebug() << "Position update received" << update;
-    setUserPosition(update.coordinate());
-    invalidate();
-    sort(0);
+    if (update.isValid()) {
+        QGeoCoordinate newPosition = update.coordinate();
+        if (newPosition.distanceTo(m_here) > 50.0) {
+            setUserPosition(update.coordinate());
+            invalidate();
+            sort(0);
+        }
+    }
 }
