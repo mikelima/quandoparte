@@ -22,11 +22,11 @@ Boston, MA 02110-1301, USA.
 #ifndef DATAPROVIDER_H
 #define DATAPROVIDER_H
 
+#include <QNetworkReply>
 #include <QObject>
 #include <QSharedPointer>
 
 class QNetworkAccessManager;
-class QNetworkReply;
 class QUrl;
 
 class StationScheduleModel;
@@ -39,6 +39,7 @@ public:
     static DataProvider *instance();
 signals:
     void stationScheduleReady(const QByteArray &data, const QUrl &url);
+    void error();
 
 public slots:
     void fetchStationSchedule(const QString &station, const QString &stationCode = QString());
@@ -46,6 +47,7 @@ public slots:
 
 private slots:
     void onStationScheduleFetched(void);
+    void onNetworkError(QNetworkReply::NetworkError errorCode);
 
 private:
     QNetworkAccessManager *accessManager;

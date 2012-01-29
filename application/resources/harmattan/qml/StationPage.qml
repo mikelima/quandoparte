@@ -10,6 +10,7 @@ Page {
     tools: ToolBarLayout {
         id: toolBar
         ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop() }
+        ToolIcon { iconId: "icon-m-toolbar-refresh"; onClicked: updateStation() }
         ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
     }
     PageHeader {
@@ -162,6 +163,7 @@ Page {
         view.state = "loading"
     }
     function updateStation() {
+        view.state = "loading"
         console.log("Updating station with " + schedule.name + ", " + schedule.code)
         schedule.fetch(schedule.name, schedule.code)
     }

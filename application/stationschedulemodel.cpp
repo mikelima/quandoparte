@@ -31,7 +31,8 @@ Boston, MA 02110-1301, USA.
 
 StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent) :
     QAbstractListModel(parent),
-    m_name(name)
+    m_name(name),
+    m_error(QString())
 
 {
     DataProvider *provider = DataProvider::instance();
@@ -50,12 +51,13 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
 
     connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
             this, SLOT(parse(QByteArray,QUrl)));
-
+    connect(provider, SIGNAL(error()),
+            this, SLOT(onNetworkError()));
     Settings *settings = Settings::instance();
     m_scheduleType = settings->showArrivalsPreferred() ? ArrivalSchedule : DepartureSchedule;
 }
 
-QString & StationScheduleModel::name()
+const QString &StationScheduleModel::name()
 {
     return m_name;
 }
@@ -68,7 +70,7 @@ void StationScheduleModel::setName(const QString &name)
     }
 }
 
-QString & StationScheduleModel::code()
+const QString &StationScheduleModel::code()
 {
     return m_code;
 }
@@ -78,6 +80,19 @@ void StationScheduleModel::setCode(const QString &code)
     if (code != m_code) {
         m_code = code;
         emit codeChanged();
+    }
+}
+
+const QString &StationScheduleModel::error()
+{
+    return m_error;
+}
+
+void StationScheduleModel::setError(const QString &error)
+{
+    if (error != m_error) {
+        m_error = error;
+        emit errorChanged();
     }
 }
 
@@ -245,10 +260,21 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     emit layoutChanged();
 }
 
+void StationScheduleModel::onNetworkError()
+{
+    qDebug()<< "Station Schedule Model got a Network Error";
+    m_error = tr("Network error");
+    emit errorChanged();
+}
+
 void StationScheduleModel::fetch(const QString &name, const QString &code)
 {
     DataProvider *provider = DataProvider::instance();
 
+    if (!error().isEmpty())
+        setError(QString());
+    m_departureSchedules.clear();
+    m_arrivalSchedules.clear();
     provider->fetchStationSchedule(name, code);
     setName(name);
     setCode(code);
@@ -258,17 +284,14 @@ int StationScheduleModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     if (m_scheduleType == DepartureSchedule) {
-        qDebug() << "schedule.count" << m_departureSchedules.count();
         return m_departureSchedules.count();
     } else {
-        qDebug() << "schedule.count" << m_arrivalSchedules.count();
         return m_arrivalSchedules.count();
     }
 }
 
 QVariant StationScheduleModel::data(const QModelIndex &index, int role) const
 {
-    qDebug() << "getting data for role" << role;
     if (!index.isValid()) {
         return QVariant();
     }

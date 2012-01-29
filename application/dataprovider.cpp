@@ -66,6 +66,8 @@ void DataProvider::fetchStationSchedule(const QString &station,
     stationQueryReply = accessManager->post(request, query);
     connect(stationQueryReply, SIGNAL(finished()),
             SLOT(onStationScheduleFetched()));
+    connect(stationQueryReply, SIGNAL(error(QNetworkReply::NetworkError)),
+            SLOT(onNetworkError(QNetworkReply::NetworkError)));
     QStringList recentStations = settings->recentStations();
     recentStations.push_front(station);
     recentStations.removeDuplicates();
@@ -87,12 +89,24 @@ void DataProvider::updateStation()
 
 void DataProvider::onStationScheduleFetched()
 {
-    disconnect(stationQueryReply, SIGNAL(finished()),
-               this, SLOT(onStationScheduleFetched()));
+    disconnect(stationQueryReply);
 
     QString name = Settings::instance()->recentStations().front();
 
     emit stationScheduleReady(stationQueryReply->readAll(), stationQueryReply->url());
     stationQueryReply->deleteLater();
     stationQueryReply = 0;
+}
+
+void DataProvider::onNetworkError(QNetworkReply::NetworkError errorCode)
+{
+    switch (errorCode) {
+    case QNetworkReply::NoError:
+        qDebug() << "No Network error" << errorCode;
+        break;
+    default:
+        qDebug() << "SNetwork error" << errorCode;
+        emit error();
+        break;
+    }
 }
