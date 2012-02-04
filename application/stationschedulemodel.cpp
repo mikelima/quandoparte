@@ -212,6 +212,20 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     page.mainFrame()->setContent(htmlReply, "text/html", baseUrl);
     QWebElement doc = page.mainFrame()->documentElement();
 
+    // Check if the page is reporting an error before parsing it
+    QWebElement errorElement = doc.findFirst("span.errore");
+    if (!errorElement.isNull()) {
+        m_departureSchedules.clear();
+        m_arrivalSchedules.clear();
+        QString errorText = errorElement.toPlainText().trimmed();
+        if (errorText == "localita' non trovata") {
+            setError(tr("Unknown station"));
+        } else {
+            setError(tr("Unknown error"));
+        }
+        qDebug() << "error:" << error();
+        return;
+    }
     // Find the first div
     QWebElement current = doc.findFirst("div");
 
