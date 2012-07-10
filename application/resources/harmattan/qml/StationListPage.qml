@@ -10,7 +10,7 @@ Page {
     id: stationListPage
     tools: ToolBarLayout {
         id: toolBar
-        ToolIcon { iconId: "icon-m-toolbar-search"; onClicked: searchField.visible = !searchField.visible; }
+        ToolIcon { iconId: "icon-m-toolbar-search"; onClicked: searchField.open = !searchField.open; }
         ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
     }
     Menu {
@@ -48,7 +48,7 @@ Page {
     SearchBar {
         id: searchField
         anchors.top: header.bottom
-        visible: false
+        open: false
     }
     Binding {
         target: stationListProxyModel
@@ -76,6 +76,7 @@ Page {
             id: stationListView
             clip: true
             width: parent.width
+            cacheBuffer: 10
             anchors {
                 top: shadow.top
                 bottom: parent.bottom
