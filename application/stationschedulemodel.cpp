@@ -229,7 +229,6 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     // Find the first div
     QWebElement current = doc.findFirst("div");
 
-    QStringList departures, arrivals;
     qDebug() << "skipping to the departures";
     // Skip to the first div of class corpocentrale, which contains the first
     // departure-related contents
@@ -244,7 +243,6 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     qDebug() << "marking departures";
     do {
         if (current.classes().contains("bloccorisultato")) {
-            departures << current.toPlainText();
             StationScheduleItem schedule = parseResult(current);
             if (schedule.isValid()) {
                 m_departureSchedules << schedule;
@@ -259,7 +257,6 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
     // Mark everything as an arrival, until reaching the footer
     while (!current.classes().contains("footer")) {
         if (current.classes().contains("bloccorisultato")) {
-            arrivals << current.toPlainText();
             StationScheduleItem schedule = parseResult(current);
             if (schedule.isValid()) {
                 m_arrivalSchedules << schedule;
