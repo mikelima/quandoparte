@@ -4,7 +4,7 @@ Version=1.0
 Type=Application
 Terminal=false
 Name=Quando Parte
-Exec=/opt/quandoparte/bin/quandoparte
+Exec=/usr/bin/invoker --type=d -s /opt/quandoparte/bin/quandoparte
 Icon=/usr/share/icons/hicolor/scalable/apps/quandoparte.svg
 X-Window-Icon=
 X-HildonDesk-ShowInToolbar=true

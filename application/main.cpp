@@ -24,22 +24,30 @@ Boston, MA 02110-1301, USA.
 #include "view.h"
 #endif
 
-#include <QApplication>
+#include <QtGui/QApplication>
 #include <QDir>
 #include <QDebug>
 #include <QLocale>
 #include <QTranslator>
 
+#ifdef TARGET_PLATFORM_HARMATTAN
+#include <MDeclarativeCache>
+#endif
+
 #ifndef QP_VERSION
 #define QP_VERSION "0.0.2"
 #endif
 
-int main(int argc, char *argv[])
+Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    a.setApplicationName("QuandoParte");
-    a.setOrganizationDomain("cirulla.net");
-    a.setApplicationVersion(QP_VERSION);
+#ifdef TARGET_PLATFORM_HARMATTAN
+    QScopedPointer< QApplication > a(MDeclarativeCache::qApplication(argc, argv));
+#else
+    QScopedPointer< QApplication > a(new QApplication(argc, argv));
+#endif
+    a->setApplicationName("QuandoParte");
+    a->setOrganizationDomain("cirulla.net");
+    a->setApplicationVersion(QP_VERSION);
 
     QDir::setSearchPaths("css", QStringList(DATADIR "/css"));
     QDir::setSearchPaths("stations", QStringList(DATADIR "/stations"));
@@ -58,7 +66,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     if (translator.load(QString("i18n:quandoparte_") + locale)) {
         qDebug() << "Translation for locale" << locale << "loaded";
-        a.installTranslator(&translator);
+        a->installTranslator(&translator);
     } else {
         qDebug() << "Translation for locale" << locale << "not found";
     }
@@ -69,5 +77,5 @@ int main(int argc, char *argv[])
     theView.show();
 #endif
 
-    return a.exec();
+    return a->exec();
 }
