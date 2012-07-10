@@ -71,7 +71,7 @@ contains(USE_RESOURCES,1) {
 }
 
 !debug {
-#    DEFINES += QT_NO_DEBUG_OUTPUT
+    DEFINES += QT_NO_DEBUG_OUTPUT
 }
 
 TRANSLATIONS = resources/i18n/quandoparte_it.ts
