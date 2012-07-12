@@ -28,7 +28,7 @@ Page {
                    "Quando Parte" + "</a></h2>" +"<p style='font-size:small;'>version ") +
               settings.versionString +
               qsTr("</p>" +
-                   "<p>Copyright (c) 2010, 2011</p>" +
+                   "<p>Copyright (c) 2010, 2011, 2012</p>" +
                    "<p>Luciano Montanaro " +
                    "(<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)</p>" +
                    "<p>Licensed under the GNU Public License v2 or above</p>" +
