@@ -1,4 +1,8 @@
 var screenshots = {
+	"@1" : "Version 0.5.0 for Meego Harmattan N9/N950",
+	"harmattan-screenshot-stationlist.png" : "The Station List View",
+	"harmattan-screenshot-stationview.png" : "The Station Departures View",
+	"@2" : "Version 0.4.3 for Maemo 5 N900",
 	"screenshot-stationlist.png" : "The Station List View",
 	"screenshot-stationview.png" : "The Station Departures View",
 	"screenshot-stationlist-menu.png" : "The Station List Menu",
@@ -56,10 +60,23 @@ function generate_div(value, index, array)
 	screenshots.appendChild(screenshotDiv);
 }
 
+function generate_section(value, index, array)
+{
+	var screenshots = document.getElementById('screenshot-list');
+	var sectionElement = document.createElement('h3');
+	var captionElement = document.createTextNode(value);
+	
+	sectionElement.appendChild(captionElement);
+	screenshots.appendChild(sectionElement);
+}
 function build_screenshot_list()
 {
-	for (var key in screenshots)
-		generate_div(screenshots[key], key, screenshots);
+	for (var key in screenshots) {
+		if (key.match(/^@.*/)) 
+			generate_section(screenshots[key], key, screenshots);
+		else
+			generate_div(screenshots[key], key, screenshots);
+	}
 
 	var element = document.getElementById('picture-display-picture');
 	if (element.addEventListener) {
