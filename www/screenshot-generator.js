@@ -69,6 +69,7 @@ function generate_section(value, index, array)
 	sectionElement.appendChild(captionElement);
 	screenshots.appendChild(sectionElement);
 }
+
 function build_screenshot_list()
 {
 	for (var key in screenshots) {
@@ -91,5 +92,3 @@ if (window.addEventListener) {
 } else if (window.attachEvent) {
 	window.attachEvent('onload', build_screenshot_list);
 }
-
-

@@ -83,3 +83,6 @@ div#picture-display {
 	-webkit-transition-property: opacity z-index visibility;
 	-webkit-transition-timing-function: ease-in;
 }
+span.spacer {
+	padding: 6pt
+}
