@@ -40,7 +40,7 @@ install: build
 	dh_clean -k 
 	dh_installdirs
 	# Add here commands to install the package into debian/quandoparte.
-	$(MAKE) INSTALL_ROOT="$(CURDIR)"/debian/quandoparte install
+	$(MAKE)  INSTALL_ROOT="$(CURDIR)"/debian/quandoparte install
 
 
 # Build architecture-independent files here.

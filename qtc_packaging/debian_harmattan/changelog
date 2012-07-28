@@ -1,3 +1,8 @@
+quandoparte (0.5.1) unstable; urgency=low
+  * Fix single instance startup
+
+ -- Luciano Montanaro <mikelima@zaphod>  Sat, 28 Jul 2012 20:18:47 +0200
+
 quandoparte (0.5.0) unstable; urgency=low
   * Public release
   * Fixed the searchbar hiding/unhiding animation

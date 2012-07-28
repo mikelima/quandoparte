@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-VERSION = 0.5.0
+VERSION = 0.5.1
 USE_RESOURCES = 0
 
 QT += webkit network
@@ -126,6 +126,7 @@ OTHER_FILES += \
     resources/fremantle/applications/quandoparte.desktop \
     icons/48x48/quandoparte.png \
     icons/64x64/quandoparte.png \
+    icons/80x80/quandoparte.png \
     icons/scalable/quandoparte.svg \
     icons/quandoparte.png \
     resources/quandoparte.css \
@@ -182,12 +183,10 @@ unix:!symbian {
 }
 
 unix:!symbian {
-    css.files = resources/$${TARGET}.css resources/arrivals.css resources/departures.css
     i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
     stations.files = resources/stations/stations.qpl
 
     i18n.path = $$DATADIR/i18n
-    css.path = $$DATADIR/css
     stations.path = $$DATADIR/stations
 
     icon48.files = icons/48x48/$${TARGET}.png
@@ -199,13 +198,25 @@ unix:!symbian {
     iconscalable.path = /usr/share/icons/hicolor/scalable/apps
 
     INSTALLS += icon48
-    INSTALLS += icon64
     INSTALLS += iconscalable
     !contains(USE_RESOURCES,1) {
-        INSTALLS += css
         INSTALLS += i18n
         INSTALLS += stations
     }
+}
+
+maemo5 {
+    css.files = resources/$${TARGET}.css resources/arrivals.css resources/departures.css
+    css.path = $$DATADIR/css
+    !contains(USE_RESOURCES,1) {
+        INSTALLS += css
+    }
+}
+
+harmattan {
+    icon80.files = icons/80x80/$${TARGET}.png
+    icon80.path = /usr/share/icons/hicolor/meegotouch/apps
+    INSTALLS += icon80
 }
 
 !contains(USE_RESOURCES,1) {
