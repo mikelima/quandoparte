@@ -1668,10 +1668,6 @@
         <name>Dego</name>
     </station>
     <station>
-        <pos>44.9913698,7.642069</pos>
-        <name>Nichelino</name>
-    </station>
-    <station>
         <pos>45.1942455,8.1072608</pos>
         <name>Crescentino</name>
     </station>
@@ -1822,30 +1818,6 @@
     <station>
         <pos>45.5019644,9.1653831</pos>
         <name>Milano Lancetti</name>
-    </station>
-    <station>
-        <pos>45.0788046,7.5742041</pos>
-        <name>Collegno</name>
-    </station>
-    <station>
-        <pos>45.0788499,7.5742371</pos>
-        <name>Collegno</name>
-    </station>
-    <station>
-        <pos>45.0788966,7.5742710</pos>
-        <name>Collegno</name>
-    </station>
-    <station>
-        <pos>45.0681985,7.5989445</pos>
-        <name>Grugliasco</name>
-    </station>
-    <station>
-        <pos>45.0682422,7.5989817</pos>
-        <name>Grugliasco</name>
-    </station>
-    <station>
-        <pos>45.0682871,7.5990199</pos>
-        <name>Grugliasco</name>
     </station>
     <station>
         <pos>45.4725403,12.2558699</pos>
@@ -2902,14 +2874,6 @@
     <station>
         <pos>45.6340725,11.9642619</pos>
         <name>Resana</name>
-    </station>
-    <station>
-        <pos>44.0236456,10.1363581</pos>
-        <name>Massa Centro</name>
-    </station>
-    <station>
-        <pos>45.8550279,13.3173524</pos>
-        <name>Strassoldo</name>
     </station>
     <station>
         <pos>44.8018955,11.6971014</pos>
