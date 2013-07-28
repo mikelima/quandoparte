@@ -59,7 +59,7 @@ QString Settings::queryBaseUrl()
 {
     QSettings settings;
     return settings.value("QueryURL",
-                          "http://mobile.viaggiatreno.it/viaggiatreno/mobile/").toString();
+                          "http://mobile.viaggiatreno.it/vt_pax_internet/mobile/").toString();
 }
 
 void Settings::setQueryBaseUrl(const QString &url)
