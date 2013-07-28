@@ -1,15 +1,14 @@
 This package was debianized by Luciano Montanaro <mikelima@cirulla.net> on
-Tue, 21 Jun 2011 09:02:18 +0200.
+Tue, 16 Jul 2013 09:34:21 +0200.
 
-It was downloaded from <url://example.com>
+It was downloaded from ssh://drop.maemo.org/git/quandoparte
 
 Upstream Author(s):
-
     Luciano Montanaro <mikelima@cirulla.net>
 
 Copyright:
 
-    Copyright (C) 2011, 2012 Luciano Montanaro
+    Copyright (C) 2011, 20012, 2013, Luciano Montanaro
 
 License:
 
@@ -30,7 +29,7 @@ License:
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 
-The Debian packaging is (C) 2011, Luciano Montanaro <mikelima@zaphod> and
+The Debian packaging is (C) 2013, Luciano Montanaro <mikelima@cirulla.net> and
 is licensed under the GPL, see above.
 
 
