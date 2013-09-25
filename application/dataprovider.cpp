@@ -48,7 +48,8 @@ DataProvider *DataProvider::instance()
 
 DataProvider::DataProvider(QObject *parent) :
     QObject(parent),
-    accessManager(new QNetworkAccessManager(this))
+    accessManager(new QNetworkAccessManager(this)),
+    stationQueryReply(0)
 {
 }
 
@@ -64,6 +65,8 @@ void DataProvider::fetchStationSchedule(const QString &station,
                                     "codiceStazione=" + stationCode;
     const QByteArray query(queryString.toLocal8Bit());
     stationQueryReply = accessManager->post(request, query);
+    connect(stationQueryReply, SIGNAL(metaDataChanged()),
+            SLOT(onStationQueryMetadataChanged()));
     connect(stationQueryReply, SIGNAL(finished()),
             SLOT(onStationScheduleFetched()));
     connect(stationQueryReply, SIGNAL(error(QNetworkReply::NetworkError)),
@@ -91,11 +94,17 @@ void DataProvider::onStationScheduleFetched()
 {
     disconnect(stationQueryReply);
 
-    QString name = Settings::instance()->recentStations().front();
-
+    QVariant httpStatus = stationQueryReply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+    if (httpStatus.isValid()) {
+        qDebug() << "Metadata changed, Http status is:" << httpStatus.toInt();
+    }
     emit stationScheduleReady(stationQueryReply->readAll(), stationQueryReply->url());
     stationQueryReply->deleteLater();
     stationQueryReply = 0;
+}
+
+void DataProvider::onStationQueryMetadataChanged(void)
+{
 }
 
 void DataProvider::onNetworkError(QNetworkReply::NetworkError errorCode)
@@ -105,7 +114,7 @@ void DataProvider::onNetworkError(QNetworkReply::NetworkError errorCode)
         qDebug() << "No Network error" << errorCode;
         break;
     default:
-        qDebug() << "SNetwork error" << errorCode;
+        qDebug() << "Network error" << errorCode;
         emit error();
         break;
     }

@@ -47,6 +47,7 @@ public slots:
 
 private slots:
     void onStationScheduleFetched(void);
+    void onStationQueryMetadataChanged(void);
     void onNetworkError(QNetworkReply::NetworkError errorCode);
 
 private:
