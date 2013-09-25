@@ -85,7 +85,7 @@ View::View(QWidget *parent) :
     context->setContextProperty("stationList", stationListModel);
     context->setContextProperty("stationListProxyModel", stationListProxyModel);
 
-    // This does not seem ot work in harmattan. As a workaround, change dir to
+    // This does not seem to work in harmattan. As a workaround, change dir to
     // the qml dir, then load the file.
     // m_view->setSource(QUrl::fromLocalFile("qml:main.qml"));
     setSource(trueFilePath("qml:main.qml"));
