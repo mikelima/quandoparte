@@ -28,7 +28,7 @@ Boston, MA 02110-1301, USA.
 #include <QWidget>
 
 KeyPressForwarder::KeyPressForwarder(QObject *parent) :
-    QObject(parent)
+    QObject(parent), target(0)
 {
 }
 
