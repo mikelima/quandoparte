@@ -90,14 +90,16 @@ Page {
                 anchors.centerIn: parent
                 spacing: UiConstants.DefaultMargin
                 Text {
-                    text: qsTr("Error")
+                    text: qsTr("Error!")
+                    width: parent.width
                     font.pixelSize: UiConstants.HeaderFontPixelSize
                     font.bold: UiConstants.HeaderFontBoldness
                     horizontalAlignment: Text.AlignHCenter
                 }
                 Text {
                     text: schedule.error
-                    font.pixelSize: UiConstants.DefaultFontBoldness
+                    width: parent.width
+                    font.pixelSize: UiConstants.HeaderFontPixelSize
                     font.bold: UiConstants.DefaultFontBoldness
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -140,11 +142,11 @@ Page {
                 when: schedule.error
                 PropertyChanges {
                     target: stationScheduleView
-                    visible: true
+                    visible: false
                 }
                 PropertyChanges {
                     target: errorDisplay
-                    visible: false
+                    visible: true
                 }
                 PropertyChanges {
                     target: busyIndicator
