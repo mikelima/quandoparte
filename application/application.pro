@@ -15,6 +15,17 @@ contains(MEEGO_EDITION,harmattan) {
     CONFIG += harmattan
 }
 
+sailfish {
+    QT += qml quick concurrent webkitwidgets
+    PLATFORM = sailfish
+    DEFINES += TARGET_PLATFORM_SAILFISH
+    # enable booster
+    CONFIG += qdeclarative-boostable
+    QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-psabi
+    QMAKE_LFLAGS += -pie -rdynamic
+    PLATFORM_SOURCES = view.cpp
+    PLATFORM_HEADERS = view.h
+}
 harmattan {
     QT += declarative
     PLATFORM = harmattan
@@ -50,7 +61,7 @@ symbian {
     PLATFORM_SOURCES = view.cpp
     PLATFORM_HEADERS = view.h
 }
-!harmattan:!maemo5:!symbian {
+!sailfishos:!harmattan:!maemo5:!symbian {
     PLATFORM = desktop
     DEFINES += TARGET_PLATFORM_DESKTOP
     PLATFORM_SOURCES = view.cpp
@@ -146,14 +157,14 @@ unix {
         harmattan {
             PREFIX=/opt/$${TARGET}
         }
-        desktop {
+        sailfish:desktop {
             PREFIX=/usr/local
         }
     }
     maemo5 {
         DESKTOPDIR=/usr/share/applications/hildon
     }
-    harmattan {
+    sailfish:harmattan {
         DESKTOPDIR=/usr/share/applications
     }
     desktop {
@@ -213,6 +224,11 @@ maemo5 {
     }
 }
 
+sailfish {
+    icon90.files = icons/90x90/$${TARGET}.png
+    icon90.path = /usr/share/icons/hicolor/meegotouch/apps
+    INSTALLS += icon90
+}
 harmattan {
     icon80.files = icons/80x80/$${TARGET}.png
     icon80.path = /usr/share/icons/hicolor/meegotouch/apps
