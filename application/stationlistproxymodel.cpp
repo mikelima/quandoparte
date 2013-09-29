@@ -25,16 +25,20 @@ Boston, MA 02110-1301, USA.
 #include "stationlistmodel.h"
 
 #include <QDebug>
+#ifndef TARGET_PLATFORM_SAILFISH
 #include <QGeoCoordinate>
 
 QTM_USE_NAMESPACE
 
 Q_DECLARE_METATYPE(QGeoCoordinate)
+#endif
 
 StationListProxyModel::StationListProxyModel(QObject *parent) :
     QSortFilterProxyModel(parent),
+#ifndef TARGET_PLATFORM_SAILFISH
     positionInfoSource(QGeoPositionInfoSource::createDefaultSource(this)),
     m_here(44.5, 9.0),
+#endif
     m_filterRecentOnly(false)
 {
     Settings *settings = Settings::instance();
@@ -42,6 +46,7 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setSortCaseSensitivity(Qt::CaseInsensitive);
     setDynamicSortFilter(true);
+#ifndef TARGET_PLATFORM_SAILFISH
     if (positionInfoSource) {
         qDebug() << "position info source available";
         connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
@@ -50,6 +55,7 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     } else {
         qDebug() << "No position info source available";
     }
+#endif
     connect(settings, SIGNAL(recentStationsChanged()),
             this, SLOT(updateRecentStations()));
     updateRecentStations();
@@ -61,9 +67,13 @@ bool StationListProxyModel::lessThan(const QModelIndex &left,
     int role = sortRole();
 
     if (role == StationListModel::PositionRole) {
+#ifdef TARGET_PLATFORM_SAILFISH
+        return 0;
+#else
         QGeoCoordinate first = left.data(role).value<QGeoCoordinate>();
         QGeoCoordinate second = right.data(role).value<QGeoCoordinate>();
        return first.distanceTo(m_here) < second.distanceTo(m_here);
+#endif
     } else {
         return QString::compare(left.data(role).toString(),
                                 right.data(role).toString(),
@@ -71,6 +81,8 @@ bool StationListProxyModel::lessThan(const QModelIndex &left,
     }
 }
 
+
+#ifndef TARGET_PLATFORM_SAILFISH
 void StationListProxyModel::setUserPosition(const QtMobility::QGeoCoordinate &pos)
 {
     qDebug() << "Position is now" << pos;
@@ -79,6 +91,7 @@ void StationListProxyModel::setUserPosition(const QtMobility::QGeoCoordinate &po
         invalidate();
     }
 }
+#endif
 
 void StationListProxyModel::setRecentStations(const QStringList &stations)
 {
@@ -162,15 +175,18 @@ void StationListProxyModel::forceSortingMode(SortingMode mode)
     default:
         break;
     }
+#ifndef TARGET_PLATFORM_SAILFISH
     if (mode == StationListProxyModel::DistanceSorting) {
         positionInfoSource->startUpdates();
     } else {
         positionInfoSource->stopUpdates();
     }
+#endif
     invalidate();
     sort(0);
 }
 
+#ifndef TARGET_PLATFORM_SAILFISH
 void StationListProxyModel::updatePosition(const QtMobility::QGeoPositionInfo &update)
 {
     qDebug() << "Position update received" << update;
@@ -183,3 +199,4 @@ void StationListProxyModel::updatePosition(const QtMobility::QGeoPositionInfo &u
         }
     }
 }
+#endif

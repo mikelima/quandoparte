@@ -43,6 +43,8 @@ public:
 
     bool load(const QString &filename);
 
+    QHash<int, QByteArray> roleNames() const;
+
 signals:
 
 public slots:

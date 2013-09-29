@@ -31,7 +31,11 @@ Boston, MA 02110-1301, USA.
 #include <QFile>
 #include <QModelIndex>
 #include <QtConcurrentRun>
+#ifdef TARGET_PLATFORM_SAILFISH
+#include <QtQuick>
+#else
 #include <QtDeclarative>
+#endif
 
 // search Paths seem to be broken in Harmattan?
 
@@ -60,8 +64,13 @@ static QString trueFilePath(const QString &path)
 #endif
 }
 
+#ifdef TARGET_PLATFORM_SAILFISH
+View::View(QWindow *parent) :
+    QQuickView(parent),
+#else
 View::View(QWidget *parent) :
     QDeclarativeView(parent),
+#endif
     stationListModel(new StationListModel(this)),
     stationListProxyModel(new StationListProxyModel(this))
 {
@@ -79,7 +88,11 @@ View::View(QWidget *parent) :
     qmlRegisterType<StationScheduleModel>(
                 "net.cirulla.quandoparte", 1, 0, "StationScheduleModel");
 
+#ifdef TARGET_PLATFORM_SAILFISH
+    QQmlContext *context = this->rootContext();
+#else
     QDeclarativeContext *context = this->rootContext();
+#endif
     /* objects to be made accessible to QML */
     context->setContextProperty("settings", Settings::instance());
     context->setContextProperty("stationList", stationListModel);

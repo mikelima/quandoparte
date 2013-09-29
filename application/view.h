@@ -23,16 +23,30 @@ Boston, MA 02110-1301, USA.
 */
 
 #include <QFuture>
+#ifdef TARGET_PLATFORM_SAILFISH
+#include <QQuickView>
+#else
 #include <QDeclarativeView>
+#endif
 
 class StationListModel;
 class StationListProxyModel;
 
-class View : public QDeclarativeView
+class View :
+#ifdef TARGET_PLATFORM_SAILFISH
+        public QQuickView
+#else
+        public QDeclarativeView
+#endif
 {
     Q_OBJECT
 public:
+#ifdef TARGET_PLATFORM_SAILFISH
+    explicit View(QWindow *parent = 0);
+#else
     explicit View(QWidget *parent = 0);
+#endif
+
     ~View();
 
 signals:

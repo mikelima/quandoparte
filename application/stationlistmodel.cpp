@@ -25,20 +25,30 @@ Boston, MA 02110-1301, USA.
 #include <QFileInfo>
 #include <QDebug>
 #include <QStandardItem>
+#ifndef TARGET_PLATFORM_SAILFISH
 #include <QGeoCoordinate>
+#endif
 
+#ifndef TARGET_PLATFORM_SAILFISH
 QTM_USE_NAMESPACE
 Q_DECLARE_METATYPE(QGeoCoordinate)
+#endif
+
+static QHash<int, QByteArray> roles;
 
 StationListModel::StationListModel(QObject *parent) :
     QStandardItemModel(parent)
 {
     setRowCount(0);
+#ifndef TARGET_PLATFORM_SAILFISH
     QHash<int, QByteArray> roles;
+#endif
     roles[Qt::DisplayRole] = "name";
     roles[StationListModel::PositionRole] = "position";
     roles[StationListModel::StationCodeRole] = "code";
+#ifndef TARGET_PLATFORM_SAILFISH
     setRoleNames(roles);
+#endif
 }
 
 bool StationListModel::load(const QString &filename)
@@ -79,6 +89,11 @@ bool StationListModel::load(const QString &filename)
     endResetModel();
     emit layoutChanged();
     return true;
+}
+
+QHash<int, QByteArray> StationListModel::roleNames() const
+{
+    return roles;
 }
 
 void StationListModel::readStationsElement()
@@ -128,8 +143,10 @@ void StationListModel::readStationElement()
 void StationListModel::readPosElement(QStandardItem *item)
 {
     QStringList coordinates = m_reader.readElementText().split(",");
+#ifndef TARGET_PLATFORM_SAILFISH
     QGeoCoordinate pos = QGeoCoordinate(coordinates[0].toDouble(), coordinates[1].toDouble());
     item->setData(QVariant::fromValue(pos), PositionRole);
+#endif
     m_reader.readElementText();
     if (m_reader.isEndElement()) {
         m_reader.readNext();

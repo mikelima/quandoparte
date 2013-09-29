@@ -19,12 +19,17 @@ Boston, MA 02110-1301, USA.
 
 */
 
+#ifdef TARGET_PLATFORM_FREMANTLE
 #include "app.h"
-#ifndef TARGET_PLATFORM_FREMANTLE
+#else
 #include "view.h"
 #endif
 
+#ifdef TARGET_PLATFORM_SAILFISH
+#include <QtGui/QGuiApplication>
+#else
 #include <QtGui/QApplication>
+#endif
 #include <QDir>
 #include <QDebug>
 #include <QLocale>
@@ -40,7 +45,9 @@ Boston, MA 02110-1301, USA.
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-#ifdef TARGET_PLATFORM_HARMATTAN
+#ifdef TARGET_PLATFORM_SAILFISH
+    QScopedPointer< QGuiApplication > a(new QGuiApplication(argc, argv));
+#elif TARGET_PLATFORM_HARMATTAN
     QScopedPointer< QApplication > a(MDeclarativeCache::qApplication(argc, argv));
 #else
     QScopedPointer< QApplication > a(new QApplication(argc, argv));

@@ -21,7 +21,7 @@ Boston, MA 02110-1301, USA.
 
 #include "settings.h"
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QDebug>
 #include <QSettings>
 #include <QStringList>

@@ -23,12 +23,16 @@ Boston, MA 02110-1301, USA.
 */
 
 #include <QSortFilterProxyModel>
+#ifndef TARGET_PLATFORM_SAILFISH
 #include <QGeoCoordinate>
 #include <QGeoPositionInfoSource>
+#endif
 #include <QMetaType>
 #include <QStringList>
 
+#ifndef TARGET_PLATFORM_SAILFISH
 QTM_USE_NAMESPACE
+#endif
 
 class StationListProxyModel : public QSortFilterProxyModel
 {
@@ -52,7 +56,9 @@ public:
     SortingMode sortingMode();
     void setSortingMode(SortingMode mode);
 
+#ifndef TARGET_PLATFORM_SAILFISH
     Q_INVOKABLE void setUserPosition(const QGeoCoordinate &pos);
+#endif
     Q_INVOKABLE void setRecentStations(const QStringList &stations);
     Q_INVOKABLE void setRecentOnlyFilter(bool);
 
@@ -68,12 +74,16 @@ private:
     void forceSortingMode(SortingMode mode);
 
 private slots:
+#ifndef TARGET_PLATFORM_SAILFISH
     void updatePosition(const QGeoPositionInfo &update);
+#endif
     void updateRecentStations(void);
 private:
     QString m_searchPattern;
+#ifndef TARGET_PLATFORM_SAILFISH
     QGeoPositionInfoSource *positionInfoSource;
     QGeoCoordinate m_here;
+#endif
     QStringList m_stations;
     SortingMode m_sortingMode;
     bool m_filterRecentOnly;

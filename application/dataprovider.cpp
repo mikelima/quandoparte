@@ -28,9 +28,11 @@ Boston, MA 02110-1301, USA.
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QSharedPointer>
+#if 0
 #include <QWebElement>
 #include <QWebFrame>
 #include <QWebPage>
+#endif
 
 // Constants
 static const int RECENT_STATIONS_MAX_COUNT = 10;
