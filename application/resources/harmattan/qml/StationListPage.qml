@@ -29,6 +29,18 @@ Page {
                 }
             }
             MenuItem {
+                text: qsTr("Use Dark Theme")
+                Switch {
+                    id: darkThemeSwitchSwitch
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        right: parent.right
+                        rightMargin: UiConstants.DefaultMargin
+                    }
+                    onCheckedChanged: settings.useDarkTheme = checked
+                }
+            }
+            MenuItem {
                 text: qsTr("About Quando Parte")
                 onClicked: Private.showAboutPage()
             }

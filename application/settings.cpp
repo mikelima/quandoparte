@@ -133,6 +133,21 @@ void Settings::setStationViewPreferred(bool preference)
     emit stationViewPreferredChanged();
 }
 
+bool Settings::darkThemePreferred()
+{
+    QSettings settings;
+
+    return settings.value("DarkThemePreferred", false).toBool();
+}
+
+void Settings::setDarkThemePreferred(bool preference)
+{
+    QSettings settings;
+
+    settings.setValue("DarkThemePreferred", preference);
+    emit stationViewPreferredChanged();
+}
+
 bool Settings::showArrivalsPreferred()
 {
     QSettings settings;

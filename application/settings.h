@@ -52,6 +52,9 @@ class Settings : public QObject
     Q_PROPERTY(StationListProxyModel::SortingMode stationListSortingMode
                READ stationListSortingMode WRITE setStationListSortingMode
                NOTIFY stationListSortingModeChanged)
+    Q_PROPERTY(bool darkThemePreferred
+               READ darkThemePreferred WRITE setDarkThemePreferred
+               NOTIFY darkThemePreferredChanged)
     Q_PROPERTY(QString versionString READ versionString CONSTANT)
 public:
     explicit Settings(QObject *parent = 0);
@@ -78,6 +81,9 @@ public:
     bool showArrivalsPreferred();
     void setShowArrivalsPreferred(bool);
 
+    bool darkThemePreferred();
+    void setDarkThemePreferred(bool);
+
     StationListProxyModel::SortingMode stationListSortingMode();
     void setStationListSortingMode(StationListProxyModel::SortingMode mode);
 
@@ -90,6 +96,7 @@ signals:
     void autoUpdateChanged();
     void stationViewPreferredChanged();
     void showArrivalsPreferredChanged();
+    void darkThemePreferredChanged();
     void stationListSortingModeChanged();
 };
 
