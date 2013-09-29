@@ -7,7 +7,10 @@ Page {
 
     tools: ToolBarLayout {
         id: toolBar
-        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop(); }
+        ToolIcon {
+            iconId: "icon-m-toolbar-back" + (theme.inverted ? "-white": "")
+            onClicked: pageStack.pop()
+        }
     }
     PageHeader {
         id: header
@@ -28,7 +31,7 @@ Page {
                    "Quando Parte" + "</a></h2>" +"<p style='font-size:small;'>version ") +
               settings.versionString +
               qsTr("</p>" +
-                   "<p>Copyright (c) 2010, 2011, 2012</p>" +
+                   "<p>Copyright (c) 2010, 2011, 2012, 2013</p>" +
                    "<p>Luciano Montanaro " +
                    "(<a href='mailto:mikelima@cirulla.net'>mikelima@cirulla.net</a>)</p>" +
                    "<p>Licensed under the GNU Public License v2 or above</p>" +

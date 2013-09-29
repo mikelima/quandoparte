@@ -23,7 +23,7 @@ Item {
         anchors.fill: parent
         // Fill page borders
         visible: mouseArea.pressed
-        source: "image://theme/meegotouch-list-background-pressed-center"
+        source: "image://theme/meegotouch-list-fullwidth-" + (theme.inverted ? "inverted-" : "") + "background-pressed"
     }
     Item {
         id: bodyRow
@@ -119,7 +119,7 @@ Item {
             left: parent.left
             right: parent.right
         }
-        source: "image://theme/meegotouch-separator-background-horizontal"
+        source: "image://theme/meegotouch-separator-"+ (theme.inverted ? "inverted-" : "") + "background-horizontal"
     }
     MouseArea {
         id: mouseArea
@@ -135,11 +135,11 @@ Item {
         if (actual === "--") {
             return qsTr("Platform %1").arg(expected)
         } else if (actual === expected || expected === "--") {
-            return qsTr("Platform <span style='font-weight:bold;color:#080'>%2</span>").arg(actual)
+            return qsTr("Platform <span style='font-weight:bold;color:%2'>%1</span>").arg(actual).arg(theme.inverted ? "#0f0" : "#080")
         } else {
             return qsTr("Platform " +
                         "<span style='text-decoration:line-through'>%1</span> " +
-                        "<span style='font-weight:bold;color:#800'>%2</span>").arg(expected).arg(actual)
+                        "<span style='font-weight:bold;color:%3'>%2</span>").arg(expected).arg(actual).arg(theme.inverted ? "#f00" : "#800")
         }
     }
 }

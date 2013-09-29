@@ -10,8 +10,14 @@ Page {
     id: stationListPage
     tools: ToolBarLayout {
         id: toolBar
-        ToolIcon { iconId: "icon-m-toolbar-search"; onClicked: searchField.open = !searchField.open; }
-        ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
+        ToolIcon {
+            iconId: "icon-m-toolbar-search" + (theme.inverted ? "-white": "")
+            onClicked: searchField.open = !searchField.open
+        }
+        ToolIcon {
+            iconId: "icon-m-toolbar-view-menu" + (theme.inverted ? "-white": "")
+            onClicked: menu.open()
+        }
     }
     Menu {
         id: menu
@@ -25,6 +31,7 @@ Page {
                         right: parent.right
                         rightMargin: UiConstants.DefaultMargin
                     }
+                    checked: settings.autoUpdate
                     onCheckedChanged: settings.autoUpdate = checked
                 }
             }
@@ -37,7 +44,11 @@ Page {
                         right: parent.right
                         rightMargin: UiConstants.DefaultMargin
                     }
-                    onCheckedChanged: settings.useDarkTheme = checked
+                    checked: settings.darkThemePreferred
+                    onCheckedChanged: {
+                        settings.darkThemePreferred = checked
+                        theme.inverted = checked
+                    }
                 }
             }
             MenuItem {
@@ -103,7 +114,7 @@ Page {
                     anchors.fill: parent
                     // Fill page borders
                     visible: mouseArea.pressed
-                    source: "image://theme/meegotouch-list-fullwidth-background-pressed"
+                    source: "image://theme/meegotouch-list-fullwidth-" + (theme.inverted ? "inverted-" : "") + "background-pressed"
                 }
                 Row {
                     anchors.fill: parent
@@ -126,7 +137,7 @@ Page {
                         left: parent.left
                         right: parent.right
                     }
-                    source: "image://theme/meegotouch-separator-background-horizontal"
+                    source: "image://theme/meegotouch-separator-" + (theme.inverted ? "inverted-" : "") + "background-horizontal"
                 }
                 MouseArea {
                     id: mouseArea

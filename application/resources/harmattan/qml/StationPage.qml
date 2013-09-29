@@ -9,9 +9,17 @@ Page {
 
     tools: ToolBarLayout {
         id: toolBar
-        ToolIcon { iconId: "icon-m-toolbar-back"; onClicked: pageStack.pop() }
-        ToolIcon { iconId: "icon-m-toolbar-refresh"; onClicked: updateStation() }
-        ToolIcon { iconId: "icon-m-toolbar-view-menu"; onClicked: menu.open() }
+        ToolIcon {
+            iconId: "icon-m-toolbar-back" + (theme.inverted ? "-white": "")
+            onClicked: pageStack.pop()
+        }
+        ToolIcon {
+            iconId: "icon-m-toolbar-refresh" + (theme.inverted ? "-white": "")
+            onClicked: updateStation() }
+        ToolIcon {
+            iconId: "icon-m-toolbar-view-menu" + (theme.inverted ? "-white": "")
+            onClicked: menu.open()
+        }
     }
     PageHeader {
         id: header
