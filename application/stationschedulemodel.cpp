@@ -26,7 +26,9 @@ Boston, MA 02110-1301, USA.
 
 #include <QDebug>
 #include <QWebElement>
+#ifndef TARGET_PLATFORM_SAILFISH
 #include <QWebFrame>
+#endif
 #include <QWebPage>
 
 StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent) :
