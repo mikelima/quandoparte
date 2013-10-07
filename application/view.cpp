@@ -26,13 +26,14 @@ Boston, MA 02110-1301, USA.
 #include "stationlistproxymodel.h"
 #include "stationschedulemodel.h"
 
+#include <QtGlobal>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QModelIndex>
-#include <QtConcurrentRun>
-#ifdef TARGET_PLATFORM_SAILFISH
-#include <QtQuick>
+#include <QtConcurrent/QtConcurrentRun>
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
+#include <QtQuick/QtQuick>
 #else
 #include <QtDeclarative>
 #endif
@@ -64,7 +65,7 @@ static QString trueFilePath(const QString &path)
 #endif
 }
 
-#ifdef TARGET_PLATFORM_SAILFISH
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
 View::View(QWindow *parent) :
     QQuickView(parent),
 #else
@@ -88,7 +89,7 @@ View::View(QWidget *parent) :
     qmlRegisterType<StationScheduleModel>(
                 "net.cirulla.quandoparte", 1, 0, "StationScheduleModel");
 
-#ifdef TARGET_PLATFORM_SAILFISH
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
     QQmlContext *context = this->rootContext();
 #else
     QDeclarativeContext *context = this->rootContext();

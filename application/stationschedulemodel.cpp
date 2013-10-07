@@ -24,12 +24,17 @@ Boston, MA 02110-1301, USA.
 #include "dataprovider.h"
 #include "settings.h"
 
+#include <QtGlobal>
 #include <QDebug>
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
+#include <QtWebKitWidgets/QtWebKitWidgets>
+#else
 #include <QWebElement>
-#ifndef TARGET_PLATFORM_SAILFISH
 #include <QWebFrame>
-#endif
 #include <QWebPage>
+#endif
+
+static QHash<int, QByteArray> roles;
 
 StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent) :
     QAbstractListModel(parent),
@@ -49,7 +54,9 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
     roles[DelayClassRole] = "delayClass";
     roles[ExpectedPlatformRole] = "expectedPlatform";
     roles[ActualPlatformRole] = "actualPlatform";
+#if (QT_VERSION <= QT_VERSION_CHECK(5, 0, 0))
     setRoleNames(roles);
+#endif
 
     connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
             this, SLOT(parse(QByteArray,QUrl)));
@@ -96,6 +103,11 @@ void StationScheduleModel::setError(const QString &error)
         m_error = error;
         emit errorChanged();
     }
+}
+
+QHash<int, QByteArray> StationScheduleModel::roleNames() const
+{
+    return roles;
 }
 
 StationScheduleModel::ScheduleType StationScheduleModel::type()
@@ -210,6 +222,7 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
 
     emit layoutAboutToBeChanged();
     beginResetModel();
+#if (QT_VERSION <= QT_VERSION_CHECK(5, 0, 0))
     QWebPage page;
     page.mainFrame()->setContent(htmlReply, "text/html", baseUrl);
     QWebElement doc = page.mainFrame()->documentElement();
@@ -269,6 +282,7 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
         if (current.isNull())
             break;
     }
+#endif
     endResetModel();
     emit layoutChanged();
 }

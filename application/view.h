@@ -22,9 +22,10 @@ Boston, MA 02110-1301, USA.
 
 */
 
+#include <QtGlobal>
 #include <QFuture>
-#ifdef TARGET_PLATFORM_SAILFISH
-#include <QQuickView>
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
+#include <QtQuick/QQuickView>
 #else
 #include <QDeclarativeView>
 #endif
@@ -33,7 +34,7 @@ class StationListModel;
 class StationListProxyModel;
 
 class View :
-#ifdef TARGET_PLATFORM_SAILFISH
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
         public QQuickView
 #else
         public QDeclarativeView
@@ -41,7 +42,7 @@ class View :
 {
     Q_OBJECT
 public:
-#ifdef TARGET_PLATFORM_SAILFISH
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
     explicit View(QWindow *parent = 0);
 #else
     explicit View(QWidget *parent = 0);

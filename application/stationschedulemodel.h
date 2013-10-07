@@ -73,6 +73,8 @@ public:
     const QString &error();
     void setError(const QString &code);
 
+    QHash<int, QByteArray> roleNames() const;
+
 signals:
     void nameChanged();
     void codeChanged();
