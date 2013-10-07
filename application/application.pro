@@ -7,21 +7,36 @@
 VERSION = 0.5.1
 USE_RESOURCES = 0
 
-QT += webkit network
-CONFIG += qt webkit mobility
-MOBILITY = location
+QT += network
+CONFIG += qt thread
+CONFIG += link_pkgconfig
 
-contains(MEEGO_EDITION,harmattan) {
+greaterThan(QT_MAJOR_VERSION, 5) {
+    QT += qml quick concurrent location widgets webkitwidgets webkit
+    CONFIG += qml quick concurrent location
+    #PKGCONFIG += Qt5WebKitWidgets Qt5Location Qt5Quick
+}
+lessThan(QT_MAJOR_VERSION, 5) {
+    QT += webkit
+    CONFIG += webkit mobility
+    MOBILITY = location
+}
+
+contains(MEEGO_EDITION, harmattan) {
     CONFIG += harmattan
 }
 
 sailfish {
-    QT += qml quick concurrent webkitwidgets
     PLATFORM = sailfish
     DEFINES += TARGET_PLATFORM_SAILFISH
     # enable booster
-    CONFIG += qdeclarative-boostable
-    QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-psabi
+packagesExist(qdeclarative-boostable) {
+    message("Building with qdeclarative-boostable support")
+    DEFINES += HAS_BOOSTER
+    PKGCONFIG += qdeclarative-boostable
+} else {
+    warning("qdeclarative-boostable not available; startup times will be slower")
+}
     QMAKE_LFLAGS += -pie -rdynamic
     PLATFORM_SOURCES = view.cpp
     PLATFORM_HEADERS = view.h
@@ -61,7 +76,7 @@ symbian {
     PLATFORM_SOURCES = view.cpp
     PLATFORM_HEADERS = view.h
 }
-!sailfishos:!harmattan:!maemo5:!symbian {
+!sailfish:!harmattan:!maemo5:!symbian {
     PLATFORM = desktop
     DEFINES += TARGET_PLATFORM_DESKTOP
     PLATFORM_SOURCES = view.cpp
@@ -69,6 +84,7 @@ symbian {
 
 message(Compiling For:    $$PLATFORM)
 message(Platform Sources: $$PLATFORM_SOURCES)
+message(Qt Version:       $$QT_MAJOR_VERSION $$QT_MINOR_VERSION)
 message(Qt Modules Used:  $$QT)
 message(Building version: $$VERSION)
 
@@ -139,6 +155,8 @@ OTHER_FILES += \
     icons/64x64/quandoparte.png \
     icons/80x80/quandoparte.png \
     icons/scalable/quandoparte.svg \
+    icons/sailfish/90x90/quandoparte.svg \
+    icons/sailfish/scalable/quandoparte.svg \
     icons/quandoparte.png \
     resources/quandoparte.css \
     resources/arrivals.css \
@@ -164,8 +182,11 @@ unix {
     maemo5 {
         DESKTOPDIR=/usr/share/applications/hildon
     }
-    sailfish:harmattan {
+    harmattan {
         DESKTOPDIR=/usr/share/applications
+    }
+    sailfish {
+        DESKTOPDIR=$$PREFIX/share/applications
     }
     desktop {
         DESKTOPDIR=$$PREFIX/share/applications
@@ -225,7 +246,7 @@ maemo5 {
 }
 
 sailfish {
-    icon90.files = icons/90x90/$${TARGET}.png
+    icon90.files = icons/sailfish/90x90/$${TARGET}.png
     icon90.path = /usr/share/icons/hicolor/meegotouch/apps
     INSTALLS += icon90
 }
