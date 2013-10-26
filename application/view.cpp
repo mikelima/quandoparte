@@ -27,11 +27,11 @@ Boston, MA 02110-1301, USA.
 #include "stationschedulemodel.h"
 
 #include <QtGlobal>
+#include <QtConcurrentRun>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QModelIndex>
-#include <QtConcurrent/QtConcurrentRun>
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 0, 0))
 #include <QtQuick/QtQuick>
 #else

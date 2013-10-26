@@ -1,5 +1,5 @@
-#ifndef QP_VIEW_H
-#define QP_VIEW_H
+#ifndef QP_VIEW_QT4_H
+#define QP_VIEW_QT5_H
 
 /*
 
@@ -23,11 +23,29 @@ Boston, MA 02110-1301, USA.
 */
 
 #include <QtGlobal>
+#include <QFuture>
+#include <QDeclarativeView>
 
-#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
-#include "view_qt4.h"
-#else
-#include "view_qt5.h"
-#endif
+class StationListModel;
+class StationListProxyModel;
 
-#endif // QP_VIEW_H
+class View :
+        public QDeclarativeView
+{
+    Q_OBJECT
+public:
+    explicit View(QWidget *parent = 0);
+
+    ~View();
+
+signals:
+
+public slots:
+
+private:
+    QFuture<void> future;
+    StationListModel *stationListModel;
+    StationListProxyModel *stationListProxyModel;
+};
+
+#endif // QP_VIEW_QT4_H
