@@ -26,7 +26,7 @@ Boston, MA 02110-1301, USA.
 
 #include <QtGlobal>
 #include <QDebug>
-#include <QtLocation/QGeoCoordinate>
+#include <QGeoCoordinate>
 
 #if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 QTM_USE_NAMESPACE
@@ -169,7 +169,9 @@ void StationListProxyModel::forceSortingMode(SortingMode mode)
     if (mode == StationListProxyModel::DistanceSorting) {
         positionInfoSource->startUpdates();
     } else {
+#if 0
         positionInfoSource->stopUpdates();
+#endif
     }
     invalidate();
     sort(0);

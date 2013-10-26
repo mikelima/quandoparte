@@ -25,27 +25,19 @@ Boston, MA 02110-1301, USA.
 #include <QFileInfo>
 #include <QDebug>
 #include <QStandardItem>
-#include <QtLocation/QGeoCoordinate>
+#include <QGeoCoordinate>
 
 #if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 QTM_USE_NAMESPACE
 Q_DECLARE_METATYPE(QGeoCoordinate)
 #endif
 
-static QHash<int, QByteArray> roles;
-
 StationListModel::StationListModel(QObject *parent) :
     QStandardItemModel(parent)
 {
     setRowCount(0);
 #if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
-    QHash<int, QByteArray> roles;
-#endif
-    roles[Qt::DisplayRole] = "name";
-    roles[StationListModel::PositionRole] = "position";
-    roles[StationListModel::StationCodeRole] = "code";
-#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
-    setRoleNames(roles);
+    setRoleNames(roleNames());
 #endif
 }
 
@@ -91,6 +83,10 @@ bool StationListModel::load(const QString &filename)
 
 QHash<int, QByteArray> StationListModel::roleNames() const
 {
+    QHash<int, QByteArray> roles;
+    roles[Qt::DisplayRole] = "name";
+    roles[StationListModel::PositionRole] = "position";
+    roles[StationListModel::StationCodeRole] = "code";
     return roles;
 }
 

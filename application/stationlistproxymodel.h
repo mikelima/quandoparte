@@ -24,8 +24,8 @@ Boston, MA 02110-1301, USA.
 
 #include <QtGlobal>
 #include <QSortFilterProxyModel>
-#include <QtLocation/QGeoCoordinate>
-#include <QtLocation/QGeoPositionInfoSource>
+#include <QGeoCoordinate>
+#include <QGeoPositionInfoSource>
 #include <QMetaType>
 #include <QStringList>
 

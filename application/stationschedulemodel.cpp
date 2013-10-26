@@ -27,14 +27,12 @@ Boston, MA 02110-1301, USA.
 #include <QtGlobal>
 #include <QDebug>
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
-#include <QtWebKitWidgets/QtWebKitWidgets>
+#include <QtWebKitWidgets>
 #else
 #include <QWebElement>
 #include <QWebFrame>
 #include <QWebPage>
 #endif
-
-static QHash<int, QByteArray> roles;
 
 StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent) :
     QAbstractListModel(parent),
@@ -43,27 +41,15 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
 
 {
     DataProvider *provider = DataProvider::instance();
-    QHash<int, QByteArray> roles;
-    roles[TrainRole] = "train";
-    roles[DepartureStationRole] = "departureStation";
-    roles[DepartureTimeRole] = "departureTime";
-    roles[ArrivalStationRole] = "arrivalStation";
-    roles[ArrivalTimeRole] = "arrivalTime";
-    roles[DetailsUrlRole] = "detailsUrl";
-    roles[DelayRole] = "delay";
-    roles[DelayClassRole] = "delayClass";
-    roles[ExpectedPlatformRole] = "expectedPlatform";
-    roles[ActualPlatformRole] = "actualPlatform";
-#if (QT_VERSION <= QT_VERSION_CHECK(5, 0, 0))
-    setRoleNames(roles);
-#endif
-
     connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
             this, SLOT(parse(QByteArray,QUrl)));
     connect(provider, SIGNAL(error()),
             this, SLOT(onNetworkError()));
     Settings *settings = Settings::instance();
     m_scheduleType = settings->showArrivalsPreferred() ? ArrivalSchedule : DepartureSchedule;
+#if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
+    setRoleNames(roleNames());
+#endif
 }
 
 const QString &StationScheduleModel::name()
@@ -107,6 +93,18 @@ void StationScheduleModel::setError(const QString &error)
 
 QHash<int, QByteArray> StationScheduleModel::roleNames() const
 {
+    QHash<int, QByteArray> roles;
+    roles[TrainRole] = "train";
+    roles[DepartureStationRole] = "departureStation";
+    roles[DepartureTimeRole] = "departureTime";
+    roles[ArrivalStationRole] = "arrivalStation";
+    roles[ArrivalTimeRole] = "arrivalTime";
+    roles[DetailsUrlRole] = "detailsUrl";
+    roles[DelayRole] = "delay";
+    roles[DelayClassRole] = "delayClass";
+    roles[ExpectedPlatformRole] = "expectedPlatform";
+    roles[ActualPlatformRole] = "actualPlatform";
+
     return roles;
 }
 
