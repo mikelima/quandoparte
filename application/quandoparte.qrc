@@ -11,6 +11,7 @@
         <file alias="DroppedShadow.qml">resources/harmattan/qml/DroppedShadow.qml</file>
         <file alias="DelayIndicator.qml">resources/harmattan/qml/DelayIndicator.qml</file>
         <file alias="AboutPage.qml">resources/harmattan/qml/AboutPage.qml</file>
+        <file alias="main.qml">resources/sailfish/qml/main.qml</file>
     </qresource>
     <qresource prefix="/stations">
         <file alias="stations.qpl">resources/stations/stations.qpl</file>
