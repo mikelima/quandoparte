@@ -21,7 +21,7 @@ function loadStation(name, code)
 
         /*
             XXX Ugliness ahead! Changing the name triggers the station
-            to schedule to be fetched. So any extra data (the code specifically)
+            schedule to be fetched. So any extra data (the code specifically)
             must be set before changing the name.
          */
         if (code !== undefined) view.code = code

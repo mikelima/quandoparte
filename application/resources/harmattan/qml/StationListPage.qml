@@ -83,6 +83,11 @@ Page {
         property: "sortingMode"
         value: header.selectedIndex
     }
+    Binding {
+        target: stationListView
+        property: "section.property"
+        value: header.selectedIndex === 0 ? "name" : ""
+    }
     Item {
         id: mainView
         anchors {
@@ -105,6 +110,43 @@ Page {
                 bottom: parent.bottom
             }
             model:  stationListProxyModel
+            section {
+                //property: "name"
+                criteria: ViewSection.FirstCharacter
+                delegate: Item {
+                    width: parent.width
+                    height: UiConstants.SectionItemHeightSmall
+                    anchors {
+                        margins: UiConstants.DefaultMargin
+                    }
+                    Image {
+                        anchors {
+                            left: parent.left
+                            right: sectionLabel.left
+                            verticalCenter: parent.verticalCenter
+                            margins: UiConstants.DefaultMargin
+                        }
+                        source: "image://theme/meegotouch-separator-" + (theme.inverted ? "inverted-" : "") + "background-horizontal"
+                    }
+                    Label {
+                        id: sectionLabel
+                        anchors {
+                            right: sectionRightMargin.left
+                            verticalCenter: parent.verticalCenter
+                        }
+                        text: section
+                    }
+                    Item {
+                        id: sectionRightMargin
+                        anchors {
+                            right: parent.right
+                        }
+                        width: UiConstants.DefaultMargin
+                        height: UiConstants.DefaultMargin
+                    }
+                }
+            }
+
             delegate: Item {
                 id: listItem
                 height: UiConstants.ListItemHeightSmall
@@ -137,7 +179,7 @@ Page {
                         left: parent.left
                         right: parent.right
                     }
-                    source: "image://theme/meegotouch-separator-" + (theme.inverted ? "inverted-" : "") + "background-horizontal"
+                    //source: "image://theme/meegotouch-separator-" + (theme.inverted ? "inverted-" : "") + "background-horizontal"
                 }
                 MouseArea {
                     id: mouseArea

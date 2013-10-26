@@ -15,6 +15,8 @@ const HeaderDefaultBottomSpacingLandscape = 16
 
 const SearchBarDefaultHeight = 80
 
+const SectionItemHeightSmall = 32
+
 const ListItemHeightSmall = 64
 const ListItemHeightDefault = 80
 const ListItemHeightLarge = 96

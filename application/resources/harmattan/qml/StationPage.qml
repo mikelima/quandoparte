@@ -60,7 +60,7 @@ Page {
             clip: true
             visible: false
             width: parent.width
-            cacheBuffer: 10
+            cacheBuffer: 40
             anchors {
                 top: shadow.top
                 bottom: parent.bottom
