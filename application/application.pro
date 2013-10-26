@@ -8,22 +8,19 @@ VERSION = 0.5.1
 USE_RESOURCES = 0
 
 QT += network
-CONFIG += qt thread
-CONFIG += link_pkgconfig
+CONFIG += qt
+#CONFIG += link_pkgconfig
 
-greaterThan(QT_MAJOR_VERSION, 5) {
-    QT += qml quick concurrent location widgets webkitwidgets webkit
-    CONFIG += qml quick concurrent location
-    #PKGCONFIG += Qt5WebKitWidgets Qt5Location Qt5Quick
-}
 lessThan(QT_MAJOR_VERSION, 5) {
     QT += webkit
     CONFIG += webkit mobility
     MOBILITY = location
+} else {
+    QT += qml quick concurrent location webkitwidgets webkit
 }
 
 contains(MEEGO_EDITION, harmattan) {
-    CONFIG += harmattan
+   CONFIG += harmattan
 }
 
 sailfish {
@@ -39,7 +36,7 @@ packagesExist(qdeclarative-boostable) {
 }
     QMAKE_LFLAGS += -pie -rdynamic
     PLATFORM_SOURCES = view.cpp
-    PLATFORM_HEADERS = view.h
+    PLATFORM_HEADERS = view.h view_qt5.h
 }
 harmattan {
     QT += declarative
@@ -50,7 +47,7 @@ harmattan {
     QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-psabi
     QMAKE_LFLAGS += -pie -rdynamic
     PLATFORM_SOURCES = view.cpp
-    PLATFORM_HEADERS = view.h
+    PLATFORM_HEADERS = view.h view_qt4.h
 }
 maemo5 {
     QT += maemo5
@@ -69,14 +66,7 @@ maemo5 {
         settingsdialog.h \
         stationview.h
 }
-symbian {
-    QT += declarative
-    DEFINES += TARGET_PLATFORM_SYMBIAN
-    PLATFORM = symbian
-    PLATFORM_SOURCES = view.cpp
-    PLATFORM_HEADERS = view.h
-}
-!sailfish:!harmattan:!maemo5:!symbian {
+!sailfish:!harmattan:!maemo5 {
     PLATFORM = desktop
     DEFINES += TARGET_PLATFORM_DESKTOP
     PLATFORM_SOURCES = view.cpp
@@ -84,7 +74,7 @@ symbian {
 
 message(Compiling For:    $$PLATFORM)
 message(Platform Sources: $$PLATFORM_SOURCES)
-message(Qt Version:       $$QT_MAJOR_VERSION $$QT_MINOR_VERSION)
+message(Qt Version:       $$QT_MAJOR_VERSION"."$$QT_MINOR_VERSION)
 message(Qt Modules Used:  $$QT)
 message(Building version: $$VERSION)
 
@@ -93,8 +83,9 @@ TEMPLATE = app
 VERSION_STRING = '\\"$${VERSION}\\"'
 DEFINES += QP_VERSION=\"$${VERSION_STRING}\"
 
-contains(USE_RESOURCES,1) {
+contains(USE_RESOURCES, 1) {
     DEFINES += USE_RESOURCES=1
+    CONFIG += resources
 }
 
 !debug {
@@ -126,13 +117,6 @@ FORMS += \
     settingsdialog.ui \
     stationlistview.ui
 
-symbian {
-    TARGET.UID3 = 0xe30fb688
-    # TARGET.CAPABILITY += 
-    TARGET.EPOCSTACKSIZE = 0x14000
-    TARGET.EPOCHEAPSIZE = 0x020000 0x800000
-}
-
 QMLSOURCES = \
     resources/harmattan/qml/main.qml \
     resources/harmattan/qml/StationListPage.qml \
@@ -146,9 +130,13 @@ QMLSOURCES = \
     resources/harmattan/qml/InfoBar.qml \
     resources/harmattan/qml/DroppedShadow.qml \
     resources/harmattan/qml/DelayIndicator.qml \
-    resources/harmattan/qml/StationScheduleDelegate.qml
+    resources/harmattan/qml/StationScheduleDelegate.qml \
+    resources/sailfish/qml/main.qml \
+    resources/sailfish/qml/pages/StationListPage.qml \
+    resources/sailfish/qml/pages/StationPage.qml
 
 OTHER_FILES += \
+    resources/sailfish/applications/quandoparte.desktop \
     resources/harmattan/applications/quandoparte.desktop \
     resources/fremantle/applications/quandoparte.desktop \
     icons/48x48/quandoparte.png \
@@ -165,56 +153,59 @@ OTHER_FILES += \
     resources/stations/stations.qpl \
     resources/stations/generatelist.xq \
     resources/stations/generateunclassifiedlist.xq \
-    $$QMLSOURCES
+    $$QMLSOURCES \
+    resources/sailfish/qml/StationListPage.qml
 
-unix {
-    isEmpty(PREFIX) {
-        maemo5 {
-            PREFIX=/opt/usr
-        }
-        harmattan {
-            PREFIX=/opt/$${TARGET}
-        }
-        sailfish:desktop {
-            PREFIX=/usr/local
-        }
-    }
+isEmpty(PREFIX) {
     maemo5 {
-        DESKTOPDIR=/usr/share/applications/hildon
+        PREFIX=/opt/usr
     }
     harmattan {
-        DESKTOPDIR=/usr/share/applications
+        PREFIX=/opt/$${TARGET}
     }
     sailfish {
-        DESKTOPDIR=$$PREFIX/share/applications
+        PREFIX=/usr
     }
-    desktop {
-        DESKTOPDIR=$$PREFIX/share/applications
+    !maemo5:!harmattan:!sailfish {
+        PREFIX=/usr/local
     }
-
-    BINDIR=$$PREFIX/bin
-    contains(USE_RESOURCES,1) {
-        DATADIR=":"
-    } else {
-        DATADIR=$$PREFIX/share/apps/$${TARGET}
-    }
-    DEFINES += DATADIR=\\\"$${DATADIR}\\\" PKGDATADIR=\\\"$${PKGDATADIR}\\\"
 }
+maemo5 {
+    DESKTOPDIR=/usr/share/applications/hildon
+}
+harmattan {
+    DESKTOPDIR=/usr/share/applications
+}
+sailfish {
+    DESKTOPDIR=$$PREFIX/share/applications
+}
+desktop {
+    DESKTOPDIR=$$PREFIX/share/applications
+}
+BINDIR=$$PREFIX/bin
+contains(USE_RESOURCES, 1) {
+    DATADIR=":"
+} else {
+    DATADIR=$$PREFIX/share/apps/$${TARGET}
+}
+DEFINES += DATADIR=\\\"$${DATADIR}\\\" PKGDATADIR=\\\"$${PKGDATADIR}\\\"
 
 message(Installing to prefix $$PREFIX)
+message(Executable to $$BINDIR)
+message(Desktop file to $$DESKTOPDIR)
+message(Data to $$DATADIR)
+message(Extra defines $$DEFINES)
 
-unix:!symbian {
-    target.path = $$BINDIR
-    INSTALLS += target
-}
+target.path = $$BINDIR
+INSTALLS += target
 
-unix:!symbian {
+unix:sailfish {
     desktopfile.files = resources/$$PLATFORM/applications/$${TARGET}.desktop
     desktopfile.path = $$DESKTOPDIR
     INSTALLS += desktopfile
 }
 
-unix:!symbian {
+unix:sailfish {
     i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
     stations.files = resources/stations/stations.qpl
 
@@ -231,16 +222,14 @@ unix:!symbian {
 
     INSTALLS += icon48
     INSTALLS += iconscalable
-    !contains(USE_RESOURCES,1) {
-        INSTALLS += i18n
-        INSTALLS += stations
-    }
+    INSTALLS += i18n
+    INSTALLS += stations
 }
 
 maemo5 {
     css.files = resources/$${TARGET}.css resources/arrivals.css resources/departures.css
     css.path = $$DATADIR/css
-    !contains(USE_RESOURCES,1) {
+    !contains(USE_RESOURCES, 1) {
         INSTALLS += css
     }
 }
@@ -256,7 +245,15 @@ harmattan {
     INSTALLS += icon80
 }
 
-!contains(USE_RESOURCES,1) {
+!contains(USE_RESOURCES, 1) {
+    sailfish {
+        qml.files = resources/sailfish/qml/*.qml \
+                    resources/sailfish/qml/*.js \
+                    resources/sailfish/qml/pages \
+                    resources/sailfish/qml/cover
+        qml.path = $$DATADIR/qml
+        INSTALLS += qml
+    }
     harmattan {
         qml.files = resources/harmattan/qml/*.qml resources/harmattan/qml/*.js
         qml.path = $$DATADIR/qml
@@ -264,7 +261,7 @@ harmattan {
     }
 }
 
-contains(USE_RESOURCES,1) {
+contains(USE_RESOURCES, 1) {
     RESOURCES += \
         quandoparte.qrc
 }

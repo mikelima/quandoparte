@@ -3,6 +3,8 @@ TEMPLATE = subdirs
 SUBDIRS = application
 
 OTHER_FILES += \
+    rpm/quandoparte.yaml \
+    rpm/quandoparte.spec \
     qtc_packaging/debian_fremantle/rules \
     qtc_packaging/debian_fremantle/README \
     qtc_packaging/debian_fremantle/copyright \
