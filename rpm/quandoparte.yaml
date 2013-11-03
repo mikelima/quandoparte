@@ -1,0 +1,48 @@
+Name: quandoparte
+Summary: Quando Parte
+Version: 0.5
+Release: 1
+Group: Qt/Qt
+License: GPL v2 or above
+Sources:
+- '%{name}-%{version}.tar.bz2'
+Description: |-
+  Virtual Arrivals and Departures board for Italian trains quandoparte
+  uses the Trenitalia data to show arrivals and departures times of trains of a given
+  station, with delay or suppression information.
+Configure: none
+Builder: qtc5
+PkgConfigBR:
+- qdeclarative5-boostable
+- Qt5WebKitWidgets
+- Qt5WebKit
+- Qt5Quick
+- Qt5Qml
+- Qt5Core
+- Qt5Concurrent
+- Qt5Location
+Requires:
+- mapplauncherd-booster-silica-qt5
+- sailfishsilica-qt5
+- qt5-qtlocation
+- qt5-qtconcurrent
+- libqtlocation1
+Files:
+- '%{_bindir}'
+- '%{_datadir}/apps/quandoparte/qml'
+- '%{_datadir}/apps/quandoparte/stations'
+- '%{_datadir}/apps/quandoparte/i18n'
+- '%{_datadir}/applications'
+- '%{_datadir}/icons/hicolor/meegotouch/apps'
+- '%{_datadir}/icons/hicolor/48x48/apps'
+- '%{_datadir}/icons/hicolor/scalable/apps'
+- 
+- /usr/bin
+- /usr/share/applications
+- /usr/share/icons/hicolor/48x48/apps
+- /usr/share/icons/hicolor/scalable/apps
+- /usr/share/apps/quandoparte/i18n
+- /usr/share/apps/quandoparte/stations
+- /usr/share/icons/hicolor/meegotouch/apps
+- /usr/share/apps/quandoparte/qml
+PkgBR: []
