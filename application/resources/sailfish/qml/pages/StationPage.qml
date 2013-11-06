@@ -60,7 +60,7 @@ Page {
             anchors.centerIn: parent
             Column {
                 anchors.centerIn: parent
-                spacing: Theme.paddingMedium
+                spacing: Theme.paddingLarge
                 Label {
                     text: qsTr("Error!")
                     width: parent.width
