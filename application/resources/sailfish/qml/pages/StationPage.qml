@@ -61,13 +61,13 @@ Page {
             Column {
                 anchors.centerIn: parent
                 spacing: Theme.paddingMedium
-                Text {
+                Label {
                     text: qsTr("Error!")
                     width: parent.width
                     font.pixelSize: Theme.fontSizeHuge
                     horizontalAlignment: Text.AlignHCenter
                 }
-                Text {
+                Label {
                     text: schedule.error
                     width: parent.width
                     font.pixelSize: Theme.fontSizeHuge

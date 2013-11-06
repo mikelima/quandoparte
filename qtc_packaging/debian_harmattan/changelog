@@ -1,3 +1,11 @@
+quandoparte (0.6.0) unstable; urgency=low
+  * Sailfish OS port
+  * Added section headers to the station list view
+  * Various tweaks to the Harmattan UI
+  * Updated station list data
+
+ -- Luciano Montanaro <mikelima@zaphod>  Wed, 05 Nov 2013 20:21:40 +0100
+
 quandoparte (0.5.1) unstable; urgency=low
   * Fix single instance startup
 

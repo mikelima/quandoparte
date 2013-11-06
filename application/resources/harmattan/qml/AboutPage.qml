@@ -27,6 +27,8 @@ Page {
             right: parent.right;
             margins: UiConstants.DefaultMargin
         }
+        wrapMode: Text.WordWrap
+        textFormat: Text.RichText
         text: qsTr("<h2><a href='http://quandoparte.garage.maemo.org'>" +
                    "Quando Parte" + "</a></h2>" +"<p style='font-size:small;'>version ") +
               settings.versionString +

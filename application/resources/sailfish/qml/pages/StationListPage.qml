@@ -50,6 +50,10 @@ Page {
             width: parent.width
             Label {
                 id: mainText
+                anchors {
+                    verticalCenter: parent.Center
+                    margins: Theme.paddingMedium
+                }
                 x: Theme.paddingLarge
                 textFormat: Text.StyledText
                 text: model.name ? Private.highlightSearch(model.name, Theme.highlightColor) : ""

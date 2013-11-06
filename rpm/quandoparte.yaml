@@ -1,6 +1,6 @@
 Name: quandoparte
 Summary: Quando Parte
-Version: 0.6
+Version: 0.6.0
 Release: 0
 Group: Qt/Qt
 License: GPL v2 or above
@@ -8,8 +8,7 @@ Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |-
   Virtual Arrivals and Departures board for Italian trains quandoparte
-  uses the Trenitalia data to show arrivals and departures times of trains of a given
-  station, with delay or suppression information.
+  uses the Trenitalia data to show arrival and departure times of trains of a given station, with delay or suppression information.
 Configure: none
 Builder: qtc5
 PkgConfigBR:
