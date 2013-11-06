@@ -1,4 +1,7 @@
 var screenshots = {
+	"@1" : "Version 0.6.0 for Sailfish OS",
+	"sailfish-screenshot-stationlist.png" : "The Station List View",
+	"sailfish-screenshot-stationview.png" : "The Station Departures View",
 	"@1" : "Version 0.5.0 for Meego Harmattan N9/N950",
 	"harmattan-screenshot-stationlist.png" : "The Station List View",
 	"harmattan-screenshot-stationview.png" : "The Station Departures View",
