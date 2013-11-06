@@ -1,69 +1,40 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import net.cirulla.quandoparte 1.0
+import "components"
 
 Page {
     property alias name: schedule.name
     property alias code: schedule.code
 
-    tools: ToolBarLayout {
-        id: toolBar
-        ToolIcon {
-            iconId: "icon-m-toolbar-back" + (theme.inverted ? "-white": "")
-            onClicked: pageStack.pop()
-        }
-        ToolIcon {
-            iconId: "icon-m-toolbar-refresh" + (theme.inverted ? "-white": "")
-            onClicked: updateStation() }
-        ToolIcon {
-            iconId: "icon-m-toolbar-view-menu" + (theme.inverted ? "-white": "")
-            onClicked: menu.open()
-        }
-    }
-    PageHeader {
-        id: header
-        anchors.top: parent.top
-        selectedIndex: schedule.type
-        options: [
-            qsTr("Departures"),
-            qsTr("Arrivals")
-        ]
-    }
-    InfoBar {
-        id: infoBar
-        anchors.top: header.bottom
-        text: parent.name
-    }
-    Binding {
-        target: schedule
-        property: "type"
-        value: header.selectedIndex
-    }
-    LabelStyle {
-        id: labelStyle
-    }
-    Item {
+    SilicaFlickable {
         id: view
-        anchors {
-            top: infoBar.bottom
-            bottom: parent.bottom
-            left: parent.left
-            right: parent.right
+        anchors.fill: parent
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Update Schedule")
+                onClicked: updateStation()
+            }
+            MenuItem {
+                text: qsTr("Departures")
+                onClicked: schedule.type = StationScheduleModel.DepartureSchedule
+            }
+            MenuItem {
+                text: qsTr("Arrivals")
+                onClicked: schedule.type = StationScheduleModel.ArrivalSchedule
+            }
         }
-        DroppedShadow {
-            id: shadow
-            anchors.top: view.top
-        }
-        ListView {
+        SilicaListView {
             id: stationScheduleView
+            anchors.fill: parent
             clip: true
             visible: false
             width: parent.width
             cacheBuffer: 40
-            anchors {
-                top: shadow.top
-                bottom: parent.bottom
-            }
+            header: PageHeader {
+                    id: header
+                    title: (schedule.type === StationScheduleModel.DepartureSchedule ? qsTr("Departures from ") : qsTr("Arrivals to ")) + name
+                }
             model: schedule
             delegate: StationScheduleDelegate {
                 width: stationScheduleView.width
@@ -78,36 +49,28 @@ Page {
                 expectedPlatfrom: model.expectedPlatform
             }
         }
-        ScrollDecorator {
-            id: decorator
-            flickableItem: stationScheduleView
-        }
         BusyIndicator {
             id: busyIndicator
-            platformStyle: BusyIndicatorStyle {
-                size: "large"
-            }
             anchors.centerIn: parent
             running: visible
+            size: BusyIndicatorSize.Large
         }
         Item {
             id: errorDisplay
             anchors.centerIn: parent
             Column {
                 anchors.centerIn: parent
-                spacing: UiConstants.DefaultMargin
+                spacing: Theme.paddingMedium
                 Text {
                     text: qsTr("Error!")
                     width: parent.width
-                    font.pixelSize: UiConstants.HeaderFontPixelSize
-                    font.bold: UiConstants.HeaderFontBoldness
+                    font.pixelSize: Theme.fontSizeHuge
                     horizontalAlignment: Text.AlignHCenter
                 }
                 Text {
                     text: schedule.error
                     width: parent.width
-                    font.pixelSize: UiConstants.HeaderFontPixelSize
-                    font.bold: UiConstants.DefaultFontBoldness
+                    font.pixelSize: Theme.fontSizeHuge
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
@@ -161,20 +124,22 @@ Page {
                 }
             }
         ]
-    }
-    StationScheduleModel {
-        id: schedule
-        onNameChanged: updateStation()
-        onLayoutChanged: if (error) view.state = "error"
-                         else view.state = "ready"
-    }
-    Component.onCompleted: {
-        updateTimer.timeout.connect(updateStation)
-        view.state = "loading"
-    }
-    function updateStation() {
-        view.state = "loading"
-        console.log("Updating station with " + schedule.name + ", " + schedule.code)
-        schedule.fetch(schedule.name, schedule.code)
+
+        function updateStation() {
+            view.state = "loading"
+            console.log("Updating station with " + schedule.name + ", " + schedule.code)
+            schedule.fetch(schedule.name, schedule.code)
+        }
+        StationScheduleModel {
+            id: schedule
+            onNameChanged: view.updateStation()
+            onLayoutChanged: if (error) view.state = "error"
+                             else view.state = "ready"
+        }
+
+        Component.onCompleted: {
+            updateTimer.triggered.connect(view.updateStation)
+            view.state = "loading"
+        }
     }
 }
