@@ -243,9 +243,35 @@ sailfish {
     INSTALLS += icon90
 }
 harmattan {
+    desktopfile.files = resources/$$PLATFORM/applications/$${TARGET}.desktop
+    desktopfile.path = $$DESKTOPDIR
+    INSTALLS += desktopfile
+
+    icon48.files = icons/48x48/$${TARGET}.png
+    icon48.path = /usr/share/icons/hicolor/48x48/apps
+    INSTALLS += icon48
+
+    icon64.files = icons/64x64/$${TARGET}.png
+    icon64.path = /usr/share/icons/hicolor/64x64/apps
+    INSTALLS += icon64
+
+    iconscalable.files = icons/scalable/$${TARGET}.svg
+    iconscalable.path = /usr/share/icons/hicolor/scalable/apps
+    INSTALLS += iconscalable
+
+    INSTALLS += i18n
+    INSTALLS += stations
     icon80.files = icons/80x80/$${TARGET}.png
     icon80.path = /usr/share/icons/hicolor/meegotouch/apps
     INSTALLS += icon80
+
+    i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
+    i18n.path = $$DATADIR/i18n
+    INSTALLS += i18n
+
+    stations.files = resources/stations/stations.qpl
+    stations.path = $$DATADIR/stations
+    INSTALLS += stations
 }
 
 !contains(USE_RESOURCES, 1) {
