@@ -56,7 +56,7 @@ public:
     void setDelay(const QString &value);
 
     int delayClass();
-    void setDelayClass(const int value);
+    void setDelayClass(int value);
 
     QString &expectedPlatform();
     void setExpectedPlatform(const QString &value);

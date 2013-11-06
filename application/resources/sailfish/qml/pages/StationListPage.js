@@ -35,11 +35,16 @@ function highlightSearch(s, color)
 {
     // TODO compile RegExp on change, or find a way to cleanly use
     // stationListProxyModel.filterRegExp
-    if (searchField.text.length) {
-        var r = new RegExp(searchField.text, 'i')
+    if (searchPattern.length) {
+        var r = new RegExp(searchPattern, 'i')
         var match = r.exec(s)
-        return s.replace(r, '<span style="text-decoration:underline;color:' + color + ';">' +
-                         match + '</span>')
+	console.log('s is ' + s);
+	if (match) {
+		return s.replace(r, '<font color="' + color + '">' +
+				match + '</font>')
+	} else {
+		return s
+	}
     } else {
         return s
     }

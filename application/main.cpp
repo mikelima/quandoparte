@@ -27,7 +27,7 @@ Boston, MA 02110-1301, USA.
 
 #include <QtGlobal>
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
-#include <QtGui/QGuiApplication>
+#include <QtWidgets/QApplication>
 #else
 #include <QtGui/QApplication>
 #endif
@@ -47,7 +47,7 @@ Boston, MA 02110-1301, USA.
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
-    QScopedPointer< QGuiApplication > a(new QGuiApplication(argc, argv));
+    QScopedPointer< QApplication > a(new QApplication(argc, argv));
 #elif TARGET_PLATFORM_HARMATTAN
     QScopedPointer< QApplication > a(MDeclarativeCache::qApplication(argc, argv));
 #else

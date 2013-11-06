@@ -4,101 +4,68 @@ import net.cirulla.quandoparte 1.0
 import "StationListPage.js" as Private
 
 Page {
-    property variant stationView
     id: stationListPage
+    property variant stationView
+    property string searchPattern
     Binding {
         target: stationListProxyModel
         property: "searchPattern"
-        value: searchField.text
-    }
-    Binding {
-        target: stationListProxyModel
-        property: "sortingMode"
-        value: header.currentIndex
-    }
-    Binding {
-        target: stationListView
-        property: "section.property"
-        value: header.currentIndex === 0 ? "name" : ""
+        value: stationListPage.searchPattern
     }
     SilicaListView {
         id: stationListView
         clip: true
         width: parent.width
         cacheBuffer: 10
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
         model:  stationListProxyModel
-        header: Column {
-            ComboBox {
-                id: header
-                currentIndex: stationListProxyModel.sortingMode
-                menu: ContextMenu {
-                    MenuItem {
-                        text: qsTr("by Name")
-                    }
-                    MenuItem {
-                        text: qsTr("by Distance")
-                    }
-                    MenuItem {
-                        text: qsTr("Recently Seen")
-                    }
-                }
-                label: qsTr("Stations")
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("About Quando Parte")
+                onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
-            SearchField {
-                id: searchField
-                placeholderText: qsTr("Search station...")
+            MenuItem {
+                text: qsTr("Stations by Name")
+                onClicked: stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
             }
+            MenuItem {
+                text: qsTr("Stations by Distance")
+                onClicked: stationListProxyModel.sortingMode = StationListProxyModel.DistanceSorting
+            }
+            MenuItem {
+                text: qsTr("Stations Recently Seen")
+                onClicked: stationListProxyModel.sortingMode = StationListProxyModel.RecentUsageSorting
+            }
+        }
+        header: SearchField {
+            id: searchField
+            placeholderText: qsTr("Search station...")
+            onTextChanged: stationListPage.searchPattern = searchField.text
+            width: stationListPage.width
+        }
+        delegate: BackgroundItem {
+            id: listItem
+            height: Theme.itemSizeSmall
+            width: parent.width
+            Label {
+                id: mainText
+                x: Theme.paddingLarge
+                textFormat: Text.StyledText
+                text: model.name ? Private.highlightSearch(model.name, Theme.highlightColor) : ""
+            }
+            onClicked: Private.loadStation(model.name, model.code)
         }
         section {
             criteria: ViewSection.FirstCharacter
-            delegate: Item {
-                width: parent.width
-                height: Theme.itemSizeSmall
-                anchors {
-                    margins: Theme.paddingMedium
-                }
-		Image {
-		    anchors {
-			left: parent.left
-			right: sectionLabel.left
-			verticalCenter: parent.verticalCenter
-			margins: Theme.paddingMedium
-		    }
-		    source: "image://theme/meegotouch-separator-" + (theme.inverted ? "inverted-" : "") + "background-horizontal"
-		}
-		Label {
-		    id: sectionLabel
-		    anchors {
-			right: sectionRightMargin.left
-			verticalCenter: parent.verticalCenter
-		    }
-		    text: section
-		}
-                Item {
-                    id: sectionRightMargin
-                    anchors {
-                        right: parent.right
-                    }
-                    width: Theme.paddingMedium
-                    height: Theme.paddingMedium
-                }
-            }
             delegate: BackgroundItem {
-                id: listItem
                 height: Theme.itemSizeSmall
                 width: parent.width
                 Label {
-                    id: mainText
-                    x: Theme.paddingLarge
-                    text: Private.highlightSearch(model.name, Theme.highlightColor)
+                    id: sectionLabel
+                    text: section
                 }
-                onClicked: Private.loadStation(model.name, model.code)
             }
         }
-    }
-    ScrollDecorator {
-        id: decorator
-        flickable: stationListView
     }
 }

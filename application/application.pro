@@ -4,12 +4,12 @@
 #
 #-------------------------------------------------
 
-VERSION = 0.5.1
+VERSION = 0.6.0
 USE_RESOURCES = 0
 
 QT += network
 CONFIG += qt
-#CONFIG += link_pkgconfig
+CONFIG += link_pkgconfig
 
 lessThan(QT_MAJOR_VERSION, 5) {
     QT += webkit
@@ -132,8 +132,11 @@ QMLSOURCES = \
     resources/harmattan/qml/DelayIndicator.qml \
     resources/harmattan/qml/StationScheduleDelegate.qml \
     resources/sailfish/qml/main.qml \
+    resources/sailfish/qml/pages/AboutPage.qml \
     resources/sailfish/qml/pages/StationListPage.qml \
-    resources/sailfish/qml/pages/StationPage.qml
+    resources/sailfish/qml/pages/StationPage.qml \
+    resources/sailfish/qml/pages/components/DelayIndicator.qml \
+    resources/sailfish/qml/pages/components/StationScheduleDelegate.qml
 
 OTHER_FILES += \
     resources/sailfish/applications/quandoparte.desktop \
@@ -250,6 +253,7 @@ harmattan {
         qml.files = resources/sailfish/qml/*.qml \
                     resources/sailfish/qml/*.js \
                     resources/sailfish/qml/pages \
+                    resources/sailfish/qml/pages/components \
                     resources/sailfish/qml/cover
         qml.path = $$DATADIR/qml
         INSTALLS += qml

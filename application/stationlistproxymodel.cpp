@@ -167,11 +167,13 @@ void StationListProxyModel::forceSortingMode(SortingMode mode)
         break;
     }
     if (mode == StationListProxyModel::DistanceSorting) {
-        positionInfoSource->startUpdates();
+        if (positionInfoSource) {
+            positionInfoSource->startUpdates();
+        }
     } else {
-#if 0
-        positionInfoSource->stopUpdates();
-#endif
+        if (positionInfoSource) {
+            positionInfoSource->stopUpdates();
+        }
     }
     invalidate();
     sort(0);

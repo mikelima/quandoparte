@@ -131,7 +131,7 @@ int StationScheduleItem::delayClass()
     return d->delayClass;
 }
 
-void StationScheduleItem::setDelayClass(const int value)
+void StationScheduleItem::setDelayClass(int value)
 {
     d->delayClass = value;
 }

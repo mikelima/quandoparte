@@ -220,7 +220,6 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
 
     emit layoutAboutToBeChanged();
     beginResetModel();
-#if (QT_VERSION <= QT_VERSION_CHECK(5, 0, 0))
     QWebPage page;
     page.mainFrame()->setContent(htmlReply, "text/html", baseUrl);
     QWebElement doc = page.mainFrame()->documentElement();
@@ -280,7 +279,6 @@ void StationScheduleModel::parse(const QByteArray &htmlReply, const QUrl &baseUr
         if (current.isNull())
             break;
     }
-#endif
     endResetModel();
     emit layoutChanged();
 }
