@@ -421,7 +421,6 @@
     </station>
     <station>
         <pos>45.0609728,7.6778693</pos>
-        <code>S00219</code>
         <name>Torino Porta Nuova</name>
     </station>
     <station>
@@ -526,7 +525,6 @@
     </station>
     <station>
         <pos>44.4284633,8.7583272</pos>
-        <code>S04534</code>
         <name>Genova Voltri</name>
     </station>
     <station>
@@ -699,12 +697,10 @@
     </station>
     <station>
         <pos>44.4828071,8.8997745</pos>
-        <code>S04222</code>
         <name>Genova San Biagio</name>
     </station>
     <station>
         <pos>45.5150576,9.5884480</pos>
-        <code>S01708</code>
         <name>Treviglio</name>
     </station>
     <station>
@@ -713,7 +709,6 @@
     </station>
     <station>
         <pos>45.5217163,9.5803322</pos>
-        <code>S01601</code>
         <name>Treviglio Ovest</name>
     </station>
     <station>
@@ -1258,7 +1253,6 @@
     </station>
     <station>
         <pos>45.0951019,8.7424784</pos>
-        <code>S00406</code>
         <name>Mede</name>
     </station>
     <station>
@@ -1287,7 +1281,6 @@
     </station>
     <station>
         <pos>45.4512150,8.6251052</pos>
-        <code>S00248</code>
         <name>Novara</name>
     </station>
     <station>
@@ -1348,7 +1341,6 @@
     </station>
     <station>
         <pos>44.4155397,8.9195815</pos>
-        <code>S04701</code>
         <name>Genova Piazza Principe sotterranea</name>
     </station>
     <station>
@@ -2010,7 +2002,6 @@
     </station>
     <station>
         <pos>44.5061081,11.3434453</pos>
-        <code>S05043</code>
         <name>Bologna Centrale</name>
     </station>
     <station>
@@ -2023,7 +2014,6 @@
     </station>
     <station>
         <pos>44.5150377,11.2847821</pos>
-        <code>S05100</code>
         <name>Borgo Panigale</name>
     </station>
     <station>
@@ -2084,7 +2074,6 @@
     </station>
     <station>
         <pos>44.5520313,11.3540385</pos>
-        <code>S05725</code>
         <name>Bologna Corticella</name>
     </station>
     <station>
@@ -2189,7 +2178,6 @@
     </station>
     <station>
         <pos>45.6596524,12.2450991</pos>
-        <code>S02712</code>
         <name>Treviso Centrale</name>
     </station>
     <station>
@@ -2818,7 +2806,6 @@
     </station>
     <station>
         <pos>44.7492217,10.1403803</pos>
-        <code>S06102</code>
         <name>Medesano</name>
     </station>
     <station>
@@ -4559,7 +4546,6 @@
     </station>
     <station>
         <pos>38.8654514,16.5627699</pos>
-        <code>S11956</code>
         <name>Catanzaro</name>
     </station>
     <station>
@@ -4624,7 +4610,6 @@
     </station>
     <station>
         <pos>37.7951909,15.2056543</pos>
-        <code>S11741</code>
         <name>Fiumefreddo</name>
     </station>
     <station>

@@ -15,5 +15,112 @@
         <name>Torino Porta Nuova</name>
         <code>S00219</code>
     </station>
+    <station>
+        <name>Bologna Centrale</name>
+        <code>S05043</code>
+    </station>
+    <station>
+        <name>Borgo Panigale</name>
+        <code>S05100</code>
+    </station>
+    <station>
+        <name>Bologna Centrale/AV</name>
+        <code>S05046</code>
+    </station>
+    <station>
+        <name>Bologna Corticella</name>
+        <code>S05725</code>
+    </station>
+    <station>
+        <name>Bologna Fiere</name>
+        <code>S05020</code>
+    </station>
+    <station>
+        <name>Bologna Mazzini</name>
+        <code>S05140</code>
+    </station>
+    <station>
+        <name>Bologna Ravone</name>
+        <code>S05042</code>
+    </station>
+    <station>
+        <name>Bologna San Ruffillo</name>
+        <code>S05130</code>
+    </station>
+    <station>
+        <name>Catanzaro</name>
+        <code>S11956</code>
+    </station>
+    <station>
+        <name>Catanzaro Lido</name>
+        <code>S11833</code>
+    </station>
+    <station>
+        <name>Fratta</name>
+        <code>S02374</code>
+    </station>
+    <station>
+        <name>Fratta</name>
+        <code>S02374</code>
+    </station>
+    <station>
+        <name>Frattamaggiore</name>
+        <code>S09008</code>
+    </station>
+    <station>
+        <name>Frattarolo</name>
+        <code>S11053</code>
+    </station>
+    <station>
+        <name>Fiumefreddo</name>
+        <code>S11741</code>
+    </station>
+    <station>
+        <name>Fiumefreddo di Sicilia</name>
+        <code>S12322</code>
+    </station>
+    <station>
+        <name>Mede</name>
+        <code>S00406</code>
+    </station>
+    <station>
+        <name>Medesano</name>
+        <code>S06102</code>
+    </station>
+    <station>
+        <name>Novara</name>
+        <code>S00248</code>
+    </station>
+    <station>
+        <name>Novara FNM</name>
+        <code>S00023</code>
+    </station>
+    <station>
+        <name>Novara Mont.Fur.</name>
+        <code>S12039</code>
+    </station>
+    <station>
+        <name>Novara Nord</name>
+        <code>N00055</code>
+    </station>
+    <station>
+        <name>Trevi</name>
+        <code>S07218</code>
+    </station>
+    <station>
+        <name>Treviglio</name>
+        <code>S01708</code>
+    </station>
+    <station>
+        <name>Treviglio Ovest</name>
+        <code>S01601</code>
+    </station>
+    <station>
+        <name>Trevignano Sign.</name>
+        <code>S02600</code>
+    </station>
+    <station>
+        <name>Treviso Centrale</name>
+        <code>S02712</code>
+    </station>
 </stations>
-
