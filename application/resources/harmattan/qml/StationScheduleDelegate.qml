@@ -1,6 +1,6 @@
 import QtQuick 1.1
 import QtWebKit 1.0
-import com.nokia.meego 1.0
+import com.nokia.meego 1.1
 import net.cirulla.quandoparte 1.0
 import "uiconstants.js" as UiConstants
 
