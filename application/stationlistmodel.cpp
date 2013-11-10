@@ -90,6 +90,12 @@ QHash<int, QByteArray> StationListModel::roleNames() const
     return roles;
 }
 
+int StationListModel::rowCount(const QModelIndex &parent) const
+{
+    return QStandardItemModel::rowCount(parent);
+
+}
+
 void StationListModel::readStationsElement()
 {
     m_reader.readNext();
@@ -101,7 +107,7 @@ void StationListModel::readStationsElement()
             if (m_reader.name() == "station") {
                 readStationElement();
             } else {
-                skipUnknownElement();
+                skipUnknownElement(m_reader.name().toString());
             }
         } else {
             m_reader.readNext();
@@ -126,7 +132,7 @@ void StationListModel::readStationElement()
             } else  if (m_reader.name() == "code") {
                 readCodeElement(item);
             } else {
-                skipUnknownElement();
+                skipUnknownElement(m_reader.name().toString());
             }
         } else {
             m_reader.readNext();
@@ -164,9 +170,9 @@ void StationListModel::readCodeElement(QStandardItem *item)
     }
 }
 
-void StationListModel::skipUnknownElement()
+void StationListModel::skipUnknownElement(const QString &name)
 {
-    qDebug() << "skipping unknown element";
+    qDebug() << "skipping unknown element" << name << "at line" << m_reader.lineNumber();
 
     m_reader.readNext();
     while (!m_reader.atEnd()) {
@@ -174,7 +180,7 @@ void StationListModel::skipUnknownElement()
             m_reader.readNext();
             break;
         } else if (!m_reader.isStartElement()) {
-            skipUnknownElement();
+            skipUnknownElement(m_reader.name().toString());
         } else {
             m_reader.readNext();
         }
