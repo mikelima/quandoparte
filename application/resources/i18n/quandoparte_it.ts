@@ -59,6 +59,23 @@
     </message>
 </context>
 <context>
+    <name>QObject</name>
+    <message>
+        <location filename="../../stationschedulemodel.cpp" line="181"/>
+        <source>On time</source>
+        <translation>In orario</translation>
+    </message>
+    <message>
+        <location filename="../../stationschedulemodel.cpp" line="186"/>
+        <source>Delay: %1 minutes</source>
+        <translation>Ritardo: %1 minuti</translation>
+    </message>
+    <message>
+        <source>Delay: %1</source>
+        <translation type="obsolete">Ritardo: %1</translation>
+    </message>
+</context>
+<context>
     <name>SearchBar</name>
     <message>
         <location filename="../harmattan/qml/SearchBar.qml" line="41"/>
@@ -295,17 +312,17 @@
 <context>
     <name>StationScheduleModel</name>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="234"/>
+        <location filename="../../stationschedulemodel.cpp" line="246"/>
         <source>Unknown station</source>
         <translation>Stazione sconosciuta</translation>
     </message>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="236"/>
+        <location filename="../../stationschedulemodel.cpp" line="248"/>
         <source>Unknown error</source>
         <translation>Reeore sconosciuto</translation>
     </message>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="289"/>
+        <location filename="../../stationschedulemodel.cpp" line="301"/>
         <source>Network error</source>
         <translation>Errore di rete</translation>
     </message>
