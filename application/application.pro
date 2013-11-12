@@ -146,7 +146,8 @@ OTHER_FILES += \
     icons/64x64/quandoparte.png \
     icons/80x80/quandoparte.png \
     icons/scalable/quandoparte.svg \
-    icons/sailfish/90x90/quandoparte.svg \
+    icons/sailfish/86x86/quandoparte.png \
+    icons/sailfish/90x90/quandoparte.png \
     icons/sailfish/scalable/quandoparte.svg \
     icons/quandoparte.png \
     resources/quandoparte.css \
@@ -215,6 +216,11 @@ unix:sailfish {
     i18n.path = $$DATADIR/i18n
     stations.path = $$DATADIR/stations
 
+    INSTALLS += i18n
+    INSTALLS += stations
+}
+
+desktop {
     icon48.files = icons/48x48/$${TARGET}.png
     icon64.files = icons/64x64/$${TARGET}.png
     iconscalable.files = icons/scalable/$${TARGET}.svg
@@ -225,8 +231,6 @@ unix:sailfish {
 
     INSTALLS += icon48
     INSTALLS += iconscalable
-    INSTALLS += i18n
-    INSTALLS += stations
 }
 
 maemo5 {
@@ -238,10 +242,11 @@ maemo5 {
 }
 
 sailfish {
-    icon90.files = icons/sailfish/90x90/$${TARGET}.png
-    icon90.path = /usr/share/icons/hicolor/meegotouch/apps
-    INSTALLS += icon90
+    icon86.files = icons/sailfish/86x86/$${TARGET}.png
+    icon86.path = /usr/share/icons/hicolor/meegotouch/apps
+    INSTALLS += icon86
 }
+
 harmattan {
     desktopfile.files = resources/$$PLATFORM/applications/$${TARGET}.desktop
     desktopfile.path = $$DESKTOPDIR

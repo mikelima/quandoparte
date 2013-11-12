@@ -5,16 +5,19 @@
     <name>AboutPage</name>
     <message>
         <location filename="../harmattan/qml/AboutPage.qml" line="20"/>
+        <location filename="../sailfish/qml/pages/AboutPage.qml" line="10"/>
         <source>About Quando Parte</source>
         <translation>Informazioni su Quando Parte</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/AboutPage.qml" line="30"/>
+        <location filename="../harmattan/qml/AboutPage.qml" line="39"/>
+        <location filename="../sailfish/qml/pages/AboutPage.qml" line="23"/>
         <source>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;version </source>
         <translation>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;versione </translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/AboutPage.qml" line="33"/>
+        <location filename="../harmattan/qml/AboutPage.qml" line="42"/>
+        <location filename="../sailfish/qml/pages/AboutPage.qml" line="27"/>
         <source>&lt;/p&gt;&lt;p&gt;Copyright (c) 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Station geolocation data from &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Realtime train data from &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</source>
         <translation>&lt;/p&gt;&lt;p&gt;Copyright © 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Utilizzabile secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni ottenuti da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati in tempo reale sui treni da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
@@ -107,21 +110,25 @@
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="55"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="25"/>
         <source>About Quando Parte</source>
         <translation>Informazioni su Quando Parte</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="66"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="29"/>
         <source>Stations by Name</source>
         <translation>Stazioni per nome</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="67"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="33"/>
         <source>Stations by Distance</source>
         <translation>Stazioni per distanza</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="68"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="37"/>
         <source>Stations Recently Seen</source>
         <translation>Stazioni viste di recente</translation>
     </message>
@@ -136,6 +143,11 @@
     <message>
         <source>Show Last Station on Startup</source>
         <translation type="obsolete">Mostra l&apos;ultima stazione all&apos;avvio</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="43"/>
+        <source>Search station...</source>
+        <translation>Cerca stazione...</translation>
     </message>
 </context>
 <context>
@@ -195,16 +207,19 @@
     <name>StationPage</name>
     <message>
         <location filename="../harmattan/qml/StationPage.qml" line="29"/>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="19"/>
         <source>Departures</source>
         <translation>Partenze</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationPage.qml" line="30"/>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="23"/>
         <source>Arrivals</source>
         <translation>Arrivi</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/StationPage.qml" line="101"/>
+        <location filename="../harmattan/qml/StationPage.qml" line="106"/>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="67"/>
         <source>Error!</source>
         <translation>Errore!</translation>
     </message>
@@ -220,31 +235,51 @@
         <source>Platform </source>
         <translation type="obsolete">Binario</translation>
     </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="15"/>
+        <source>Update Schedule</source>
+        <translation>Aggiorna orario</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="36"/>
+        <source>Departures from </source>
+        <translation>Partenze da </translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="36"/>
+        <source>Arrivals to </source>
+        <translation>Arrivi a </translation>
+    </message>
 </context>
 <context>
     <name>StationScheduleDelegate</name>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="77"/>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="61"/>
         <source>from %1</source>
         <translation>da %1</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="83"/>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="66"/>
         <source>to %1</source>
         <translation>per %1</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="136"/>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="110"/>
         <source>Platform %1</source>
         <translation>Binario %1</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="138"/>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="112"/>
         <source>Platform &lt;span style=&apos;font-weight:bold;color:%2&apos;&gt;%1&lt;/span&gt;</source>
         <translation>Binario &lt;span style=&apos;font-weight:bold;color:%2&apos;&gt;%1&lt;/span&gt;</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="140"/>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="114"/>
         <source>Platform &lt;span style=&apos;text-decoration:line-through&apos;&gt;%1&lt;/span&gt; &lt;span style=&apos;font-weight:bold;color:%3&apos;&gt;%2&lt;/span&gt;</source>
         <translation>Binario &lt;span style=&apos;text-decoration:line-through&apos;&gt;%1&lt;/span&gt; &lt;span style=&apos;font-weight:bold;color:%3&apos;&gt;%2&lt;/span&gt;</translation>
     </message>
@@ -260,17 +295,17 @@
 <context>
     <name>StationScheduleModel</name>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="222"/>
+        <location filename="../../stationschedulemodel.cpp" line="234"/>
         <source>Unknown station</source>
         <translation>Stazione sconosciuta</translation>
     </message>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="224"/>
+        <location filename="../../stationschedulemodel.cpp" line="236"/>
         <source>Unknown error</source>
         <translation>Reeore sconosciuto</translation>
     </message>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="277"/>
+        <location filename="../../stationschedulemodel.cpp" line="289"/>
         <source>Network error</source>
         <translation>Errore di rete</translation>
     </message>
