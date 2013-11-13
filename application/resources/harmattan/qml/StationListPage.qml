@@ -1,6 +1,6 @@
 import QtQuick 1.0
 import QtMobility.location 1.1
-import com.nokia.meego 1.0
+import com.nokia.meego 1.1
 import net.cirulla.quandoparte 1.0
 import "uiconstants.js" as UiConstants
 import "StationListPage.js" as Private
@@ -146,7 +146,6 @@ Page {
                     }
                 }
             }
-
             delegate: Item {
                 id: listItem
                 height: UiConstants.ListItemHeightSmall

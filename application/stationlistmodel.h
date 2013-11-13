@@ -32,6 +32,8 @@ class StationListModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(StationListRole)
+    Q_PROPERTY(int count READ rowCount)
+
 public:
     enum StationListRole {
         PositionRole = Qt::UserRole + 1, //< QGeoCoordinate - Station coordinate
@@ -45,6 +47,10 @@ public:
 
     QHash<int, QByteArray> roleNames() const;
 
+    // Needed to make SectionScroller happy.
+    Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const;
+
+
 signals:
 
 public slots:
@@ -55,7 +61,7 @@ private:
     void readPosElement(QStandardItem *item);
     void readNameElement(QStandardItem *item);
     void readCodeElement(QStandardItem *item);
-    void skipUnknownElement();
+    void skipUnknownElement(const QString &name = QString());
 
     QXmlStreamReader m_reader;
 };

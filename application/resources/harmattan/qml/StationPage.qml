@@ -1,5 +1,5 @@
 import QtQuick 1.1
-import com.nokia.meego 1.0
+import com.nokia.meego 1.1
 import net.cirulla.quandoparte 1.0
 import "uiconstants.js" as UiConstants
 
@@ -93,25 +93,23 @@ Page {
         }
         Item {
             id: errorDisplay
-            anchors.centerIn: parent
-            Column {
-                anchors.centerIn: parent
-                spacing: UiConstants.DefaultMargin
-                Text {
-                    text: qsTr("Error!")
-                    width: parent.width
-                    font.pixelSize: UiConstants.HeaderFontPixelSize
-                    font.bold: UiConstants.HeaderFontBoldness
-                    horizontalAlignment: Text.AlignHCenter
-                }
-                Text {
-                    text: schedule.error
-                    width: parent.width
-                    font.pixelSize: UiConstants.HeaderFontPixelSize
-                    font.bold: UiConstants.DefaultFontBoldness
-                    horizontalAlignment: Text.AlignHCenter
-                }
+            anchors {
+                top: shadow.top
+                bottom: parent.bottom
             }
+            width: parent.width
+            opacity: 0.6
+            Label {
+                textFormat: Text.RichText
+                visible: parent.visible
+                wrapMode: Text.WordWrap
+                text: "<h2>" + qsTr("Error!") + "</h2><p>" + schedule.error + "</p>"
+                width: parent.width
+                // font.pixelSize: UiConstants.HeaderFontPixelSize
+                horizontalAlignment: Text.AlignHCenter
+                anchors.centerIn: parent
+            }
+            onVisibleChanged: if (visible) console.log("showing error: " + schedule.error)
         }
         states: [
             State {
@@ -132,6 +130,7 @@ Page {
             },
             State {
                 name: "ready"
+                when: completed && schedule.error === ""
                 PropertyChanges {
                     target: stationScheduleView
                     visible: true
@@ -147,7 +146,7 @@ Page {
             },
             State {
                 name: "error"
-                when: schedule.error
+                when: schedule.error !== ""
                 PropertyChanges {
                     target: stationScheduleView
                     visible: false

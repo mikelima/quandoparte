@@ -57,18 +57,14 @@ Page {
         }
         Item {
             id: errorDisplay
-            anchors.centerIn: parent
+            anchors.fill: parent
             Column {
-                anchors.centerIn: parent
+                anchors.fill: parent
                 spacing: Theme.paddingLarge
                 Label {
-                    text: qsTr("Error!")
-                    width: parent.width
-                    font.pixelSize: Theme.fontSizeHuge
-                    horizontalAlignment: Text.AlignHCenter
-                }
-                Label {
-                    text: schedule.error
+                    textFormat: Text.StyledText
+                    wrapMode: Text.WordWrap
+                    text: "<p>" + qsTr("Error!") + "</p><p>" + schedule.error + "</p>"
                     width: parent.width
                     font.pixelSize: Theme.fontSizeHuge
                     horizontalAlignment: Text.AlignHCenter
