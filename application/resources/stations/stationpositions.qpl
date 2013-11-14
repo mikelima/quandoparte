@@ -4,6 +4,10 @@
         <name>Anguillara</name>
     </station>
     <station>
+        <pos>41.9603566,12.4101423</pos>
+        <name>Ottavia</name>
+    </station>
+    <station>
         <pos>41.9390641,12.4217414</pos>
         <name>Roma Monte Mario</name>
     </station>
@@ -26,6 +30,10 @@
     <station>
         <pos>42.3313849,12.0861469</pos>
         <name>Tre Croci</name>
+    </station>
+    <station>
+        <pos>42.0146300,12.3637412</pos>
+        <name>Olgiata</name>
     </station>
     <station>
         <pos>46.2063107,8.2449057</pos>
@@ -3244,6 +3252,10 @@
         <name>Borgo San Lorenzo</name>
     </station>
     <station>
+        <pos>44.1613883,10.3349573</pos>
+        <name>Camporgiano</name>
+    </station>
+    <station>
         <pos>42.1025372,13.8763035</pos>
         <name>Pratola Peligna</name>
     </station>
@@ -3298,6 +3310,10 @@
     <station>
         <pos>43.4953362,10.3292313</pos>
         <name>Antignano</name>
+    </station>
+    <station>
+        <pos>46.1646039,9.9924913</pos>
+        <name>Chiuro</name>
     </station>
     <station>
         <pos>43.3530291,10.4701352</pos>
@@ -3732,6 +3748,10 @@
         <name>Santa Severa</name>
     </station>
     <station>
+        <pos>42.1664180,12.1385922</pos>
+        <name>Oriolo</name>
+    </station>
+    <station>
         <pos>43.911809,10.2477923</pos>
         <name>Camaiore Lido Capezzano</name>
     </station>
@@ -4026,6 +4046,10 @@
     <station>
         <pos>41.6923081,12.6504232</pos>
         <name>Cecchina</name>
+    </station>
+    <station>
+        <pos>41.7111987,12.6215735</pos>
+        <name>Cancelliera</name>
     </station>
     <station>
         <pos>41.1148289,16.89937</pos>
@@ -4596,6 +4620,10 @@
         <name>Augusta</name>
     </station>
     <station>
+        <pos>37.2288761,14.5279331</pos>
+        <name>Caltagirone</name>
+    </station>
+    <station>
         <pos>37.2092522,14.6411438</pos>
         <name>Grammichele</name>
     </station>
@@ -4876,6 +4904,10 @@
         <name>Gallipoli</name>
     </station>
     <station>
+        <pos>40.5080109,17.6465033</pos>
+        <name>Oria</name>
+    </station>
+    <station>
         <pos>40.6341601,17.9391387</pos>
         <name>Brindisi</name>
     </station>
@@ -4914,6 +4946,10 @@
     <station>
         <pos>40.5631665,17.8019745</pos>
         <name>Mesagne</name>
+    </station>
+    <station>
+        <pos>40.5506934,17.9788414</pos>
+        <name>Tuturano</name>
     </station>
     <station>
         <pos>40.523165,17.5847498</pos>

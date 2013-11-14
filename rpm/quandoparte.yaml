@@ -12,25 +12,24 @@ Description: |-
 Configure: none
 Builder: qtc5
 PkgConfigBR:
-- qdeclarative5-boostable
-- Qt5WebKitWidgets
-- Qt5WebKit
-- Qt5Quick
-- Qt5Qml
-- Qt5Core
-- Qt5Concurrent
 - Qt5Location
+- Qt5Concurrent
+- Qt5Core
+- Qt5Qml
+- Qt5Quick
+- Qt5WebKit
+- Qt5WebKitWidgets
+- qdeclarative5-boostable
 Requires:
-- mapplauncherd-booster-silica-qt5
-- sailfishsilica-qt5
-- qt5-qtlocation
 - qt5-qtconcurrent
-- libqtlocation1
+- qt5-qtlocation
+- sailfishsilica-qt5
+- mapplauncherd-booster-silica-qt5
 Files:
-- '%{_bindir}'
-- '%{_datadir}/apps/quandoparte/qml'
-- '%{_datadir}/apps/quandoparte/stations'
-- '%{_datadir}/apps/quandoparte/i18n'
-- '%{_datadir}/applications'
 - '%{_datadir}/icons/hicolor/meegotouch/apps'
+- '%{_datadir}/applications'
+- '%{_datadir}/apps/quandoparte/i18n'
+- '%{_datadir}/apps/quandoparte/stations'
+- '%{_datadir}/apps/quandoparte/qml'
+- '%{_bindir}'
 PkgBR: []

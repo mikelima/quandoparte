@@ -104,6 +104,14 @@
         <code>N00055</code>
     </station>
     <station>
+        <name>Ottavia</name>
+        <code>S08324</code>
+    </station>
+    <station>
+        <name>Ottaviano</name>
+        <code>S09751</code>
+    </station>
+    <station>
         <name>Trevi</name>
         <code>S07218</code>
     </station>
