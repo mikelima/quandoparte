@@ -1,3 +1,9 @@
+quandoparte (0.6.2) unstable; urgency=low
+  * Various tweaks to the UI
+  * Updated station list data
+
+ -- Luciano Montanaro <mikelima@zaphod>  Wed, 14 Nov 2013 22:41:11 +0100
+
 quandoparte (0.6.0) unstable; urgency=low
   * Sailfish OS port
   * Added section headers to the station list view
