@@ -176,19 +176,19 @@ static void parseTrain(const QString &text, StationScheduleItem &item)
             item.setArrivalStation(filter.cap(2));
             item.setArrivalTime(filter.cap(3));
         }
-	QString delayDescription = filter.cap(6);
-	if (delayDescription == "in orario") {
-        item.setDelay(QObject::tr("On time"));
-	} else {
-	    QRegExp delayRegExp("ritardo (.*)(| minuti)");
-	    int pos = delayRegExp.indexIn(delayDescription);
-	    if (pos >= 0) {
-        item.setDelay(QString(QObject::tr("Delay: %1 minutes")).arg(delayRegExp.cap(1)));
-	    } else {
-		// Does not match, let the user parse it
-		item.setDelay(delayDescription);
-	    }
-	}
+        QString delayDescription = filter.cap(6);
+        if (delayDescription == "in orario") {
+            item.setDelay(QObject::tr("On time"));
+        } else {
+            QRegExp delayRegExp("ritardo ([0-9]+)(| minuti)");
+            int pos = delayRegExp.indexIn(delayDescription);
+            if (pos >= 0) {
+                item.setDelay(QString(QObject::tr("Delay: %1 minutes")).arg(delayRegExp.cap(1)));
+            } else {
+                // Does not match, let the user parse it
+                item.setDelay(delayDescription);
+            }
+        }
         item.setExpectedPlatform(filter.cap(4));
         item.setActualPlatform(filter.cap(5));
     } else {
