@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it_IT">
+<TS version="2.0" language="it">
 <context>
     <name>AboutPage</name>
     <message>
         <location filename="../harmattan/qml/AboutPage.qml" line="20"/>
-        <location filename="../sailfish/qml/pages/AboutPage.qml" line="10"/>
+        <location filename="../sailfish/qml/pages/AboutPage.qml" line="11"/>
         <source>About Quando Parte</source>
         <translation>Informazioni su Quando Parte</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/AboutPage.qml" line="39"/>
-        <location filename="../sailfish/qml/pages/AboutPage.qml" line="23"/>
-        <source>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;version </source>
-        <translation>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;versione </translation>
+        <location filename="../harmattan/qml/AboutPage.qml" line="46"/>
+        <location filename="../sailfish/qml/pages/AboutPage.qml" line="26"/>
+        <source>Quando Parte</source>
+        <translation>Quando Parte</translation>
     </message>
     <message>
-        <location filename="../harmattan/qml/AboutPage.qml" line="42"/>
+        <location filename="../harmattan/qml/AboutPage.qml" line="47"/>
         <location filename="../sailfish/qml/pages/AboutPage.qml" line="27"/>
+        <source>version </source>
+        <translation>versione </translation>
+    </message>
+    <message>
+        <location filename="../harmattan/qml/AboutPage.qml" line="62"/>
+        <source>&lt;p&gt;Copyright (c) 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;&lt;p&gt;Station geolocation data from &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Realtime train data from &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Copyright © 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Utilizzabile secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni  ottenuti da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati in tempo reale sui treni da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/AboutPage.qml" line="44"/>
+        <source>&lt;p&gt;Copyright (c) 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Station geolocation data from &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Realtime train data from &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Copyright © 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Utilizzabile secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni ottenuti da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati in tempo reale sui treni da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;version </source>
+        <translation type="obsolete">&lt;h2&gt;&lt;a href=&apos;http://quandoparte.garage.maemo.org&apos;&gt;Quando Parte&lt;/a&gt;&lt;/h2&gt;&lt;p style=&apos;font-size:small;&apos;&gt;versione </translation>
+    </message>
+    <message>
         <source>&lt;/p&gt;&lt;p&gt;Copyright (c) 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Station geolocation data from &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Realtime train data from &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</source>
-        <translation>&lt;/p&gt;&lt;p&gt;Copyright © 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Utilizzabile secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni ottenuti da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati in tempo reale sui treni da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
+        <translation type="obsolete">&lt;/p&gt;&lt;p&gt;Copyright © 2010, 2011, 2012, 2013&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Utilizzabile secondo la licenza GNU Public License v2 o superiore&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Dati di geolocalizzazione delle stazioni ottenuti da &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Dati in tempo reale sui treni da &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;/p&gt;&lt;p&gt;Copyright (c) 2010, 2011&lt;/p&gt;&lt;p&gt;Luciano Montanaro (&lt;a href=&apos;mailto:mikelima@cirulla.net&apos;&gt;mikelima@cirulla.net&lt;/a&gt;)&lt;/p&gt;&lt;p&gt;Licensed under the GNU Public License v2 or above&lt;/p&gt;&lt;p/&gt;&lt;p&gt;Station geolocation data from &lt;a href=&apos;http://www.openstreetmap.org&apos;&gt;OpenStreetMap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Realtime train data from &lt;a href=&apos;http://mobile.viaggiatreno.it&apos;&gt;Viaggiatreno&lt;/a&gt;&lt;/p&gt;</source>
