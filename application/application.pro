@@ -146,7 +146,6 @@ OTHER_FILES += \
     icons/64x64/quandoparte.png \
     icons/80x80/quandoparte.png \
     icons/scalable/quandoparte.svg \
-    icons/sailfish/86x86/quandoparte.png \
     icons/sailfish/90x90/quandoparte.png \
     icons/sailfish/scalable/quandoparte.svg \
     icons/quandoparte.png \
@@ -242,9 +241,9 @@ maemo5 {
 }
 
 sailfish {
-    icon86.files = icons/sailfish/86x86/$${TARGET}.png
-    icon86.path = /usr/share/icons/hicolor/meegotouch/apps
-    INSTALLS += icon86
+    icon90.files = icons/sailfish/90x90/$${TARGET}.png
+    icon90.path = /usr/share/icons/hicolor/meegotouch/apps
+    INSTALLS += icon90
 }
 
 harmattan {
