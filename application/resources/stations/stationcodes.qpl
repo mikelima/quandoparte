@@ -1,5 +1,9 @@
 <stations>
     <station>
+        <name>Genova Piazza Principe</name>
+	<code>S04700</code>
+    </station>
+    <station>
         <name>Genova Piazza Principe sotterranea</name>
 	<code>S04701</code>
     </station>
