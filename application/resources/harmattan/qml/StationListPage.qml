@@ -186,6 +186,16 @@ Page {
                     onClicked: {
                         Private.loadStation(model.name, model.code)
                     }
+                    onPressAndHold: contextMenu.open()
+                }
+                ContextMenu {
+                    id: contextMenu
+                    MenuLayout {
+                        MenuItem {
+                            text: qsTr("Show on the map")
+                            onClicked: Qt.openUrlExternally("geo:" + model.longitude + "," + model.latitude)
+                        }
+                    }
                 }
             }
         }

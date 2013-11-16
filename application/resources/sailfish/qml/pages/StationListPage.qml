@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtLocation 5.0
 import Sailfish.Silica 1.0
 import net.cirulla.quandoparte 1.0
 import "StationListPage.js" as Private
@@ -59,15 +60,12 @@ Page {
                 text: model.name ? Private.highlightSearch(model.name, Theme.highlightColor) : ""
             }
             onClicked: Private.loadStation(model.name, model.code)
-        }
-        section {
-            criteria: ViewSection.FirstCharacter
-            delegate: BackgroundItem {
-                height: Theme.itemSizeSmall
-                width: parent.width
-                Label {
-                    id: sectionLabel
-                    text: section
+            onPressAndHold: contextMenu.show(listItem)
+            ContextMenu {
+                id: contextMenu
+                MenuItem {
+                    text: qsTr("Show on the map")
+                    onClicked: Qt.openUrlExternally("geo:" + model.longitude + "," + model.latitude)
                 }
             }
         }
