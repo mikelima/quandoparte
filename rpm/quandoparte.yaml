@@ -1,11 +1,12 @@
 Name: quandoparte
 Summary: Quando Parte
-Version: 0.6.1
+Version: 0.6.2
 Release: 0
 Group: Qt/Qt
 License: GPL v2 or above
 Sources:
 - '%{name}-%{version}.tar.bz2'
+SCM: git@github.com:mikelima/quandoparte.git
 Description: |-
   Virtual Arrivals and Departures board for Italian trains quandoparte
   uses the Trenitalia data to show arrival and departure times of trains of a given station, with delay or suppression information.
@@ -25,6 +26,7 @@ Requires:
 - qt5-qtlocation
 - sailfishsilica-qt5
 - mapplauncherd-booster-silica-qt5
+- qt5-qtdeclarative-import-location
 Files:
 - '%{_datadir}/icons/hicolor/meegotouch/apps'
 - '%{_datadir}/applications'

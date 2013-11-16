@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtLocation 5.0
 import Sailfish.Silica 1.0
 import net.cirulla.quandoparte 1.0
 import "StationListPage.js" as Private
@@ -42,22 +41,24 @@ Page {
         header: SearchField {
             id: searchField
             placeholderText: qsTr("Search station...")
+            inputMethodHints: Qt.ImhNoAutoUppercase
             onTextChanged: stationListPage.searchPattern = searchField.text
             width: stationListPage.width
         }
         delegate: BackgroundItem {
             id: listItem
-            height: Theme.itemSizeSmall
+            height: Theme.itemSizeExtraSmall
             width: parent.width
             Label {
                 id: mainText
                 anchors {
-                    verticalCenter: parent.Center
+                    fill: parent
                     margins: Theme.paddingMedium
                 }
                 x: Theme.paddingLarge
                 textFormat: Text.StyledText
                 text: model.name ? Private.highlightSearch(model.name, Theme.highlightColor) : ""
+                verticalAlignment: Text.AlignVCenter
             }
             onClicked: Private.loadStation(model.name, model.code)
             onPressAndHold: contextMenu.show(listItem)
