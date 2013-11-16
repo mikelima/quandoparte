@@ -1,8 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
-Version=1.0
 Type=Application
-Terminal=false
 Name=Quando Parte
-Exec=/usr/bin/invoker --type=silica-qt5 -s /usr/bin/quandoparte
-Icon=/usr/share/icons/hicolor/meegotouch/apps/quandoparte.png
+X-Nemo-Application-Type=silica-qt5
+Exec=/usr/bin/quandoparte
+Icon=/usr/share/icons/hicolor/90x90/apps/quandoparte.png
