@@ -87,6 +87,8 @@ QHash<int, QByteArray> StationListModel::roleNames() const
     roles[Qt::DisplayRole] = "name";
     roles[StationListModel::PositionRole] = "position";
     roles[StationListModel::StationCodeRole] = "code";
+    roles[StationListModel::LongitudeRole] = "longitude";
+    roles[StationListModel::LatitudeRole] = "latitude";
     return roles;
 }
 
@@ -145,6 +147,8 @@ void StationListModel::readPosElement(QStandardItem *item)
     QStringList coordinates = m_reader.readElementText().split(",");
     QGeoCoordinate pos = QGeoCoordinate(coordinates[0].toDouble(), coordinates[1].toDouble());
     item->setData(QVariant::fromValue(pos), PositionRole);
+    item->setData(QVariant::fromValue(pos.longitude()), LongitudeRole);
+    item->setData(QVariant::fromValue(pos.latitude()), LatitudeRole);
     m_reader.readElementText();
     if (m_reader.isEndElement()) {
         m_reader.readNext();

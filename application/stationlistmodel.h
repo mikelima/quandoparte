@@ -38,7 +38,9 @@ public:
     enum StationListRole {
         PositionRole = Qt::UserRole + 1, //< QGeoCoordinate - Station coordinate
         StationCodeRole, //< QString - Station Code (Precise name if the Display name is known to fail)
-        RecentIndicatorRole //<bool - If the station has been recently looked up
+        RecentIndicatorRole, //<bool - If the station has been recently looked up
+        LongitudeRole, //< double - Longitude of the station
+        LatitudeRole, //< double - Latitude of the station
     };
 
     explicit StationListModel(QObject *parent = 0);
