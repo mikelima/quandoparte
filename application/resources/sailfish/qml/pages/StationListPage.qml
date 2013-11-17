@@ -60,6 +60,15 @@ Page {
                 text: model.name ? Private.highlightSearch(model.name, Theme.highlightColor) : ""
                 verticalAlignment: Text.AlignVCenter
             }
+            Image {
+                id: favoriteIndicator
+                visible: model.favorite
+                source: "image://theme/icon-m-favorite-selected"
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    right: parent.right
+                }
+            }
             onClicked: Private.loadStation(model.name, model.code)
             onPressAndHold: contextMenu.show(listItem)
             ContextMenu {
