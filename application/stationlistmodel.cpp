@@ -86,9 +86,12 @@ QHash<int, QByteArray> StationListModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[Qt::DisplayRole] = "name";
     roles[StationListModel::PositionRole] = "position";
+    roles[StationListModel::RecentIndicatorRole] = "recent";
+    roles[StationListModel::FavoriteIndicatorRole] = "favorite";
     roles[StationListModel::StationCodeRole] = "code";
     roles[StationListModel::LongitudeRole] = "longitude";
     roles[StationListModel::LatitudeRole] = "latitude";
+    roles[StationListModel::SectionRole] = "section";
     return roles;
 }
 
@@ -136,6 +139,7 @@ void StationListModel::readStationElement()
             } else {
                 skipUnknownElement(m_reader.name().toString());
             }
+            item->setData(QVariant::fromValue(false), FavoriteIndicatorRole);
         } else {
             m_reader.readNext();
         }

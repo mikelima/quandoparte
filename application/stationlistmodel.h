@@ -39,8 +39,10 @@ public:
         PositionRole = Qt::UserRole + 1, //< QGeoCoordinate - Station coordinate
         StationCodeRole, //< QString - Station Code (Precise name if the Display name is known to fail)
         RecentIndicatorRole, //<bool - If the station has been recently looked up
+        FavoriteIndicatorRole, //<bool - If the station has been marked as favorite
         LongitudeRole, //< double - Longitude of the station
         LatitudeRole, //< double - Latitude of the station
+        SectionRole //< Qstring - The section the station belongs to (depends on the sorting mode)
     };
 
     explicit StationListModel(QObject *parent = 0);
