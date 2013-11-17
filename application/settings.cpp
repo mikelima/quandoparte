@@ -85,6 +85,21 @@ void Settings::setRecentStations(const QStringList &stations)
     emit recentStationsChanged();
 }
 
+QStringList Settings::favoriteStations()
+{
+    QSettings settings;
+
+    return settings.value("FavoriteStations").toString().split(",");
+}
+
+void Settings::setFavoriteStations(const QStringList &stations)
+{
+    QSettings settings;
+
+    settings.setValue("FavoriteStations", stations.join(","));
+    emit favoriteStationsChanged();
+}
+
 int Settings::checkingInterval()
 {
     QSettings settings;
