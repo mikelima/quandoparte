@@ -68,9 +68,16 @@ bool StationListProxyModel::lessThan(const QModelIndex &left,
         QGeoCoordinate second = right.data(role).value<QGeoCoordinate>();
        return first.distanceTo(m_here) < second.distanceTo(m_here);
     } else {
-        return QString::compare(left.data(role).toString(),
-                                right.data(role).toString(),
-                                sortCaseSensitivity()) < 0;
+        bool leftIsFavorite = left.data(StationListModel::FavoriteIndicatorRole).toBool();
+        bool rightIsFavorite = right.data(StationListModel::FavoriteIndicatorRole).toBool();
+        if (leftIsFavorite && !rightIsFavorite) {
+            return true;
+        } else if (rightIsFavorite && !leftIsFavorite) {
+            return false;
+        } else
+            return QString::compare(left.data(role).toString(),
+                                    right.data(role).toString(),
+                                    sortCaseSensitivity()) < 0;
     }
 }
 
