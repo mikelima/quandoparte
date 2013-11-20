@@ -22,9 +22,9 @@ Boston, MA 02110-1301, USA.
 #include "view.h"
 #include "settings.h"
 #include "dataprovider.h"
-#include "stationlistmodel.h"
-#include "stationlistproxymodel.h"
 #include "stationschedulemodel.h"
+#include "stationlistproxymodel.h"
+#include "stationlistmodel.h"
 
 #include <QtGlobal>
 #include <QtConcurrentRun>
@@ -65,6 +65,11 @@ static QString trueFilePath(const QString &path)
 #endif
 }
 
+Q_DECLARE_METATYPE(QList< QPersistentModelIndex >)
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
+Q_DECLARE_METATYPE(QAbstractItemModel::LayoutChangeHint)
+#endif
+
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
 View::View(QWindow *parent) :
     QQuickView(parent),
@@ -82,11 +87,15 @@ View::View(QWidget *parent) :
     stationListProxyModel->setSourceModel(stationListModel);
 
     /* Types to be made accessible to QML */
-    qRegisterMetaType<QModelIndex>("QModelIndex");
-    qmlRegisterType<Settings>("net.cirulla.quandoparte", 1, 0, "Settings");
-    qmlRegisterType<StationListProxyModel>(
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
+    qRegisterMetaType< QModelIndex >();
+    qRegisterMetaType< QList< QPersistentModelIndex > >();
+    qRegisterMetaType< QAbstractItemModel::LayoutChangeHint>();
+#endif
+    qmlRegisterType< Settings >("net.cirulla.quandoparte", 1, 0, "Settings");
+    qmlRegisterType< StationListProxyModel >(
                 "net.cirulla.quandoparte", 1, 0, "StationListProxyModel");
-    qmlRegisterType<StationScheduleModel>(
+    qmlRegisterType< StationScheduleModel >(
                 "net.cirulla.quandoparte", 1, 0, "StationScheduleModel");
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
