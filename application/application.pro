@@ -97,6 +97,7 @@ TRANSLATIONS = resources/i18n/quandoparte_it.ts
 SOURCES += \
     $$PLATFORM_SOURCES \
     main.cpp \
+    stationitem.cpp \
     stationlistmodel.cpp \
     stationlistproxymodel.cpp \
     settings.cpp \
@@ -106,6 +107,7 @@ SOURCES += \
 
 HEADERS += \
     $$PLATFORM_HEADERS \
+    stationitem.h \
     stationlistmodel.h \
     stationlistproxymodel.h \
     settings.h \
@@ -202,13 +204,26 @@ message(Extra defines $$DEFINES)
 target.path = $$BINDIR
 INSTALLS += target
 
-unix:sailfish {
+unix {
     desktopfile.files = resources/$$PLATFORM/applications/$${TARGET}.desktop
     desktopfile.path = $$DESKTOPDIR
     INSTALLS += desktopfile
+
+    i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
+    stations.files = resources/stations/stations.qpl
+
+    i18n.path = $$DATADIR/i18n
+    stations.path = $$DATADIR/stations
+
+    INSTALLS += i18n
+    INSTALLS += stations
 }
 
-unix:sailfish {
+sailfish {
+    desktopfile.files = resources/$$PLATFORM/applications/$${TARGET}.desktop
+    desktopfile.path = $$DESKTOPDIR
+    INSTALLS += desktopfile
+
     i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
     stations.files = resources/stations/stations.qpl
 
@@ -241,6 +256,7 @@ maemo5 {
 }
 
 sailfish {
+    QML_IMPORT_PATH = resources/sailfish/qml/
     icon90.files = icons/sailfish/90x90/$${TARGET}.png
     icon90.path = /usr/share/icons/hicolor/meegotouch/apps
     INSTALLS += icon90
