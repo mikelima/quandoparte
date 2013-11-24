@@ -92,7 +92,6 @@ View::View(QWidget *parent) :
     qRegisterMetaType< QList< QPersistentModelIndex > >();
     qRegisterMetaType< QAbstractItemModel::LayoutChangeHint>();
 #endif
-    qmlRegisterType< Settings >("net.cirulla.quandoparte", 1, 0, "Settings");
     qmlRegisterType< StationListProxyModel >(
                 "net.cirulla.quandoparte", 1, 0, "StationListProxyModel");
     qmlRegisterType< StationScheduleModel >(
