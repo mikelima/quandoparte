@@ -4,4 +4,4 @@ Type=Application
 Name=Quando Parte
 X-Nemo-Application-Type=silica-qt5
 Exec=/usr/bin/quandoparte
-Icon=/usr/share/icons/hicolor/90x90/apps/quandoparte.png
+Icon=quandoparte

@@ -257,9 +257,9 @@ maemo5 {
 
 sailfish {
     QML_IMPORT_PATH = resources/sailfish/qml/
-    icon90.files = icons/sailfish/90x90/$${TARGET}.png
-    icon90.path = /usr/share/icons/hicolor/meegotouch/apps
-    INSTALLS += icon90
+    icon86.files = icons/sailfish/86x86/$${TARGET}.png
+    icon86.path = /usr/share/icons/hicolor/86x86/apps
+    INSTALLS += icon86
 }
 
 harmattan {
