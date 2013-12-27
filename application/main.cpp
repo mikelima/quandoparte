@@ -78,6 +78,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     } else {
         qDebug() << "Translation for locale" << locale << "not found";
     }
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
+    QQuickWindow::setDefaultAlphaBuffer(true);
+#endif
 #ifdef TARGET_PLATFORM_FREMANTLE
     App theApp;
 #else

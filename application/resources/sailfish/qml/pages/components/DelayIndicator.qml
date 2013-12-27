@@ -16,6 +16,7 @@ Item {
         width: 10
         height: indicator.height - 10
         anchors.centerIn: parent
+        radius: 3
         color: {
             switch (indicator.level) {
             case 0: return "#0b0"

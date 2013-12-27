@@ -1,22 +1,10 @@
-quandoparte (0.5.0) unstable; urgency=low
-  * <Add change description here>
+quandoparte (0.7.0) unstable; urgency=low
+  * Improved SailfishOS user interface
+  * Added Favorite stations feature
+  * Added a context menu to show the selected station on the map and to toggle favorite status
+  * Updated station list
 
- -- Luciano Montanaro <mikelima@cirulla.net>  Thu, 12 Jul 2012 18:05:48 +0200
-
-quandoparte (0.5.82) unstable; urgency=low
-  * <Add change description here>
-
- -- Luciano Montanaro <mikelima@cirulla.net>  Thu, 12 Jul 2012 18:05:45 +0200
-
-quandoparte (0.4.82) unstable; urgency=low
-  * <Add change description here>
-
- -- Luciano Montanaro <mikelima@cirulla.net>  Thu, 12 Jan 2012 23:16:52 +0100
-
-quandoparte (0.4.81) unstable; urgency=low
-  * <Add change description here>
-
- -- Luciano Montanaro <mikelima@cirulla.net>  Sun, 08 Jan 2012 20:35:38 +0100
+ -- Luciano Montanaro <mikelima@cirulla.net>  Fri, 27 Dec 2013 12:24:09 +0100
 
 quandoparte (0.4.80) unstable; urgency=low
 

@@ -37,6 +37,9 @@ class Settings : public QObject
     Q_PROPERTY(QStringList recentStations
                READ recentStations WRITE setRecentStations
                NOTIFY recentStationsChanged)
+    Q_PROPERTY(QStringList favoriteStations
+               READ favoriteStations WRITE setFavoriteStations
+               NOTIFY favoriteStationsChanged)
     Q_PROPERTY(int checkingInterval
                READ checkingInterval WRITE setCheckingInterval
                NOTIFY checkingIntervalChanged)
@@ -69,6 +72,9 @@ public:
     QStringList recentStations();
     void setRecentStations(const QStringList &stations);
 
+    QStringList favoriteStations();
+    void setFavoriteStations(const QStringList &stations);
+
     int checkingInterval();
     void setCheckingInterval(int);
 
@@ -92,6 +98,7 @@ public:
 signals:
     void queryBaseUrlChanged();
     void recentStationsChanged();
+    void favoriteStationsChanged();
     void checkingIntervalChanged();
     void autoUpdateChanged();
     void stationViewPreferredChanged();

@@ -9,32 +9,44 @@ Page {
 
     SilicaFlickable {
         id: view
+        pressDelay: 0
         anchors.fill: parent
+
+        function updateStation() {
+            view.state = "loading"
+            console.log("Updating station with " + schedule.name + ", " + schedule.code)
+            schedule.fetch(schedule.name, schedule.code)
+        }
+
         PullDownMenu {
             MenuItem {
                 text: qsTr("Update Schedule")
-                onClicked: updateStation()
+                onClicked: view.updateStation()
             }
             MenuItem {
-                text: qsTr("Departures")
-                onClicked: schedule.type = StationScheduleModel.DepartureSchedule
+                text: (schedule.type === StationScheduleModel.ArrivalSchedule ?
+                          qsTr("Show Departures") :
+                          qsTr("Show Arrivals"))
+                onClicked: (schedule.type = schedule.type === StationScheduleModel.ArrivalSchedule ?
+                               StationScheduleModel.DepartureSchedule :
+                               StationScheduleModel.ArrivalSchedule)
             }
-            MenuItem {
-                text: qsTr("Arrivals")
-                onClicked: schedule.type = StationScheduleModel.ArrivalSchedule
+            MenuLabel {
+                text: (schedule.type === StationScheduleModel.DepartureSchedule ? qsTr("Departures") : qsTr("Arrivals"))
             }
+        }
+        PageHeader {
+            id: header
+            title: name
         }
         SilicaListView {
             id: stationScheduleView
-            anchors.fill: parent
+            anchors.top: header.bottom
+            anchors.bottom: parent.bottom
             clip: true
             visible: false
             width: parent.width
-            cacheBuffer: 40
-            header: PageHeader {
-                    id: header
-                    title: (schedule.type === StationScheduleModel.DepartureSchedule ? qsTr("Departures from ") : qsTr("Arrivals to ")) + name
-                }
+            cacheBuffer: 4 * Theme.itemSizeExtraLarge
             model: schedule
             delegate: StationScheduleDelegate {
                 width: stationScheduleView.width
@@ -47,6 +59,10 @@ Page {
                 delay: model.delay
                 actualPlatform: model.actualPlatform
                 expectedPlatfrom: model.expectedPlatform
+            }
+            ViewPlaceholder {
+                enabled: stationScheduleView.count === 0
+                text: qsTr("No trains are scheduled at this time")
             }
         }
         BusyIndicator {
@@ -121,11 +137,6 @@ Page {
             }
         ]
 
-        function updateStation() {
-            view.state = "loading"
-            console.log("Updating station with " + schedule.name + ", " + schedule.code)
-            schedule.fetch(schedule.name, schedule.code)
-        }
         StationScheduleModel {
             id: schedule
             onNameChanged: view.updateStation()
@@ -137,5 +148,6 @@ Page {
             updateTimer.triggered.connect(view.updateStation)
             view.state = "loading"
         }
+        VerticalScrollDecorator {}
     }
 }
