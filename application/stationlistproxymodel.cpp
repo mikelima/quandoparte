@@ -46,7 +46,6 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setSortCaseSensitivity(Qt::CaseInsensitive);
     setDynamicSortFilter(true);
-    qRegisterMetaType<QGeoCoordinate>();
     if (positionInfoSource) {
         qDebug() << "position info source available";
         connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
