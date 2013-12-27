@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 isEmpty(VERSION) {
-    VERSION = 0.6.2
+    VERSION = 0.7.0rc
 }
 USE_RESOURCES = 0
 
@@ -49,7 +49,7 @@ harmattan {
     QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-psabi
     QMAKE_LFLAGS += -pie -rdynamic
     PLATFORM_SOURCES = view.cpp
-    GETTFORM_HEADERS = view.h view_qt4.h
+    PLATFORM_HEADERS = view.h view_qt4.h
 }
 maemo5 {
     QT += maemo5
