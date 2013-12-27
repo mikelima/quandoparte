@@ -27,6 +27,7 @@ Boston, MA 02110-1301, USA.
 #include <QtGlobal>
 #include <QDebug>
 #include <QGeoCoordinate>
+#include <QGeoPositionInfo>
 
 #if (QT_VERSION < QT_VERSION_CHECK(5, 0, 0))
 QTM_USE_NAMESPACE
@@ -45,6 +46,7 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setSortCaseSensitivity(Qt::CaseInsensitive);
     setDynamicSortFilter(true);
+    qRegisterMetaType<QGeoCoordinate>();
     if (positionInfoSource) {
         qDebug() << "position info source available";
         connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
@@ -53,9 +55,22 @@ StationListProxyModel::StationListProxyModel(QObject *parent) :
     } else {
         qDebug() << "No position info source available";
     }
+    connect(settings, SIGNAL(favoriteStationsChanged()),
+            this, SLOT(updateFavoriteStations()));
+    updateFavoriteStations();
     connect(settings, SIGNAL(recentStationsChanged()),
             this, SLOT(updateRecentStations()));
     updateRecentStations();
+}
+
+Qt::ItemFlags StationListProxyModel::flags(const QModelIndex &index) const
+{
+    return QSortFilterProxyModel::flags(index);
+}
+
+bool StationListProxyModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    return QSortFilterProxyModel::setData(index, value, role);
 }
 
 bool StationListProxyModel::lessThan(const QModelIndex &left,
@@ -104,6 +119,20 @@ void StationListProxyModel::updateRecentStations(void)
 {
     Settings *settings = Settings::instance();
     setRecentStations(settings->recentStations());
+}
+
+void StationListProxyModel::setFavoriteStations(const QStringList &stations)
+{
+    qDebug() << "Favorite stations are now" << stations;
+    if (sortingMode() == StationListProxyModel::AlphaSorting) {
+        invalidate();
+    }
+}
+
+void StationListProxyModel::updateFavoriteStations(void)
+{
+    Settings *settings = Settings::instance();
+    setFavoriteStations(settings->favoriteStations());
 }
 
 bool StationListProxyModel::filterAcceptsRow(int sourceRow,

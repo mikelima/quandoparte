@@ -57,7 +57,7 @@ public:
     Q_INVOKABLE Qt::ItemFlags flags(const QModelIndex &index) const;
     Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const;
     Q_INVOKABLE QVariant data(const QModelIndex &index, int role) const;
-    Q_INVOKABLE bool setData(const QModelIndex &index, QVariant &value, int role = Qt::EditRole);
+    Q_INVOKABLE bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
 
 signals:
 

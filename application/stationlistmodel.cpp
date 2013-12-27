@@ -136,7 +136,7 @@ QVariant StationListModel::data(const QModelIndex &index, int role) const
     }
 }
 
-bool StationListModel::setData(const QModelIndex &index, QVariant &value, int role)
+bool StationListModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (!index.isValid())
         return false;
@@ -153,9 +153,6 @@ bool StationListModel::setData(const QModelIndex &index, QVariant &value, int ro
             }
             Settings *settings = Settings::instance();
             settings->setFavoriteStations(QStringList::fromSet(m_favorites));
-            QVector<int> changedRoles;
-            changedRoles << FavoriteIndicatorRole;
-            //emit dataChanged(index, index, changedRoles);
             emit dataChanged(index, index);
         }
         return true;
