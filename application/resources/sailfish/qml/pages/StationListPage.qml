@@ -53,8 +53,6 @@ Page {
             anchors.top: header.bottom
             anchors.bottom: parent.bottom
             model:  stationListProxyModel
-            objectName:
-                    searchField.focus = false
             delegate: ListItem {
                 id: listItem
                 contentHeight: Theme.itemSizeExtraSmall
@@ -80,9 +78,9 @@ Page {
                     }
                 }
                 onClicked: {
+                    searchField.focus = false
                     Private.loadStation(model.name, model.code)
                 }
-                //onPressAndHold: contextMenu.show(listItem)
                 menu: contextMenu
                 Component {
                     id: contextMenu
@@ -90,15 +88,8 @@ Page {
                         MenuItem {
                             text: model.favorite ? qsTr("Remove from Favorites") : qsTr("Add to Favorites")
                             onClicked: {
-                                console.log("Favorite Stations (before):" + settings.favoriteStations)
                                 model.favorite ^= true
-                                /*
-                                var index = settings.favoriteStations.indexOf(model.name)
-                                if (index === -1)
-                                    settings.favoriteStations.push(model.name)
-                                else settings.favoriteStations.splice(index, 1)
-                                */
-                                console.log("Favorite Stations (after):" + settings.favoriteStations)
+                                console.log("Favorite Stations:" + settings.favoriteStations)
                             }
                         }
                         MenuItem {
