@@ -17,7 +17,7 @@ Page {
             spacing: Theme.paddingLarge
             Image {
                 anchors.verticalCenter: parent.verticalCenter
-                source: "/usr/share/icons/hicolor/meegotouch/apps/quandoparte.png"
+                source: "/usr/share/icons/hicolor/86x86/apps/quandoparte.png"
             }
             Label {
                 textFormat: Text.RichText

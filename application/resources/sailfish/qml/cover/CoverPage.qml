@@ -5,7 +5,7 @@ CoverBackground {
     CoverPlaceholder {
         anchors.centerIn: parent
         text: qsTr("Quando Parte")
-        icon.source: "/usr/share/icons/hicolor/meegotouch/apps/quandoparte.png"
+        icon.source: "/usr/share/icons/hicolor/86x86/apps/quandoparte.png"
     }
 }
 

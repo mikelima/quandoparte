@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
-VERSION = 0.6.2
+isEmpty(VERSION) {
+    VERSION = 0.7.0rc
+}
 USE_RESOURCES = 0
 
 QT += network
@@ -65,6 +67,9 @@ maemo5 {
         keypressforwarder.h \
         settingsdialog.h \
         stationview.h
+    FORMS += \
+        settingsdialog.ui \
+        stationlistview.ui
 }
 !sailfish:!harmattan:!maemo5 {
     PLATFORM = desktop
@@ -97,6 +102,7 @@ TRANSLATIONS = resources/i18n/quandoparte_it.ts
 SOURCES += \
     $$PLATFORM_SOURCES \
     main.cpp \
+    stationitem.cpp \
     stationlistmodel.cpp \
     stationlistproxymodel.cpp \
     settings.cpp \
@@ -106,16 +112,13 @@ SOURCES += \
 
 HEADERS += \
     $$PLATFORM_HEADERS \
+    stationitem.h \
     stationlistmodel.h \
     stationlistproxymodel.h \
     settings.h \
     dataprovider.h \
     stationschedulemodel.h \
     stationscheduleitem.h
-
-FORMS += \
-    settingsdialog.ui \
-    stationlistview.ui
 
 QMLSOURCES = \
     resources/harmattan/qml/main.qml \
@@ -146,7 +149,6 @@ OTHER_FILES += \
     icons/64x64/quandoparte.png \
     icons/80x80/quandoparte.png \
     icons/scalable/quandoparte.svg \
-    icons/sailfish/86x86/quandoparte.png \
     icons/sailfish/90x90/quandoparte.png \
     icons/sailfish/scalable/quandoparte.svg \
     icons/quandoparte.png \
@@ -203,13 +205,26 @@ message(Extra defines $$DEFINES)
 target.path = $$BINDIR
 INSTALLS += target
 
-unix:sailfish {
+unix {
     desktopfile.files = resources/$$PLATFORM/applications/$${TARGET}.desktop
     desktopfile.path = $$DESKTOPDIR
     INSTALLS += desktopfile
+
+    i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
+    stations.files = resources/stations/stations.qpl
+
+    i18n.path = $$DATADIR/i18n
+    stations.path = $$DATADIR/stations
+
+    INSTALLS += i18n
+    INSTALLS += stations
 }
 
-unix:sailfish {
+sailfish {
+    desktopfile.files = resources/$$PLATFORM/applications/$${TARGET}.desktop
+    desktopfile.path = $$DESKTOPDIR
+    INSTALLS += desktopfile
+
     i18n.files = $$replace(TRANSLATIONS, .ts, .qm)
     stations.files = resources/stations/stations.qpl
 
@@ -242,8 +257,9 @@ maemo5 {
 }
 
 sailfish {
+    QML_IMPORT_PATH = resources/sailfish/qml/
     icon86.files = icons/sailfish/86x86/$${TARGET}.png
-    icon86.path = /usr/share/icons/hicolor/meegotouch/apps
+    icon86.path = /usr/share/icons/hicolor/86x86/apps
     INSTALLS += icon86
 }
 

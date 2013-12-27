@@ -79,6 +79,7 @@ BackgroundItem {
                     id: delayLabel
                     anchors.top: parent.top
                     font.pixelSize: Theme.fontSizeSmall
+                    color: Theme.secondaryColor
                 }
                 Label {
                     anchors {
@@ -89,6 +90,7 @@ BackgroundItem {
                     text: displayPlatform(root.expectedPlatfrom, root.actualPlatform)
                     font.pixelSize: Theme.fontSizeSmall
                     textFormat: Text.RichText
+                    color: Theme.secondaryColor
                 }
             }
         }
@@ -98,6 +100,7 @@ BackgroundItem {
             left: parent.left
             right: parent.right
         }
+        color: Theme.secondaryColor
     }
     onClicked: {
         // Load an external page about the train, for now

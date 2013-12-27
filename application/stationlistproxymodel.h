@@ -49,6 +49,9 @@ public:
 
     explicit StationListProxyModel(QObject *parent = 0);
 
+    Q_INVOKABLE Qt::ItemFlags flags(const QModelIndex &index) const;
+    Q_INVOKABLE bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
+
     QString searchPattern() const;
     void setSearchPattern(const QString &pattern);
 
@@ -58,6 +61,7 @@ public:
     Q_INVOKABLE void setUserPosition(const QGeoCoordinate &pos);
     Q_INVOKABLE void setRecentStations(const QStringList &stations);
     Q_INVOKABLE void setRecentOnlyFilter(bool);
+    Q_INVOKABLE void setFavoriteStations(const QStringList &stations);
 
 signals:
     void sortingModeChanged(SortingMode mode);
@@ -73,6 +77,7 @@ private:
 private slots:
     void updatePosition(const QGeoPositionInfo &update);
     void updateRecentStations(void);
+    void updateFavoriteStations(void);
 private:
     QString m_searchPattern;
     QGeoPositionInfoSource *positionInfoSource;

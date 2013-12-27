@@ -1,8 +1,16 @@
+quandoparte (0.7.0) unstable; urgency=low
+  * Improved SailfishOS user interface
+  * Added Favorite stations feature
+  * Added a context menu to show the selected station on the map and to toggle favorite status
+  * Updated station list
+
+ -- Luciano Montanaro <mikelima@cirulla.net>  Fri, 27 Dec 2013 12:24:09 +0100
+
 quandoparte (0.6.2) unstable; urgency=low
   * Various tweaks to the UI
   * Updated station list data
 
- -- Luciano Montanaro <mikelima@zaphod>  Wed, 14 Nov 2013 22:41:11 +0100
+ -- Luciano Montanaro <mikelima@cirulla.net>  Wed, 14 Nov 2013 22:41:11 +0100
 
 quandoparte (0.6.0) unstable; urgency=low
   * Sailfish OS port
@@ -10,32 +18,32 @@ quandoparte (0.6.0) unstable; urgency=low
   * Various tweaks to the Harmattan UI
   * Updated station list data
 
- -- Luciano Montanaro <mikelima@zaphod>  Wed, 05 Nov 2013 20:21:40 +0100
+ -- Luciano Montanaro <mikelima@cirulla.net>  Wed, 05 Nov 2013 20:21:40 +0100
 
 quandoparte (0.5.1) unstable; urgency=low
   * Fix single instance startup
 
- -- Luciano Montanaro <mikelima@zaphod>  Sat, 28 Jul 2012 20:18:47 +0200
+ -- Luciano Montanaro <mikelima@cirulla.net>  Sat, 28 Jul 2012 20:18:47 +0200
 
 quandoparte (0.5.0) unstable; urgency=low
   * Public release
   * Fixed the searchbar hiding/unhiding animation
   * Optimized scroll in ListViews
 
- -- Luciano Montanaro <mikelima@zaphod>  Thu, 12 Jul 2012 18:05:45 +0200
+ -- Luciano Montanaro <mikelima@cirulla.net>  Thu, 12 Jul 2012 18:05:45 +0200
 
 quandoparte (0.4.82) unstable; urgency=low
   * Second Beta release
 
- -- Luciano Montanaro <mikelima@zaphod>  Thu, 12 Jan 2012 23:16:52 +0100
+ -- Luciano Montanaro <mikelima@cirulla.net>  Thu, 12 Jan 2012 23:16:52 +0100
 
 quandoparte (0.4.81) unstable; urgency=low
   * First Beta release
 
- -- Luciano Montanaro <mikelima@zaphod>  Sun, 08 Jan 2012 20:35:38 +0100
+ -- Luciano Montanaro <mikelima@cirulla.net>  Sun, 08 Jan 2012 20:35:38 +0100
 
 quandoparte (0.4.80) unstable; urgency=low
 
   * Initial Release.
 
- -- Luciano Montanaro <mikelima@zaphod>  Tue, 21 Jun 2011 09:02:18 +0200
+ -- Luciano Montanaro <mikelima@cirulla.net>  Tue, 21 Jun 2011 09:02:18 +0200

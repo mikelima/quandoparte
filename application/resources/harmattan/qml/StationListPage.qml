@@ -174,17 +174,38 @@ Page {
                     }
                 }
                 Image {
+                    id: favoriteIndicator
+                    visible: model.favorite
+                    source: "image://theme/icon-m-common-favorite-mark" + (theme.inverted ? "-inverse" : "")
                     anchors {
-                        left: parent.left
+                        verticalCenter: parent.verticalCenter
                         right: parent.right
                     }
-                    //source: "image://theme/meegotouch-separator-" + (theme.inverted ? "inverted-" : "") + "background-horizontal"
                 }
                 MouseArea {
                     id: mouseArea
                     anchors.fill: background
                     onClicked: {
                         Private.loadStation(model.name, model.code)
+                    }
+                    onPressAndHold: contextMenu.open()
+                }
+                ContextMenu {
+                    id: contextMenu
+                    MenuLayout {
+                        /*
+                        MenuItem {
+                            text: model.favorite ? qsTr("Remove from Favorites") : qsTr("Add to Favorites")
+                            onClicked: {
+                                model.favorite ^= true
+                                console.log("Favorite Stations:" + settings.favoriteStations)
+                            }
+                        }
+                        */
+                        MenuItem {
+                            text: qsTr("Show on the map")
+                            onClicked: Qt.openUrlExternally("geo:" + model.latitude + "," + model.longitude)
+                        }
                     }
                 }
             }

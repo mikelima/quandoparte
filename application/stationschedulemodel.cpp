@@ -38,7 +38,6 @@ StationScheduleModel::StationScheduleModel(const QString &name, QObject *parent)
     QAbstractListModel(parent),
     m_name(name),
     m_error(QString())
-
 {
     DataProvider *provider = DataProvider::instance();
     connect(provider, SIGNAL(stationScheduleReady(QByteArray,QUrl)),
