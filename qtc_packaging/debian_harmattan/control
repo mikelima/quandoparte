@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Luciano Montanaro <mikelima@cirulla.net>
 Build-Depends: debhelper (>= 5), libqt4-dev, libqtm-dev
 Standards-Version: 3.7.3
-Homepage: <insert the upstream URL, if relevant>
+Homepage: http://quandoparte.garage.maemo.org/
 
 Package: quandoparte
 Architecture: any
