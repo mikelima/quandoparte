@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
-VERSION = 0.6.2
+isEmpty(VERSION) {
+    VERSION = 0.6.2
+}
 USE_RESOURCES = 0
 
 QT += network
@@ -47,7 +49,7 @@ harmattan {
     QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wno-psabi
     QMAKE_LFLAGS += -pie -rdynamic
     PLATFORM_SOURCES = view.cpp
-    PLATFORM_HEADERS = view.h view_qt4.h
+    GETTFORM_HEADERS = view.h view_qt4.h
 }
 maemo5 {
     QT += maemo5
@@ -65,6 +67,9 @@ maemo5 {
         keypressforwarder.h \
         settingsdialog.h \
         stationview.h
+    FORMS += \
+        settingsdialog.ui \
+        stationlistview.ui
 }
 !sailfish:!harmattan:!maemo5 {
     PLATFORM = desktop
@@ -114,10 +119,6 @@ HEADERS += \
     dataprovider.h \
     stationschedulemodel.h \
     stationscheduleitem.h
-
-FORMS += \
-    settingsdialog.ui \
-    stationlistview.ui
 
 QMLSOURCES = \
     resources/harmattan/qml/main.qml \

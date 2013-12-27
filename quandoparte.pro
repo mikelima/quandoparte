@@ -1,5 +1,9 @@
 TEMPLATE = subdirs
 
+isEmpty(VERSION) {
+    VERSION = 0.6.2
+}
+
 SUBDIRS = application
 
 OTHER_FILES += \
