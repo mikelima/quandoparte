@@ -1,6 +1,6 @@
 /*
 
-Copyright (C) 2011 Luciano Montanaro <mikelima@cirulla.net>
+Copyright (C) 2011, 2013 Luciano Montanaro <mikelima@cirulla.net>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -22,6 +22,8 @@ Boston, MA 02110-1301, USA.
 #include "view.h"
 #include "settings.h"
 #include "dataprovider.h"
+#include "stationitem.h"
+#include "stationscheduleitem.h"
 #include "stationschedulemodel.h"
 #include "stationlistproxymodel.h"
 #include "stationlistmodel.h"
@@ -88,10 +90,14 @@ View::View(QWidget *parent) :
 
     /* Types to be made accessible to QML */
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 1, 0))
-    qRegisterMetaType< QModelIndex >();
+    qRegisterMetaType<QGeoCoordinate>("QGeoCoordinate");
+    qRegisterMetaType<QGeoPositionInfo>("QGeoPositionInfo");
+    qRegisterMetaType< QModelIndex >("QModelIndex");
     qRegisterMetaType< QList< QPersistentModelIndex > >();
     qRegisterMetaType< QAbstractItemModel::LayoutChangeHint>();
 #endif
+    qmlRegisterType< StationListModel >(
+                "net.cirulla.quandoparte", 1, 0, "StationListModel");
     qmlRegisterType< StationListProxyModel >(
                 "net.cirulla.quandoparte", 1, 0, "StationListProxyModel");
     qmlRegisterType< StationScheduleModel >(
