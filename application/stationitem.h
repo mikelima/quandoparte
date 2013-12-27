@@ -19,8 +19,8 @@ Boston, MA 02110-1301, USA.
 
 */
 
-#ifndef STATIONSCHEDULEITEM_H
-#define STATIONSCHEDULEITEM_H
+#ifndef STATIONITEM_H
+#define STATIONITEM_H
 
 #include <QSharedDataPointer>
 #include <QGeoCoordinate>
@@ -53,4 +53,4 @@ private:
     QSharedDataPointer<StationItemData> d;
 };
 
-#endif // STATIONSCHEDULEITEM_H
+#endif // STATIONITEM_H
