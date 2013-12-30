@@ -39,7 +39,7 @@ Page {
             SearchField {
                 id: searchField
                 placeholderText: qsTr("Search station...")
-                inputMethodHints: Qt.ImhNoAutoUppercase
+                inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhNoPredictiveText
                 onTextChanged: stationListPage.searchPattern = searchField.text
                 width: stationListPage.width
                 EnterKey.onClicked: searchField.focus = false
