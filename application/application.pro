@@ -135,6 +135,7 @@ QMLSOURCES = \
     resources/harmattan/qml/DelayIndicator.qml \
     resources/harmattan/qml/StationScheduleDelegate.qml \
     resources/sailfish/qml/main.qml \
+    resources/sailfish/qml/cover/CoverPage.qml \
     resources/sailfish/qml/pages/AboutPage.qml \
     resources/sailfish/qml/pages/StationListPage.qml \
     resources/sailfish/qml/pages/StationPage.qml \
@@ -149,7 +150,7 @@ OTHER_FILES += \
     icons/64x64/quandoparte.png \
     icons/80x80/quandoparte.png \
     icons/scalable/quandoparte.svg \
-    icons/sailfish/90x90/quandoparte.png \
+    icons/sailfish/86x86/quandoparte.png \
     icons/sailfish/scalable/quandoparte.svg \
     icons/quandoparte.png \
     resources/quandoparte.css \

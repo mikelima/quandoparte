@@ -19,13 +19,10 @@ function loadStation(name, code)
         stationListPage.stationView = view
         pageStack.push(view)
 
-        /*
-            XXX Ugliness ahead! Changing the name triggers the station
-            schedule to be fetched. So any extra data (the code specifically)
-            must be set before changing the name.
-         */
-        if (code !== undefined) view.code = code
-        view.name = name
+        if (code === undefined) {
+            code = ""
+        }
+        schedule.fetch(name, code)
     }
     else
         console.log('Cannot load component: ' + component.errorString());
