@@ -14,9 +14,12 @@ BackgroundItem {
     property alias delay: delayLabel.text
     property string actualPlatform
     property string expectedPlatfrom
+    property bool compact: false
+    property int mainFontSize: compact ? Theme.fontSizeExtraSmall : Theme.fontSizeMedium
+    property int smallFontSize: compact ? Theme.fontSizeExtraSmall : Theme.fontSizeSmall
 
-    implicitHeight: Theme.itemSizeExtraLarge
-    height: Theme.itemSizeExtraLarge
+    implicitHeight: Theme.paddingMedium * 2 + firstRow.height + secondRow.height + thirdRow.height
+    height: implicitHeight
     Item {
         id: bodyRow
         anchors {
@@ -26,8 +29,10 @@ BackgroundItem {
         DelayIndicator {
             id: indicator
             level: delayClass
+            height: root.height
         }
         Item {
+            id: mainMatter
             anchors {
                 left: indicator.right
                 right: bodyRow.right
@@ -35,41 +40,49 @@ BackgroundItem {
             }
             Row {
                 id: firstRow
+                height: mainFontSize
                 anchors.top: parent.top
                 spacing: Theme.paddingMedium
                 Label {
                     id: arrivalTimeLabel
-                    font.pixelSize: Theme.fontSizeMedium
+                    font.pixelSize: mainFontSize
                     visible: type === StationScheduleModel.ArrivalSchedule
                 }
                 Label {
                     id: departureTimeLabel
-                    font.pixelSize: Theme.fontSizeMedium
+                    font.pixelSize: mainFontSize
                     visible: type === StationScheduleModel.DepartureSchedule
                 }
                 Label {
                     id: trainLabel
-                    font.pixelSize: Theme.fontSizeMedium
+                    font.pixelSize: mainFontSize
                     color: Theme.highlightColor
                 }
             }
-            Item {
+            Row {
                 id: secondRow
-                height: Theme.fontSizeMedium
+                height: mainFontSize
                 anchors.top: firstRow.bottom
                 Label {
-                    text: qsTr("from %1").arg(root.arrivalStation)
-                    font.pixelSize: Theme.fontSizeMedium
+                    text: qsTr("from <font color='%2'>%1</font>").arg(root.arrivalStation).arg(Theme.primaryColor)
+                    textFormat: Text.StyledText
+                    wrapMode: Text.Wrap
+                    font.pixelSize: mainFontSize
+                    color: Theme.secondaryColor
                     visible: type === StationScheduleModel.ArrivalSchedule
                 }
                 Label {
-                    text: qsTr("to %1").arg(root.departureStation)
-                    font.pixelSize: Theme.fontSizeMedium
+                    text: qsTr("to <font color='%2'>%1</font>").arg(root.departureStation).arg(Theme.primaryColor)
+                    textFormat: Text.StyledText
+                    wrapMode: Text.Wrap
+                    font.pixelSize: mainFontSize
+                    color: Theme.secondaryColor
                     visible: type === StationScheduleModel.DepartureSchedule
                 }
             }
             Item {
-                height: Theme.fontSizeSmall
+                id: thirdRow
+                height: smallFontSize
                 anchors {
                     top: secondRow.bottom
                     left: parent.left
@@ -77,8 +90,7 @@ BackgroundItem {
                 }
                 Label {
                     id: delayLabel
-                    anchors.top: parent.top
-                    font.pixelSize: Theme.fontSizeSmall
+                    font.pixelSize: smallFontSize
                     color: Theme.secondaryColor
                 }
                 Label {
@@ -88,19 +100,13 @@ BackgroundItem {
                         rightMargin: Theme.paddingMedium
                     }
                     text: displayPlatform(root.expectedPlatfrom, root.actualPlatform)
-                    font.pixelSize: Theme.fontSizeSmall
+                    font.pixelSize: smallFontSize
                     textFormat: Text.RichText
                     color: Theme.secondaryColor
+                    visible: !compact
                 }
             }
         }
-    }
-    Separator {
-        anchors {
-            left: parent.left
-            right: parent.right
-        }
-        color: Theme.secondaryColor
     }
     onClicked: {
         // Load an external page about the train, for now
