@@ -77,10 +77,6 @@ Page {
                         right: parent.right
                     }
                 }
-                onClicked: {
-                    searchField.focus = false
-                    Private.loadStation(model.name, model.code)
-                }
                 menu: contextMenu
                 Component {
                     id: contextMenu
@@ -98,6 +94,8 @@ Page {
                         }
                     }
                 }
+                onPressed: searchField.focus = false
+                onClicked: Private.loadStation(model.name, model.code)
             }
             VerticalScrollDecorator {}
         }
