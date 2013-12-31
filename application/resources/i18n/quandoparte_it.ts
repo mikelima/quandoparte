@@ -69,6 +69,14 @@
     </message>
 </context>
 <context>
+    <name>CoverPage</name>
+    <message>
+        <location filename="../sailfish/qml/cover/CoverPage.qml" line="9"/>
+        <source>Quando Parte</source>
+        <translation>Quando Parte</translation>
+    </message>
+</context>
+<context>
     <name>PageHeader</name>
     <message>
         <location filename="../harmattan/qml/PageHeader.qml" line="64"/>
@@ -79,12 +87,12 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="181"/>
+        <location filename="../../stationschedulemodel.cpp" line="180"/>
         <source>On time</source>
         <translation>In orario</translation>
     </message>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="186"/>
+        <location filename="../../stationschedulemodel.cpp" line="185"/>
         <source>Delay: %1 minutes</source>
         <translation>Ritardo: %1 minuti</translation>
     </message>
@@ -126,9 +134,14 @@
 <context>
     <name>StationListModel</name>
     <message>
-        <location filename="../../stationlistmodel.cpp" line="64"/>
+        <location filename="../../stationlistmodel.cpp" line="67"/>
         <source>Not a qpl file</source>
         <translation>Non è un file qpl</translation>
+    </message>
+    <message>
+        <location filename="../../stationlistmodel.cpp" line="131"/>
+        <source>Favorites</source>
+        <translation>Preferite</translation>
     </message>
 </context>
 <context>
@@ -145,27 +158,33 @@
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="55"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="25"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="21"/>
         <source>About Quando Parte</source>
         <translation>Informazioni su Quando Parte</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="66"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="29"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="25"/>
         <source>Stations by Name</source>
         <translation>Stazioni per nome</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="67"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="33"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="29"/>
         <source>Stations by Distance</source>
         <translation>Stazioni per distanza</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="68"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="37"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="33"/>
         <source>Stations Recently Seen</source>
         <translation>Stazioni viste di recente</translation>
+    </message>
+    <message>
+        <location filename="../harmattan/qml/StationListPage.qml" line="206"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="96"/>
+        <source>Show on the map</source>
+        <translation>Mostra sulla mappa</translation>
     </message>
     <message>
         <source>Save</source>
@@ -180,9 +199,19 @@
         <translation type="obsolete">Mostra l&apos;ultima stazione all&apos;avvio</translation>
     </message>
     <message>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="43"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="41"/>
         <source>Search station...</source>
         <translation>Cerca stazione...</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="89"/>
+        <source>Remove from Favorites</source>
+        <translation>Rimuovi dalle preferite</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="89"/>
+        <source>Add to Favorites</source>
+        <translation>Aggiungi alle preferite</translation>
     </message>
 </context>
 <context>
@@ -242,19 +271,19 @@
     <name>StationPage</name>
     <message>
         <location filename="../harmattan/qml/StationPage.qml" line="29"/>
-        <location filename="../sailfish/qml/pages/StationPage.qml" line="19"/>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="32"/>
         <source>Departures</source>
         <translation>Partenze</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationPage.qml" line="30"/>
-        <location filename="../sailfish/qml/pages/StationPage.qml" line="23"/>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="32"/>
         <source>Arrivals</source>
         <translation>Arrivi</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationPage.qml" line="106"/>
-        <location filename="../sailfish/qml/pages/StationPage.qml" line="67"/>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="80"/>
         <source>Error!</source>
         <translation>Errore!</translation>
     </message>
@@ -271,50 +300,61 @@
         <translation type="obsolete">Binario</translation>
     </message>
     <message>
-        <location filename="../sailfish/qml/pages/StationPage.qml" line="15"/>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="20"/>
         <source>Update Schedule</source>
         <translation>Aggiorna orario</translation>
     </message>
     <message>
-        <location filename="../sailfish/qml/pages/StationPage.qml" line="36"/>
-        <source>Departures from </source>
-        <translation>Partenze da </translation>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="25"/>
+        <source>Show Departures</source>
+        <translation>Mostra le partenze</translation>
     </message>
     <message>
-        <location filename="../sailfish/qml/pages/StationPage.qml" line="36"/>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="26"/>
+        <source>Show Arrivals</source>
+        <translation>Mostra gli arrivi</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationPage.qml" line="62"/>
+        <source>No trains are scheduled at this time</source>
+        <translation>Non sono previsti treni a quest&apos;ora</translation>
+    </message>
+    <message>
+        <source>Departures from </source>
+        <translation type="obsolete">Partenze da </translation>
+    </message>
+    <message>
         <source>Arrivals to </source>
-        <translation>Arrivi a </translation>
+        <translation type="obsolete">Arrivi a </translation>
     </message>
 </context>
 <context>
     <name>StationScheduleDelegate</name>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="77"/>
-        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="61"/>
         <source>from %1</source>
         <translation>da %1</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="83"/>
-        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="66"/>
         <source>to %1</source>
         <translation>per %1</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="136"/>
-        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="110"/>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="119"/>
         <source>Platform %1</source>
         <translation>Binario %1</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="138"/>
-        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="112"/>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="121"/>
         <source>Platform &lt;span style=&apos;font-weight:bold;color:%2&apos;&gt;%1&lt;/span&gt;</source>
         <translation>Binario &lt;span style=&apos;font-weight:bold;color:%2&apos;&gt;%1&lt;/span&gt;</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationScheduleDelegate.qml" line="140"/>
-        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="114"/>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="123"/>
         <source>Platform &lt;span style=&apos;text-decoration:line-through&apos;&gt;%1&lt;/span&gt; &lt;span style=&apos;font-weight:bold;color:%3&apos;&gt;%2&lt;/span&gt;</source>
         <translation>Binario &lt;span style=&apos;text-decoration:line-through&apos;&gt;%1&lt;/span&gt; &lt;span style=&apos;font-weight:bold;color:%3&apos;&gt;%2&lt;/span&gt;</translation>
     </message>
@@ -326,21 +366,31 @@
         <source>Platform &lt;span style=&apos;text-decoration:line-through&apos;&gt;%1&lt;/span&gt; &lt;span style=&apos;font-weight:bold;color:#800&apos;&gt;%2&lt;/span&gt;</source>
         <translation type="obsolete">Binario &lt;span style=&apos;text-decoration:line-through&apos;&gt;%1&lt;/span&gt; &lt;span style=&apos;font-weight:bold;color:#800&apos;&gt;%2&lt;/span&gt;</translation>
     </message>
+    <message>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="67"/>
+        <source>from &lt;font color=&apos;%2&apos;&gt;%1&lt;/font&gt;</source>
+        <translation>da &lt;font color=&apos;%2&apos;&gt;%1&lt;/font&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/components/StationScheduleDelegate.qml" line="75"/>
+        <source>to &lt;font color=&apos;%2&apos;&gt;%1&lt;/font&gt;</source>
+        <translation>per &lt;font color=&apos;%2&apos;&gt;%1&lt;/font&gt;</translation>
+    </message>
 </context>
 <context>
     <name>StationScheduleModel</name>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="246"/>
+        <location filename="../../stationschedulemodel.cpp" line="245"/>
         <source>Unknown station</source>
         <translation>Stazione sconosciuta</translation>
     </message>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="248"/>
+        <location filename="../../stationschedulemodel.cpp" line="247"/>
         <source>Unknown error</source>
         <translation>Reeore sconosciuto</translation>
     </message>
     <message>
-        <location filename="../../stationschedulemodel.cpp" line="301"/>
+        <location filename="../../stationschedulemodel.cpp" line="300"/>
         <source>Network error</source>
         <translation>Errore di rete</translation>
     </message>
