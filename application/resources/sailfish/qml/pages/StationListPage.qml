@@ -39,7 +39,7 @@ Page {
             SearchField {
                 id: searchField
                 placeholderText: qsTr("Search station...")
-                inputMethodHints: Qt.ImhNoAutoUppercase
+                inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhNoPredictiveText
                 onTextChanged: stationListPage.searchPattern = searchField.text
                 width: stationListPage.width
                 EnterKey.onClicked: searchField.focus = false
@@ -77,10 +77,6 @@ Page {
                         right: parent.right
                     }
                 }
-                onClicked: {
-                    searchField.focus = false
-                    Private.loadStation(model.name, model.code)
-                }
                 menu: contextMenu
                 Component {
                     id: contextMenu
@@ -98,6 +94,8 @@ Page {
                         }
                     }
                 }
+                onPressed: searchField.focus = false
+                onClicked: Private.loadStation(model.name, model.code)
             }
             VerticalScrollDecorator {}
         }
