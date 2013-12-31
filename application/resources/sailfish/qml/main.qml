@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import net.cirulla.quandoparte 1.0
 import "pages"
 
 ApplicationWindow {
@@ -9,5 +10,8 @@ ApplicationWindow {
     Timer { /* XXX This is an AlignedTimer in Harmattan, which should be better for battery */
         id: updateTimer
         interval: 120
+    }
+    StationScheduleModel {
+        id: schedule
     }
 }

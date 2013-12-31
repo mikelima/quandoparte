@@ -4,9 +4,6 @@ import net.cirulla.quandoparte 1.0
 import "components"
 
 Page {
-    property alias name: schedule.name
-    property alias code: schedule.code
-
     SilicaFlickable {
         id: view
         pressDelay: 0
@@ -37,7 +34,7 @@ Page {
         }
         PageHeader {
             id: header
-            title: name
+            title: schedule.name
         }
         SilicaListView {
             id: stationScheduleView
@@ -104,7 +101,7 @@ Page {
                     visible: true
                 }
             },
-            State {
+            State  {
                 name: "ready"
                 PropertyChanges {
                     target: stationScheduleView
@@ -137,13 +134,20 @@ Page {
             }
         ]
 
+        /*
         StationScheduleModel {
             id: schedule
             onNameChanged: view.updateStation()
             onLayoutChanged: if (error) view.state = "error"
                              else view.state = "ready"
         }
-
+        */
+        Connections {
+            target: schedule
+            // onNameChanged: view.updateStation()
+            onLayoutChanged: if (schedule.error) view.state = "error"
+                             else view.state = "ready"
+        }
         Component.onCompleted: {
             updateTimer.triggered.connect(view.updateStation)
             view.state = "loading"
