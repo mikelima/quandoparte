@@ -28,4 +28,10 @@ CoverBackground {
             expectedPlatfrom: model.expectedPlatform
         }
     }
+    OpacityRampEffect {
+        id: effect
+        slope: 2
+        offset: 0.5
+        sourceItem: stationScheduleView
+    }
 }
