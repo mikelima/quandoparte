@@ -8,7 +8,7 @@ CoverBackground {
         anchors.fill: parent
         text: qsTr("Quando Parte")
         icon.source: "/usr/share/icons/hicolor/86x86/apps/quandoparte.png"
-	visible: stationScheduleView.count === 0
+        visible: stationScheduleView.count === 0
     }
     SilicaListView {
         id: stationScheduleView
@@ -33,5 +33,13 @@ CoverBackground {
         slope: 2
         offset: 0.5
         sourceItem: stationScheduleView
+    }
+    CoverActionList {
+        enabled: schedule.name.length !== 0
+        iconBackground: true
+        CoverAction {
+            iconSource: "image://theme/icon-cover-refresh"
+            onTriggered: schedule.fetch(schedule.name, schedule.code)
+        }
     }
 }
