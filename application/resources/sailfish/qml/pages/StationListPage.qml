@@ -43,6 +43,7 @@ Page {
                 onTextChanged: stationListPage.searchPattern = searchField.text
                 width: stationListPage.width
                 EnterKey.onClicked: searchField.focus = false
+                EnterKey.iconSource: "image://theme/icon-m-enter-close"
             }
         }
         SilicaListView {
