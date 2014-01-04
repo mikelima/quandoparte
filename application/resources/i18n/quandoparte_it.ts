@@ -132,6 +132,39 @@
     </message>
 </context>
 <context>
+    <name>SettingsPage</name>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="23"/>
+        <source>Check Periodically</source>
+        <translation>Aggiorna periodicamente</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="24"/>
+        <source>Update the situation periodically while the station schedule is shown.</source>
+        <translation>Aggiorna la situazione periodicamente quando viene mostrata la previsione della stazione.</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="29"/>
+        <source>Clear Recent Stations</source>
+        <translation>Pulisci le stazioni recenti</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="30"/>
+        <source>Clearing Preferred Stations</source>
+        <translation>Pulizia delle stazioni recenti</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="33"/>
+        <source>Information</source>
+        <translation>Informazioni</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="37"/>
+        <source>About Quando Parte</source>
+        <translation>Informazioni su Quando Parte</translation>
+    </message>
+</context>
+<context>
     <name>StationListModel</name>
     <message>
         <location filename="../../stationlistmodel.cpp" line="67"/>
@@ -158,25 +191,21 @@
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="55"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="21"/>
         <source>About Quando Parte</source>
         <translation>Informazioni su Quando Parte</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="66"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="25"/>
         <source>Stations by Name</source>
         <translation>Stazioni per nome</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="67"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="29"/>
         <source>Stations by Distance</source>
         <translation>Stazioni per distanza</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="68"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="33"/>
         <source>Stations Recently Seen</source>
         <translation>Stazioni viste di recente</translation>
     </message>
@@ -199,7 +228,27 @@
         <translation type="obsolete">Mostra l&apos;ultima stazione all&apos;avvio</translation>
     </message>
     <message>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="41"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="21"/>
+        <source>Settings</source>
+        <translation>Impostazioni</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="25"/>
+        <source>Show Stations by Distance</source>
+        <translation>Mostra le stazioni per distanza</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="30"/>
+        <source>Show Stations by Name</source>
+        <translation>Mostra le stazioni per nome</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="35"/>
+        <source>Show Recent Stations</source>
+        <translation>Mostra le stazioni recenti</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="44"/>
         <source>Search station...</source>
         <translation>Cerca stazione...</translation>
     </message>

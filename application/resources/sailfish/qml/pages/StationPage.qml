@@ -134,17 +134,8 @@ Page {
             }
         ]
 
-        /*
-        StationScheduleModel {
-            id: schedule
-            onNameChanged: view.updateStation()
-            onLayoutChanged: if (error) view.state = "error"
-                             else view.state = "ready"
-        }
-        */
         Connections {
             target: schedule
-            // onNameChanged: view.updateStation()
             onLayoutChanged: if (schedule.error) view.state = "error"
                              else view.state = "ready"
         }
