@@ -23,6 +23,7 @@ PageStackWindow {
         maximumInterval: 130
     }
     Component.onCompleted: {
+        // FIXME checkingInterval is deprecated use autoUpdate
         if (settings.checkingInterval > 0) updateTimer.start()
         theme.inverted = settings.darkThemePreferred
         theme.colorScheme = 3
