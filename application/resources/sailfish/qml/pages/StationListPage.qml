@@ -18,20 +18,26 @@ Page {
         pressDelay: 0
         PullDownMenu {
             MenuItem {
-                text: qsTr("About Quando Parte")
-                onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+                text: qsTr("Settings")
+                onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
             }
             MenuItem {
-                text: qsTr("Stations by Name")
+                text: qsTr("Show Stations by Name")
                 onClicked: stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
+                font.italic: (stationListProxyModel.sortingMode === StationListProxyModel.AlphaSorting)
+                enabled: (stationListProxyModel.sortingMode !== StationListProxyModel.AlphaSorting)
             }
             MenuItem {
-                text: qsTr("Stations by Distance")
+                text: qsTr("Show Stations by Distance")
                 onClicked: stationListProxyModel.sortingMode = StationListProxyModel.DistanceSorting
+                font.italic: (stationListProxyModel.sortingMode === StationListProxyModel.DistanceSorting)
+                enabled: (stationListProxyModel.sortingMode !== StationListProxyModel.DistanceSorting)
             }
             MenuItem {
-                text: qsTr("Stations Recently Seen")
+                text: qsTr("Show Recent Stations")
                 onClicked: stationListProxyModel.sortingMode = StationListProxyModel.RecentUsageSorting
+                font.italic: (stationListProxyModel.sortingMode === StationListProxyModel.RecentUsageSorting)
+                enabled: (stationListProxyModel.sortingMode !== StationListProxyModel.RecentUsageSorting)
             }
         }
         PageHeader {
