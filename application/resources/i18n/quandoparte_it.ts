@@ -158,25 +158,21 @@
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="55"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="21"/>
         <source>About Quando Parte</source>
         <translation>Informazioni su Quando Parte</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="66"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="25"/>
         <source>Stations by Name</source>
         <translation>Stazioni per nome</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="67"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="29"/>
         <source>Stations by Distance</source>
         <translation>Stazioni per distanza</translation>
     </message>
     <message>
         <location filename="../harmattan/qml/StationListPage.qml" line="68"/>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="33"/>
         <source>Stations Recently Seen</source>
         <translation>Stazioni viste di recente</translation>
     </message>
@@ -199,7 +195,27 @@
         <translation type="obsolete">Mostra l&apos;ultima stazione all&apos;avvio</translation>
     </message>
     <message>
-        <location filename="../sailfish/qml/pages/StationListPage.qml" line="41"/>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="21"/>
+        <source>Settings</source>
+        <translation>Impostazioni</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="25"/>
+        <source>Show Stations by Distance</source>
+        <translation>Mostra le stazioni per distanza</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="30"/>
+        <source>Show Stations by Name</source>
+        <translation>Mostra le stazioni per nome</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="35"/>
+        <source>Show Recent Stations</source>
+        <translation>Mostra le stazioni recenti</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/StationListPage.qml" line="44"/>
         <source>Search station...</source>
         <translation>Cerca stazione...</translation>
     </message>
