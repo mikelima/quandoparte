@@ -22,21 +22,18 @@ Page {
                 onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
             }
             MenuItem {
-                text: qsTr("Show Stations by Name")
-                onClicked: stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
-                font.italic: (stationListProxyModel.sortingMode === StationListProxyModel.AlphaSorting)
-                enabled: (stationListProxyModel.sortingMode !== StationListProxyModel.AlphaSorting)
-            }
-            MenuItem {
                 text: qsTr("Show Stations by Distance")
                 onClicked: stationListProxyModel.sortingMode = StationListProxyModel.DistanceSorting
-                font.italic: (stationListProxyModel.sortingMode === StationListProxyModel.DistanceSorting)
                 enabled: (stationListProxyModel.sortingMode !== StationListProxyModel.DistanceSorting)
+            }
+            MenuItem {
+                text: qsTr("Show Stations by Name")
+                onClicked: stationListProxyModel.sortingMode = StationListProxyModel.AlphaSorting
+                enabled: (stationListProxyModel.sortingMode !== StationListProxyModel.AlphaSorting)
             }
             MenuItem {
                 text: qsTr("Show Recent Stations")
                 onClicked: stationListProxyModel.sortingMode = StationListProxyModel.RecentUsageSorting
-                font.italic: (stationListProxyModel.sortingMode === StationListProxyModel.RecentUsageSorting)
                 enabled: (stationListProxyModel.sortingMode !== StationListProxyModel.RecentUsageSorting)
             }
         }
