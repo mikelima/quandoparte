@@ -132,6 +132,39 @@
     </message>
 </context>
 <context>
+    <name>SettingsPage</name>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="23"/>
+        <source>Check Periodically</source>
+        <translation>Aggiorna periodicamente</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="24"/>
+        <source>Update the situation periodically while the station schedule is shown.</source>
+        <translation>Aggiorna la situazione periodicamente quando viene mostrata la previsione della stazione.</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="29"/>
+        <source>Clear Recent Stations</source>
+        <translation>Pulisci le stazioni recenti</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="30"/>
+        <source>Clearing Preferred Stations</source>
+        <translation>Pulizia delle stazioni recenti</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="33"/>
+        <source>Information</source>
+        <translation>Informazioni</translation>
+    </message>
+    <message>
+        <location filename="../sailfish/qml/pages/SettingsPage.qml" line="37"/>
+        <source>About Quando Parte</source>
+        <translation>Informazioni su Quando Parte</translation>
+    </message>
+</context>
+<context>
     <name>StationListModel</name>
     <message>
         <location filename="../../stationlistmodel.cpp" line="67"/>
