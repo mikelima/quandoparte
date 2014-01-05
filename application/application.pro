@@ -137,6 +137,7 @@ QMLSOURCES = \
     resources/sailfish/qml/main.qml \
     resources/sailfish/qml/cover/CoverPage.qml \
     resources/sailfish/qml/pages/AboutPage.qml \
+    resources/sailfish/qml/pages/SettingsPage.qml \
     resources/sailfish/qml/pages/StationListPage.qml \
     resources/sailfish/qml/pages/StationPage.qml \
     resources/sailfish/qml/pages/components/DelayIndicator.qml \
