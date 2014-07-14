@@ -116,6 +116,30 @@
         <code>S09751</code>
     </station>
     <station>
+        <name>Perugia</name>
+        <code>S01912</code>
+    </station>
+    <station>
+        <name>Perugia Ponte San Giovanni</name>
+        <code>S07004</code>
+    </station>
+    <station>
+        <name>Perugia Silvestrini</name>
+        <code>S07013</code>
+    </station>
+    <station>
+        <name>Perugia Università</name>
+        <code>S07006</code>
+    </station>
+    <station>
+        <name>Ponte d'Adda</name>
+        <code>S07005</code>
+    </station>
+    <station>
+        <name>Ponte d'Adige</name>
+        <code>S02225</code>
+    </station>
+    <station>
         <name>Romano</name>
         <code>S01711</code>
     </station>
