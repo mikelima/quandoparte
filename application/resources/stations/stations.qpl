@@ -306,6 +306,7 @@
     </station>
     <station>
         <pos>46.485711,11.2978313</pos>
+        <code>S02225</code>
         <name>Ponte d'Adige</name>
     </station>
     <station>
@@ -552,6 +553,7 @@
     </station>
     <station>
         <pos>44.3072565,8.4702951</pos>
+        <code>S04801</code>
         <name>Savona</name>
     </station>
     <station>
@@ -776,6 +778,7 @@
     </station>
     <station>
         <pos>45.5238022,9.7534234</pos>
+        <code>S01711</code>
         <name>Romano</name>
     </station>
     <station>
@@ -3152,10 +3155,12 @@
     </station>
     <station>
         <pos>43.1038341,12.375578</pos>
+        <code>S01912</code>
         <name>Perugia</name>
     </station>
     <station>
         <pos>43.1171344,12.3564852</pos>
+        <code>S07006</code>
         <name>Perugia Università</name>
     </station>
     <station>
@@ -3592,6 +3597,7 @@
     </station>
     <station>
         <pos>43.0918226,12.4382002</pos>
+        <code>S07004</code>
         <name>Perugia Ponte San Giovanni</name>
     </station>
     <station>
@@ -3600,6 +3606,7 @@
     </station>
     <station>
         <pos>43.0839597,12.3556024</pos>
+        <code>S07013</code>
         <name>Perugia Silvestrini</name>
     </station>
     <station>
@@ -5122,6 +5129,7 @@
     </station>
     <station>
         <pos>45.1843406,9.7907952</pos>
+        <code>S07005</code>
         <name>Ponte d'Adda</name>
     </station>
     <station>
