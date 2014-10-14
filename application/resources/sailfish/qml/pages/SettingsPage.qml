@@ -16,7 +16,7 @@ Page {
             width: parent.width
             spacing: Theme.paddingLarge
             PageHeader {
-                title: "Settings"
+                title: qsTr("Settings")
             }
             TextSwitch {
                 id: periodicActivation
