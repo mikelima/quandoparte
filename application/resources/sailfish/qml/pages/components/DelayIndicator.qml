@@ -4,16 +4,17 @@ import Sailfish.Silica 1.0
 Item {
     id: indicator
     property int level: 0
-    width: 10
+    width: Theme.paddingMedium
     height: parent.height
     anchors {
         top: parent.top
         bottom: parent.bottom
         rightMargin: Theme.paddingMedium
+    leftMargin: Theme.paddingSmall
     }
     Rectangle {
         id: rect
-        width: 10
+        width: Theme.paddingSmall
         height: indicator.height - 10
         anchors.centerIn: parent
         radius: 3
