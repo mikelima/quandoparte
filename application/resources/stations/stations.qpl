@@ -1630,10 +1630,6 @@
         <name>La Spezia Centrale</name>
     </station>
     <station>
-        <pos>45.1401195,7.7694612</pos>
-        <name>Settimo Torinese</name>
-    </station>
-    <station>
         <pos>44.1088343,9.9604882</pos>
         <name>Sarzana</name>
     </station>
